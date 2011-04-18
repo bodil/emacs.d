@@ -42,10 +42,11 @@
 (menu-bar-mode)
 
 ; Enable CUA selection mode; sorry, it stuck.
-(cua-selection-mode 1)
+(cua-selection-mode t)
 
 ; Enable whole-line-or-region
 (require 'whole-line-or-region)
-(whole-line-or-region-mode 1)
+(whole-line-or-region-mode t)
 
-
+; I mean, _seriously_...
+(setq sentence-end-double-space nil)
