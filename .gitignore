@@ -20,3 +20,5 @@ session*
 tramp
 \#*
 history
+.session
+*~
