@@ -1,0 +1,5 @@
+(add-to-list 'load-path nil)
+(add-to-list 'load-path ".")
+(add-to-list 'load-path "./")
+(load "cedet-compat.el")
+(setq debug-on-error t)

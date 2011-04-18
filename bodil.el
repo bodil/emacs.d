@@ -1,9 +1,13 @@
+;; Set the debug option to enable a backtrace when a
+;; problem occurs.
+(setq debug-on-error t)
+
 ;; Set colour theme
 (require 'color-theme)
 (color-theme-zenburn)
 
 ;; Set font
-(set-default-font "-unknown-DejaVu Sans Mono-normal-normal-normal-*-14-*-*-*-m-0-iso10646-1")
+(set-frame-font "-unknown-DejaVu Sans Mono-normal-normal-normal-*-14-*-*-*-m-0-iso10646-1")
 
 ;; Prettify tab bar
 (setq EmacsPortable-global-tabbar 't)
@@ -59,7 +63,23 @@
 (setq european-calendar-style 't)
 (setq ps-paper-type 'a4)
 
-;; Save session
-(require 'session)
-(add-hook 'after-init-hook 'session-initialize)
+;; CEDET setup
+(load-file "~/.emacs.d/cedet-1.0/common/cedet.el")
+(global-ede-mode 1)             ; Enable the Project management system
+(semantic-load-enable-code-helpers) ; Enable prototype help and smart completion 
+(global-srecode-minor-mode 1)       ; Enable template insertion menu
 
+;; JDEE setup
+(add-to-list 'load-path (expand-file-name "~/.emacs.d/jdee-2.4.0.1/lisp"))
+(require 'jde)
+
+;; ECB setup
+(add-to-list 'load-path (expand-file-name "~/.emacs.d/ecb-2.40"))
+(require 'ecb)
+(ecb-layout-define "bodil" left nil
+  (ecb-set-directories-buffer)
+  (ecb-split-ver 0.6153846153846154)
+  (ecb-set-methods-buffer)
+  (select-window (next-window)))
+(global-set-key (kbd "M-<left>") 'ecb-goto-window-ecb-by-smart-selection)
+(global-set-key (kbd "M-<right>") 'ecb-goto-window-edit-by-smart-selection)

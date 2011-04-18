@@ -1,0 +1,13 @@
+;; Object templates
+;; EDE project file.
+(ede-proj-project "templates"
+  :name "templates"
+  :file "Project.ede"
+  :targets (list 
+   (ede-proj-target-makefile-miscelaneous "templates"
+    :name "templates"
+    :path ""
+    :source '("srecode-dot.srt" "cogre-default.srt")
+    )
+   )
+  )

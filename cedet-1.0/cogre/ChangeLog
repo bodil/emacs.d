@@ -1,0 +1,1281 @@
+2010-04-23  Eric M. Ludlam  <zappo@gnu.org>
+
+	* templates/srecode-dot.srt (digraph-tag):
+	Default fontname of courier to use a fixed-width font.
+
+2010-04-21  Eric M. Ludlam  <zappo@gnu.org>
+
+	* cogre-convert.el (cogre-calculate-node-position-scale):
+	Add support when face attr
+	is unspecified.
+
+	* cogre-convert.el (cogre-calculate-node-position-scale): New.
+	(cogre-dot-node-position-scale): Value calc'd from above
+
+2010-04-18  Eric M. Ludlam  <zappo@gnu.org>
+
+	* tests/Makefile (VERSION): Update to 1.0.
+
+	* templates/Makefile, Makefile (VERSION): Update to 1.0
+
+	* Project.ede ("COGRE"): Update to version 1.0
+
+	* cogre.el (cogre-version): Update to 1.0
+
+2010-04-09  Eric M. Ludlam  <zappo@gnu.org>
+
+	* cogre.el (cogre-default-node, cogre-default-link):
+	call cedet-called-interactively-p
+	instead of interactive-p
+
+	* cogre-mode.el:
+	(cogre-new-node, cogre-new-link, cogre-set-element-name)
+	(cogre-set-scoped-node-package): call cedet-called-interactively-p
+	instead of interactive-p
+
+	* cogre-semantic.el (cogre-export-semantic):
+	call cedet-called-interactively-p
+	instead of interactive-p
+
+	* cogre-uml.el (cogre-uml-sort-for-lineage):
+	call cedet-called-interactively-p
+	instead of interactive-p
+
+2010-03-26  Eric M. Ludlam  <zappo@gnu.org>
+
+	* templates/srecode-dot.srt (digraph-tag): Set fontsize to be 12.
+
+	* cogre-semantic.el (cogre-uml-quick-class):
+	Allow input arg CLASS to be a token.
+	(cogre-uml-children-classes): After finding children, force them
+	to be in a buffer.
+
+	* cogre-layout.el (cogre-layout): Use floats for calculating halves.
+	Fix bug where X layout was based on height.
+
+	* cogre-layout.el (cogre-layout):
+	Use -y to replace reversing y by hand.
+
+	* cogre-convert.el (cogre-export-dot-methodlist):
+	Left align class fields and methods.
+
+	* cogre-semantic.el (cogre-uml-quick-class):
+	Split out contents to recursive fcns below.
+	(cogre-uml-parent-classes, cogre-uml-children-classes): New.
+
+2010-03-18  Eric M. Ludlam  <zappo@gnu.org>
+
+	* cogre-mode.el (cogre-mode-map): Add J bound to jump-from-node-to-peer
+	(cogre-node-base-menu): Add Jump-from-node-to-peer.
+	(cogre-change-forms-menu): Doc fix.
+	(cogre-node-with-peer): Doc fix.
+	(cogre-jump-from-node-to-peer): New
+	(cogre-down-mouse-3): Track if the called fcn change the selected window.
+
+	* cogre-semantic.el (cogre-peer-jump-to-source): New method.
+
+2010-03-06  Eric M. Ludlam  <zappo@gnu.org>
+
+	* cogre-srecode.el ("srecode-map"): Fix to quote in the form.
+
+2009-10-01  Eric M. Ludlam  <zappo@gnu.org>
+
+	* Makefile (EMACSPRELOAD): New
+	(utests,COGRE,utests): Add preload vars.
+
+	* Project.ede (init,Mode,COGRE,utests):
+	Use the ede-emacs-preload-compiler.
+
+2009-06-24  Eric M. Ludlam  <zappo@gnu.org>
+
+	* tests/Makefile, templates/Makefile (VERSION): Update to 1.0pre7
+
+2009-05-30  Eric M. Ludlam  <zappo@gnu.org>
+
+	* Makefile (VERSION): Update version to match CEDET.
+
+	* Project.ede ("COGRE"): Update version to match CEDET.
+
+	* cogre-mode.el (cogre-mode): Add then change-major-mode-hook below.
+	(cogre-switch-to-save-text): New fcn.
+
+	* cogre.el (cogre-version): Update to 1.0pre7.
+	(cogre-augment-element-menu): Remove the rename menu.
+	(cogre-write-save-text): New method.
+
+2009-05-29  Eric M. Ludlam  <zappo@gnu.org>
+
+	* cogre-mode.el (cogre-set-scoped-node-package):
+	Fix prompt to specify package name.
+
+	* cogre.el (cogre-node::cogre-augment-element-menu): New.
+
+2009-05-08  Eric M. Ludlam  <zappo@gnu.org>
+
+	* cogre-mode.el (cogre-tool-bar-map): Optional, if APIs available.
+	(cogre-mode): Don't setup toolbar if there isn't one.
+
+2009-04-23  Eric M. Ludlam  <zappo@gnu.org>
+
+	* cogre-semantic.el (cogre-srecode): New require.
+	(cogre-export-semantic): New API fcn.
+	(cogre-base-graph::cogre-export-semantic-method): New method.
+	(cogre-export-code): New command.
+
+	* cogre-uml.el (cogre-class::cogre-uml-stoken->uml):
+	Use `with-mode-local-symbol'.
+	(cogre-class::cogre-node-slots): Fix byte-comp warning.
+	(cogre-nodes-linkedto,cogre-nodes-all-in-list): New.
+	(cogre-uml-sort-for-lineage): New API fcn.
+
+2009-04-19  Eric M. Ludlam  <zappo@gnu.org>
+
+	* cogre-mode.el (cogre-convert-buffer-contents-on-init):
+	If the cogre save file doesn't work, say so, and put it into
+	fundamental mode so it can be fixed.
+
+	* cogre-semantic.el (cogre-peer-semantic-class::cogre-peer-update-from-source):
+	Fix call to cogre-refresh-tag.
+
+	* cogre-semantic.el (cogre-refresh-tag): New, from below.
+	(cogre-peer-semantic-class::cogre-peer-update-from-source):
+	Use above fcn to refresh a tag.
+	(cogre-uml-quick-class): Fix use of calculated scope.
+
+2009-04-11  Eric M. Ludlam  <zappo@gnu.org>
+
+	* cogre-mode.el (cogre-node-base-menu): Renamed from "mode-base".
+	Remove yank.  Changed to a variable/easymenu declaration combo.
+	(cogre-link-base-menu): New variable/easymenu combo.
+	(cogre-change-forms-menu): Use cogre-augment-element-menu fcn instead
+	of slot value.
+	(cogre-convert-buffer-contents-on-init): Fix rename of
+	cogre-base-graph class name.
+	(cogre-set-element-name): Set init to same as default in query.
+	(cogre-set-scoped-node-package): New fcn.
+	(cogre-down-mouse-3): Query for modifications to the node menu.
+	If so, merge and show the modified menu.
+
+	* cogre-uml.el (cogre-augment-element-menu):
+	Add menu entry for changing the package name.
+
+	* cogre.el (cogre-graph-element): Remove menu entry.
+	(cogre-graph-element::cogre-augment-element-menu): Add menu
+	augmentation method.
+
+	* cogre-utest.el (cogre-utest-quick-class):
+	Force tags update in test file.
+
+	* cogre-uml.el (require): Add cogre-semantic
+	(cogre-uml-stoken->uml): Allow cogre-semantic to not be loaded.
+
+	* cogre-semantic.el (cogre-uml-quick-class):
+	Make sure search results always pass through
+	to the next as non-nil.
+	Signal an error if class-tok isn't found.
+
+	* tests/Makefile: Makefile for tests directory.
+
+	* Makefile (utests_LISP): Renamed from tests_LISP
+	(all): Add utests (was tests), add Tests.
+	(utests): Renamed from tests.
+	(Tests): New subproject.
+	(tags, dist): Call down to new subproject.
+
+	* Project.ede ("utests"): Renamed from just "tests"
+
+	* tests/Project.ede: Test project.
+
+	* cogre-utest.el (cogre-utest-quick-class): New.
+
+	* cogre-semantic.el (cogre-peer-project-semantic): New class
+	(cogre-peer-semantic::cogre-peer-source-file): New method.
+	(cogre-peer-semantic-class::cogre-peer-update-from-source):
+	Add new code to refresh the stored tag from sources.
+	(cogre-uml-quick-class): Don't let layout cause an error.
+
+	* cogre-convert.el (cogre-base-graph::cogre-export-dot-method):
+	New method class name.
+
+	* cogre-mode.el (cogre-mode-map): Add "U" binding.
+	(cogre-mode-menu): Use better active fcn for yank.
+	Add "Update" submenu.
+	Lengthen menu names of things to export to.
+	(cogre-mode-create-popup-menu): Move "Node" to top.
+	Add Yank menu item.
+	(cogre-mode-new-link-popup-menu): Add update item.
+	(cogre-mode-update-popup-menu): Add node updates item.
+	Add Delete back in.
+	Use better active fcn for yank.
+	(cogre-insert-class-list): New method class name.
+	(cogre-killring-active, cogre-node-with-peer): New.
+	(cogre-update-node-from-source, cogre-update-graph-from-source): New.
+	(cogre-set-element-name): Update peer from element at end.
+	(cogre-move-node): If off-buffer to top or left, reset to 0, not 1.
+
+	* cogre-uml.el (cogre-package): :subgraph type is cogre-base-graph now.
+	(cogre-class::cogre-uml-stoken->uml): Format strings with
+	the major-mode active from which the tags came, when possible.
+
+	* cogre.el (cogre-base-graph): Renamed from `cogre-graph'
+	(cogre-element-peer::cogre-peer-source-file): New
+	(cogre-base-graph::initialize-instance): Method class name change.
+	Fix :detail slot :custom attribute.
+	Add :major-mode slot.
+	(cogre-graph-element): Doc fix.
+	(cogre): Create cogre-base-graph class.
+	(cogre-base-graph::initialize-instance)
+	(cogre-base-graph::eieio-done-customizing)
+	(cogre-base-graph::cogre-unique-name)
+	(cogre-base-graph::cogre-render-buffer)
+	(cogre-base-graph::cogre-save): Method class name change.
+
+	* cogre-ascii.el (cogre-export-ascii):
+	Set cogre-graph var to be the graph we are exporting.
+
+	* tests/testclasses.hh: A set of classes to test COGRE on.
+
+	* cogre-uml.el (cogre-class::cogre-uml-stoken->uml):
+	If there is a peer, use it to
+	try and find the originating buffer so that the formatting will work
+	more accurately.
+
+2009-04-10  Eric M. Ludlam  <zappo@gnu.org>
+
+	* cogre-mode.el (cogre-mode-menu, cogre-mode-create-popup-menu):
+	Add calls to below.
+	(cogre-customize-graph): New.
+
+	* cogre-uml.el (cogre-class::cogre-uml-stoken->uml):
+	Visit originating file to format
+	the tag.
+	(cogre-class::cogre-node-slots): Support detail.
+	Lower details strip out duplicate information from the class.
+
+	* cogre.el (cogre-graph): Add a detail slot.
+	(cogre-graph::eieio-done-customizing): New.
+
+	* uml-create.el: Obsolete
+
+2009-04-09  Eric M. Ludlam  <zappo@gnu.org>
+
+	* cogre-semantic.el (cogre-uml-quick-class):
+	Use `semanticdb-find-tags-subclasses-of-type' for searching for
+	children instead of obsoleted old function.
+	Rearranged other bits.
+
+	* cogre-semantic.el (cogre-uml-quick-class):
+	Narrow down the list of classes more carefully.
+
+	* cogre-uml.el (cogre-class):
+	Remove 'class' slot.  It is no longer used.
+
+	* cogre-semantic.el (cogre-class-history, cogre-read-class-name):
+	Copied from
+	uml-create.el
+	(cogre-uml-quick-class): New implementation of old function in
+	uml-create.el.
+	Some bits were kept from the previous version, but rebuilt using new
+	peer based class nodes.
+
+	* cogre-convert.el (cogre-export-dot-png, cogre-export-dot-postscript-print):
+	Ask if the current layout should be used.  If not, let dot run
+	and calculate a new layout.
+
+	* cogre-mode.el (cogre-copy-element, cogre-yank-element):
+	Prevent name number advancement from EIEIO `clone' method.
+
+	* Makefile (COGRE_LISP): Remove uml-create.el, add cogre-semantic.el
+
+	* Project.ede (COGRE): Remove uml-create.el, add cogre-semantic.el
+
+	* cogre-semantic.el: Support for Semantic Tag based node peers.
+
+	* cogre-mode.el (cogre-mode-map): Remove `cogre-edit-label'.
+	Add C-k,C-w,M-w,C-y kill/yank node commands.
+	(cogre-mode-menu, cogre-mode-update-popup-menu):
+	 Replace 'delete' with kill/copy/yank submenu.
+	(cogre-kill-element, cogre-copy-element, cogre-yank-element):
+	New.
+
+	* cogre-utest.el (cogre-uml-utest): Deleted.
+
+	* cogre-convert.el (cogre-graph::cogre-export-dot-method):
+	Add autoload cookie.
+
+	* cogre.el (cogre-element-peer): New class
+	(cogre-element-peer::cogre-peer-update-from-source)
+	(cogre-element-peer::cogre-peer-update-from-element): New base methods.
+	(cogre-graph)
+	(cogre-graph-element): Add peers.
+
+2009-04-07  Eric M. Ludlam  <zappo@gnu.org>
+
+	* cogre-periodic.el: (cogre-periodic-node-name-list)
+	(cogre-periodic): Add a notes node.
+
+	* Makefile (dot_LISP): Add cogre-dot-mode.
+
+	* Project.ede ("dot"): Add cogre-dot-mode.el
+
+	* cogre-layout.el (cogre-layout):
+	Use cogre-dot-mode, not graphviz-dot-mode.
+
+	* cogre-convert.el (cogre-export-dot):
+	Use cogre-dot-mode, and don't try to
+	get graphviz-dot-mode working here.
+	(cogre-graph::cogre-export-dot-method): Set the current buffer
+	to the buffer the graph belongs to.
+	(cogre-export-dot-utest): Don't error out on a missing mode anymore.
+
+	* wisent-dot.el (Commentary): Discuss cogre-dot-mode substitute.
+	(cogre-dot-mode-hook): Support this mode also.
+
+	* cogre-dot-mode.el: A mini mode for graphviz dot files.
+	If graphviz-dot-mode is available, use that, otherwise supply just
+	enough to get Semantic parsing the files.
+
+	* cogre.el (cogre-graph): Do not specify an initarg for buffer slot.
+	(cogre-graph::initialize-instance): Set buffer to the current buffer.
+	(cogre): Switch to the new graph buffer before creating the
+	graph object.
+
+2009-04-06  Eric M. Ludlam  <zappo@gnu.org>
+
+	* cogre-convert.el (cogre-class::cogre-export-dot-label):
+	Use below to fill in methods
+	and attributes in the node.
+	(cogre-class::cogre-export-dot-methodlist)
+	(cogre-class::cogre-export-dot-fieldlist): New
+
+	* wisent-dot.el (Commentary): Remove patch
+	(wisent-dot-setup-parser): Adopt patch parts into
+	semantic-lex-syntax-modifications instead.
+
+	* wisent-dot.wy (start attribute-block): Renamed
+	(graphgeneric, attribute-block, opt-link-attributes,opt-link-attributes):
+	 Use above new name.
+	(attribute-block): New name, was name-description.
+
+	* cogre-srecode.el (cogre-srecode-load-tables): New fcn.
+
+	* cogre-convert.el (require): ps-print.
+	(cogre-export-dot): Load and test graphviz in a special way since
+	it does not have a 'provide statement.
+	Force load of srecode tables.
+	(cogre-export-dot-png): Save window excursion when creating the dot
+	file.
+	Add autoload cookie.
+	(cogre-export-dot-postscript-print): Add autoload cookie.
+
+	* wisent-dot.el (graphviz-dot-mode::semantic-tag-components):
+	Use define-mode-local-override instead of old version.
+
+	* cogre.el (cogre-find-node-by-name): New
+	(cogre-graph::cogre-unique-name): Use above instead of inline.
+
+	* cogre-layout.el (cogre-layout): Add autoload cookie
+
+	* cogre-mode.el (cogre-mode-menu): Add menu for PS Print, and layout.
+
+	* Makefile (COGRE_LISP): Add cogre-layout.el
+
+	* Project.ede (COGRE): Add cogre-layout.el
+
+	* cogre-convert.el: (cogre-export-dot-png)
+	(cogre-export-dot-postscript-print)
+	(cogre-dot-node-position-scale): Doc updates.
+
+	* cogre.texi (Top): Add below.
+	(Export): New chapter.
+
+	* cogre-convert.el (cogre-export-dot-postscript-print): New.
+	(cogre-dot-node-position-scale): New custom variable.
+	(cogre-node::cogre-export-dot-pos): Use above to scale in X/Y
+	at different amounts.
+
+	* wisent-dot.wy (graph-contents): Add below.
+	(graphgeneric): New
+	(name): Use identity for symbol return.
+
+	* cogre-srecode.el (graphviz-dot-mode::srecode-calculate-context):
+	New override method.
+
+	* cogre-layout.el: Use dot as a layout engine for COGRE.
+
+2009-04-05  Eric M. Ludlam  <zappo@gnu.org>
+
+	* cogre-uml.el (cogre-inherit):
+	Change horizontal preference ratio to .1.
+
+	* cogre-srecode.el (graphviz-dot-mode::srecode-semantic-apply-tag-to-dict):
+	Attributes are not tags, not a plist.
+
+	* cogre-convert.el (cedet-graphviz): New require.
+	(cogre-export-max-y): New variable.
+	(cogre-export-dot): Setup cogre-export-max-y.
+	(cogre-export-dot-png): Expand output filename..  Add -n argument.
+	(cogre-tag-put-dot-attribute): Convert to update a list of tags.
+	(cogre-node::cogre-export-dot-method): Add a position attribute.
+	Create all attribs as tags, not plist.
+	(cogre-export-dot-pos): New fcn.
+	(cogre-link::cogre-export-dot-method): Attrs are not tags.
+	(cogre-export-dot-utest): Links in dot are backwards, so deal.
+
+	* cogre-mode.el (cogre-mode-menu):
+	Move ASCII and DOT into an export menu, and add .png.
+
+	* cogre-convert.el (cogre-export-dot-png): New.
+
+	* wisent-dot.wy (SHAPE,LABEL,COLOR,STYLE,LEN,FONTNAME,FONTSIZE,WIDTH,HEIGHT,SPLINES,OVERLAP):
+	Deleted keywords.
+	(graph-contents): Remove label and style entries.
+	(label,style): Delete
+	(named-node): Use name instead of symbol.
+	(node-description): Remove SHAPE,LABEL,FONTNAME,FONTSIZE entries.
+	Use name instead of symbol.
+	(name): New.
+
+2009-04-04  Eric M. Ludlam  <zappo@gnu.org>
+
+	* Makefile (LOADPATH): Add srecode.
+	(COGRE_LISP): Add cogre-srecode.el cogre-convert.el
+	(icons_MISC): Add cogre-nodes.el
+	(templates): New
+	(dist): Add templates to dist.
+
+	* Project.ede (COGRE): Add cogre-srecode.el cogre-convert.el
+	(icons): Add cogre-node.xpm
+
+	* cogre-convert.el (cogre-export-dot):
+	Require graphviz mode w/ a version number.
+	(require): Require cogre-periodic for tests.
+	(cogre-export-dot-utest): Skip test if graphviz mode isn't available.
+
+	* cogre-srecode.el (cogre-srecode-setup):
+	Don't require graphviz so stringently.
+	require 'srecode-dictionary.
+	(eval-after-load ...):
+	Don't require graphviz-dot-mode.  Key off srecode-map instead.
+
+	* cogre-uml.el (cogre-scoped-node): Add package-delimiter slot.
+	(cogre-node-title): Use above making the title.
+	(cogre-uml-enable-unicode): Change package-delimiter strings
+	to unicode equivalents.
+
+	* cogre-periodic.el (cogre-periodic-node-name-list, cogre-periodic-link-connectivity-list):
+	New.
+
+	* cogre-convert.el:
+	Conversion utilities for transforming graph data into other kinds of
+	data structures.
+
+	* cogre-srecode.el:
+	SRecode support for COGRE related graphs and DOT tags.
+
+	* templates/Makefile:
+	Makefile file for srecode templates related to cogre.
+
+	* templates/Project.ede:
+	Project file for srecode templates related to cogre.
+
+	* templates/cogre-default.srt: Default COGRE graph exporting templates.
+
+	* templates/srecode-dot.srt: Base DOT templates for srecode.
+
+2009-03-31  Eric M. Ludlam  <zappo@gnu.org>
+
+	* cogre-mode.el (cogre-mode-map): Override mouse-drag events.
+
+	* cogre-mode.el (cogre-down-mouse-1):
+	If click misses all elements, then
+	pan the buffer in the window instead.
+
+	* picture-hack.el (picture-mouse-set-point):
+	Fix to handle current window hscroll.
+
+	* cogre-mode.el (cogre-mode-create-popup-menu): Remove links from menu.
+	(cogre-mode-create-popup-menu): Add note node.
+	(cogre-tool-bar-map): Add note node.
+
+	* cogre-ascii.el (cogre-package::cogre-node-rebuild-ascii):
+	Delete unused line.
+	(cogre-note::cogre-node-rebuild-ascii): New.
+
+	* cogre-uml.el (cogre-note): New node type.
+	(cogre-note::cogre-node-rebuild-default): New method.
+
+	* cogre-note.xpm: Icon for note nodes
+
+2009-03-30  Eric M. Ludlam  <zappo@gnu.org>
+
+	* uml-create.el (cogre-semantic-uml-graph): Add autoload cookie.
+
+2009-03-29  Eric M. Ludlam  <zappo@gnu.org>
+
+	* cogre.el (cogre-graph-element::eieio-done-customizing):
+	Erase and redraw when done customizing.
+
+	* cogre-uml.el (cogre-scoped-node): Default package is ""
+	(cogre-scoped-node::cogre-node-title): Check for "", not nil for
+	package name.
+
+	* cogre-periodic.el (cogre-periodic):
+	Add package names to one class, and one instance.
+
+	* cogre-uml.el (cogre-scoped-node): New baseclass
+	(cogre-scoped-node::cogre-node-title): New method.
+	(cogre-class, cogre-instance): Inherit from above.
+	(cogre-instance::cogre-node-widest-string): Deleted.
+	(cogre-instance::cogre-node-title): Call next method, then
+	modify the output.
+
+	* cogre.el (cogre-node::cogre-node-rebuild-default):
+	Don't reverse the title list.
+	(cogre-node::cogre-node-widest-string): Track a name list, not just
+	the name.
+
+	* cogre.el (cogre-last-event-element-type): Fix for keyboard use case.
+
+	* cogre.texi (Getting Started): Add notes about file extensions.
+	Fix doc for cogre command.
+	(Creating Nodes and Links): Add notes about mouse usage.
+	(Moving Nodes): Add notes on use of mouse, and need to refresh the
+	graph sometimes.
+
+	* cogre.el (cogre-entered): Remove old implementation.
+
+	* cogre-mode.el (cogre-save-hook):
+	When graph has no filename, but buffer does,
+	set the file into the graph.
+	Throw error if the file slot is unbound.
+
+	* cogre.el (cogre): Change doc string.
+	(cogre-graph::cogre-render-buffer): Clear modification flag after
+	drawing iff the modification flag wasn't set to start with.
+	(cogre-save-graph-as, cogre-save-graph): Deleted.
+	(cogre-load-graph): Deleted.
+	(cogre-save): Return t.
+
+	* cogre-mode.el (cogre-mode-map): Remove save from keymap.
+	(cogre-mode-menu): remove save from keymap.
+	(cogre-popup-map): New keymap.
+	(cogre-mode-create-popup-menu)
+	(cogre-mode-new-link-popup-menu)
+	(cogre-mode-update-popup-menu): Remove from main keymap, add to sub-map.
+	(cogre-mode): Add write-contents-function
+	Call cogre-convert-buffer-contents-on-init on new buffers.
+	Move rendering to the end.
+	(auto-mode-alist): Add .cgr files.
+	(cogre-convert-buffer-contents-on-init): New
+	(cogre-save-hook): New
+
+2009-03-28  Eric M. Ludlam  <zappo@gnu.org>
+
+	* cogre-mode.el (cogre-goto-element): New, bits fron next-node.
+	(cogre-next-node): Call above
+	(cogre-render-node-after-erase): New, copied from move.
+	(cogre-set-element-name): Call above, and position.
+	(cogre-move-node): Call above.
+
+	* cogre.el (cogre-arrow): Shring left/right arrow head.
+	(cogre-link::cogre-render): Erase less from the arrow heads.
+
+	* cogre-periodic.el (cogre-periodic-utest): New test.
+
+	* Makefile (COGRE_LISP): Add cogre-ascii.el
+
+	* Project.ede (COGRE): Add cogre-ascii.
+
+	* cogre-mode.el (cogre-mode-menu): Add export-as-ascii
+	(cogre-mode): Force font-lock to be disabled.
+	(cogre-new-node): Accept FIELDS argument to modify created
+	object.
+
+	* cogre-periodic.el (cogre-periodic):
+	One of the classes now has sttributes and methods.
+	(cogre-periodic-make-node-at): Accept FIELDS argument.
+
+	* cogre-uml.el (cogre-package::cogre-node-rebuild-default):
+	Renamed from
+	cogre-node-rebuild.
+	(cogre-class::cogre-uml-stoken->uml): Accept semantic tags or
+	old style slot elements.
+
+	* cogre.el (cogre-node-rebuild-method): New variable.
+	(cogre-map-elements): Accept a graph argument.
+	(cogre-graph::cogre-render-buffer): Pass the graph into map-elements
+	(cogre-node::cogre-node-rebuild): New.  Call below.
+	May call rebuild method if set.
+	(cogre-node::cogre-node-rebuild-default): Was a bove.
+	(cogre-graph::cogre-save): Pass graph into map elements.
+
+	* cogre-ascii.el: Ascii export of a cogre graph.
+
+	* picture-hack.el (cogre-picture-insert-rectangle): Fix paren bug.
+
+	* cogre-mode.el (cogre-mode): Disable insertion of TABS.
+
+	* cogre.el (cogre-node::cogre-render, cogre-link::cogre-render):
+	Convert picture-insert-rectangle to cogre-insert-rectangle.
+
+	* picture-hack.el (cogre-picture-insert-rectangle): Fix typo
+
+	* picture-hack.el (cogre-picture-insert-rectangle):
+	Renamed from picture-insert-rectangle.
+	Removed insertp arg.
+	Replaced old delete-rectangle w/ a delete that happens just before the
+	insert on a per-line basis.
+
+2009-03-27  Eric M. Ludlam  <zappo@gnu.org>
+
+	* cogre-mode.el (cogre-mode): Disable undo in cogre buffers.
+
+	* cogre-hasa.xpm: Fill in the diamond.
+
+	* cogre-class.xpm (cogre_class_xpm): Try to improve text.
+
+	* Makefile (COGRE_LISP): Add cogre-periodic
+	(icons_MISC): Add node, instance, arrow, and link icons.
+
+	* Project.ede (COGRE): Add cogre-periodic
+	(icons): Add node, instance, arrow, and link icons.
+
+	* cogre-link.xpm: Simple linke icon.
+
+	* cogre-periodic.el (cogre-periodic): Use new utils below.
+	Add an arrow link.
+	(cogre-periodic-make-*-at): New.
+
+	* cogre-mode.el (cogre-mode-menu): Move refresh.
+	(cogre-mode-new-link-popup-menu): New.
+	(cogre-mode-create-popup-menu): Add instance, node, link, and arrow.
+	(cogre-tool-bar-map): Add node, instance, link, and arrow.
+	(cogre-new-node, cogre-new-link): Just render the new element.
+	(cogre-set-element-name): Just render the new node.
+	(cogre-move-node): Validate input coordinates.
+	Render just this node, and attached links.
+	(cogre-move-node-*): Remove redrawing of the whole buffer.
+	(cogre-down-mouse-1): Don't rerender the whole buffer for
+	each mouse step.  Do a full refresh only at the end.
+	(cogre-down-mouse-2-link-selector, cogre-select-a-link): New.
+	(cogre-down-mouse-2): Popup a menu after drag to select
+	a link style to use.
+
+	* cogre.el (cogre-arrow): Add a new arrow type.
+
+	* cogre-uml.el (cogre-package::cogre-node-slots): Deleted
+	(cogre-package::cogre-node-rebuild): New method.
+	(cogre-inherit): Fix right-arrow.
+	(cogre-instance): New
+	(cogre-instance::cogre-node-widest-string)
+	(cogre-instance::cogre-node-title): New methods.
+	(cogre-uml-enable-unicode): Add an arrow.
+
+	* cogre-arrow.xpm: Arrow icon.
+
+	* cogre-instance.xpm: Instance node icon.
+
+	* cogre-node.xpm: Node icon.
+
+	* cogre-periodic.el: A graph that shows all the current elements.
+
+	* cogre-uml.el (cogre-package): Add some blank lines above/below name.
+	(cogre-package::cogre-node-slots): No slots.
+	(cogre-package::cogre-node-rebuild): New method.
+
+	* cogre.el (cogre-string-merge-faces): New fcn derived from below.
+	(cogre-string-with-face): Delete face merge code, call above instead.
+
+2009-03-24  Eric M. Ludlam  <zappo@gnu.org>
+
+	* Makefile (icons_MISC): New
+	(all): Add icons
+	(icons): New
+	(dist): Dist the icons.
+
+	* Project.ede: Add icons target.
+
+	* cogre-utest.el (cogre-utest): Fix spelling of aggregate.
+
+2009-03-23  Eric M. Ludlam  <zappo@gnu.org>
+
+	* cogre-mode.el (cogre-mode-map): Define map within definition.
+	Add mouse events.
+	(cogre-mode-create-popup-menu, cogre-mode-update-popup-menu):
+	New menus.
+	(cogre-move-node): Allow a node to be moved by argument.
+	(cogre-node-position): Add noerror argument.
+	(cogre-down-mouse-1): New function for dragging nodes
+	(cogre-down-mouse-2): New function for creating a link.
+	(cogre-down-mouse-3): New function for dynamic popup menus.
+
+	* cogre.el (cogre-last-event-element-type): New
+	(cogre-default-node): Use above
+	(cogre-default-link): Use above
+
+2009-03-22  Eric M. Ludlam  <zappo@gnu.org>
+
+	* cogre-mode.el (cogre-tool-bar-map): New.
+	(cogre-mode): Setup toolbar.
+	(cogre-new-node): Remove stray code.
+
+	* cogre-class.xpm, cogre-hasa.xpm, cogre-isa.xpm, cogre-package.xpm:
+	Icons for COGRE toolbar.
+
+	* cogre.el (cogre-default-node, cogre-default-link):
+	Support selecting a node
+	based on a key symbol.  (ie, toolbar.)
+
+	* cogre-uml.el (cogre-aggregate, cogre-uml-enable-unicode):
+	Fix typo in aggregate name.
+
+2009-03-19  Eric M. Ludlam  <zappo@gnu.org>
+
+	* Makefile, Project.ede, cogre.el (cogre-version): Update Version
+
+2009-03-12  Eric M. Ludlam  <zappo@gnu.org>
+
+	* .cvsignore: No info or jpg
+
+2009-03-05  Alex Ott <alexott@gmail.com>
+
+	* .cvsignore:
+	add ignore files to not show auxiliary scripts, not included into CVS
+
+2009-02-24  Eric M. Ludlam  <zappo@gnu.org>
+
+	* Makefile (EMACSFLAGS): New variable.
+	(init,dot,Mode,hacks,COGRE,tests): Use above.
+
+2009-01-29  Eric M. Ludlam  <zappo@gnu.org>
+
+	* Project.ede ("COGRE"): Updated version to 0.7
+
+	* Makefile (VERSION): Updated to 0.7
+
+	* cogre.el (cogre-version): Updated to version 0.7.
+
+2009-01-28  Eric M. Ludlam  <zappo@gnu.org>
+
+	* cogre-utest.el (cogre-utest-link-at):
+	Change to use 'push-mark' instead of
+	'push-mark-command'.
+
+2009-01-24  Eric M. Ludlam  <zappo@gnu.org>
+
+	* cogre-uml.el (cogre-uml-enable-unicode):
+	Update doc to describe the code pages.
+
+2009-01-20  Eric M. Ludlam  <zappo@gnu.org>
+
+	* INSTALL: Add dicussion on unicode drawing chars.
+
+	* cogre-uml.el (cogre-uml-enable-unicode): Support unicode UML symbols.
+
+	* picture-hack.el (picture-rectangle-ctr, picture-rectangle-cbl, picture-rectangle-cbr):
+	Added in from picture mode.
+	(picture-draw-rectilinear-line): Use correct corners.
+
+	* cogre-utest.el (cogre-utest): Use new cedet logging fcns.
+	Fixup to work in batch mode.
+	(cogre-utest-make-node-at): Render the graph.
+	(cogre-utest-link-at): Pass nomsg to push-mark.
+
+	* cogre-mode.el (cogre-node-position): New fcn.
+	(cogre-move-node-left, cogre-move-node-right, cogre-move-node-up):
+	(cogre-move-node-down): Use cogre-node-position.
+
+	* cogre.el (cogre-noninteractive): New fcn.
+	(cogre-graph-element::cogre-entered): No message in non-interactive mode.
+	(cogre-node::cogre-erase, cogre-node::cogre-render):
+	Convert mapcar to mapc.
+
+	* picture-hack.el (picture-insert-rectangle):
+	Don't use insert-rectangle, but do it
+	directly inline.
+
+2009-01-10  Eric M. Ludlam  <zappo@gnu.org>
+
+	* picture-hack.el (picture-rectangle-ctl): XEmacs compat hack.
+	(picture-draw-rectilinear-line):
+
+	* cogre-utest.el (cogre-uml-utest): Force tag loading.
+
+2009-01-05  Eric M. Ludlam  <zappo@gnu.org>
+
+	* cogre-utest.el (cogre-uml-utest): New test.
+
+	* cogre-uml.el (cogre-inherit): Reduce the horizontal preference.
+
+	* Makefile (tests_LISP): New var
+	(all): Add tests
+	(dist): Add tests
+	(tests): New target
+
+	* Project.ede ("tests"): New target.
+
+	* cogre-utest.el (picture-hack, cogre-mode): New requires
+
+	* cogre-utest.el: Basic unit tests for cogre.
+
+	* cogre-mode.el (cogre-mode):
+	Disable transient mark mode in cogre buffers.
+	(cogre-new-node): Return the node
+	(cogre-new-link): Return the link
+
+2008-07-03  Eric M. Ludlam  <zappo@gnu.org>
+
+	* cogre-uml.el (cogre-package, cogre-class, cogre-inherit, cogre-aggrigate):
+	Add autoload cookies.
+
+	* cogre.el (cogre-load): Move require after eieio.
+	(cogre-graph, cogre-graph-element, cogre-node, cogre-link):
+	Add autoload cookies.
+
+2008-05-11  Eric M. Ludlam  <zappo@gnu.org>
+
+	* cogre.texi (top):
+	Update main header of COGRE, and all node entries to new format.
+	(Creating Nodes and Links)
+	(Moving Nodes, Customizing Nodes): Wrote.
+
+2008-04-14  Eric M. Ludlam  <zappo@gnu.org>
+
+	* Makefile (VERSION): Updated to 0.6.
+
+	* Project.ede (COGRE): Update version.
+
+	* cogre.el (cogre-version): Update to 0.6.
+
+2008-03-11  Eric M. Ludlam  <zappo@gnu.org>
+
+	* Makefile (LOADPATH): Added EDE
+
+	* Project.ede ("COGRE"): Renamed from bogus thing.
+
+2007-04-15  Eric M. Ludlam  <zappo@gnu.org>
+
+	* uml-create.el (cogre-graph::cogre-save): Deleted from this file.
+	(cogre-semantic-uml-graph::cogre-save): Allow saving.
+	(cogre-semantic-class::initialize-instance): Copy the tag found.
+
+	* uml-create.el (cogre-graph::cogre-save):
+	Add comment about why we can't save.
+
+	* cogre.el (cogre-load-graph): Stop using a temporary graph.
+
+2007-03-18  Eric M. Ludlam  <zappo@gnu.org>
+
+	* Makefile (LOADPATH): Stripped down version
+	(wy): Spelling fix.
+	(autoloads, init, dot, Mode, hacks, COGRE, dist):
+	Various changes from EDE patches.
+
+2007-02-19  Eric M. Ludlam  <zappo@gnu.org>
+
+	* uml-create.el (semanticdb-find): Add require
+	(cogre-semantic-class::initialize-instance)
+	(cogre-read-class-name)
+	(cogre-uml-quick-class)
+	(cogre-uml-create): Convert to new semanticdb search.
+
+	* cogre-mode.el (cogre-mode): Add semantic-match-any-mode feature.
+
+	* cogre.el (cogre-load, picture-hack): Add requires for byte-comp.
+	(cogre): Add to tools group.
+
+2007-02-03  Eric M. Ludlam  <zappo@gnu.org>
+
+	* uml-create.el (cogre-semantic-class::cogre-uml-stoken->uml):
+	Disable images in semantic formatted strings.
+
+2005-09-30  Eric M. Ludlam  <zappo@gnu.org>
+
+	* wisent-dot.wy, wisent-dot.el, uml-create.el, picture-hack.el, cogre-uml.el, cogre-mode.el, cogre-load.el, cogre.el:
+	Update all GPL headers with script from savannah.gnu.org.
+
+2005-02-03  Eric M. Ludlam  <zappo@gnu.org>
+
+	* Project.ede ("COGRE"): Update version number.
+
+	* Makefile (VERSION, Makefile): Updated from project file.
+
+	* cogre.el (cogre-version): Update version number.
+
+2004-09-28  Eric M. Ludlam  <zappo@gnu.org>
+
+	* uml-create.el (semantic-grammar-batch-build-packages):
+	Use new semantic :type.
+
+2004-05-25  David Ponce  <david@dponce.com>
+
+	* Makefile: Re-generated to start Emacs with --no-site-file.
+
+2004-04-06  Eric M. Ludlam  <zappo@gnu.org>
+
+	* Makefile (dist): Distribute the autoload file
+
+2004-03-28  David Ponce  <david@dponce.com>
+
+	* Makefile: Rebuild.
+
+	* Project.ede (wisent): Rename target to "wy".
+	(COGRE): Remove semantic-el dependency.  Add dependency on
+	inversion and speedbar.
+
+	* cogre-uml.el (cogre-class): Doc fix.
+
+2004-03-25  David Ponce  <david@dponce.com>
+
+	* wisent-dot.el (semantic-wisent): Require instead of wisent-bovine.
+
+2004-02-29  Eric M. Ludlam  <zappo@gnu.org>
+
+	* INSTALL: Revamped. We are a part of a CEDET install now.
+
+2004-02-02  David Ponce  <david@dponce.com>
+
+	* wisent-dot.el (semantic-tag-components):
+	New override for `graphviz-dot-mode'.
+
+2004-01-23  David Ponce  <david@dponce.com>
+
+	* wisent-dot.wy: Some code cleanup.
+	(<keyword>, <symbol>, <string>, <number>): Declare as type.
+	(<punctuation>, <block>): Use type defaults.
+	(epilogue): Define `wisent-dot-lexer' here.
+
+	* wisent-dot.el (wisent-dot-lexer): Remove.  Defined in grammar.
+
+2004-01-15  Eric M. Ludlam  <zappo@gnu.org>
+
+	* wisent-dot.el (semantic-lex-dot-blocks): Deleted.
+	(wisent-dot-lexer): Remove old style analyzers. Replace with
+	auto-generated ones.
+
+	* wisent-dot.wy (punctuation, block):
+	Use new %type command to build lexers.
+
+2003-10-02  Eric M. Ludlam  <zappo@gnu.org>
+
+	* Project.ede: Now a meta-subproject.
+
+	* Makefile (dist): Remove local creation of tar file.
+
+2003-09-24  Eric M. Ludlam  <zappo@gnu.org>
+
+	* Project.ede, Makefile, cogre.el: Update version to 0.4beta1.
+
+2003-09-18  David Ponce  <david@dponce.com>
+
+	* Makefile: Re-generated.
+
+	* Project.ede (init): New target.
+
+2003-09-17  David Ponce  <david@dponce.com>
+
+	* cogre-load.el: New file.
+
+	* Makefile: Re-generated.
+
+	* Project.ede (autoloads): Change cogre-defs.el by cogre-loaddefs.el.
+
+2003-09-16  David Ponce  <david@dponce.com>
+
+	* Makefile: Re-generated.
+
+	* Project.ede (target COGRE):
+	Remove non existing file cogre-lay.el from target.
+
+2003-09-14  David Ponce  <david@dponce.com>
+
+	* wisent-dot.el (wisent-dot-setup-parser): Fix use of obsolete names.
+
+2003-09-10  David Ponce  <david@dponce.com>
+
+	* Makefile: Re-generated.
+
+2003-09-07  Eric M. Ludlam  <zappo@gnu.org>
+
+	* Makefile: Makefile.
+
+	* Project.ede ("wisent"): New
+	("autoloads"): New
+	("dot"): New
+	("mode"): New.
+
+	* uml-create.el:
+	(initialize-instance, cogre-token->uml-function, cogre-uml-stoken->uml)
+	(cogre-uml-browse-token-highlight-hook-fn, cogre-uml-source-marker)
+	(cogre-read-class-name, cogre-uml-quick-class): New semantic API
+
+	* cogre-mode.el: Coped elements from cogre.el
+
+	* cogre.el (cogre-box-face, cogre-box-first-face, cogre-box-last-face):
+	Removed
+	(cogre-graph-element): made abstract
+	(cogre-node): made abstract
+	(cogre-link): made abstract
+	(cogre-mode-map, cogre-substitute, cogre-insert-class-list)
+	(cogre-insert-forms-menu, cogre-change-forms-menu): Removed
+	(cogre): autoload cookie.
+	(cogre-mode, & many others): Removed
+	(cogre-default-node, cogre-default-link): Use 4th arg to
+	eieio-read-subclass.
+	(cogre-load-graph): autoload
+
+	* wisent-dot.wy: Removed obsolete code.
+
+	* wisent-dot.el (wisent-dot-automaton, other autogen): Deleted
+	(wisent-dot-setup-parser): Removed autogen parts, copied in parts
+	that used to be in the .wy file.
+
+2003-07-23  Eric M. Ludlam  <zappo@gnu.org>
+
+	* wisent-dot.wy (languagemode): Set to graphviz-dot-mode
+
+2003-03-26  Eric M. Ludlam  <zappo@gnu.org>
+
+	* test.dot: Sample dot file for dot parser.
+
+	* wisent-dot.el:
+	(wisent-dot-automaton, wisent-dot-keywords, wisent-dot-tokens)
+	(wisent-dot-setup-parser): Updated from grammar.
+
+	* wisent-dot.wy (FONTNAME, FONTSIZE): New tokens.
+	(DILINK, LINK): Now of punctuation type.
+	(number): New token class.
+	(graph-contents): Added graph-attributes
+	(graph-attributes): New
+	(links): Optional semicolon and attribute vector.
+
+	* wisent-dot.el:
+	Lexer, Grammar and support for parsing graphviz dot files.
+
+	* wisent-dot.wy: Grammar file for graphviz dot files
+
+2003-02-25  Eric M. Ludlam  <zappo@gnu.org>
+
+	* uml-create.el (initialize-instance):
+	Use new function that calculates externally
+	defined children of a type.
+	(cogre-uml-quick-class): typo
+
+2001-12-05  Eric M. Ludlam  <zappo@gnu.org>
+
+	* Project.ede: Version.
+	New layout code.
+
+	* uml-create.el (cogre-save): New method.
+	(initialize-instance): Enable classes and structures.
+	Add default name for unfound classes in semantic.
+	(cogre-uml-stoken->uml): Get buffer from objectified class.
+	(cogre-uml-quick-class): Get the superclass instead of just the parent.
+
+	* picture-hack.el (picture-insert): Fix for older versions of Emacs.
+
+	* cogre-uml.el (cogre-class): Add :custom specifiers to some slots.
+
+	* cogre.el (cogre-graph): Added extension.
+	(cogre-node):  Remove initargs from fields not to be saved.
+	(cogre-link): Enable STRINGS as node entries for intermediate save state.
+	(cogre-loading-from-file): New variable.
+	(cogre-mode-map): Supress the keymap. Add save command.
+	(cogre-mode-menu): Added Save and Save As entries.
+	(cogre-map-elements, cogre-map-graph-elements): New fcn
+	(initialize-instance): Do not initialize when loading from a file.
+	(cogre-render-buffer): Use new map-lements command.
+	(cogre-element-pre-serialize, cogre-element-post-serialize): New methods.
+	(cogre-save-graph-as, cogre-save-graph, cogre-load-graph): New commands.
+
+2001-08-17  Eric M. Ludlam  <zappo@gnu.org>
+
+	* uml-create.el (cogre-uml-browse-token-hook): New hook.
+	(cogre-uml-browse-token-highlight-hook-fn): New function for above.
+	(cogre-uml-source-marker): Use hook instead of always highlighting a token.
+
+	* uml-create.el (cogre-token->uml-function): New variable.
+	(cogre-uml-stoken->uml): Use above to generate text.
+	(cogre-uml-source-marker): Momentary highlight tokens.
+
+	* picture-hack.el (picture-insert):
+	Fix move-to-column typo from previous checkin.
+
+	* cogre.el: Update version.
+	(eieio-base): require
+	(cogre-custom-originating-graph-buffer): New local variable.
+	(cogre-activate): Track the originating buffer before customizing.
+	(eieio-done-customizing::cogre-graph-element): Set buffer to the
+	graph before forcing a re-render.
+
+2001-08-14  Eric M. Ludlam  <zappo@gnu.org>
+
+	* picture-hack.el:
+	Use `move-to-column' instead of `move-to-column-force' for backward
+	compatibility.
+
+2001-08-08  Eric M. Ludlam  <zappo@gnu.org>
+
+	* Project.ede: Project file for cogre.
+
+	* cogre.texi: Outline of a cogre manual
+
+	* picture-hack.el (picture-insert-rectangle):
+	Added Emacs 21 compatibility comment.
+	(clear-rectangle): New compatibility function.
+
+	* cogre.el: Support latest EIEIO changes.
+	(cogre-new-node): Pass prefix arg to `cogre-default-node'.
+	(cogre-new-link): Pass prefix arg to `cogre-default-link'.
+	(cogre-layout): Remove these methods.
+
+2001-07-20  Eric M. Ludlam  <zappo@gnu.org>
+
+	* cogre-uml.el: Added comment about ASCII UML.
+
+2001-07-12  Eric M. Ludlam  <zappo@gnu.org>
+
+	* cogre.el: Use :class instead of class for allocation of slots.
+
+2001-06-12  Eric M. Ludlam  <zappo@gnu.org>
+
+	* INSTALL: Installation instructions for COGRE.
+
+2001-06-06  Eric M. Ludlam  <zappo@gnu.org>
+
+	* picture-hack.el (Colin Marquardt):
+	Added XEmacs compatibility functions.
+
+2001-06-05  Eric M. Ludlam  <zappo@gnu.org>
+
+	* uml-create.el (cogre-uml-stoken->uml):
+	Call abbreviate token from the originating buffer.
+
+2001-05-21  Eric M. Ludlam  <zappo@gnu.org>
+
+	* cogre.el (cogre-string-with-face):
+	Fixed bug in last fix that colorized everything.
+
+	* uml-create.el: do not use window-list, it is Emacs 21 only.
+
+	* cogre.el:
+	Stopped using `plist-member' which appears to be Emacs 21 only.
+
+2001-05-19  Eric M. Ludlam  <zappo@gnu.org>
+
+	* uml-create.el (cogre-semantic-uml-graph): New class.
+	(cogre-insert-clas-slist:cogre-semantic-uml-graph): New method.
+	(cogre-uml-source-marker:cogre-semantic-class): New method
+	(cogre-uml-source-display): Split into cogre-uml-source-marker for
+	getting the position to jump to.
+	(cogre-activate:cogre-semantic-class): New method.
+	(cogre-uml-quick-class): Make sure all tokens are in buffers.
+	Create the graph from cogre-semantic-uml-graph.
+
+	* cogre.el (cogre-node): Fixed documentation.
+	(cogre-substitute): Doc fix.
+	(cogre-mode-map): Added RETURN binding to edit/view.
+	(cogre-insert-class-list:cogre-graph): New method
+	(cogre-insert-forms-menu): Call graph method for things to insert.
+	(cogre): accept an argument for the class of the graph to create.
+	(cogre-activate-element): New function.
+	(cogre-activate:cogre-graph-element): New method.
+
+2001-05-18  Eric M. Ludlam  <zappo@gnu.org>
+
+	* uml-create.el: Code from `cogre-uml.el' specific to semantic.
+	New code handles graph/source interactions.
+
+	* cogre-uml.el: Moved out semnatic specific UML into `uml-create.el'
+	(cogre-uml-stoken->uml): New function.
+	(cogre-node-slots): Use above.
+
+	* cogre.el (*-face): Under/Over lines match default foreground color.
+	(cogre-link): Types are now the explicit class name (return of eieio feature).
+	(cogre-move-node): Inhibit motion hooks.
+	(cogre-render-buffer): Inhibit motion hooks.
+	(cogre-entered, cogre-left: cogre-graph-element): New methods.
+	(cogre-node-rebuild): Use underlining when possible instead of overlining.
+	(cogre-string-with-face): Propagate properties on passed in strings.
+	Conglomerate new face with old faces.
+
+2001-05-09  Eric M. Ludlam  <zappo@gnu.org>
+
+	* cogre.el: Converted to use the new eieio-named base class.
+	Added "Delete" to the menu.
+
+	* cogre-uml.el: Converted to use the new eieio-named base class.
+
+2001-05-07  Eric M. Ludlam  <zappo@gnu.org>
+
+	* cogre-uml.el (cogre-class): Set the alignment to left.
+	(cogre-node-slots): Use the new uml-abbreviate method.
+	(cogre-read-class-name): Fix bugs w/ current class under cursor.
+	(cogre-uml-quick-class): Added recentering code.
+
+	* cogre.el (cogre-horizontal-margins, cogre-vertical-margins):
+	New variables
+	(cogre-graph-element): Added `menu' field.
+	(cogre-node): Added `alignment' field.
+	Added menu to minor mode keymap.
+	(cogre-insert-forms-menu, cogre-change-forms-menu): New fcn.
+	(cogre-new-node,cogre-new-link): Only rerender if interactive.
+	(cogre-move-node): Pulled out guts into a method.
+	(cogre-move, cogre-move-detla): New Node mehtods.
+	(cogre-rebuild:cogre-node): Added alignment when rebuilding the rect.
+	(cogre-string-with-face): Handle an alignment argument.
+	(cogre-current-element): Make the passed in point optional.
+
+2001-05-02  Eric M. Ludlam  <zappo@gnu.org>
+
+	* cogre-uml.el: Messed with some link icons.
+	Added a class slot to the class node.
+	Added cogre-uml-quick-class, and got most of it working.
+
+2001-04-25  Eric M. Ludlam  <zappo@gnu.org>
+
+	* cogre-uml.el: Added new default names to nodes.
+	Initialize a CLASS node by asking for a class, derived from semantic,
+	from which the the details are created.
+	Fixed typo for ratio.
+	Fixed `cogre-read-class-name'.
+
+	* cogre.el:
+	Added a layout direction to links so they can choose a preferred layout.
+	Moved cogre-substitute so it wouldn't throw an error.
+	Always truncate lines in a graph.
+	Fixed bug when choosing the face of the last slot in a box.
+	Updated widest-string method to also take slots into account.
+	Fixed anchor calculation for endpoint down links.
+	Added mock functions for the layout engine.
+
+2001-04-24  Eric M. Ludlam  <zappo@gnu.org>
+
+	* cogre-uml.el: *** empty log message ***
+
+2001-04-23  Eric M. Ludlam  <zappo@gnu.org>
+
+	* cogre.el:
+	Allow links to contain a start/end which is a child of cogre-node.
+	Added support for start/end glyps on lines.
+	Added new fns to handle default node/link insertion.  Thus, you will
+	always insert the same type of node as done previously unless you
+	explicitly call something to set the defualt node, or use c-u prefix.
+
+2001-04-18  Eric M. Ludlam  <zappo@gnu.org>
+
+	* cogre.el: Moved many bits to picture-hack.el where appropriate.
+	Added a preference-ratio and a stop-position to links.
+	Added a DELETE command to delete items.
+	Added more *-at-point-interactive functions.
+	Support links when TABing between items.
+	Added utils for calculating distances and anchors between nodes.
+	Fixed up link render to be simpler with the new utils.
+
+	* picture-hack.el: Hacks to override and augment picture.el
+
+2001-04-14  Eric M. Ludlam  <zappo@gnu.org>
+
+	* cogre.el: *** empty log message ***
+

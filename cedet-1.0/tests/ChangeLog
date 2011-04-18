@@ -1,0 +1,384 @@
+2010-07-25  Eric M. Ludlam  <zappo@gnu.org>
+
+	* cit-externaldb.el (cit-external-db-tool-list):
+	Change all create fcns for db tools to
+	use new create fcns added for each project type.
+	(cit-gnu-externaldb-test-one): Change calling convention to create a
+	db to conform to new fcns.
+
+2010-06-13  Eric M. Ludlam  <zappo@gnu.org>
+
+	* cit-externaldb.el (cit-externaldb-files-to-find):
+	Change files to those common between
+	Make and AutoMake.
+	(cit-gnu-externaldb-test-one): Require ede-locate
+	Call `ede-enable-locate-on-project' to start/end the test so that the
+	locate system is available for the project later.
+
+	* cit-cpp.el (cit-src-cpp-tags, cit-main-cpp-tags, cit-srecode-fill-cpp):
+	Switch
+	.hh to .hpp so gnu global can find it.
+
+	* cedet-integ-test.el (cit-externaldb): New require
+	(cedet-integ-test-proj): Call to externaldb testing suite.
+
+	* Makefile (Lisp_LISP): Add cit-externaldb.el
+
+	* Project.ede (Lisp): Add cit-externaldb.el
+
+	* cit-externaldb.el: Test external database tools.
+
+	* cit-symref.el (cit-symref-quick-find-test): New.
+	(cit-symref-count): Add a small wait of .1.
+
+2010-05-16  Eric M. Ludlam  <zappo@gnu.org>
+
+	* cit-cpp.el (cit-remove-and-do-shared-lib): Add ldlibs-local test.
+
+	* cit-cpp.el (cit-remove-and-do-shared-lib):
+	For automake, use ldflags, and ldlibs for in project libraries.
+
+2010-04-18  Eric M. Ludlam  <zappo@gnu.org>
+
+	* Makefile (Lisp_LISP): Add cit-symref.el
+
+	* Project.ede (Lisp): Add cit-symref.el.
+
+	* cedet-integ-test.el (cit-symref): New require.
+	(cedet-integ-test-proj): Disable auto add.
+	Only do shared library test with automake.
+	(cit-run-target): Don't kill the buffer, wait and show program output instead.
+
+	* cit-cpp.el (cit-header-cpp-tags): Add some code to foo constructor.
+	(cit-src-cpp-tags): Add stdio.h include.
+	Add code to the methods to call through the class and eventually print MOOSE.
+	(cit-main-cpp-tags): Remove stdio.h include.
+	Replace print code with call to the foo class to print MOOSE.
+	(cit-symref-operations): New variable.
+	(cit-remove-add-to-project-cpp): Delete .o files also.
+	(cit-remove-and-do-shared-lib): Specify the compiler to use.
+
+	* cit-symref.el: Semantic Symref testing.
+
+2010-03-16  Eric M. Ludlam  <zappo@gnu.org>
+
+	* cit-gnustep.el (cit-step-test-compilation):
+	Use cit-wait-for-compilation and cit-check-compilation-for-error.
+
+	* cit-dist.el (cit-make-dist): Use cit-check-compilation-for-error.
+
+	* cit-cpp.el: (cit-remove-add-to-project-cpp)
+	(cit-remove-and-do-shared-lib):
+	Use cit-wait-for-compilation and cit-check-compilation-for-error.
+
+	* cedet-integ-test.el (cit-compile-and-wait): Pull out error checking.
+	Add support for stripping erroneous events.
+	(cit-check-compilation-for-error): New, from above.
+
+2010-01-09  Marco (Bj) Bardelli <safanaj@users.sourceforge.net>
+
+	* cit-gnustep.el:
+	* fix `cedet-integ-target-gnustep' variable at compatible
+	  value from `cedet-integ-test.el'.
+	* added test for scanner-mode.
+	* move compilation in a separate function.
+
+2009-12-27  Eric M. Ludlam  <zappo@gnu.org>
+
+	* cit-dist.el (cit-make-dist):
+	Test w/ default version, then update and test again.
+	(cit-update-version): Force rebuild of Makefile.
+
+2009-12-26  Eric M. Ludlam  <zappo@gnu.org>
+
+	* Makefile (Lisp_LISP): Add cit-dist.el
+
+	* Project.ede ("cit"): Add cit-dist.el
+
+	* cedet-integ-test.el (cit-dist): New require.
+	(cedet-integ-test-proj): Call new cit-dist tests.
+	(cit-compile-and-wait): Split part out to...
+	(cit-wait-for-compilation): New.
+
+	* cit-dist.el: First pass of creating a distribution.
+
+2009-10-18  Eric M. Ludlam  <zappo@gnu.org>
+
+	* cit-cpp.el (cit-main-cpp-tags): Add code to main.
+	(cit-srecode-fill-cpp): Run the compiled program.
+
+	* cit-load.el (semantic-c): Hack for Emacs 21 to get things running.
+
+	* cedet-integ-test.el (cit-srecode-fill-with-stuff):
+	If a tag has :code, insert it.
+	(cit-run-target): New.
+
+2009-10-16  Eric M. Ludlam  <zappo@gnu.org>
+
+	* Makefile (ELISPPRELOAD): New
+	(Lisp): Use preloads.
+
+	* Project.ede (Lisp): Use preload compiler.
+
+2009-10-15  Eric M. Ludlam  <zappo@gnu.org>
+
+	* cit-el.el (cit-el-tags): Removed eieio bits.
+	(cit-el-tags-eieio): New, from above.
+	(cit-srecode-fill-el): Only use eieio bits for Make types.
+
+	* cit-cpp.el (cit-remove-and-do-shared-lib):
+	Enable for use with Make projects too.
+	Create the srcs in a new lib directory.
+
+	* cedet-integ-test.el (cedet-integ-test-proj): Add a lib dir.
+	Add make-type arg ot cit-remove-and-do-shared-lib call.
+	(cit-compile-and-wait):
+	Accept an optional argument.
+
+2009-09-14  Eric M. Ludlam  <zappo@gnu.org>
+
+	* cedet-integ-test.el (cedet-integ-test-proj):
+	Add cit-remove-and-do-shared-lib.
+
+	* cit-cpp.el (cit-remove-and-do-shared-lib): New.
+
+2009-08-08  Eric M. Ludlam  <zappo@gnu.org>
+
+	* cedet-integ-test.el (cit-finish-message):
+	Add a pause, then exit with a status of "1".
+
+	* cit-test.sh: Reverse the exist status of Emacs.
+
+	* cit-uml.el (cit-fill-uml): Accept a make-type argument.
+	Use above when creating a new project.
+
+	* cit-test.sh:
+	Determine the STYLE of test to run.  If none passed in, use Make.
+
+	* cit-el.el (cit-srecode-fill-el): Accept make-type argument.
+	Don't do autoloads with automake.
+
+	* cit-cpp.el (cit-srecode-fill-cpp): Accept make-type argument.
+	Control how projects are made based on what include variable is used
+	based on above.
+
+	* cedet-integ-test.el (cedet-integ-test-Make,cedet-integ-test-Automake,cedet-integ-test-GNUStep):
+	New
+	(cedet-integ-test-proj): Take a make-type argumemt.
+	Misc tests needed on new argument.
+	Change how ede creates projects based on make-type.
+	Remove spaces from the project name.
+	(cit-finish-message): Ending message now includes the make type.
+
+2009-05-30  Eric M. Ludlam  <zappo@gnu.org>
+
+	* Makefile (LOADPATH): Add cogre to the load path.
+
+	* Project.ede ("Lisp"): Added cogre as an aux package.
+
+	* Makefile (Lisp_LISP): Add cit-uml.el
+	(Misc_MISC): Add cit-uml.cgr
+
+	* Project.ede (Lisp): Add cit-uml.el
+	(Misc): Add cit-uml.cgr
+
+	* cit-test.sh: Add -f toggle-debug-on-quit flag
+
+	* cedet-integ-test.el (cit-uml): New require
+	(cogre): New require
+	(cedet-integ-test): Make a UML test dir. Call `cit-fill-uml'.
+	(cit-compile-and-wait): Kill Project.ede buffer after compilation.
+
+	* cit-uml.el: Test generating code from a UML diagram.
+
+	* cit-uml.cgr: UML diagram to test generation of code from.
+
+2009-03-14  Eric M. Ludlam  <zappo@gnu.org>
+
+	* cit-load.el: Disable semanticdb-file saving.
+	Disable srecode map saving.
+
+2009-03-12  Eric M. Ludlam  <zappo@gnu.org>
+
+	* cit-gnustep.el (cedet-integ-target-gnustep): New var for files.
+	(cit-ede-step-test): Create dir for this project.
+	Create the file and make sure it is empty first.  Then make the
+	project.
+	Wait for compilation to finish and search for failure string.
+
+	* cedet-integ-test.el (cedet-integ-base): New, using old target value.
+	(cedet-integ-target): Subdir under base
+	(cedet-integ-test): Make the base dir first.
+	(cit-srecode-verify-tags): Fix paren typos on error condition.
+
+	* cedet-integ-test.el (cit-remove-add-to-project-cpp):
+	Set auto-add-method to always during step test.
+
+	* cit-cpp.el: Patch from David Engster
+	(cit-remove-add-to-project-cpp): Use ede-make-command
+
+	* cedet-integ-test.el (ede, ede-make): New require
+	(cit-srecode-verify-tags): Fix debugging output on failure.
+	Patch from David Engster
+	(cit-compile-and-wait): Use ede-make-command
+
+2009-03-08  Eric M. Ludlam  <zappo@gnu.org>
+
+	* cit-gnustep.el (cit-ede-step-test): Execute gcc from a sh command.
+
+2009-03-06  Eric M. Ludlam  <zappo@gnu.org>
+
+	* cit-cpp.el (cit-remove-add-to-project-cpp): Wait for make to finish.
+
+2009-03-05  Alex Ott <alexott@gmail.com>
+
+	* .cvsignore:
+	add ignore files to not show auxiliary scripts, not included into CVS
+
+2009-03-01  Eric M. Ludlam  <zappo@gnu.org>
+
+	* Makefile, Project.ede: Merge from 1.0pre6 branch
+
+2009-02-24  Eric M. Ludlam  <zappo@gnu.org>
+
+	* cit-test.sh: Patch from Marcus Harnisch
+	(EMACS): Use conditional value from the environment.
+
+	* Project.ede ("cit"): Add speedbar aux package.
+
+	* Makefile (LOADPATH): Add speedbar.
+	(EMACSFLAGS): New variable
+	(Lisp): Use above.
+
+2009-01-28  Eric M. Ludlam  <zappo@gnu.org>
+
+	* cit-gnustep.el (ede-gnustep): Simplify load.
+
+	* Makefile (LOADPATH): Add contrib.
+	(Misc): New
+	(dist): Add Misc
+
+	* Project.ede ("cit"): Give it a new name.
+	(Misc): New target.
+
+2009-01-24  Eric M. Ludlam  <zappo@gnu.org>
+
+	* cit-gnustep.el: Comment out edebug require.
+
+	* cedet-integ-test.el (cit-version): New variable.
+	(semantic): New require
+
+	* Makefile (LOADPATH): Added
+
+	* Project.ede ("Lisp"): Add :versionsource, and :aux-packages
+
+2009-01-10  Eric M. Ludlam  <zappo@gnu.org>
+
+	* cit-cpp.el (cit-srecode-fill-cpp): Fixed misspelling of target name.
+
+2008-09-15  Marco (Bj) Bardelli <safanaj@users.sourceforge.net>
+
+	* cit-gnustep.el: fixed the require statement.
+
+2008-09-04  Eric M. Ludlam  <zappo@gnu.org>
+
+	* Makefile (Lisp_LISP): Add cit-gnustep.el
+
+	* Project.ede ("Lisp"): Add cit-gnustep.el
+
+2008-09-02  Marco (Bj) Bardelli <safanaj@users.sourceforge.net>
+
+	* cit-gnustep.el: added copyright statement
+
+2008-08-28  Marco (Bj) Bardelli <safanaj@users.sourceforge.net>
+
+	* cedet-integ-test.el:
+	added stuff to test ede-gnustep via `cit-ede-step-test' defined in
+	cit-gnustep.el . Something is not clear (ede-auto-add-method ???)
+
+	* cit-test.sh:
+	remove more dirs because to test ede-gnustep we need another dir, this
+	is because `ede-new' check the :class-sym that don't match in
+	/tmp/CEDET_INTEG (that contain a ede-proj-project).
+
+	* cit-gnustep.el:
+	First test for EDE GNUstep Integration via CIT (cedet-integ-test).
+	Not completly clean.
+
+2008-08-23  Eric M. Ludlam  <zappo@gnu.org>
+
+	* README: How to use the cit-test.sh script.
+
+	* Makefile (all, dist): Add scripts
+	(scripts): New
+
+	* Project.ede ("ede-proj-project"): Add scripts/cit-test.sh
+
+	* cedet-integ-test.el (cit-srecode-fill-with-stuff):
+	Protect erase-buffer call.
+	Add extra whitespace at end of empty filled buffers.
+
+2008-03-23  Eric M. Ludlam  <zappo@gnu.org>
+
+	* cit-test.sh: Run the tests.
+
+2008-03-11  Eric M. Ludlam  <zappo@gnu.org>
+
+	* cit-load.el (inhibit-splash-screen): Set this.
+
+	* cedet-integ-test.el (cedet-integ-test): Post a PASSED message.
+
+2008-02-24  Eric M. Ludlam  <zappo@gnu.org>
+
+	* Makefile (templates_MISC, tempaltes): New
+	(all, dist): add templates
+
+	* Project.ede (Lisp): Add cit-srec.el
+	(templates): New
+
+	* Makefile (Lisp_LISP): Add cit-srec.el
+
+	* cit-load.el (cit-src-dir): New var.
+
+	* cedet-integ-test.el (cit-srec): New require
+	(cedet-integ-test): Call srec test.
+
+	* cit-srec.el: SRecoder feature testing.
+
+	* cit-extra-cpp.srt: Base template for cit testing.
+
+	* cedet-integ-test.el (cit-cpp,-el,-texi): Added requires.
+	(cedet-integ-test): Add in new calls to test support files.
+	(cit-header-tags, cit-src-tags, cit-main-tags, cit-srecode-fill):
+	Moved to cit-cpp.el
+	(cit-srecode-fill-with-stuff): Add empty-dict-entries argument.
+	Add pauses for visual effect.
+	(cit-srecode-verify-tags): Fix to work, and actually throw an error
+	if things don't match up.
+	(cit-tag-verify-error-debug): New support class.
+	(cit-compile-and-wait): New fcn.  Error if compilation fails.
+
+	* Makefile (Lisp_LISP): Add cit-cpp, cit-el, cit-texi, cit-load
+
+	* Project.ede ("Lisp"): Add cit-cpp, cit-el, cit-texi, cit-load
+
+	* cit-texi.el: Texinfo support for cedet integration tests.
+
+	* cit-load.el: Test system load file.
+
+	* cit-el.el: Emacs Lisp support for cedet integration tests.
+
+	* cit-cpp.el:
+	CPP integration support.  Core bits copied originally from cedet-integ-test.el
+
+2008-02-19  Eric M. Ludlam  <zappo@gnu.org>
+
+	* Makefile: New Makefile.
+
+	* Project.ede: New metaproject
+
+	* cedet-integ-test.el (cedet-integ-test, cit-srecode-fill, cit-srecode-fill-with-stuff):
+	Updated comments.
+
+	* cedet-integ-test.el: Integration Tests.
+
