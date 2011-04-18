@@ -50,3 +50,11 @@
 
 ; I mean, _seriously_...
 (setq sentence-end-double-space nil)
+
+; Enforce newline at EOF
+(setq require-final-newline 't)
+
+; l10n stuff
+(setq calendar-week-start-day 1) ; Week starts on Monday in sane countries
+(setq european-calendar-style 't)
+(setq ps-paper-type 'a4)
