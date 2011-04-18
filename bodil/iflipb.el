@@ -119,7 +119,7 @@
 ;; /Joel Rosdahl <joel@rosdahl.net>
 ;;
 
-(defvar iflipb-ignore-buffers "^[*]"
+(defvar iflipb-ignore-buffers (lambda (name) (and (string-match "^[*]" name) (not (string-match "^[*]eshell" name)) (not (string-match "^[*]slime-repl" name))))
   "*This variable determines which buffers to ignore when a
 prefix argument has not been given to iflipb-next-buffer. The
 value may be either a regexp string, a function or a list. If the
