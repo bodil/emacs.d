@@ -1,6 +1,6 @@
-[submodule "slime"]
-	path = slime
+[submodule "site-lisp/slime"]
+	path = site-lisp/slime
 	url = git://sbcl.boinkor.net/slime.git
-[submodule "swank-js"]
-	path = swank-js
+[submodule "site-lisp/swank-js"]
+	path = site-lisp/swank-js
 	url = https://github.com/ivan4th/swank-js.git

@@ -2,6 +2,12 @@
 ;; problem occurs.
 (setq debug-on-error t)
 
+;; Configure load path
+(add-to-list 'load-path (expand-file-name "~/.emacs.d/site-lisp/slime"))
+(add-to-list 'load-path (expand-file-name "~/.emacs.d/site-lisp/swank-js"))
+(add-to-list 'load-path (expand-file-name "~/.emacs.d/site-lisp/malabar/lisp"))
+(add-to-list 'load-path (expand-file-name "~/.emacs.d/site-lisp/ecb"))
+
 ;; Set colour theme
 (require 'color-theme)
 (color-theme-zenburn)
@@ -64,8 +70,6 @@
 (setq ps-paper-type 'a4)
 
 ;; Up-to-date SLIME + slime-js
-(add-to-list 'load-path (expand-file-name "~/.emacs.d/slime"))
-(add-to-list 'load-path (expand-file-name "~/.emacs.d/swank-js"))
 (require 'slime)
 (slime-setup '(slime-fancy slime-repl slime-js))
 (global-set-key [f5] 'slime-js-reload)
@@ -85,9 +89,8 @@
                                   global-semantic-idle-summary-mode
                                   global-semantic-mru-bookmark-mode))
 (semantic-mode 1)
-(add-to-list 'load-path (expand-file-name "~/.emacs.d/malabar/lisp"))
 (require 'malabar-mode)
-(setq malabar-groovy-lib-dir "~/.emacs.d/malabar/lib")
+(setq malabar-groovy-lib-dir "~/.emacs.d/site-lisp/malabar/lib")
 (add-to-list 'auto-mode-alist '("\\.java\\'" . malabar-mode))
 
 ;; Make Malabar's autoimport behave more like Eclipse
@@ -103,7 +106,6 @@
                       nil t)))
 
 ;; ECB setup
-(add-to-list 'load-path (expand-file-name "~/.emacs.d/ecb"))
 (require 'ecb)
 (ecb-layout-define "bodil" left nil
   (ecb-set-directories-buffer)
