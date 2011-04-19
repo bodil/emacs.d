@@ -77,10 +77,6 @@
 (setq malabar-groovy-lib-dir "~/.emacs.d/malabar/lib")
 (add-to-list 'auto-mode-alist '("\\.java\\'" . malabar-mode))
 
-;; ;; JDEE setup
-;; (add-to-list 'load-path (expand-file-name "~/.emacs.d/jdee/lisp"))
-;; (load "jde-autoload")
-
 ;; ECB setup
 (add-to-list 'load-path (expand-file-name "~/.emacs.d/ecb"))
 (require 'ecb)
@@ -92,3 +88,9 @@
 (global-set-key (kbd "M-<left>") 'ecb-goto-window-ecb-by-smart-selection)
 (global-set-key (kbd "M-<right>") 'ecb-goto-window-edit-by-smart-selection)
 
+(defun malabar-eclipse-import ()
+  "Eclipse style import handling."
+  (interactive)
+  (malabar-import-all)
+  (malabar-import-group-imports))
+(global-set-key (kbd "C-c C-v z") 'malabar-eclipse-import)
