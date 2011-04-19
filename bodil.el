@@ -2,6 +2,9 @@
 ;; problem occurs.
 (setq debug-on-error t)
 
+;; omg stfu
+(setq warning-suppress-types nil)
+
 ;; Configure load path
 (add-to-list 'load-path (expand-file-name "~/.emacs.d/site-lisp/slime"))
 (add-to-list 'load-path (expand-file-name "~/.emacs.d/site-lisp/swank-js"))
