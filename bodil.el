@@ -94,3 +94,7 @@
   (malabar-import-all)
   (malabar-import-group-imports))
 (global-set-key (kbd "C-c C-v z") 'malabar-eclipse-import)
+(add-hook 'malabar-mode-hook
+          (lambda () 
+            (add-hook 'after-save-hook 'malabar-compile-file-silently
+                      nil t)))
