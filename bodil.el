@@ -63,10 +63,7 @@
 (setq european-calendar-style 't)
 (setq ps-paper-type 'a4)
 
-;; CEDET setup
-;; (add-to-list 'load-path (expand-file-name "~/.emacs.d/cedet-1.0"))
-;; (load "common/cedet.el")
-
+;; CEDET/Malabar setup
 (setq semantic-default-submodes '(global-semantic-idle-scheduler-mode
                                   global-semanticdb-minor-mode
                                   global-semantic-idle-summary-mode
@@ -76,6 +73,18 @@
 (require 'malabar-mode)
 (setq malabar-groovy-lib-dir "~/.emacs.d/malabar/lib")
 (add-to-list 'auto-mode-alist '("\\.java\\'" . malabar-mode))
+
+;; Make Malabar's autoimport behave more like Eclipse
+(defun malabar-eclipse-import ()
+  "Eclipse style import handling."
+  (interactive)
+  (malabar-import-all)
+  (malabar-import-group-imports))
+(global-set-key (kbd "C-c C-v z") 'malabar-eclipse-import)
+(add-hook 'malabar-mode-hook
+          (lambda () 
+            (add-hook 'after-save-hook 'malabar-compile-file-silently
+                      nil t)))
 
 ;; ECB setup
 (add-to-list 'load-path (expand-file-name "~/.emacs.d/ecb"))
@@ -88,13 +97,3 @@
 (global-set-key (kbd "M-<left>") 'ecb-goto-window-ecb-by-smart-selection)
 (global-set-key (kbd "M-<right>") 'ecb-goto-window-edit-by-smart-selection)
 
-(defun malabar-eclipse-import ()
-  "Eclipse style import handling."
-  (interactive)
-  (malabar-import-all)
-  (malabar-import-group-imports))
-(global-set-key (kbd "C-c C-v z") 'malabar-eclipse-import)
-(add-hook 'malabar-mode-hook
-          (lambda () 
-            (add-hook 'after-save-hook 'malabar-compile-file-silently
-                      nil t)))
