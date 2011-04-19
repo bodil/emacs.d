@@ -63,6 +63,11 @@
 (setq european-calendar-style 't)
 (setq ps-paper-type 'a4)
 
+;; Up-to-date SLIME
+(add-to-list 'load-path (expand-file-name "~/.emacs.d/slime"))
+(require 'slime)
+(slime-setup '(slime-fancy))
+
 ;; CEDET/Malabar setup
 (setq semantic-default-submodes '(global-semantic-idle-scheduler-mode
                                   global-semanticdb-minor-mode

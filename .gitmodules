@@ -1,0 +1,3 @@
+[submodule "slime"]
+	path = slime
+	url = git://sbcl.boinkor.net/slime.git
