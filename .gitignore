@@ -22,5 +22,4 @@ tramp
 history
 .session
 *~
-abbrev_defs
-jdee
+custom.el
