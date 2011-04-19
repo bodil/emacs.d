@@ -83,7 +83,7 @@
             (define-key css-mode-map "\M-\C-x" 'slime-js-refresh-css)))
 
 ;; Handy SLIME keybinding
-(global-set-key (kbd "C-c C-s") (lambda () (interactive) (slime-connect "127.0.0.1" "4005")))
+(global-set-key (kbd "C-c s") (lambda () (interactive) (slime-connect "127.0.0.1" "4005")))
 
 ;; CEDET/Malabar setup
 (setq semantic-default-submodes '(global-semantic-idle-scheduler-mode
