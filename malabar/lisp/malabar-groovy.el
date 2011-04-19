@@ -510,6 +510,9 @@ for it to come up."
                  (beg (first position-info))
                  (end (second position-info))
                  (class (getf compiler-note :class)))
+            (todochiku-message "Java Compiler"
+                               (concat file " :: " (getf compiler-note :message))
+                               (todochiku-icon 'compile))
             (let ((overlay (make-overlay beg end nil nil t)))
               (overlay-put overlay 'malabar-compiler-note t)
               (overlay-put overlay 'face (case class
