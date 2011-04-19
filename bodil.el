@@ -120,6 +120,22 @@
 (global-set-key (kbd "M-<left>") 'ecb-goto-window-ecb-by-smart-selection)
 (global-set-key (kbd "M-<right>") 'ecb-goto-window-edit-by-smart-selection)
 
+;; Smex setup
+(require 'smex)
+(smex-initialize)
+(global-set-key (kbd "M-x") 'smex)
+(global-set-key (kbd "M-X") 'smex-major-mode-commands)
+;; This is the old M-x.
+(global-set-key (kbd "C-c C-c M-x") 'execute-extended-command)
+
+;; Auto-insert spaces around operators in C-like languages
+(defun my-c-mode-common-hook()
+  (smart-insert-operator-hook)
+  (local-unset-key (kbd "."))
+  (local-unset-key (kbd ":"))
+  (local-set-key (kbd "*") 'c-electric-star))
+(add-hook 'c-mode-common-hook 'my-c-mode-common-hook)
+
 ;; Set some custom variables
 (setq column-number-mode t)
 (setq delete-selection-mode t)
