@@ -63,10 +63,21 @@
 (setq european-calendar-style 't)
 (setq ps-paper-type 'a4)
 
-;; Up-to-date SLIME
+;; Up-to-date SLIME + slime-js
 (add-to-list 'load-path (expand-file-name "~/.emacs.d/slime"))
+(add-to-list 'load-path (expand-file-name "~/.emacs.d/swank-js"))
 (require 'slime)
-(slime-setup '(slime-fancy))
+(slime-setup '(slime-fancy slime-repl slime-js))
+(global-set-key [f5] 'slime-js-reload)
+(add-hook 'js2-mode-hook
+          (lambda ()
+            (slime-js-minor-mode 1)))
+(add-hook 'css-mode-hook
+          (lambda ()
+            (define-key css-mode-map "\M-\C-x" 'slime-js-refresh-css)))
+
+;; Handy SLIME keybinding
+(global-set-key (kbd "C-c C-s") (lambda () (interactive) (slime-connect "127.0.0.1" "4005")))
 
 ;; CEDET/Malabar setup
 (setq semantic-default-submodes '(global-semantic-idle-scheduler-mode
