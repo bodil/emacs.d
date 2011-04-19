@@ -64,17 +64,25 @@
 (setq ps-paper-type 'a4)
 
 ;; CEDET setup
-(load-file "~/.emacs.d/cedet-1.0/common/cedet.el")
-(global-ede-mode 1)             ; Enable the Project management system
-(semantic-load-enable-code-helpers) ; Enable prototype help and smart completion 
-(global-srecode-minor-mode 1)       ; Enable template insertion menu
+;; (add-to-list 'load-path (expand-file-name "~/.emacs.d/cedet-1.0"))
+;; (load "common/cedet.el")
 
-;; JDEE setup
-(add-to-list 'load-path (expand-file-name "~/.emacs.d/jdee-2.4.0.1/lisp"))
-(require 'jde)
+(setq semantic-default-submodes '(global-semantic-idle-scheduler-mode
+                                  global-semanticdb-minor-mode
+                                  global-semantic-idle-summary-mode
+                                  global-semantic-mru-bookmark-mode))
+(semantic-mode 1)
+(add-to-list 'load-path (expand-file-name "~/.emacs.d/malabar/lisp"))
+(require 'malabar-mode)
+(setq malabar-groovy-lib-dir "~/.emacs.d/malabar/lib")
+(add-to-list 'auto-mode-alist '("\\.java\\'" . malabar-mode))
+
+;; ;; JDEE setup
+;; (add-to-list 'load-path (expand-file-name "~/.emacs.d/jdee/lisp"))
+;; (load "jde-autoload")
 
 ;; ECB setup
-(add-to-list 'load-path (expand-file-name "~/.emacs.d/ecb-2.40"))
+(add-to-list 'load-path (expand-file-name "~/.emacs.d/ecb"))
 (require 'ecb)
 (ecb-layout-define "bodil" left nil
   (ecb-set-directories-buffer)
@@ -83,3 +91,4 @@
   (select-window (next-window)))
 (global-set-key (kbd "M-<left>") 'ecb-goto-window-ecb-by-smart-selection)
 (global-set-key (kbd "M-<right>") 'ecb-goto-window-edit-by-smart-selection)
+
