@@ -13,7 +13,7 @@
 
 ;; Load more scripts
 (load-file "~/.emacs.d/bodil-theme.el")
-(load-file "~/.emacs.d/bodil-clojure.el")
+(load-file "~/.emacs.d/bodil-lisp.el")
 (load-file "~/.emacs.d/bodil-python.el")
 (load-file "~/.emacs.d/bodil-java.el")
 (load-file "~/.emacs.d/bodil-js.el")
