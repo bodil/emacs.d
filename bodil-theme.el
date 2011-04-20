@@ -34,3 +34,5 @@
   (ecb-set-methods-buffer)
   (select-window (next-window)))
 
+;; Show line numbers in buffers
+(global-linum-mode t)
