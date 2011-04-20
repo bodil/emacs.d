@@ -4,3 +4,6 @@
 [submodule "site-lisp/swank-js"]
 	path = site-lisp/swank-js
 	url = https://github.com/ivan4th/swank-js.git
+[submodule "site-lisp/auto-complete"]
+	path = site-lisp/auto-complete
+	url = https://github.com/m2ym/auto-complete.git

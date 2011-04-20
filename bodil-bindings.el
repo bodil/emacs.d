@@ -8,6 +8,7 @@
 (whole-line-or-region-mode t)
 
 ;; Enable smart-tab mode
+(require 'smart-tab)
 (global-smart-tab-mode t)
 
 ;; Keybindings for cycling buffers in tab bar order
@@ -51,4 +52,9 @@
 ;; Configure keys to move comfortably between ECB and edit window
 (global-set-key (kbd "M-<left>") 'ecb-goto-window-ecb-by-smart-selection)
 (global-set-key (kbd "M-<right>") 'ecb-goto-window-edit-by-smart-selection)
+
+;; Auto-Complete configuration
+(require 'auto-complete-config)
+(add-to-list 'ac-dictionary-directories "~/.emacs.d/site-lisp/auto-complete/dict")
+(ac-config-default)
 

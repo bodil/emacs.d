@@ -10,6 +10,7 @@
 (add-to-list 'load-path (expand-file-name "~/.emacs.d/site-lisp/swank-js"))
 (add-to-list 'load-path (expand-file-name "~/.emacs.d/site-lisp/malabar/lisp"))
 (add-to-list 'load-path (expand-file-name "~/.emacs.d/site-lisp/ecb"))
+(add-to-list 'load-path (expand-file-name "~/.emacs.d/site-lisp/auto-complete"))
 
 ;; Load more scripts
 (load-file "~/.emacs.d/bodil-theme.el")
