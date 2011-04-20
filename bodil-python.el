@@ -1,4 +1,4 @@
-;;; python.el -- Python configuration
+;;; bodil-python.el -- Python configuration
 
 ;; We want python-mode, not python.el
 (require 'python-mode)
