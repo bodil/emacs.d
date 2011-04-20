@@ -136,6 +136,9 @@
   (local-set-key (kbd "*") 'c-electric-star))
 (add-hook 'c-mode-common-hook 'my-c-mode-common-hook)
 
+;; Load more scripts
+(load-file "~/.emacs.d/bodil-python.el")
+
 ;; Set some custom variables
 (setq column-number-mode t)
 (setq delete-selection-mode t)
