@@ -29,3 +29,6 @@
 (setq european-calendar-style 't)
 (setq ps-paper-type 'a4)
 
+;; Drag browse-url kicking and screaming into the present
+(setq browse-url-browser-function (quote browse-url-generic))
+(setq browse-url-generic-program "xdg-open")
