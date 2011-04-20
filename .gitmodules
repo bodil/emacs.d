@@ -7,3 +7,6 @@
 [submodule "site-lisp/auto-complete"]
 	path = site-lisp/auto-complete
 	url = https://github.com/m2ym/auto-complete.git
+[submodule "site-lisp/google-maps"]
+	path = site-lisp/google-maps
+	url = git://git.naquadah.org/google-maps.git
