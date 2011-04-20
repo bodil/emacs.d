@@ -7,6 +7,9 @@
 (require 'whole-line-or-region)
 (whole-line-or-region-mode t)
 
+;; Enable smart-tab mode
+(global-smart-tab-mode t)
+
 ;; Keybindings for cycling buffers in tab bar order
 (setq tabbar-buffer-groups-function (lambda () (list "All")))
 (global-set-key (kbd "C-<next>") 'tabbar-forward-tab)

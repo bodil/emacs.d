@@ -9,7 +9,6 @@
 (setq ecb-show-sources-in-directories-buffer (quote ("left7" "left13" "left14" "left15" "bodil")))
 (setq ecb-tip-of-the-day nil)
 (setq ecb-windows-width 0.25)
-(setq global-smart-tab-mode t)
 (setq inferior-lisp-program "cake repl")
 (setq js2-bounce-indent-p t)
 (setq js2-cleanup-whitespace t)
