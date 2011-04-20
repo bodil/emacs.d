@@ -17,6 +17,7 @@
 (load-file "~/.emacs.d/bodil-python.el")
 (load-file "~/.emacs.d/bodil-java.el")
 (load-file "~/.emacs.d/bodil-js.el")
+(load-file "~/.emacs.d/bodil-misc.el")
 (load-file "~/.emacs.d/bodil-bindings.el")
 (load-file "~/.emacs.d/bodil-vars.el")
 
