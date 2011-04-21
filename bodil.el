@@ -29,6 +29,9 @@
 (add-to-list 'load-path (expand-file-name "~/.emacs.d/site-lisp/circe"))
 (add-to-list 'load-path (expand-file-name "~/.emacs.d/site-lisp/yasnippet"))
 
+;; Load X-specific scripts
+(Xlaunch (load-file "~/.emacs.d/bodil-x.el"))
+
 ;; Load more scripts
 (load-file "~/.emacs.d/bodil-theme.el")
 (load-file "~/.emacs.d/bodil-lisp.el")

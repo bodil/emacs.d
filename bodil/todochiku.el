@@ -237,22 +237,25 @@ you can use `todochiku-icon' to figure out which icon you want to display.
 
 See the variable `todochiku-icons' for a list of available icons." 
   (if todochiku-debug (message "Sent todochiku message.  Title:%s Message:%30s... Icon:%s Sticky:%s" title message icon sticky))
-  (when (not (string= todochiku-command ""))
-		(apply 'start-process 
+  (cond ((fboundp 'dbus-send-desktop-notification)
+         (dbus-send-desktop-notification title message icon (* 1000 todochiku-timeout)))
+        ((not (string= todochiku-command ""))
+         (apply 'start-process 
 			   "todochiku" 
 			   nil 
 			   todochiku-command 
 			   (todochiku-get-arguments title message icon sticky)))
+        (t (message "%s" (propertize message 'face 'todochiku-message-face)))
+        )
   (when todochiku-tooltip-too
-		(let ((tooltip-frame-parameters '((name . "todochiku")
-										  (internal-border-width . 4)
-										  (border-width . 2)
-										  (left . 0)
-										  (top . 0))))
-		  (tooltip-show message)))
-  (when (or (string= todochiku-command "")
-			todochiku-message-too)
-		(message "%s" (propertize message 'face 'todochiku-message-face))))
+    (let ((tooltip-frame-parameters '((name . "todochiku")
+                                      (internal-border-width . 4)
+                                      (border-width . 2)
+                                      (left . 0)
+                                      (top . 0))))
+      (tooltip-show message)))
+  (when todochiku-message-too
+    (message "%s" (propertize message 'face 'todochiku-message-face))))
 
 (defun growl (title message)
   "Alias for `todochiku-message'."
