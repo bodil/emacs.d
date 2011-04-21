@@ -31,6 +31,14 @@
 (setq erc-track-showcount nil)
 (setq erc-track-switch-direction (quote importance))
 (setq erc-header-line-uses-tabbar-p t)
+(setq erc-auto-query (quote bury))
+(setq erc-fill-function (quote erc-fill-static))
+(setq erc-fill-static-center 15)
+(setq erc-kill-buffer-on-part t)
+(setq erc-kill-queries-on-quit t)
+(setq erc-kill-server-buffer-on-quit t)
+(setq erc-paranoid t)
+(setq erc-query-display (quote window))
 
 
 
