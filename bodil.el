@@ -39,7 +39,7 @@
 (load-file "~/.emacs.d/bodil-java.el")
 (load-file "~/.emacs.d/bodil-js.el")
 (load-file "~/.emacs.d/bodil-misc.el")
-(load-file "~/.emacs.d/bodil-irc.el")
+(load-file "~/.emacs.d/bodil-erc.el")
 (load-file "~/.emacs.d/bodil-bindings.el")
 (load-file "~/.emacs.d/bodil-vars.el")
 
