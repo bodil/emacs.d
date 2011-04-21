@@ -12,9 +12,12 @@
 (global-smart-tab-mode t)
 
 ;; Keybindings for cycling buffers in tab bar order
-(setq tabbar-buffer-groups-function (lambda () (list "All")))
 (global-set-key (kbd "C-<next>") 'tabbar-forward-tab)
 (global-set-key (kbd "C-<prior>") 'tabbar-backward-tab)
+
+;; And for cycling through tabbar groups
+(global-set-key (kbd "C-M-<next>") 'tabbar-forward-group)
+(global-set-key (kbd "C-M-<prior>") 'tabbar-backward-group)
 
 ;; Keybindings for cycling buffers in last-used order using iflipb
 (require 'iflipb)
