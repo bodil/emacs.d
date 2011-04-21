@@ -1,9 +1,23 @@
+;;; bodil.el -- User specific entry point
+
 ;; Set the debug option to enable a backtrace when a
 ;; problem occurs.
 (setq debug-on-error t)
 
 ;; omg stfu
 (setq warning-suppress-types nil)
+
+;; Are we running XEmacs or Emacs?
+(defvar running-xemacs (string-match "XEmacs\\|Lucid" emacs-version))
+
+;; Some simple macros to more easily tell if we're running GNUEmacs or XEmacs
+;; taken from the .emacs of sukria@online.fr | http://sukria.online.fr
+(defmacro GNUEmacs (&rest x)
+  (list 'if (not running-xemacs) (cons 'progn x)))
+(defmacro XEmacs (&rest x)
+  (list 'if running-xemacs (cons 'progn x)))
+(defmacro Xlaunch (&rest x)
+  (list 'if (eq window-system 'x) (cons 'progn x)))
 
 ;; Configure load path
 (add-to-list 'load-path (expand-file-name "~/.emacs.d/site-lisp/slime"))
