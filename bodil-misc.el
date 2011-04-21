@@ -16,3 +16,8 @@
 ;; ....Google Maps? In an editor?
 (require 'google-maps)
 
+;; Yasnippet setup
+(require 'yasnippet)
+(yas/initialize)
+(yas/load-directory "~/.emacs.d/site-lisp/yasnippet/snippets")
+

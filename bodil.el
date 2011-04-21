@@ -27,6 +27,7 @@
 (add-to-list 'load-path (expand-file-name "~/.emacs.d/site-lisp/auto-complete"))
 (add-to-list 'load-path (expand-file-name "~/.emacs.d/site-lisp/google-maps"))
 (add-to-list 'load-path (expand-file-name "~/.emacs.d/site-lisp/circe"))
+(add-to-list 'load-path (expand-file-name "~/.emacs.d/site-lisp/yasnippet"))
 
 ;; Load more scripts
 (load-file "~/.emacs.d/bodil-theme.el")
