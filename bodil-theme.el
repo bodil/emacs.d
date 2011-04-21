@@ -1,8 +1,10 @@
 ;;; bodil-theme.el -- Visual things
 
 ;; Set colour theme
-(require 'color-theme)
+(require 'zenburn)
 (color-theme-zenburn)
+(set-face-underline-p 'highlight nil)
+(set-face-background 'highlight "#323232")
 
 ;; Set font
 (set-frame-font "-unknown-DejaVu Sans Mono-normal-normal-normal-*-14-*-*-*-m-0-iso10646-1")

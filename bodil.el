@@ -28,6 +28,7 @@
 (add-to-list 'load-path (expand-file-name "~/.emacs.d/site-lisp/google-maps"))
 (add-to-list 'load-path (expand-file-name "~/.emacs.d/site-lisp/circe"))
 (add-to-list 'load-path (expand-file-name "~/.emacs.d/site-lisp/yasnippet"))
+(add-to-list 'load-path (expand-file-name "~/.emacs.d/site-lisp/zenburn"))
 
 ;; Load X-specific scripts
 (Xlaunch (load-file "~/.emacs.d/bodil-x.el"))
