@@ -33,6 +33,7 @@
 (add-to-list 'load-path (expand-file-name "~/.emacs.d/site-lisp/smart-tab"))
 (add-to-list 'load-path (expand-file-name "~/.emacs.d/site-lisp/org-mode/lisp"))
 (add-to-list 'load-path (expand-file-name "~/.emacs.d/site-lisp/org-mode/contrib/lisp"))
+(add-to-list 'load-path (expand-file-name "~/.emacs.d/site-lisp/emacspeak/lisp/g-client"))
 
 ;; Load X-specific scripts
 (Xlaunch (load-file "~/.emacs.d/bodil-x.el"))

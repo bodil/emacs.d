@@ -19,3 +19,6 @@
 [submodule "site-lisp/org-mode"]
 	path = site-lisp/org-mode
 	url = git://orgmode.org/org-mode.git
+[submodule "site-lisp/emacspeak"]
+	path = site-lisp/emacspeak
+	url = https://github.com/emacsmirror/emacspeak.git
