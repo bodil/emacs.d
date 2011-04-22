@@ -321,7 +321,7 @@ This would be better done through a customization probably."
   "Hook into yaoddmuses notification system."
   (todochiku-message "YaOddMuse" msg (todochiku-icon 'social)))
 
-(todochiku-message "Emacs" "Todochiku (growl for emacs) is ready." (todochiku-icon 'check))
+;; (todochiku-message "Emacs" "Todochiku (growl for emacs) is ready." (todochiku-icon 'check))
 
 ;; This idea doesn't quite work, and given that message is a C function, it might not be that smart anyway
 ;; (defcustom todochiku-on-message nil
