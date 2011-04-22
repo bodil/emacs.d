@@ -31,6 +31,8 @@
 (add-to-list 'load-path (expand-file-name "~/.emacs.d/site-lisp/zenburn"))
 (add-to-list 'load-path (expand-file-name "~/.emacs.d/site-lisp/wl"))
 (add-to-list 'load-path (expand-file-name "~/.emacs.d/site-lisp/smart-tab"))
+(add-to-list 'load-path (expand-file-name "~/.emacs.d/site-lisp/org-mode/lisp"))
+(add-to-list 'load-path (expand-file-name "~/.emacs.d/site-lisp/org-mode/contrib/lisp"))
 
 ;; Load X-specific scripts
 (Xlaunch (load-file "~/.emacs.d/bodil-x.el"))

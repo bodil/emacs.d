@@ -39,6 +39,7 @@
 (setq erc-kill-server-buffer-on-quit t)
 (setq erc-paranoid t)
 (setq erc-query-display (quote window))
+(setq erc-auto-query (quote bury))
 
 
 

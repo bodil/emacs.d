@@ -21,3 +21,15 @@
 (yas/initialize)
 (yas/load-directory "~/.emacs.d/site-lisp/yasnippet/snippets")
 
+;; Org-mode
+(require 'org-install)
+(add-to-list 'auto-mode-alist '("\\.org\\'" . org-mode))
+(global-set-key (kbd "C-c l") 'org-store-link)
+(global-set-key (kbd "C-c a") 'org-agenda)
+(global-set-key (kbd "C-c b") 'org-iswitchb)
+(setq org-log-done t)
+(setq org-directory (expand-file-name "~/Dropbox/Org"))
+(setq org-mobile-directory (expand-file-name "~/Dropbox/MobileOrg"))
+(setq org-mobile-inbox-for-pull (expand-file-name "~/Dropbox/MobileOrg/mobileorg.org"))
+(setq org-agenda-files (list (expand-file-name "~/Dropbox/Org/bodil.org")))
+

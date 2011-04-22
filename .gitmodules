@@ -16,3 +16,6 @@
 [submodule "site-lisp/smart-tab"]
 	path = site-lisp/smart-tab
 	url = https://github.com/genehack/smart-tab.git
+[submodule "site-lisp/org-mode"]
+	path = site-lisp/org-mode
+	url = git://orgmode.org/org-mode.git
