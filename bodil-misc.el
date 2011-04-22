@@ -36,3 +36,8 @@
 ;; G-client
 (require 'g)
 
+;; Persistent undo history
+(require 'undohist)
+(undohist-initialize)
+
+
