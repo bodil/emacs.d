@@ -13,3 +13,6 @@
 [submodule "site-lisp/zenburn"]
 	path = site-lisp/zenburn
 	url = https://github.com/dbrock/zenburn-el.git
+[submodule "site-lisp/smart-tab"]
+	path = site-lisp/smart-tab
+	url = https://github.com/genehack/smart-tab.git
