@@ -29,6 +29,7 @@
 (add-to-list 'load-path (expand-file-name "~/.emacs.d/site-lisp/circe"))
 (add-to-list 'load-path (expand-file-name "~/.emacs.d/site-lisp/yasnippet"))
 (add-to-list 'load-path (expand-file-name "~/.emacs.d/site-lisp/zenburn"))
+(add-to-list 'load-path (expand-file-name "~/.emacs.d/site-lisp/wl"))
 
 ;; Load X-specific scripts
 (Xlaunch (load-file "~/.emacs.d/bodil-x.el"))
@@ -39,8 +40,9 @@
 (load-file "~/.emacs.d/bodil-python.el")
 (load-file "~/.emacs.d/bodil-java.el")
 (load-file "~/.emacs.d/bodil-js.el")
-(load-file "~/.emacs.d/bodil-misc.el")
 (load-file "~/.emacs.d/bodil-erc.el")
+(load-file "~/.emacs.d/bodil-mail.el")
+(load-file "~/.emacs.d/bodil-misc.el")
 (load-file "~/.emacs.d/bodil-bindings.el")
 (load-file "~/.emacs.d/bodil-vars.el")
 
