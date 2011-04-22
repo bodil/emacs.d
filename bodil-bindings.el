@@ -36,6 +36,41 @@
 ;; Handy SLIME keybinding
 (global-set-key (kbd "C-c s") (lambda () (interactive) (slime-connect "127.0.0.1" "4005")))
 
+;; Open a shell
+(global-set-key (kbd "C-x m") (lambda () (interactive) (term "/bin/bash")))
+
+;; Bind a key that toggles to the Shells group and back,
+;; opening a shell if none are open already.
+(defun tabbar-select-tabset (name)
+  "Switch to the named tabset."
+  (let ((starting-tabset (tabbar-current-tabset)))
+     (tabbar-forward-group)
+     (while (and (not (string= (tabbar-current-tabset) name))
+                 (not (eq starting-tabset (tabbar-current-tabset))))
+       (tabbar-forward-group))
+     (not (eq starting-tabset (tabbar-current-tabset)))))
+(defun tabbar-toggle-tabset-or-execute (name failfunc)
+  (if (string= (tabbar-current-tabset) name)
+      (when (boundp 'tabbar-previous-tabset)
+        (tabbar-select-tabset tabbar-previous-tabset))
+    (progn
+      (setq tabbar-previous-tabset (tabbar-current-tabset))
+      (unless (tabbar-select-tabset name)
+        (funcall failfunc)))))
+(global-set-key (kbd "C-<f12>")
+                (lambda () (interactive)
+                  (tabbar-toggle-tabset-or-execute
+                   "Shells"
+                   (lambda () (term "/bin/bash")))))
+
+;; Let's do the same as above for ERC - toggle there and back,
+;; logging into our servers if necessary.
+(global-set-key (kbd "C-<f11>")
+                (lambda () (interactive)
+                  (tabbar-toggle-tabset-or-execute
+                   "ERC"
+                   'irc)))
+
 ;; Use smex to provide ido-like interface for M-x
 (require 'smex)
 (smex-initialize)
@@ -60,5 +95,4 @@
 (require 'auto-complete-config)
 (add-to-list 'ac-dictionary-directories "~/.emacs.d/site-lisp/auto-complete/dict")
 (ac-config-default)
-(define-key ac-completing-map (kbd "<ESC>") 'ac-stop)
 

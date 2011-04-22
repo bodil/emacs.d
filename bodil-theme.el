@@ -19,14 +19,8 @@
 Return a list of one element based on major mode."
   (list
    (cond
-    ((string-match "^circe-query-" (symbol-name major-mode))
-     "IRC Queries"
-     )
-    ((string-match "^circe-channel-" (symbol-name major-mode))
-     "IRC Channels"
-     )
-    ((string-match "^circe-server-" (symbol-name major-mode))
-     "IRC Servers"
+    ((string-match "^term-mode" (symbol-name major-mode))
+     "Shells"
      )
     ((or (get-buffer-process (current-buffer))
          ;; Check if the major mode derives from `comint-mode' or
