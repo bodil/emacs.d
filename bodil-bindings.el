@@ -61,7 +61,7 @@
                 (lambda () (interactive)
                   (tabbar-toggle-tabset-or-execute
                    "Shells"
-                   (lambda () (term "/bin/bash")))))
+                   (lambda () (multi-term)))))
 
 ;; Let's do the same as above for ERC - toggle there and back,
 ;; logging into our servers if necessary.

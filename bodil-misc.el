@@ -40,4 +40,11 @@
 (require 'undohist)
 (undohist-initialize)
 
+;; Multi-term
+(require 'multi-term)
+(setq multi-term-program "/bin/bash")
+(setq multi-term-dedicated-select-after-open-p t)
+(setq multi-term-switch-after-close (quote PREVIOUS))
+(global-set-key (kbd "<f11>") 'multi-term-dedicated-toggle)
+
 

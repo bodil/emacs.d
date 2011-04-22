@@ -35,6 +35,8 @@
 (add-to-list 'load-path (expand-file-name "~/.emacs.d/site-lisp/org-mode/contrib/lisp"))
 (add-to-list 'load-path (expand-file-name "~/.emacs.d/site-lisp/emacspeak/lisp/g-client"))
 (add-to-list 'load-path (expand-file-name "~/.emacs.d/site-lisp/undohist"))
+(add-to-list 'load-path (expand-file-name "~/.emacs.d/site-lisp/multi-term"))
+(add-to-list 'load-path (expand-file-name "~/.emacs.d/site-lisp/coffee-mode"))
 
 ;; Load X-specific scripts
 (Xlaunch (load-file "~/.emacs.d/bodil-x.el"))

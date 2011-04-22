@@ -25,3 +25,9 @@
 [submodule "site-lisp/undohist"]
 	path = site-lisp/undohist
 	url = https://github.com/m2ym/undohist-el.git
+[submodule "site-lisp/multi-term"]
+	path = site-lisp/multi-term
+	url = https://github.com/emacsmirror/multi-term.git
+[submodule "site-lisp/coffee-mode"]
+	path = site-lisp/coffee-mode
+	url = https://github.com/defunkt/coffee-mode.git

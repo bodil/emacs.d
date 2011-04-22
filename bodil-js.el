@@ -11,3 +11,5 @@
           (lambda ()
             (define-key css-mode-map "\M-\C-x" 'slime-js-refresh-css)))
 
+;; Coffeescript mode
+(require 'coffee-mode)
