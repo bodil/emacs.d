@@ -6,6 +6,7 @@
 
 ;; omg stfu
 (setq warning-suppress-types nil)
+(setq stack-trace-on-error t)
 
 ;; Are we running XEmacs or Emacs?
 (defvar running-xemacs (string-match "XEmacs\\|Lucid" emacs-version))

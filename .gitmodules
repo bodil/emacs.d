@@ -31,3 +31,6 @@
 [submodule "site-lisp/coffee-mode"]
 	path = site-lisp/coffee-mode
 	url = https://github.com/defunkt/coffee-mode.git
+[submodule "site-lisp/ecb"]
+	path = site-lisp/ecb
+	url = https://github.com/emacsmirror/ecb.git
