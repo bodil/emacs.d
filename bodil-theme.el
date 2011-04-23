@@ -74,3 +74,8 @@ Return a list of one element based on major mode."
 ;; Show line numbers in buffers
 (global-linum-mode t)
 (setq linum-format "%4d")
+
+;; Setup rfringe
+(require 'rfringe)
+(rfringe-show-region)
+
