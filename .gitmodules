@@ -37,3 +37,6 @@
 [submodule "site-lisp/rfringe"]
 	path = site-lisp/rfringe
 	url = https://github.com/emacsmirror/rfringe.git
+[submodule "site-lisp/lintnode"]
+	path = site-lisp/lintnode
+	url = https://github.com/deactivated/lintnode.git

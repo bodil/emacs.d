@@ -36,3 +36,7 @@
 (setq browse-url-browser-function (quote browse-url-generic))
 (setq browse-url-generic-program "xdg-open")
 
+;; Setup buffers for iflipb to ignore
+(setq iflipb-ignore-buffers '("*Messages*" "*Compile-Log*" "*Malabar Compilation*" "*scratch*"
+                              "*lintnode*"))
+

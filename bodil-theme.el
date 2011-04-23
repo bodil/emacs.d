@@ -22,6 +22,8 @@ Return a list of one element based on major mode."
     ((string-match "^term-mode" (symbol-name major-mode))
      "Shells"
      )
+    ((string= "erc-mode" (symbol-name major-mode))
+     "ERC")
     ((or (get-buffer-process (current-buffer))
          ;; Check if the major mode derives from `comint-mode' or
          ;; `compilation-mode'.
@@ -29,7 +31,7 @@ Return a list of one element based on major mode."
           major-mode '(comint-mode compilation-mode)))
      "Process"
      )
-    ((member (buffer-name) '("*scratch*" "*Messages*" "*Backtrace*" "*Compile-Log*" "*Malabar Compilation*"
+    ((member (buffer-name) '("*scratch*" "*Messages*" "*Backtrace*" "*Compile-Log*"
                              "*Completions*"))
      "Common")
     
@@ -59,6 +61,16 @@ Return a list of one element based on major mode."
      ))))
 (setq tabbar-buffer-groups-function 'bodil-tabbar-buffer-groups)
 
+;; Don't display some buffers
+(setq tabbar-buffer-list-function
+      (lambda ()
+        (remove-if
+         (lambda (buffer)
+           (let ((name (buffer-name buffer)))
+             (or (string= name "*lintnode*")
+                 (string= name "*Malabar Compilation*"))
+             ))
+         (tabbar-buffer-list))))
 
 ;; Re-enable menu bar
 (menu-bar-mode)

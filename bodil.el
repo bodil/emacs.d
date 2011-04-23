@@ -39,6 +39,7 @@
 (add-to-list 'load-path (expand-file-name "~/.emacs.d/site-lisp/multi-term"))
 (add-to-list 'load-path (expand-file-name "~/.emacs.d/site-lisp/coffee-mode"))
 (add-to-list 'load-path (expand-file-name "~/.emacs.d/site-lisp/rfringe"))
+(add-to-list 'load-path (expand-file-name "~/.emacs.d/site-lisp/lintnode"))
 
 ;; Load X-specific scripts
 (Xlaunch (load-file "~/.emacs.d/bodil-x.el"))
