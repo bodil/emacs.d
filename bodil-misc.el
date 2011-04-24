@@ -20,6 +20,7 @@
 (require 'yasnippet)
 (yas/initialize)
 (yas/load-directory "~/.emacs.d/site-lisp/yasnippet/snippets")
+(setq yas/trigger-key "M-SPC")
 
 ;; Org-mode
 (require 'org-install)

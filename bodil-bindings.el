@@ -24,9 +24,6 @@
 (global-set-key (kbd "C-<end>") 'iflipb-next-buffer)
 (global-set-key (kbd "C-<home>") 'iflipb-previous-buffer)
 
-;; Redefine autocomplete key
-(global-set-key (kbd "M-SPC") 'hippie-expand)
-
 ;; Redefine undo key
 (global-set-key (kbd "C-z") 'undo)
 
@@ -37,7 +34,7 @@
 (global-set-key (kbd "C-c s") (lambda () (interactive) (slime-connect "127.0.0.1" "4005")))
 
 ;; Open a shell
-(global-set-key (kbd "C-x m") (lambda () (interactive) (term "/bin/bash")))
+(global-set-key (kbd "C-x m") (lambda () (interactive) (multi-term)))
 
 ;; Bind a key that toggles to the Shells group and back,
 ;; opening a shell if none are open already.
