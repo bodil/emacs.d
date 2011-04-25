@@ -93,3 +93,6 @@
 (add-to-list 'ac-dictionary-directories "~/.emacs.d/site-lisp/auto-complete/dict")
 (ac-config-default)
 
+;; Bind Flyspell completion key to M-\
+(setq flyspell-auto-correct-binding (kbd "M-\\"))
+
