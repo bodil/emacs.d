@@ -59,6 +59,7 @@
 (load-file "~/.emacs.d/bodil-js.el")
 (load-file "~/.emacs.d/bodil-erc.el")
 (load-file "~/.emacs.d/bodil-mail.el")
+(load-file "~/.emacs.d/bodil-w3m.el")
 (load-file "~/.emacs.d/bodil-misc.el")
 (load-file "~/.emacs.d/bodil-bindings.el")
 (load-file "~/.emacs.d/bodil-vars.el")

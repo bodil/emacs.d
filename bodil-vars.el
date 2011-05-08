@@ -19,6 +19,7 @@
 (setq smart-tab-completion-functions-alist (quote ((emacs-lisp-mode . auto-complete) (text-mode . dabbrev-completion))))
 (setq smart-tab-using-auto-complete t)
 (setq smart-tab-using-hippie-expand t)
+(setq smart-tab-disabled-major-modes (quote (org-mode term-mode w3m-mode)))
 (setq explicit-shell-file-name "/bin/bash")
 
 ;; I mean, _seriously_...
