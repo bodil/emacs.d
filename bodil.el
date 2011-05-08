@@ -8,6 +8,9 @@
 (setq warning-suppress-types nil)
 (setq stack-trace-on-error t)
 
+;; Start emacsclient server
+(server-start)
+
 ;; Are we running XEmacs or Emacs?
 (defvar running-xemacs (string-match "XEmacs\\|Lucid" emacs-version))
 
