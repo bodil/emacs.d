@@ -32,6 +32,23 @@
             (let ((buffer-read-only nil))
               (delete-trailing-whitespace))))
 
+;; Bind a global shortcut for searching the web
+(global-set-key (kbd "C-x C-g") 'w3m-search)
+
+;; Search shortcuts
+(add-to-list 'w3m-search-engine-alist
+             '("emacs-wiki" "http://www.emacswiki.org/cgi-bin/wiki.pl?search=%s"))
+(add-to-list 'w3m-search-engine-alist
+             '("stack overflow" "http://stackoverflow.com/search?q=%s"))
+
+(setq w3m-uri-replace-alist
+      (quote (("\\`g:" w3m-search-uri-replace "google")
+              ("\\`gg:" w3m-search-uri-replace "google groups")
+              ("\\`urn:ietf:rfc:\\([0-9]+\\)" w3m-pattern-uri-replace "http://www.ietf.org/rfc/rfc\\1.txt")
+              ("\\`wiki:" w3m-search-uri-replace "en.wikipedia")
+              ("\\`ewiki:" w3m-search-uri-replace "emacs-wiki")
+              ("\\`so:" w3m-search-uri-replace "stack overflow"))))
+
 ;; Keymap from http://www.emacswiki.org/emacs/WThreeMKeymap
 (let ((map (make-keymap)))
   (suppress-keymap map)
