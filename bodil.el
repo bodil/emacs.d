@@ -10,6 +10,9 @@
 
 ;; Start emacsclient server
 (server-start)
+;; And the edit server for Chrome's Edit With Emacs extension
+(require 'edit-server)
+(edit-server-start)
 
 ;; Are we running XEmacs or Emacs?
 (defvar running-xemacs (string-match "XEmacs\\|Lucid" emacs-version))
