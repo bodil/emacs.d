@@ -48,4 +48,6 @@
 (setq multi-term-switch-after-close (quote PREVIOUS))
 (global-set-key (kbd "<f11>") 'multi-term-dedicated-toggle)
 
+;; w3m
+(require 'w3m-load)
 
