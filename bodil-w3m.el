@@ -26,6 +26,12 @@
               ("\\`ewiki:" w3m-search-uri-replace "emacs-wiki")
               ("\\`so:" w3m-search-uri-replace "stack overflow"))))
 
+;; Remove annoying trailing whitespace from rendered pages
+(add-hook 'w3m-display-hook
+          (lambda (url)
+            (let ((buffer-read-only nil))
+              (delete-trailing-whitespace))))
+
 ;; Keymap from http://www.emacswiki.org/emacs/WThreeMKeymap
 (let ((map (make-keymap)))
   (suppress-keymap map)
