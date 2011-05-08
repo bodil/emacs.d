@@ -1,5 +1,12 @@
 ;;; bodil-w3m.el -- Settings for the w3m web browser.
 
+(setq w3m-use-cookies t)
+(setq w3m-use-favicon t)
+(setq w3m-use-header-line t)
+(setq w3m-use-header-line-title nil)
+(setq w3m-use-tab t)
+(setq w3m-use-tab-menubar t)
+
 ;; Keymap from http://www.emacswiki.org/emacs/WThreeMKeymap
 (let ((map (make-keymap)))
   (suppress-keymap map)
