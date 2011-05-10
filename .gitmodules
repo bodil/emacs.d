@@ -19,9 +19,6 @@
 [submodule "site-lisp/org-mode"]
 	path = site-lisp/org-mode
 	url = git://orgmode.org/org-mode.git
-[submodule "site-lisp/emacspeak"]
-	path = site-lisp/emacspeak
-	url = https://github.com/emacsmirror/emacspeak.git
 [submodule "site-lisp/undohist"]
 	path = site-lisp/undohist
 	url = https://github.com/m2ym/undohist-el.git

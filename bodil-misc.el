@@ -34,9 +34,6 @@
 (setq org-mobile-inbox-for-pull (expand-file-name "~/Dropbox/MobileOrg/mobileorg.org"))
 (setq org-agenda-files (list (expand-file-name "~/Dropbox/Org/bodil.org")))
 
-;; G-client
-(require 'g)
-
 ;; Persistent undo history
 (require 'undohist)
 (undohist-initialize)
