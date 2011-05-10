@@ -28,3 +28,4 @@ url
 private.el
 .org*
 undohist
+/srecode-map.el
