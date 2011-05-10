@@ -4,7 +4,9 @@
 
 (require 'cl)
 
-(defvar starter-kit-packages (list 'idle-highlight
+(defvar starter-kit-packages (list 'tabbar
+                                   'smex
+                                   'idle-highlight
                                    'ruby-mode
                                    'inf-ruby
                                    'css-mode
