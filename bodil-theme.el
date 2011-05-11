@@ -19,10 +19,11 @@
 Return a list of one element based on major mode."
   (list
    (cond
+    ((memq major-mode '(html-mode css-mode js2-mode coffee-mode))
+     "Web")
     ((string-match "^term-mode" (symbol-name major-mode))
-     "Shells"
-     )
-    ((string= "erc-mode" (symbol-name major-mode))
+     "Shells")
+    ((memq major-mode '(erc-mode))
      "ERC")
     ((or (get-buffer-process (current-buffer))
          ;; Check if the major mode derives from `comint-mode' or
