@@ -79,9 +79,6 @@ Return a list of one element based on major mode."
              ))
          (tabbar-buffer-list))))
 
-;; Re-enable menu bar
-(menu-bar-mode)
-
 ;; Make a nice custom ECB layout
 (require 'ecb)
 (ecb-layout-define "bodil" left nil
