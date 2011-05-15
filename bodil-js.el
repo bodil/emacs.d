@@ -36,3 +36,23 @@
 (setq lintnode-location (expand-file-name "~/.emacs.d/site-lisp/lintnode"))
 (lintnode-start)
 
+;; Patch coffee-mode so coffee-compile-region pops up a new
+;; non-focused window instead of replacing the current buffer.
+(defun coffee-compile-region (start end)
+  "Compiles a region and displays the JS in another buffer."
+  (interactive "r")
+
+  (let ((buffer (get-buffer coffee-compiled-buffer-name)))
+    (when buffer
+      (kill-buffer buffer)))
+
+  (call-process-region start end coffee-command nil
+                       (get-buffer-create coffee-compiled-buffer-name)
+                       nil
+                       "-s" "-p" "--bare")
+  (let ((buffer (get-buffer coffee-compiled-buffer-name)))
+    (with-current-buffer buffer
+      (funcall coffee-js-mode)
+      (goto-char (point-min)))
+    (display-buffer buffer)))
+
