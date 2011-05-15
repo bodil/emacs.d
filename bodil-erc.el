@@ -9,7 +9,7 @@
   (interactive)
   (dolist (elt znc-users)
     (let ((network (car elt)) (password (cadr elt)))
-      (erc :server "bodil.wtf.la" :port 1337 :nick network :password (concat network ":" password)))))
+      (erc :server "bodil.caturday.me" :port 1337 :nick network :password (concat network ":" password)))))
 
 ;; Prioritise privmsgs maximally
 (defadvice erc-track-find-face (around erc-track-find-face-promote-query activate)
