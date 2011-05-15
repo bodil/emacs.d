@@ -4,7 +4,7 @@
 (setq-default tab-width 4)
 (setq column-number-mode t)
 (setq delete-selection-mode t)
-(setq ecb-auto-activate t)
+(setq ecb-auto-activate nil)
 (setq ecb-layout-name "bodil")
 (setq ecb-primary-secondary-mouse-buttons (quote mouse-1--mouse-2))
 (setq ecb-show-sources-in-directories-buffer (quote ("left7" "left13" "left14" "left15" "bodil")))
