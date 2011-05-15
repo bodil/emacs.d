@@ -37,3 +37,6 @@
 [submodule "site-lisp/lintnode"]
 	path = site-lisp/lintnode
 	url = https://github.com/deactivated/lintnode.git
+[submodule "site-lisp/magit"]
+	path = site-lisp/magit
+	url = https://github.com/magit/magit.git

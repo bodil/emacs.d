@@ -47,6 +47,7 @@
 (add-to-list 'load-path (expand-file-name "~/.emacs.d/site-lisp/rfringe"))
 (add-to-list 'load-path (expand-file-name "~/.emacs.d/site-lisp/lintnode"))
 (add-to-list 'load-path (expand-file-name "~/.emacs.d/site-lisp/emacs-w3m"))
+(add-to-list 'load-path (expand-file-name "~/.emacs.d/site-lisp/magit"))
 
 ;; Load X-specific scripts
 (Xlaunch (load-file "~/.emacs.d/bodil-x.el"))
