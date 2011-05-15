@@ -96,6 +96,3 @@
 ;; Bind Flyspell completion key to M-\
 (setq flyspell-auto-correct-binding (kbd "M-\\"))
 
-;; Setup a key for doing M-x o and M-x 1 in one go
-(global-set-key (kbd "C-x C-1") (lambda () (interactive) (other-window 1) (delete-other-windows)))
-
