@@ -7,7 +7,13 @@
 (set-face-background 'highlight "#323232")
 
 ;; Set font
-(set-frame-font "-unknown-DejaVu Sans Mono-normal-normal-normal-*-14-*-*-*-m-0-iso10646-1")
+(setq default-frame-font "-unknown-DejaVu Sans Mono-normal-normal-normal-*-14-*-*-*-m-0-iso10646-1")
+(setq presentation-frame-font "-unknown-DejaVu Sans Mono-normal-normal-normal-*-20-*-*-*-m-0-iso10646-1")
+(set-frame-font default-frame-font)
+
+;; Bind a key for toggling font size for presentations
+(global-set-key (kbd "C-<f9>") (lambda () (interactive)
+   (set-frame-font (if (string= (frame-parameter nil 'font) default-frame-font) presentation-frame-font default-frame-font))))
 
 ;; Prettify tab bar
 (tabbar-mode t)
