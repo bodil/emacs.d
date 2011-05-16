@@ -13,9 +13,6 @@
       smtpmail-smtp-service 587
       smtpmail-local-domain "bodil.tv")
 
-;; ....Google Maps? In an editor?
-(require 'google-maps)
-
 ;; Yasnippet setup
 (require 'yasnippet)
 (yas/initialize)
