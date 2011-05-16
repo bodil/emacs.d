@@ -9,6 +9,10 @@
 ;; and brighter; it simply makes everything else vanish."
 ;; -Neal Stephenson, "In the Beginning was the Command Line"
 
+;; Load path etc.
+
+(setq dotfiles-dir (file-name-directory
+                    (or (buffer-file-name) load-file-name)))
 
 ;; First of all, load proxy settings etc we might need depending on hostname.
 (setq system-specific-immediate-config (concat dotfiles-dir system-name "-first.el"))
@@ -19,11 +23,6 @@
 (if (fboundp 'menu-bar-mode) (menu-bar-mode -1))
 (if (fboundp 'tool-bar-mode) (tool-bar-mode -1))
 (if (fboundp 'scroll-bar-mode) (scroll-bar-mode -1))
-
-;; Load path etc.
-
-(setq dotfiles-dir (file-name-directory
-                    (or (buffer-file-name) load-file-name)))
 
 ;; Load up ELPA, the package manager
 
