@@ -29,6 +29,7 @@
 ;; Configure load path
 (add-to-list 'load-path (expand-file-name "~/.emacs.d/site-lisp/slime"))
 (add-to-list 'load-path (expand-file-name "~/.emacs.d/site-lisp/swank-js"))
+(add-to-list 'load-path (expand-file-name "~/.emacs.d/site-lisp/clojure-mode"))
 (add-to-list 'load-path (expand-file-name "~/.emacs.d/site-lisp/malabar/lisp"))
 (add-to-list 'load-path (expand-file-name "~/.emacs.d/site-lisp/ecb"))
 (add-to-list 'load-path (expand-file-name "~/.emacs.d/site-lisp/auto-complete"))

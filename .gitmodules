@@ -37,3 +37,6 @@
 [submodule "site-lisp/magit"]
 	path = site-lisp/magit
 	url = https://github.com/magit/magit.git
+[submodule "site-lisp/clojure-mode"]
+	path = site-lisp/clojure-mode
+	url = https://github.com/technomancy/clojure-mode.git
