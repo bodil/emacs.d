@@ -37,3 +37,9 @@
 [submodule "site-lisp/clojure-mode"]
 	path = site-lisp/clojure-mode
 	url = https://github.com/technomancy/clojure-mode.git
+[submodule "site-lisp/haskell-mode"]
+	path = site-lisp/haskell-mode
+	url = https://github.com/emacsmirror/haskell-mode.git
+[submodule "site-lisp/haskell-mode-exts"]
+	path = site-lisp/haskell-mode-exts
+	url = https://github.com/chrisdone/haskell-mode-exts.git

@@ -30,6 +30,8 @@
 (add-to-list 'load-path (expand-file-name "~/.emacs.d/site-lisp/slime"))
 (add-to-list 'load-path (expand-file-name "~/.emacs.d/site-lisp/swank-js"))
 (add-to-list 'load-path (expand-file-name "~/.emacs.d/site-lisp/clojure-mode"))
+(add-to-list 'load-path (expand-file-name "~/.emacs.d/site-lisp/haskell-mode"))
+(add-to-list 'load-path (expand-file-name "~/.emacs.d/site-lisp/haskell-mode-exts"))
 (add-to-list 'load-path (expand-file-name "~/.emacs.d/site-lisp/malabar/lisp"))
 (add-to-list 'load-path (expand-file-name "~/.emacs.d/site-lisp/ecb"))
 (add-to-list 'load-path (expand-file-name "~/.emacs.d/site-lisp/auto-complete"))
@@ -48,6 +50,7 @@
 ;; Load more scripts
 (load-file "~/.emacs.d/bodil-theme.el")
 (load-file "~/.emacs.d/bodil-lisp.el")
+(load-file "~/.emacs.d/bodil-haskell.el")
 (load-file "~/.emacs.d/bodil-python.el")
 (load-file "~/.emacs.d/bodil-java.el")
 (load-file "~/.emacs.d/bodil-js.el")
