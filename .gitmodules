@@ -1,15 +1,12 @@
 [submodule "site-lisp/slime"]
 	path = site-lisp/slime
-	url = git://sbcl.boinkor.net/slime.git
+	url = https://github.com/emacsmirror/slime.git
 [submodule "site-lisp/swank-js"]
 	path = site-lisp/swank-js
 	url = https://github.com/ivan4th/swank-js.git
 [submodule "site-lisp/auto-complete"]
 	path = site-lisp/auto-complete
 	url = https://github.com/m2ym/auto-complete.git
-[submodule "site-lisp/google-maps"]
-	path = site-lisp/google-maps
-	url = git://git.naquadah.org/google-maps.git
 [submodule "site-lisp/zenburn"]
 	path = site-lisp/zenburn
 	url = https://github.com/dbrock/zenburn-el.git
@@ -18,7 +15,7 @@
 	url = https://github.com/genehack/smart-tab.git
 [submodule "site-lisp/org-mode"]
 	path = site-lisp/org-mode
-	url = git://orgmode.org/org-mode.git
+	url = https://github.com/emacsmirror/org-mode.git
 [submodule "site-lisp/undohist"]
 	path = site-lisp/undohist
 	url = https://github.com/m2ym/undohist-el.git

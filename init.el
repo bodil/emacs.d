@@ -9,6 +9,15 @@
 ;; and brighter; it simply makes everything else vanish."
 ;; -Neal Stephenson, "In the Beginning was the Command Line"
 
+;; Load path etc.
+
+(setq dotfiles-dir (file-name-directory
+                    (or (buffer-file-name) load-file-name)))
+
+;; First of all, load proxy settings etc we might need depending on hostname.
+(setq system-specific-immediate-config (concat dotfiles-dir system-name "-first.el"))
+(if (file-exists-p system-specific-immediate-config) (load system-specific-immediate-config))
+
 ;; Turn off mouse interface early in startup to avoid momentary display
 ;; You really don't need these; trust me.
 (if (fboundp 'menu-bar-mode) (menu-bar-mode -1))
