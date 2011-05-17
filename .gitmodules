@@ -13,9 +13,6 @@
 [submodule "site-lisp/smart-tab"]
 	path = site-lisp/smart-tab
 	url = https://github.com/genehack/smart-tab.git
-[submodule "site-lisp/org-mode"]
-	path = site-lisp/org-mode
-	url = https://github.com/emacsmirror/org-mode.git
 [submodule "site-lisp/undohist"]
 	path = site-lisp/undohist
 	url = https://github.com/m2ym/undohist-el.git

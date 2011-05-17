@@ -33,15 +33,10 @@
 (add-to-list 'load-path (expand-file-name "~/.emacs.d/site-lisp/malabar/lisp"))
 (add-to-list 'load-path (expand-file-name "~/.emacs.d/site-lisp/ecb"))
 (add-to-list 'load-path (expand-file-name "~/.emacs.d/site-lisp/auto-complete"))
-(add-to-list 'load-path (expand-file-name "~/.emacs.d/site-lisp/google-maps"))
-(add-to-list 'load-path (expand-file-name "~/.emacs.d/site-lisp/circe"))
 (add-to-list 'load-path (expand-file-name "~/.emacs.d/site-lisp/yasnippet"))
 (add-to-list 'load-path (expand-file-name "~/.emacs.d/site-lisp/zenburn"))
 (add-to-list 'load-path (expand-file-name "~/.emacs.d/site-lisp/wl"))
 (add-to-list 'load-path (expand-file-name "~/.emacs.d/site-lisp/smart-tab"))
-(add-to-list 'load-path (expand-file-name "~/.emacs.d/site-lisp/org-mode/lisp"))
-(add-to-list 'load-path (expand-file-name "~/.emacs.d/site-lisp/org-mode/contrib/lisp"))
-(add-to-list 'load-path (expand-file-name "~/.emacs.d/site-lisp/emacspeak/lisp/g-client"))
 (add-to-list 'load-path (expand-file-name "~/.emacs.d/site-lisp/undohist"))
 (add-to-list 'load-path (expand-file-name "~/.emacs.d/site-lisp/multi-term"))
 (add-to-list 'load-path (expand-file-name "~/.emacs.d/site-lisp/coffee-mode"))
@@ -49,9 +44,6 @@
 (add-to-list 'load-path (expand-file-name "~/.emacs.d/site-lisp/lintnode"))
 (add-to-list 'load-path (expand-file-name "~/.emacs.d/site-lisp/emacs-w3m"))
 (add-to-list 'load-path (expand-file-name "~/.emacs.d/site-lisp/magit"))
-
-;; Load X-specific scripts
-(Xlaunch (load-file "~/.emacs.d/bodil-x.el"))
 
 ;; Load more scripts
 (load-file "~/.emacs.d/bodil-theme.el")
@@ -65,4 +57,7 @@
 (load-file "~/.emacs.d/bodil-misc.el")
 (load-file "~/.emacs.d/bodil-bindings.el")
 (load-file "~/.emacs.d/bodil-vars.el")
+
+;; Load X-specific scripts
+(Xlaunch (load-file "~/.emacs.d/bodil-x.el"))
 
