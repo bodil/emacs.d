@@ -23,6 +23,8 @@
 (require 'iflipb)
 (global-set-key (kbd "C-<end>") 'iflipb-next-buffer)
 (global-set-key (kbd "C-<home>") 'iflipb-previous-buffer)
+(global-set-key (kbd "<XF86Forward>") 'iflipb-next-buffer)
+(global-set-key (kbd "<XF86Back>") 'iflipb-previous-buffer)
 
 ;; Redefine undo key
 (global-set-key (kbd "C-z") 'undo)
@@ -128,4 +130,7 @@
            (position (cdr (assoc selected-symbol name-and-pos))))
       (goto-char position))))
 (global-set-key (kbd "C-t") 'ido-goto-symbol)
+
+;; XF86Calculator invokes eval-expression
+(global-set-key (kbd "<XF86Calculator>") 'eval-expression)
 

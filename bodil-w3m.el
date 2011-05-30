@@ -34,6 +34,7 @@
 
 ;; Bind a global shortcut for searching the web
 (global-set-key (kbd "C-x C-g") 'w3m-search)
+(global-set-key (kbd "<XF86Search>") 'w3m-search)
 
 ;; Search shortcuts
 (add-to-list 'w3m-search-engine-alist
