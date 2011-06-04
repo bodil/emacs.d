@@ -8,6 +8,9 @@
 (setq warning-suppress-types nil)
 (setq stack-trace-on-error t)
 
+;; Get hostname
+(setq hostname (replace-regexp-in-string "\\(^[[:space:]\n]*\\|[[:space:]\n]*$\\)" "" (with-output-to-string (call-process "hostname" nil standard-output))))
+
 ;; Start emacsclient server
 (server-start)
 ;; And the edit server for Chrome's Edit With Emacs extension
