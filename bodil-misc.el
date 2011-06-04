@@ -45,3 +45,6 @@
 ;; w3m
 (require 'w3m-load)
 
+;; Magit
+(require 'magit)
+
