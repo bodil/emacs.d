@@ -4,8 +4,8 @@
 (cua-selection-mode t)
 
 ;; Enable whole-line-or-region
-(require 'whole-line-or-region)
-(whole-line-or-region-mode t)
+;(require 'whole-line-or-region)
+;(whole-line-or-region-mode t)
 
 ;; Enable smart-tab mode
 (require 'smart-tab)
