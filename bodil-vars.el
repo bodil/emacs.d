@@ -19,6 +19,7 @@
 (setq smart-tab-using-hippie-expand t)
 (setq smart-tab-disabled-major-modes (quote (org-mode term-mode w3m-mode)))
 (setq explicit-shell-file-name "/bin/bash")
+(setq c-require-final-newline (quote ((c-mode . t) (c++-mode . t) (objc-mode . t) (java-mode) (idl-mode) (pike-mode) (awk-mode))))
 
 ;; I mean, _seriously_...
 (setq sentence-end-double-space nil)
