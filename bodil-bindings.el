@@ -138,3 +138,11 @@
 ;; XF86Calculator invokes eval-expression
 (global-set-key (kbd "<XF86Calculator>") 'eval-expression)
 
+;; Autopair-mode for selected buffers
+(require 'autopair)
+(add-hook 'c-mode-common-hook (lambda () (autopair-mode)))
+(add-hook 'python-mode-hook (lambda () (autopair-mode)))
+(add-hook 'python-mode-hook (lambda () (autopair-mode)))
+;; Keep autopair from interfering with auto-complete
+(setq ac-use-overriding-local-map t)
+
