@@ -11,6 +11,10 @@
 (require 'smart-tab)
 (global-smart-tab-mode t)
 
+;; Let's just enforce auto-complete in all modes when using smart-tab
+(defun smart-tab-call-completion-function ()
+  (auto-complete))
+
 ;; Keybindings for cycling buffers in tab bar order
 (global-set-key (kbd "C-<next>") 'tabbar-forward-tab)
 (global-set-key (kbd "C-<prior>") 'tabbar-backward-tab)
