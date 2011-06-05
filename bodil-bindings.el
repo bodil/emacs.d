@@ -8,12 +8,12 @@
 ;(whole-line-or-region-mode t)
 
 ;; Enable smart-tab mode
-(require 'smart-tab)
-(global-smart-tab-mode t)
+;(require 'smart-tab)
+;(global-smart-tab-mode t)
 
 ;; Let's just enforce auto-complete in all modes when using smart-tab
-(defun smart-tab-call-completion-function ()
-  (auto-complete))
+;; (defun smart-tab-call-completion-function ()
+;;   (auto-complete))
 
 ;; Keybindings for cycling buffers in tab bar order
 (global-set-key (kbd "C-<next>") 'tabbar-forward-tab)
@@ -90,6 +90,7 @@
 (require 'auto-complete-config)
 (add-to-list 'ac-dictionary-directories "~/.emacs.d/site-lisp/auto-complete/dict")
 (ac-config-default)
+(define-key ac-mode-map (kbd "C-SPC") 'auto-complete)
 
 ;; Bind Flyspell completion key to M-\
 (setq flyspell-auto-correct-binding (kbd "M-\\"))
