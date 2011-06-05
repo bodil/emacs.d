@@ -16,7 +16,8 @@
 ;; Yasnippet setup
 (require 'yasnippet)
 (yas/initialize)
-(yas/load-directory "~/.emacs.d/site-lisp/yasnippet/snippets")
+(setq yas/root-directory '("~/.emacs.d/snippets" "~/.emacs.d/site-lisp/yasnippet/snippets"))
+(mapc 'yas/load-directory yas/root-directory)
 (setq yas/trigger-key "M-SPC")
 
 ;; Org-mode
