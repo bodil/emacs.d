@@ -17,11 +17,6 @@
   (malabar-import-all)
   (malabar-import-group-imports))
 (global-set-key (kbd "C-c C-v z") 'malabar-eclipse-import)
-(add-hook 'malabar-mode-hook
-          (lambda () 
-            (add-hook 'after-save-hook 'malabar-compile-file-silently
-                      nil t)))
-
 
 ;; Auto-insert closing braces, from http://stackoverflow.com/questions/848624/smart-electric-brace-in-cc-modes-c-java-etc
 (defun cheeso-looking-back-at-regexp (regexp)
