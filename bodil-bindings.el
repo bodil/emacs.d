@@ -130,11 +130,14 @@
 ;; XF86Calculator invokes eval-expression
 (global-set-key (kbd "<XF86Calculator>") 'eval-expression)
 
-;; Autopair-mode for selected buffers
+;; Autopair-mode for selected major modes
+;; Note: lispy modes have paredit for this, and js2-mode does its own thing.
 (require 'autopair)
 (add-hook 'c-mode-common-hook (lambda () (autopair-mode)))
 (add-hook 'python-mode-hook (lambda () (autopair-mode)))
-(add-hook 'python-mode-hook (lambda () (autopair-mode)))
+(add-hook 'haskell-mode-hook (lambda () (autopair-mode)))
+(add-hook 'ruby-mode-hook (lambda () (autopair-mode)))
+(add-hook 'shell-mode-hook (lambda () (autopair-mode)))
 ;; Keep autopair from interfering with auto-complete
 (setq ac-use-overriding-local-map t)
 
