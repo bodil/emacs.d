@@ -48,4 +48,5 @@
 
 ;; Magit
 (require 'magit)
+(require 'magit-svn)
 
