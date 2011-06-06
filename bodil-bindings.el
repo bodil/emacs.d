@@ -87,6 +87,7 @@
 (global-set-key (kbd "M-<right>") 'ecb-goto-window-edit-by-smart-selection)
 
 ;; Auto-Complete configuration
+(require 'semantic/ia)
 (require 'auto-complete-config)
 (add-to-list 'ac-dictionary-directories "~/.emacs.d/site-lisp/auto-complete/dict")
 (ac-config-default)

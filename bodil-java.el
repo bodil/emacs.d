@@ -23,4 +23,7 @@
 (add-hook 'malabar-mode-hook
           (lambda () (add-hook 'after-save-hook 'malabar-compile-file-silently nil t)))
 
+;; Setup semantic sources for auto-complete
+(add-hook 'malabar-mode-hook
+          (lambda () (setq ac-sources '(ac-source-semantic ac-source-yasnippet))))
 
