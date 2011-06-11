@@ -59,12 +59,6 @@
 	(,lol-win-fail-regexp . font-lock-variable-name-face)
 ))
 
-;; omg caps!
-(defun lol-mode-self-insert-command (&optional n)
-  "Like `self-insert-command', but uppercase the the typed character."
-  (interactive "p")
-  (insert-char (upcase last-command-char) n))
-
 ;; Execute the current buffer using lci
 (defun lol-execute-buffer ()
   (interactive)
@@ -94,12 +88,9 @@
 ;; Mode maps.
 (defvar lol-mode-map
   (let ((map (make-sparse-keymap)))
-    (substitute-key-definition 'self-insert-command
-                               'lol-mode-self-insert-command
-                               map global-map)
     (define-key map (kbd "C-c C-c") 'lol-execute-buffer-or-region)
     map)
-  "Keymap used in Haskell mode.")
+  "Keymap used in lol-mode.")
 
 (define-derived-mode lol-mode fundamental-mode
   "LOLCODE MODEZZZ"
