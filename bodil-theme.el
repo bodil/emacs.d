@@ -9,7 +9,7 @@
 ;; Set font
 (setq default-frame-font
       (cond
-       ((member hostname '("erwin" "mudkip")) "-unknown-DejaVu Sans Mono-normal-normal-normal-*-12-*-*-*-m-0-iso10646-1")
+       ((member hostname '("erwin")) "-unknown-DejaVu Sans Mono-normal-normal-normal-*-12-*-*-*-m-0-iso10646-1")
        (t "-unknown-DejaVu Sans Mono-normal-normal-normal-*-14-*-*-*-m-0-iso10646-1")))
 (setq presentation-frame-font "-unknown-DejaVu Sans Mono-normal-normal-normal-*-20-*-*-*-m-0-iso10646-1")
 (set-frame-font default-frame-font)
