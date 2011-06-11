@@ -1,5 +1,7 @@
 ;;; lolcode.el -- LOLCODE major mode
 
+(require 'auto-complete-config)
+
 (defgroup lol-mode nil
   "A CoffeeScript major mode."
   :group 'languages)
@@ -104,16 +106,13 @@
   "TEH EMACZ MODE 4 EDIT0RZING LOLCODE."
 
   (setq font-lock-defaults '((lol-font-lock-keywords)))
-  (set (make-local-variable 'comment-start) "BTW ")
-  (caps-mode t)
-  (setq ac-sources '(ac-source-lolcode ac-source-words-in-buffer ac-source-yasnippet)))
+  (set (make-local-variable 'comment-start) "BTW "))
 
 ;; Any .lol or .lolz files open with this major mode
 (setq auto-mode-alist (cons '("\\.lol$" . lol-mode) auto-mode-alist))
 (setq auto-mode-alist (cons '("\\.lolz$" . lol-mode) auto-mode-alist))
 
 ;; Define an auto-complete source for lolcode keywords
-(require 'auto-complete-config)
 (defvar ac-source-lolcode
   '((candidates . (append
                    lol-type-face-keywords
@@ -124,3 +123,4 @@
                    lol-function-face-keywords))))
 (add-to-list 'ac-modes 'lol-mode)
 
+(add-hook 'lol-mode-hook (lambda () (setq ac-sources '(ac-source-lolcode ac-source-words-in-buffer ac-source-yasnippet))))
