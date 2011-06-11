@@ -35,7 +35,7 @@
 	(,lol-type-face-regexp . font-lock-type-face)
 	(,lol-logic-regexp . font-lock-builtin-face)
 	(,lol-builtin-face-regexp . font-lock-keyword-face)
-	(,lol-function-face-regexp . font-lock-warning-face)
+	(,lol-function-face-regexp . font-lock-function-name-face)
 	(,lol-win-fail-regexp . font-lock-variable-name-face)
 ))
 
