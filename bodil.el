@@ -1,12 +1,9 @@
 ;;; bodil.el -- User specific entry point
 
-;; Set the debug option to enable a backtrace when a
-;; problem occurs.
-(setq debug-on-error t)
-
 ;; omg stfu
+(setq debug-on-error nil)
 (setq warning-suppress-types nil)
-(setq stack-trace-on-error t)
+(setq stack-trace-on-error nil)
 
 ;; Get hostname
 (setq hostname (replace-regexp-in-string "\\(^[[:space:]\n]*\\|[[:space:]\n]*$\\)" "" (with-output-to-string (call-process "hostname" nil standard-output))))
