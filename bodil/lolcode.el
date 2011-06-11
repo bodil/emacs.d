@@ -39,18 +39,48 @@
 	(,lol-win-fail-regexp . font-lock-variable-name-face)
 ))
 
+;; omg caps!
+(defun caps-mode-self-insert-command (&optional n)
+  "Like `self-insert-command', but uppercase the the typed character."
+  (interactive "p")
+  (insert-char (upcase last-command-char) n))
+(defvar caps-mode-map nil)
+(when (fboundp 'define-minor-mode)
+  (define-minor-mode caps-mode
+    "Toggle caps mode.
+With no argument, this command toggles the mode.
+Non-null prefix argument turns on the mode.
+Null prefix argument turns off the mode.
+When caps mode is enabled, all letters are inserted in their
+capitalized form."
+    :init-value nil
+    :lighter " OMGCAPS"
+    (setq caps-mode-map
+          (let ((map (make-sparse-keymap)))
+            (substitute-key-definition 'self-insert-command
+                                       'caps-mode-self-insert-command
+                                       map global-map)
+            map))
+    (if caps-mode
+        (add-to-list 'minor-mode-map-alist (cons 'caps-mode caps-mode-map))
+      (setq minor-mode-map-alist
+            (delete (assoc 'caps-mode minor-mode-map-alist)
+                    minor-mode-map-alist)))))
+
 (define-derived-mode lol-mode fundamental-mode
   "LOLCODE MODEZZZ"
   "TEH EMACZ MODE 4 EDIT0RZING LOLCODE."
 
   (setq font-lock-defaults '((lol-font-lock-keywords)))
-)
+  (caps-mode t)
+  (setq ac-sources '(ac-source-lolcode ac-source-words-in-buffer ac-source-yasnippet)))
 
 ;; Any .lol or .lolz files open with this major mode
 (setq auto-mode-alist (cons '("\\.lol$" . lol-mode) auto-mode-alist))
 (setq auto-mode-alist (cons '("\\.lolz$" . lol-mode) auto-mode-alist))
 
 ;; Define an auto-complete source for lolcode keywords
+(require 'auto-complete-config)
 (defvar ac-source-lolcode
   '((candidates . (append
                    lol-type-face-keywords
@@ -59,12 +89,5 @@
                    lol-logic-keywords
                    lol-win-fail
                    lol-function-face-keywords))))
-
-(require 'auto-complete-config)
 (add-to-list 'ac-modes 'lol-mode)
-(add-hook 'lol-mode-hook
-          (lambda ()
-            (setq ac-sources '(ac-source-lolcode ac-source-words-in-buffer ac-source-yasnippet))))
-
-
 
