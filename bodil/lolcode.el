@@ -1,3 +1,21 @@
+;;; lolcode.el -- LOLCODE major mode
+
+(defgroup lol-mode nil
+  "A CoffeeScript major mode."
+  :group 'languages)
+
+(defcustom lol-interpreter-command "lci"
+  "The LOLCODE interpreter to use. Must be on your path and accept source input on stdin."
+  :type 'string
+  :group 'lol-mode)
+
+(defcustom lol-output-buffer-name "*LOLCODE-OUTPUT*"
+  "The name of the scratch buffer used when executing LOLCODE."
+  :type 'string
+  :group 'lol-mode)
+
+
+
 (defvar lol-type-face-keywords
   '("I HAS A" "CAN HAS" "R" "ITZ")
   "")
@@ -40,38 +58,53 @@
 ))
 
 ;; omg caps!
-(defun caps-mode-self-insert-command (&optional n)
+(defun lol-mode-self-insert-command (&optional n)
   "Like `self-insert-command', but uppercase the the typed character."
   (interactive "p")
   (insert-char (upcase last-command-char) n))
-(defvar caps-mode-map nil)
-(when (fboundp 'define-minor-mode)
-  (define-minor-mode caps-mode
-    "Toggle caps mode.
-With no argument, this command toggles the mode.
-Non-null prefix argument turns on the mode.
-Null prefix argument turns off the mode.
-When caps mode is enabled, all letters are inserted in their
-capitalized form."
-    :init-value nil
-    :lighter " OMGCAPS"
-    (setq caps-mode-map
-          (let ((map (make-sparse-keymap)))
-            (substitute-key-definition 'self-insert-command
-                                       'caps-mode-self-insert-command
-                                       map global-map)
-            map))
-    (if caps-mode
-        (add-to-list 'minor-mode-map-alist (cons 'caps-mode caps-mode-map))
-      (setq minor-mode-map-alist
-            (delete (assoc 'caps-mode minor-mode-map-alist)
-                    minor-mode-map-alist)))))
+
+;; Execute the current buffer using lci
+(defun lol-execute-buffer ()
+  (interactive)
+  (save-excursion
+    (lol-execute-region (point-min) (point-max))))
+
+(defun lol-execute-region (start end)
+  (interactive "r")
+
+  (let ((buffer (get-buffer lol-output-buffer-name)))
+    (when buffer
+      (kill-buffer buffer)))
+
+  (call-process-region start end lol-interpreter-command nil
+                       (get-buffer-create lol-output-buffer-name)
+                       nil
+                       "-")
+  (let ((buffer (get-buffer lol-output-buffer-name)))
+    (display-buffer buffer)))
+
+(defun lol-execute-buffer-or-region ()
+  (interactive)
+  (if (region-active-p)
+      (lol-execute-region (mark) (point))
+    (lol-execute-buffer)))
+
+;; Mode maps.
+(defvar lol-mode-map
+  (let ((map (make-sparse-keymap)))
+    (substitute-key-definition 'self-insert-command
+                               'lol-mode-self-insert-command
+                               map global-map)
+    (define-key map (kbd "C-c C-c") 'lol-execute-buffer-or-region)
+    map)
+  "Keymap used in Haskell mode.")
 
 (define-derived-mode lol-mode fundamental-mode
   "LOLCODE MODEZZZ"
   "TEH EMACZ MODE 4 EDIT0RZING LOLCODE."
 
   (setq font-lock-defaults '((lol-font-lock-keywords)))
+  (set (make-local-variable 'comment-start) "BTW ")
   (caps-mode t)
   (setq ac-sources '(ac-source-lolcode ac-source-words-in-buffer ac-source-yasnippet)))
 
