@@ -42,6 +42,18 @@
 (setq multi-term-dedicated-select-after-open-p t)
 (setq multi-term-switch-after-close (quote PREVIOUS))
 (global-set-key (kbd "<f11>") 'multi-term-dedicated-toggle)
+(setq term-unbind-key-list
+      '("C-x" "C-h" "<ESC>"))
+(setq term-bind-key-alist
+      '(("C-c C-c" . term-interrupt-subjob)
+        ("M-f" . term-send-forward-word)
+        ("M-b" . term-send-backward-word)
+        ("M-o" . term-send-backspace)
+        ("M-M" . term-send-forward-kill-word)
+        ("M-N" . term-send-backward-kill-word)
+        ("M-r" . term-send-reverse-search-history)
+        ("M-," . term-send-input)
+        ("M-." . comint-dynamic-complete)))
 
 ;; w3m
 (require 'w3m-load)
