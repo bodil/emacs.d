@@ -60,7 +60,7 @@
       (setq tabbar-previous-tabset (tabbar-current-tabset))
       (unless (tabbar-select-tabset name)
         (funcall failfunc)))))
-(global-set-key (kbd "C-<f12>")
+(global-set-key (kbd "<f12>")
                 (lambda () (interactive)
                   (tabbar-toggle-tabset-or-execute
                    "Shells"
