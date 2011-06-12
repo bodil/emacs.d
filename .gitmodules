@@ -40,3 +40,6 @@
 [submodule "site-lisp/haskell-mode"]
 	path = site-lisp/haskell-mode
 	url = https://github.com/emacsmirror/haskell-mode.git
+[submodule "site-lisp/lolcode-mode"]
+	path = site-lisp/lolcode-mode
+	url = git@github.com:bodil/lolcode-mode.git

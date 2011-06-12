@@ -50,3 +50,6 @@
 (require 'magit)
 (require 'magit-svn)
 
+;; I CAN HAS LOLCODE?
+(require 'lolcode-mode)
+
