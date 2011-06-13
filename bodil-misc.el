@@ -65,3 +65,12 @@
 ;; I CAN HAS LOLCODE?
 (require 'lolcode-mode)
 
+;; Setup auto-complete for LOLCODE
+(require 'auto-complete)
+(defvar ac-source-lolcode
+  '((candidates . lolcode-lang-all)))
+(add-to-list 'ac-modes 'lolcode-mode)
+(add-hook 'lolcode-mode-hook
+          (lambda () (add-to-list 'ac-sources 'ac-source-lolcode)))
+
+
