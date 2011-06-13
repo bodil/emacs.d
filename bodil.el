@@ -52,7 +52,7 @@
 (load "~/.emacs.d/bodil-lisp")
 (load "~/.emacs.d/bodil-haskell")
 (load "~/.emacs.d/bodil-python")
-(load "~/.emacs.d/bodil-java")
+;; (load "~/.emacs.d/bodil-java")
 (load "~/.emacs.d/bodil-js")
 (load "~/.emacs.d/bodil-erc")
 (load "~/.emacs.d/bodil-mail")

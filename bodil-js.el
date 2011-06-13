@@ -30,11 +30,11 @@
           '(lambda() (coffee-custom)))
 
 ;; JSLint for Flymake
-(require 'flymake-lintnode)
-(add-hook 'js2-mode-hook
-          (lambda () flymake-mode 1))
-(setq lintnode-location (expand-file-name "~/.emacs.d/site-lisp/lintnode"))
-(lintnode-start)
+;; (require 'flymake-lintnode)
+;; (add-hook 'js2-mode-hook
+;;           (lambda () flymake-mode 1))
+;; (setq lintnode-location (expand-file-name "~/.emacs.d/site-lisp/lintnode"))
+;; (lintnode-start)
 
 ;; Patch coffee-mode so coffee-compile-region pops up a new
 ;; non-focused window instead of replacing the current buffer.
