@@ -11,9 +11,9 @@
 ;; Setup slime-js
 (require 'slime)
 (slime-setup '(slime-fancy slime-repl slime-js))
-(global-set-key [f5] 'slime-js-reload)
 (add-hook 'js2-mode-hook
           (lambda ()
+            (define-key js2-mode-map [f5] 'slime-js-reload)
             (slime-js-minor-mode 1)))
 (add-hook 'css-mode-hook
           (lambda ()
