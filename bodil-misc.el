@@ -64,6 +64,7 @@
 
 ;; I CAN HAS LOLCODE?
 (require 'lolcode-mode)
+(require 'auto-complete)
 (defvar ac-source-lolcode
   '((candidates . lolcode-lang-all)))
 (add-to-list 'ac-modes 'lolcode-mode)
