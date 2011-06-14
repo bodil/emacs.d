@@ -18,6 +18,24 @@
 (global-set-key (kbd "C-<f9>") (lambda () (interactive)
    (set-frame-font (if (string= (frame-parameter nil 'font) default-frame-font) presentation-frame-font default-frame-font))))
 
+;; Configure Todochiku icon theme
+(setq todochiku-icons-directory "~/.emacs.d/todochiku-icons")
+(setq todochiku-icons
+      (quote ((default . "default.svg")
+              (alert . "alert.svg")
+              (bell . "bell.svg")
+              (compile . "compile.svg")
+              (irc . "chat.svg")
+              (check . "check.svg")
+              (emacs . "emacs.svg")
+              (star . "star.svg")
+              (social . "social.svg")
+              (alarm . "alarm.svg")
+              (music . "music.svg")
+              (mail . "mail.svg")
+              (term . "terminal.svg")
+              (package . "package.svg"))))
+
 ;; Prettify tab bar
 (tabbar-mode t)
 (tabbar-mwheel-mode t)
