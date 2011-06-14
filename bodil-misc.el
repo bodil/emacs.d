@@ -54,6 +54,7 @@
 (add-hook 'lolcode-mode-hook
           (lambda ()
             (setq default-tab-width 2)
-            (add-to-list 'ac-sources 'ac-source-lolcode)))
+            (add-to-list 'ac-sources 'ac-source-lolcode)
+            (add-to-list 'ac-sources 'ac-source-yasnippet)))
 
 
