@@ -90,7 +90,7 @@
 (require 'auto-complete-config)
 (add-to-list 'ac-dictionary-directories "~/.emacs.d/site-lisp/auto-complete/dict")
 (ac-config-default)
-(define-key ac-mode-map (kbd "C-SPC") 'auto-complete)
+;; (define-key ac-mode-map (kbd "C-SPC") 'auto-complete)
 
 ;; Bind Flyspell completion key to M-\
 (setq flyspell-auto-correct-binding (kbd "M-\\"))
