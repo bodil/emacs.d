@@ -14,10 +14,6 @@
 (global-set-key (kbd "C-c a") 'org-agenda)
 (global-set-key (kbd "C-c b") 'org-iswitchb)
 (setq org-log-done t)
-(setq org-directory (expand-file-name "~/Dropbox/Org"))
-(setq org-mobile-directory (expand-file-name "~/Dropbox/MobileOrg"))
-(setq org-mobile-inbox-for-pull (expand-file-name "~/Dropbox/MobileOrg/mobileorg.org"))
-(setq org-agenda-files (list (expand-file-name "~/Dropbox/Org/bodil.org")))
 
 ;; Persistent undo history
 (require 'undohist)
