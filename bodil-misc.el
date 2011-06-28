@@ -62,3 +62,6 @@
 (setq-default save-place t)
 (require 'saveplace)
 
+;; Auto-revert buffers
+(global-auto-revert-mode t)
+
