@@ -57,4 +57,8 @@
             (add-to-list 'ac-sources 'ac-source-lolcode)
             (add-to-list 'ac-sources 'ac-source-yasnippet)))
 
+;; Remember position in file
+(setq save-place-file (expand-file-name "~/.emacs.d/saveplace"))
+(setq-default save-place t)
+(require 'saveplace)
 
