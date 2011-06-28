@@ -1,0 +1,9 @@
+# contributor: https://github.com/polypus74
+# key: sep
+# --
+${1:$(let* ((text-len (length text))
+	    (cmnt-len (- 26 (/ (+ text-len (if (oddp text-len) 1 0)) 2))))
+       (make-string cmnt-len 45))} $1 ${1:$(let* ((text-len (length text))
+						  (cmnt-len (- 26 (/ 
+						    (+ text-len (if (oddp text-len) 0 1)) 2))))
+					     (make-string cmnt-len 45))}

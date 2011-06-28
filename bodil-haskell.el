@@ -13,4 +13,15 @@
 ;; using commands operating on words.
 (add-hook 'haskell-mode-hook '(lambda () (capitalized-words-mode t)))
 
+;; Load Scion if installed.
+;; (Install it from https://github.com/hvr/scion)
+(defvar scion-path (expand-file-name "~/.cabal/share/scion-0.2.0.2/emacs"))
+(when (file-accessible-directory-p scion-path)
+  (add-to-list 'load-path scion-path)
+  (require 'scion)
+  (add-hook 'haskell-mode-hook
+            (lambda ()
+              (scion-mode 1)
+              (scion-flycheck-on-save 1)))
+  (setq scion-completing-read-function 'ido-completing-read))
 
