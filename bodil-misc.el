@@ -57,4 +57,13 @@
             (add-to-list 'ac-sources 'ac-source-lolcode)
             (add-to-list 'ac-sources 'ac-source-yasnippet)))
 
+;; twittering-mode
+(require 'twittering-mode)
+(setq twittering-icon-mode t)
+(setq twittering-use-master-password t)
+(setq twittering-url-show-status nil)
+(setq twittering-initial-timeline-spec-string
+      '(":home"
+        "bodiltv/steria-devs"
+        ":replies"))
 
