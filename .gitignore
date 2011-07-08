@@ -31,3 +31,4 @@ undohist
 /srecode-map.el
 /semanticdb
 *-first.el
+/saveplace
