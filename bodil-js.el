@@ -28,6 +28,7 @@
   (define-key coffee-mode-map (kbd "M-R") 'coffee-compile-region))
 (add-hook 'coffee-mode-hook
           '(lambda() (coffee-custom)))
+(add-to-list 'ac-modes 'coffee-mode)
 
 ;; JSLint for Flymake
 ;; (require 'flymake-lintnode)
