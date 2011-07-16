@@ -139,6 +139,8 @@
 (add-hook 'haskell-mode-hook (lambda () (autopair-mode)))
 (add-hook 'ruby-mode-hook (lambda () (autopair-mode)))
 (add-hook 'shell-mode-hook (lambda () (autopair-mode)))
+(add-hook 'coffee-mode-hook (lambda () (autopair-mode)))
+(add-hook 'css-mode-hook (lambda () (autopair-mode)))
 ;; Keep autopair from interfering with auto-complete
 (setq ac-use-overriding-local-map t)
 
