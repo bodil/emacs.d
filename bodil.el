@@ -47,6 +47,7 @@
 (add-to-list 'load-path (expand-file-name "~/.emacs.d/site-lisp/magit"))
 (add-to-list 'load-path (expand-file-name "~/.emacs.d/site-lisp/lolcode-mode"))
 (add-to-list 'load-path (expand-file-name "~/.emacs.d/site-lisp/twittering-mode"))
+(add-to-list 'load-path (expand-file-name "~/.emacs.d/site-lisp/jade-mode"))
 
 ;; Load more scripts
 (load "~/.emacs.d/bodil-theme")

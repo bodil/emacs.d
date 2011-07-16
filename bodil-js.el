@@ -58,3 +58,8 @@
       (goto-char (point-min)))
     (display-buffer buffer)))
 
+;; Setup jade-mode
+(require 'sws-mode)
+(require 'jade-mode)
+(add-to-list 'auto-mode-alist '("\\.styl$" . sws-mode))
+
