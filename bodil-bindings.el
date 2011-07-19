@@ -188,4 +188,38 @@ If point was already at that position, move point to beginning of line."
 (global-set-key (kbd "<home>") 'smart-beginning-of-line)
 (global-set-key (kbd "C-a") 'smart-beginning-of-line)
 
+;; Textmatish find-file-in-project using Magit to define the project
+
+;; Slightly modified from the snippet at
+;; http://www.emacswiki.org/cgi-bin/wiki/InteractivelyDoThings using
+;; project-root.el
+
+(defun ido-find-file-in-git-tree ()
+  "Use ido to select a file from the current git tree."
+  (interactive)
+  (let (my-project-root project-files tbl)
+    (setq my-project-root (magit-get-top-dir (file-name-directory (or load-file-name buffer-file-name))))
+    
+    ;; get project files
+    (setq project-files 
+          (remove (replace-regexp-in-string "/$" "" my-project-root)
+                  (mapcar
+                   (lambda (elt) (expand-file-name elt my-project-root))
+                   (split-string (let ((default-directory my-project-root)) (shell-command-to-string "git ls-files -co -X .gitignore")) "\n"))))
+    ;; populate hash table (display repr => path)
+    (setq tbl (make-hash-table :test 'equal))
+    (let (ido-list)
+      (mapc (lambda (path)
+              ;; format path for display in ido list
+              (setq key (replace-regexp-in-string "\\(.*?\\)\\([^/]+?\\)$" "\\2|\\1" path))
+              ;; strip project root
+              (setq key (replace-regexp-in-string my-project-root "" key))
+              ;; remove trailing | or /
+              (setq key (replace-regexp-in-string "\\(|\\|/\\)$" "" key))
+              (puthash key path tbl)
+              (push key ido-list))
+            project-files)
+      (find-file (gethash (ido-completing-read "project-files: " ido-list) tbl)))))
+
+(global-set-key (kbd "C-c C-f") 'ido-find-file-in-git-tree)
 
