@@ -42,7 +42,7 @@
 	url = https://github.com/emacsmirror/haskell-mode.git
 [submodule "site-lisp/lolcode-mode"]
 	path = site-lisp/lolcode-mode
-	url = git@github.com:bodil/lolcode-mode.git
+	url = https://github.com/bodil/lolcode-mode.git
 [submodule "site-lisp/twittering-mode"]
 	path = site-lisp/twittering-mode
 	url = https://github.com/hayamiz/twittering-mode.git
