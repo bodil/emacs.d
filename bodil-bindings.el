@@ -221,5 +221,5 @@ If point was already at that position, move point to beginning of line."
             project-files)
       (find-file (gethash (ido-completing-read "project-files: " ido-list) tbl)))))
 
-(global-set-key (kbd "C-c C-f") 'ido-find-file-in-git-tree)
+(global-set-key (kbd "C-c f") 'ido-find-file-in-git-tree)
 
