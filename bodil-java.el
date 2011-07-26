@@ -60,7 +60,7 @@
 
 ;; Bindings
 (define-key eclim-mode-map (kbd "M-.") 'eclim-java-find-declaration)
-(define-key eclim-mode-map (kbd "C-SPC") 'eclim-complete)
+(define-key eclim-mode-map (kbd "C-SPC") 'ac-start)
 
 ;; CEDET/Malabar setup
 ;; (setq semantic-default-submodes '(global-semantic-idle-scheduler-mode
