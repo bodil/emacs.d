@@ -101,12 +101,12 @@ Return a list of one element based on major mode."
          (tabbar-buffer-list))))
 
 ;; Make a nice custom ECB layout
-;; (require 'ecb)
-;; (ecb-layout-define "bodil" left nil
-;;   (ecb-set-directories-buffer)
-;;   (ecb-split-ver 0.6153846153846154)
-;;   (ecb-set-methods-buffer)
-;;   (select-window (next-window)))
+(require 'ecb)
+(ecb-layout-define "bodil" left nil
+  (ecb-set-directories-buffer)
+  (ecb-split-ver 0.6153846153846154)
+  (ecb-set-methods-buffer)
+  (select-window (next-window)))
 
 ;; Show line numbers in buffers
 (global-linum-mode t)
