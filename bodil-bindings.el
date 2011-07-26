@@ -134,6 +134,7 @@
 ;; Autopair-mode for selected major modes
 ;; Note: lispy modes have paredit for this, and js2-mode does its own thing.
 (require 'autopair)
+(setq autopair-pair-criteria 'always)
 (add-hook 'c-mode-common-hook (lambda () (autopair-mode)))
 (add-hook 'python-mode-hook (lambda () (autopair-mode)))
 (add-hook 'haskell-mode-hook (lambda () (autopair-mode)))

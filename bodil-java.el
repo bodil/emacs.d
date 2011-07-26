@@ -5,7 +5,6 @@
 (require 'eclim)
 
 (setq eclim-auto-save t)
-(global-eclim-mode t)
 (setq eclim-executable (expand-file-name "~/eclipse/eclim"))
 
 ;; Add eclim + yasnippet ac-source
@@ -37,6 +36,13 @@
 (ac-define-source eclim-yas
   '((candidates . ac-eclim-yas-candidates)
     (init . eclim-yas-init)
+    ;; (requires . 0)
+    ;; (prefix . c-dot)
+    (action . yas/expand-eclim-snippet)
+    (symbol . "f")))
+(ac-define-source eclim-yas-dot
+  '((candidates . ac-eclim-yas-candidates)
+    (init . eclim-yas-init)
     (requires . 0)
     (prefix . c-dot)
     (action . yas/expand-eclim-snippet)
@@ -48,8 +54,13 @@
 ;; Hook
 (add-hook 'java-mode-hook
           (lambda ()
-            (setq ac-sources '(ac-source-eclim-yas ac-source-yasnippet ac-source-filename))
+            (eclim-mode t)
+            (setq ac-sources '(ac-source-eclim-yas-dot ac-source-eclim-yas ac-source-yasnippet ac-source-filename))
             (java-mode-indent-annotations-setup)))
+
+;; Bindings
+(define-key eclim-mode-map (kbd "M-.") 'eclim-java-find-declaration)
+(define-key eclim-mode-map (kbd "C-SPC") 'eclim-complete)
 
 ;; CEDET/Malabar setup
 ;; (setq semantic-default-submodes '(global-semantic-idle-scheduler-mode
