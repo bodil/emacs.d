@@ -51,6 +51,40 @@
 ;; Fix annotation indentation
 (require 'java-mode-indent-annotations)
 
+;; wants :JUnitImpl
+(defun eclim--java-current-package-name ()
+  (save-excursion
+    (end-of-buffer)
+    (if (re-search-backward "package\\s-+\\([^<{\s-]+\\);" nil t)
+        (match-string 1)
+      "")))
+(defun eclim--java-current-type-full-name ()
+  (concat (eclim--java-current-package-name) "."
+          (save-excursion
+            (end-of-buffer)
+            (eclim--java-current-type-name))))
+(defun eclim--java-file-name-for-test (file)
+  (replace-regexp-in-string
+   "\\.java$" "Test.java"
+   (replace-regexp-in-string
+    "/main/java/" "/test/java/"
+    file)))
+(defun eclim-java-junit-implement ()
+  "Create a test case in the appropriate test class for a given method."
+  (interactive)
+  (eclim/with-results response ("java_junit_impl" "-p"
+                                ("-f" (eclim--java-file-name-for-test (eclim--project-current-file)))
+                                ("-b" (eclim--java-current-type-full-name)))
+                      (let* ((methods  
+                              (remove-if (lambda (element) (string-match "//" element))
+                                         (remove-if-not (lambda (element) (string-match "(.*)" element))
+                                                        response)))
+                             (start (point)))
+                        ;; (message (prin1-to-string methods))
+                        (eclim--completing-read "Signature: " methods)
+                        )
+                      ))
+
 ;; Hook
 (add-hook 'java-mode-hook
           (lambda ()
