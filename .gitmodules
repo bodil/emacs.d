@@ -52,3 +52,6 @@
 [submodule "site-lisp/emacs-eclim"]
 	path = site-lisp/emacs-eclim
 	url = https://github.com/senny/emacs-eclim.git
+[submodule "site-lisp/bongo"]
+	path = site-lisp/bongo
+	url = https://github.com/dbrock/bongo.git

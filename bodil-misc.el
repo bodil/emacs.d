@@ -90,3 +90,6 @@
 (global-set-key "\C-cep" 'evernote-post-region)
 (global-set-key "\C-ceb" 'evernote-browser)
 
+;; Bongo
+(autoload 'bongo "bongo"
+  "Start Bongo by switching to a Bongo buffer." t)
