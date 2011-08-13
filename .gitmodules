@@ -55,3 +55,6 @@
 [submodule "site-lisp/bongo"]
 	path = site-lisp/bongo
 	url = https://github.com/dbrock/bongo.git
+[submodule "site-lisp/mingus"]
+	path = site-lisp/mingus
+	url = https://github.com/pft/mingus.git

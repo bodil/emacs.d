@@ -93,3 +93,7 @@
 ;; Bongo
 (autoload 'bongo "bongo"
   "Start Bongo by switching to a Bongo buffer." t)
+
+;; Mingus
+(autoload 'mingus "mingus" nil t)
+
