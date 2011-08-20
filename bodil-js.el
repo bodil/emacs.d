@@ -30,6 +30,7 @@
           '(lambda() (coffee-custom)))
 (require 'auto-complete)
 (add-to-list 'ac-modes 'coffee-mode)
+(add-to-list 'auto-mode-alist '("\\.cson$" . coffee-mode))
 
 ;; JSLint for Flymake
 ;; (require 'flymake-lintnode)
