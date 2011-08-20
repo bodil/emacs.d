@@ -65,3 +65,5 @@
 (add-to-list 'auto-mode-alist '("\\.styl$" . sws-mode))
 (add-to-list 'ac-modes 'jade-mode)
 
+;; Activate runlol integration
+(require 'runlol)

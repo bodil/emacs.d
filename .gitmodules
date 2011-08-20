@@ -58,3 +58,6 @@
 [submodule "site-lisp/mingus"]
 	path = site-lisp/mingus
 	url = https://github.com/pft/mingus.git
+[submodule "site-lisp/runlol"]
+	path = site-lisp/runlol
+	url = https://github.com/bodil/runlol.git
