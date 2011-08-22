@@ -97,3 +97,8 @@
 ;; Mingus
 (autoload 'mingus "mingus" nil t)
 
+;;; HTML mode things
+(add-hook 'html-mode-hook (lambda () (hl-tags-mode t)))
+(add-to-list 'ac-modes 'html-mode)
+
+
