@@ -33,6 +33,9 @@
 ;; Redefine undo key
 (global-set-key (kbd "C-z") 'undo)
 
+;; Always newline-and-indent
+(define-key global-map (kbd "RET") 'newline-and-indent)
+
 ;; Keybinding for replace-regexp
 (global-set-key (kbd "C-c r") 'replace-regexp)
 
