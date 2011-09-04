@@ -96,7 +96,7 @@
 (require 'auto-complete-config)
 (add-to-list 'ac-dictionary-directories "~/.emacs.d/site-lisp/auto-complete/dict")
 (ac-config-default)
-;; (define-key ac-mode-map (kbd "C-SPC") 'auto-complete)
+(define-key ac-mode-map (kbd "C-<tab>") 'auto-complete)
 
 ;; Bind Flyspell completion key to M-\
 (setq flyspell-auto-correct-binding (kbd "M-\\"))
@@ -149,6 +149,7 @@
 (add-hook 'coffee-mode-hook (lambda () (autopair-mode)))
 (add-hook 'css-mode-hook (lambda () (autopair-mode)))
 (add-hook 'jade-mode-hook (lambda () (autopair-mode)))
+(add-hook 'js-mode-hook (lambda () (autopair-mode)))
 ;; Keep autopair from interfering with auto-complete
 (setq ac-use-overriding-local-map t)
 

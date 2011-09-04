@@ -7,10 +7,7 @@
 (set-face-background 'highlight "#323232")
 
 ;; Set font
-(setq default-frame-font
-      (cond
-       ((member hostname '("erwin")) "-unknown-DejaVu Sans Mono-normal-normal-normal-*-12-*-*-*-m-0-iso10646-1")
-       (t "-unknown-DejaVu Sans Mono-normal-normal-normal-*-14-*-*-*-m-0-iso10646-1")))
+(setq default-frame-font "-unknown-DejaVu Sans Mono-normal-normal-normal-*-14-*-*-*-m-0-iso10646-1")
 (setq presentation-frame-font "-unknown-DejaVu Sans Mono-normal-normal-normal-*-18-*-*-*-m-0-iso10646-1")
 (set-frame-font default-frame-font)
 
@@ -46,7 +43,7 @@
 Return a list of one element based on major mode."
   (list
    (cond
-    ((memq major-mode '(html-mode css-mode js2-mode coffee-mode))
+    ((memq major-mode '(html-mode css-mode js-mode js2-mode coffee-mode jade-mode))
      "Web")
     ((string-match "^term-mode" (symbol-name major-mode))
      "Shells")

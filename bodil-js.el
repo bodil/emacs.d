@@ -1,12 +1,13 @@
 ;;; bodil-js.el -- Javascript configuration
 
 ;; Configure js2-mode
-(require 'js2-mode)
-(setq js2-bounce-indent-p t)
-(setq js2-cleanup-whitespace t)
-(setq js2-enter-indents-newline t)
-(add-to-list 'auto-mode-alist '("\\.js$" . js2-mode))
-(add-to-list 'auto-mode-alist '("\\.json$" . js2-mode))
+;; (require 'js2-mode)
+;; (setq js2-bounce-indent-p t)
+;; (setq js2-cleanup-whitespace t)
+;; (setq js2-enter-indents-newline t)
+
+(add-to-list 'auto-mode-alist '("\\.js$" . js-mode))
+(add-to-list 'auto-mode-alist '("\\.json$" . js-mode))
 
 ;; Setup slime-js
 (require 'slime)

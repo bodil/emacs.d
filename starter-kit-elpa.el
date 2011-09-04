@@ -6,7 +6,6 @@
 
 (defvar starter-kit-packages (list 'tabbar
                                    'smex
-                                   'js2-mode
                                    'idle-highlight
                                    'ruby-mode
                                    'inf-ruby
