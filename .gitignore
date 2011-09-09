@@ -32,3 +32,5 @@ undohist
 /semanticdb
 *-first.el
 /saveplace
+/.emacs.desktop
+/.emacs.desktop.lock
