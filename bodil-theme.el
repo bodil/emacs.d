@@ -6,6 +6,9 @@
 (set-face-underline-p 'highlight nil)
 (set-face-background 'highlight "#323232")
 
+;; Highlight current line
+(setq global-hl-line-mode t)
+
 ;; Set font
 (setq default-frame-font "-unknown-DejaVu Sans Mono-normal-normal-normal-*-14-*-*-*-m-0-iso10646-1")
 (setq presentation-frame-font "-unknown-DejaVu Sans Mono-normal-normal-normal-*-18-*-*-*-m-0-iso10646-1")
