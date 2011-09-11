@@ -4,9 +4,6 @@
 [submodule "site-lisp/swank-js"]
 	path = site-lisp/swank-js
 	url = https://github.com/ivan4th/swank-js.git
-[submodule "site-lisp/zenburn"]
-	path = site-lisp/zenburn
-	url = https://github.com/dbrock/zenburn-el.git
 [submodule "site-lisp/smart-tab"]
 	path = site-lisp/smart-tab
 	url = https://github.com/genehack/smart-tab.git
@@ -61,3 +58,6 @@
 [submodule "site-lisp/runlol"]
 	path = site-lisp/runlol
 	url = https://github.com/bodil/runlol.git
+[submodule "site-lisp/zenburn"]
+	path = site-lisp/zenburn
+	url = https://github.com/bbatsov/zenburn-emacs.git
