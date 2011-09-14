@@ -1,5 +1,9 @@
 ;;; bodil-lisp.el -- Lisp specific configuration
 
+;; SLIME
+(require 'slime-autoloads)
+(slime-setup '(slime-repl))
+
 ;; Make paredit play nice with eldoc
 (require 'eldoc)
 (eldoc-add-command
@@ -22,15 +26,21 @@
 ;; Load clojure-mode
 (require 'clojure-mode)
 
-;; Which lisp are we?
+;; Define available lisps, in ASCENDING order of priority
+(setq slime-lisp-implementations '())
+;; Clojure: install if Leiningen is on the path
+(let ((lein-path (executable-find "lein")))
+  (if (and (not (null lein-path)) (file-executable-p lein-path))
+      (add-to-list 'slime-lisp-implementations
+                   (list 'clojure (list lein-path "repl")))))
+;; SBCL: install if SBCL is on the path and slime-helper is installed
 (let ((slime-helper (expand-file-name "~/quicklisp/slime-helper.el"))
-      (lein-path (executable-find "lein")))
-  (cond
-   ;; If quicklisp contains a slime-helper installation, go SBCL
-   ((file-exists-p slime-helper)
-    (load slime-helper)
-    (setq inferior-lisp-program "sbcl"))
-   ;; Else, if Leiningen is on the user's path, go Clojure
-   ((and (not (null lein-path)) (file-executable-p lein-path))
-    (setq inferior-lisp-program "lein repl"))))
+      (sbcl-path (executable-find "sbcl")))
+  (if (and (file-readable-p slime-helper)
+           (not (null sbcl-path))
+           (file-executable-p sbcl-path))
+      (progn
+        (load slime-helper)
+        (add-to-list 'slime-lisp-implementations
+                     (list 'sbcl (list sbcl-path))))))
 
