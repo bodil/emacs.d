@@ -19,6 +19,18 @@
 (add-hook 'slime-mode-hook 'set-up-slime-ac)
 (add-hook 'slime-repl-mode-hook 'set-up-slime-ac)
 
-;; Clojure mode
+;; Load clojure-mode
 (require 'clojure-mode)
+
+;; Which lisp are we?
+(let ((slime-helper (expand-file-name "~/quicklisp/slime-helper.el"))
+      (lein-path (executable-find "lein")))
+  (cond
+   ;; If quicklisp contains a slime-helper installation, go SBCL
+   ((file-exists-p slime-helper)
+    (load slime-helper)
+    (setq inferior-lisp-program "sbcl"))
+   ;; Else, if Leiningen is on the user's path, go Clojure
+   ((and (not (null lein-path)) (file-executable-p lein-path))
+    (setq inferior-lisp-program "lein repl"))))
 

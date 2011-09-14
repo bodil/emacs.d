@@ -10,7 +10,6 @@
 (setq ecb-show-sources-in-directories-buffer (quote ("left7" "left13" "left14" "left15" "bodil")))
 (setq ecb-tip-of-the-day nil)
 (setq ecb-windows-width 0.25)
-(setq inferior-lisp-program "cake repl")
 (setq whole-line-or-region-extensions-alist (quote ((copy-region-as-kill whole-line-or-region-copy-region-as-kill nil) (kill-region whole-line-or-region-kill-region nil) (kill-ring-save whole-line-or-region-kill-ring-save nil) (yank whole-line-or-region-yank nil) (comment-dwim whole-line-or-region-comment-dwim-2 nil))))
 (setq smart-tab-completion-functions-alist (quote ((emacs-lisp-mode . auto-complete) (text-mode . dabbrev-completion))))
 (setq smart-tab-using-auto-complete t)
