@@ -67,16 +67,6 @@
 ;; Auto-revert buffers
 (global-auto-revert-mode t)
 
-;; twittering-mode
-(require 'twittering-mode)
-(setq twittering-icon-mode t)
-(setq twittering-use-master-password t)
-(setq twittering-url-show-status nil)
-(setq twittering-initial-timeline-spec-string
-      '(":home"
-        "bodiltv/steria-devs"
-        ":replies"))
-
 ;; evernote-mode
 (require 'evernote-mode)
 (setq evernote-username "bodil")
@@ -89,13 +79,6 @@
 (global-set-key "\C-cew" 'evernote-write-note)
 (global-set-key "\C-cep" 'evernote-post-region)
 (global-set-key "\C-ceb" 'evernote-browser)
-
-;; Bongo
-(autoload 'bongo "bongo"
-  "Start Bongo by switching to a Bongo buffer." t)
-
-;; Mingus
-(autoload 'mingus "mingus" nil t)
 
 ;;; HTML mode things
 (add-hook 'html-mode-hook (lambda () (hl-tags-mode t)))

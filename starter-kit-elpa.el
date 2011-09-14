@@ -4,14 +4,12 @@
 
 (require 'cl)
 
-(defvar starter-kit-packages (list 'tabbar
-                                   'smex
+(defvar starter-kit-packages (list 'smex
                                    'idle-highlight
                                    'ruby-mode
-                                   'inf-ruby
                                    'css-mode
                                    'yaml-mode
-                                   'find-file-in-project
+                                   'paredit
                                    'gist)
   "Libraries that should be installed by default.")
 

@@ -4,9 +4,6 @@
 [submodule "site-lisp/swank-js"]
 	path = site-lisp/swank-js
 	url = https://github.com/ivan4th/swank-js.git
-[submodule "site-lisp/smart-tab"]
-	path = site-lisp/smart-tab
-	url = https://github.com/genehack/smart-tab.git
 [submodule "site-lisp/undohist"]
 	path = site-lisp/undohist
 	url = https://github.com/m2ym/undohist-el.git
@@ -22,9 +19,6 @@
 [submodule "site-lisp/rfringe"]
 	path = site-lisp/rfringe
 	url = https://github.com/emacsmirror/rfringe.git
-[submodule "site-lisp/lintnode"]
-	path = site-lisp/lintnode
-	url = https://github.com/deactivated/lintnode.git
 [submodule "site-lisp/magit"]
 	path = site-lisp/magit
 	url = https://github.com/magit/magit.git
@@ -37,9 +31,6 @@
 [submodule "site-lisp/lolcode-mode"]
 	path = site-lisp/lolcode-mode
 	url = https://github.com/bodil/lolcode-mode.git
-[submodule "site-lisp/twittering-mode"]
-	path = site-lisp/twittering-mode
-	url = https://github.com/hayamiz/twittering-mode.git
 [submodule "site-lisp/jade-mode"]
 	path = site-lisp/jade-mode
 	url = https://github.com/brianc/jade-mode.git
@@ -49,12 +40,6 @@
 [submodule "site-lisp/emacs-eclim"]
 	path = site-lisp/emacs-eclim
 	url = https://github.com/senny/emacs-eclim.git
-[submodule "site-lisp/bongo"]
-	path = site-lisp/bongo
-	url = https://github.com/dbrock/bongo.git
-[submodule "site-lisp/mingus"]
-	path = site-lisp/mingus
-	url = https://github.com/pft/mingus.git
 [submodule "site-lisp/runlol"]
 	path = site-lisp/runlol
 	url = https://github.com/bodil/runlol.git
