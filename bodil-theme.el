@@ -19,6 +19,7 @@
 (setq default-frame-font "-unknown-DejaVu Sans Mono-normal-normal-normal-*-14-*-*-*-m-0-iso10646-1")
 (setq presentation-frame-font "-unknown-DejaVu Sans Mono-normal-normal-normal-*-18-*-*-*-m-0-iso10646-1")
 (set-frame-font default-frame-font)
+(set-default-font default-frame-font)
 
 ;; Bind a key for toggling font size for presentations
 (global-set-key (kbd "C-<f9>") (lambda () (interactive)
@@ -53,6 +54,8 @@
 ;; Show line numbers in buffers
 (global-linum-mode t)
 (setq linum-format "%4d")
+(set-face-background 'linum "#3f3f3f")
+(set-face-foreground 'linum "#606660")
 
 ;; Setup rfringe
 (require 'rfringe)
