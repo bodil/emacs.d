@@ -23,6 +23,10 @@
 (add-hook 'slime-mode-hook 'set-up-slime-ac)
 (add-hook 'slime-repl-mode-hook 'set-up-slime-ac)
 
+;; Enable auto-complete in lisp mode
+(require 'auto-complete)
+(add-to-list 'ac-modes 'lisp-mode)
+
 ;; Load clojure-mode
 (require 'clojure-mode)
 
