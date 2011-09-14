@@ -1,8 +1,13 @@
 ;;; bodil-theme.el -- Visual things
 
 ;; Set colour theme
-(add-to-list 'custom-theme-load-path (expand-file-name "~/.emacs.d/site-lisp/zenburn"))
-(load-theme 'zenburn)
+(if (boundp 'load-theme)
+    (progn
+      (add-to-list 'custom-theme-load-path (expand-file-name "~/.emacs.d/site-lisp/zenburn"))
+      (load-theme 'zenburn))
+  (progn
+    (require 'color-theme-zenburn)
+    (color-theme-zenburn)))
 
 ;; Highlight current line
 (setq global-hl-line-mode t)
