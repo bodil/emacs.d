@@ -1,7 +1,7 @@
 ;;; bodil-theme.el -- Visual things
 
 ;; Set colour theme
-(if (functionp 'load-theme)
+(if (boundp 'custom-theme-load-path)
     (progn
       (add-to-list 'custom-theme-load-path (expand-file-name "~/.emacs.d/site-lisp/zenburn"))
       (load-theme 'zenburn))
