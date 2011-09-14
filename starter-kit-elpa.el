@@ -10,7 +10,12 @@
                                    'css-mode
                                    'yaml-mode
                                    'paredit
-                                   'gist)
+                                   'gist
+                                   'clojure-mode
+                                   'clojurescript-mode
+                                   'clojure-test-mode
+                                   'slime
+                                   'slime-repl)
   "Libraries that should be installed by default.")
 
 (defun starter-kit-elpa-install ()

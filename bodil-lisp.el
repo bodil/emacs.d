@@ -1,7 +1,7 @@
 ;;; bodil-lisp.el -- Lisp specific configuration
 
 ;; SLIME
-(require 'slime-autoloads)
+(require 'slime)
 (slime-setup '(slime-repl))
 
 ;; Make paredit play nice with eldoc
@@ -29,22 +29,4 @@
 
 ;; Load clojure-mode
 (require 'clojure-mode)
-
-;; Define available lisps, in ASCENDING order of priority
-(setq slime-lisp-implementations '())
-;; Clojure: install if Leiningen is on the path
-(let ((lein-path (executable-find "lein")))
-  (if (and (not (null lein-path)) (file-executable-p lein-path))
-      (add-to-list 'slime-lisp-implementations
-                   (list 'clojure (list lein-path "repl")))))
-;; SBCL: install if SBCL is on the path and slime-helper is installed
-(let ((slime-helper (expand-file-name "~/quicklisp/slime-helper.el"))
-      (sbcl-path (executable-find "sbcl")))
-  (if (and (file-readable-p slime-helper)
-           (not (null sbcl-path))
-           (file-executable-p sbcl-path))
-      (progn
-        (load slime-helper)
-        (add-to-list 'slime-lisp-implementations
-                     (list 'sbcl (list sbcl-path))))))
 

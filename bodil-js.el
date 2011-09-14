@@ -1,24 +1,17 @@
 ;;; bodil-js.el -- Javascript configuration
 
-;; Configure js2-mode
-;; (require 'js2-mode)
-;; (setq js2-bounce-indent-p t)
-;; (setq js2-cleanup-whitespace t)
-;; (setq js2-enter-indents-newline t)
-
+;; Make sure
 (add-to-list 'auto-mode-alist '("\\.js$" . js-mode))
 (add-to-list 'auto-mode-alist '("\\.json$" . js-mode))
 
 ;; Setup slime-js
-(require 'slime)
-(slime-setup '(slime-fancy slime-repl slime-js))
-(add-hook 'js2-mode-hook
-          (lambda ()
-            (define-key js2-mode-map [f5] 'slime-js-reload)
-            (slime-js-minor-mode 1)))
+(add-hook 'js-mode-hook
+         (lambda ()
+           (define-key js2-mode-map [f5] 'slime-js-reload)
+           (slime-js-minor-mode 1)))
 (add-hook 'css-mode-hook
-          (lambda ()
-            (define-key css-mode-map "\M-\C-x" 'slime-js-refresh-css)))
+         (lambda ()
+           (define-key css-mode-map [f5] 'slime-js-refresh-css)))
 
 ;; Coffeescript mode
 (require 'coffee-mode)
