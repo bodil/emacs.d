@@ -10,7 +10,7 @@
     (color-theme-zenburn)
     (set-face-underline-p 'highlight nil)
     ))
-(set-face-background 'highlight "#323232")
+(set-face-background 'highlight "#3a3a3a")
 
 ;; Highlight current line
 (setq global-hl-line-mode t)
