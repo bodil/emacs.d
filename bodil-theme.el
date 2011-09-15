@@ -16,8 +16,8 @@
 (setq global-hl-line-mode t)
 
 ;; Set font
-(setq default-frame-font "-unknown-DejaVu Sans Mono-normal-normal-normal-*-14-*-*-*-m-0-iso10646-1")
-(setq presentation-frame-font "-unknown-DejaVu Sans Mono-normal-normal-normal-*-18-*-*-*-m-0-iso10646-1")
+(setq default-frame-font "-unknown-UbuntuBeta Mono-normal-normal-normal-*-16-*-*-*-m-0-iso10646-1")
+(setq presentation-frame-font "-unknown-UbuntuBeta Mono-normal-normal-normal-*-21-*-*-*-m-0-iso10646-1")
 (set-frame-font default-frame-font)
 (set-default-font default-frame-font)
 
