@@ -9,8 +9,8 @@
 
 ;; Keybindings for cycling buffers in last-used order using iflipb
 (require 'iflipb)
-(global-set-key (kbd "C-<end>") 'iflipb-next-buffer)
-(global-set-key (kbd "C-<home>") 'iflipb-previous-buffer)
+(global-set-key (kbd "C-<next>") 'iflipb-next-buffer)
+(global-set-key (kbd "C-<prior>") 'iflipb-previous-buffer)
 (global-set-key (kbd "<XF86Forward>") 'iflipb-next-buffer)
 (global-set-key (kbd "<XF86Back>") 'iflipb-previous-buffer)
 
