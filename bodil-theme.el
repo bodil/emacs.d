@@ -1,15 +1,9 @@
 ;;; bodil-theme.el -- Visual things
 
 ;; Set colour theme
-(if (boundp 'custom-theme-load-path)
-    (progn
-      (add-to-list 'custom-theme-load-path (expand-file-name "~/.emacs.d/site-lisp/zenburn"))
-      (load-theme 'zenburn))
-  (progn
-    (require 'color-theme-zenburn)
-    (color-theme-zenburn)
-    (set-face-underline-p 'highlight nil)
-    ))
+(require 'zenburn)
+(color-theme-zenburn)
+(set-face-underline-p 'highlight nil)
 (set-face-background 'highlight "#363636")
 (set-face-background 'region "#464668")
 

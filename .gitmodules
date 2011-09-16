@@ -39,4 +39,4 @@
 	url = https://github.com/bodil/runlol.git
 [submodule "site-lisp/zenburn"]
 	path = site-lisp/zenburn
-	url = https://github.com/bbatsov/zenburn-emacs.git
+	url = https://github.com/dbrock/zenburn-el.git
