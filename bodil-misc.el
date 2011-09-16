@@ -15,6 +15,12 @@
 (global-set-key (kbd "C-c b") 'org-iswitchb)
 (setq org-log-done t)
 
+;; Deft
+(require 'deft)
+(setq deft-extension "md"
+      deft-directory (expand-file-name "~/Ubuntu One/Org/Deft/")
+      deft-text-mode 'markdown-mode)
+
 ;; Persistent undo history
 (require 'undohist)
 (undohist-initialize)
