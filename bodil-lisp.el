@@ -29,4 +29,32 @@
 
 ;; Load clojure-mode
 (require 'clojure-mode)
+(add-hook 'clojure-mode-hook
+          (lambda ()
+            (clojure-test-mode 1)
+            (setq buffer-save-without-query t)))
+
+;; Clojurecharge slime-selector
+(define-key global-map (kbd "C-<home>") 'slime-selector)
+(def-slime-selector-method ?j
+  "most recently visited clojure-mode buffer."
+  (slime-recently-visited-buffer 'clojure-mode))
+
+;; Hijack runlol test reporting
+(defun clojure-test-echo-results ()
+  (runlol-stop-timer)
+  (let ((failing clojure-test-failure-count))
+    (let ((modeline-text (if (= failing 0) " TESTS OK " (format " FAIL:% 3d " failing))))
+      (setq global-mode-string
+            (propertize modeline-text 'face
+                        (if (= failing 0) 'runlol-green-face 'runlol-red-face)))))
+  (message
+   (propertize
+    (format "Ran %s tests. %s failures, %s errors."
+            clojure-test-count clojure-test-failure-count
+            clojure-test-error-count)
+    'face
+    (cond ((not (= clojure-test-error-count 0)) 'clojure-test-error-face)
+          ((not (= clojure-test-failure-count 0)) 'clojure-test-failure-face)
+          (t 'clojure-test-success-face)))))
 
