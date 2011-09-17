@@ -6,19 +6,19 @@
 (set-face-underline-p 'highlight nil)
 (set-face-background 'highlight "#363636")
 (set-face-background 'region "#464668")
+(set-face-attribute 'mode-line nil :box nil)
+(set-face-attribute 'mode-line-inactive nil :box nil)
 
 ;; Highlight current line
 (setq global-hl-line-mode t)
 
-;; Set font
-(setq default-frame-font "-unknown-UbuntuBeta Mono-normal-normal-normal-*-16-*-*-*-m-0-iso10646-1")
-(setq presentation-frame-font "-unknown-UbuntuBeta Mono-normal-normal-normal-*-21-*-*-*-m-0-iso10646-1")
-(set-frame-font default-frame-font)
-(set-default-font default-frame-font)
-
 ;; Bind a key for toggling font size for presentations
-(global-set-key (kbd "C-<f9>") (lambda () (interactive)
-   (set-frame-font (if (string= (frame-parameter nil 'font) default-frame-font) presentation-frame-font default-frame-font))))
+(setq default-frame-font (frame-parameter nil 'font))
+(setq presentation-frame-font "-unknown-UbuntuBeta Mono-normal-normal-normal-*-21-*-*-*-m-0-iso10646-1")
+(defun toggle-presentation-font ()
+  (interactive)
+  (set-frame-font (if (string= (frame-parameter nil 'font) default-frame-font) presentation-frame-font default-frame-font)))
+(global-set-key (kbd "C-<f9>") 'toggle-presentation-font)
 
 ;; Configure Todochiku icon theme
 (setq todochiku-icons-directory "~/.emacs.d/todochiku-icons")
