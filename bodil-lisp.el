@@ -31,6 +31,7 @@
 (require 'clojure-mode)
 (add-hook 'clojure-mode-hook
           (lambda ()
+            (add-to-list 'ac-sources 'ac-source-yasnippet)
             (clojure-test-mode 1)
             (setq buffer-save-without-query t)))
 
