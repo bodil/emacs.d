@@ -12,7 +12,6 @@
                                    'paredit
                                    'gist
                                    'clojure-mode
-                                   'clojurescript-mode
                                    'clojure-test-mode
                                    'slime
                                    'slime-repl)
