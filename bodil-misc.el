@@ -47,12 +47,6 @@
 ;; w3m
 (require 'w3m-load)
 
-;; Magit
-(require 'magit)
-(require 'magit-svn)
-(autoload 'mo-git-blame-file "mo-git-blame" nil t)
-(autoload 'mo-git-blame-current "mo-git-blame" nil t)
-
 ;; I CAN HAS LOLCODE?
 (require 'lolcode-mode)
 (require 'auto-complete)

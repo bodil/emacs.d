@@ -47,6 +47,7 @@
 (load "~/.emacs.d/bodil-java")
 (load "~/.emacs.d/bodil-js")
 (load "~/.emacs.d/bodil-w3m")
+(load "~/.emacs.d/bodil-git")
 (load "~/.emacs.d/bodil-misc")
 (load "~/.emacs.d/bodil-bindings")
 (load "~/.emacs.d/bodil-vars")
