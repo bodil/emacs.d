@@ -33,7 +33,6 @@
 
 ;; File finding
 (global-set-key (kbd "C-x M-f") 'ido-find-file-other-window)
-(global-set-key (kbd "C-x C-M-f") 'find-file-in-project)
 (global-set-key (kbd "C-x f") 'recentf-ido-find-file)
 (global-set-key (kbd "C-c y") 'bury-buffer)
 (global-set-key (kbd "C-c r") 'revert-buffer)
@@ -41,7 +40,6 @@
 (global-set-key (kbd "C-x C-b") 'ibuffer)
 
 ;; Window switching. (C-x o goes to the next window)
-;(windmove-default-keybindings) ;; Shift+direction
 (global-set-key (kbd "C-x O") (lambda () (interactive) (other-window -1))) ;; back one
 (global-set-key (kbd "C-x C-o") (lambda () (interactive) (other-window 2))) ;; forward two
 
@@ -57,22 +55,14 @@
 ;; If you want to be able to M-x without meta (phones, etc)
 (global-set-key (kbd "C-x C-m") 'execute-extended-command)
 
-;; Fetch the contents at a URL, display it raw.
-(global-set-key (kbd "C-x C-h") 'view-url)
-
 ;; Help should search more than just commands
 (global-set-key (kbd "C-h a") 'apropos)
-
-;; Should be able to eval-and-replace anywhere.
-(global-set-key (kbd "C-c e") 'eval-and-replace)
 
 ;; For debugging Emacs modes
 (global-set-key (kbd "C-c p") 'message-point)
 
 ;; So good!
 (global-set-key (kbd "C-x g") 'magit-status)
-
-(global-set-key (kbd "C-c q") 'join-line)
 
 ;; This is a little hacky since VC doesn't support git add internally
 (eval-after-load 'vc

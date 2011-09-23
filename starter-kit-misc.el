@@ -32,28 +32,14 @@
                                   face indentation space-after-tab)
       whitespace-line-column 100
       ediff-window-setup-function 'ediff-setup-windows-plain
-      oddmuse-directory (concat dotfiles-dir "oddmuse")
       xterm-mouse-mode t
       save-place-file (concat dotfiles-dir "places"))
 
 (add-to-list 'safe-local-variable-values '(lexical-binding . t))
 (add-to-list 'safe-local-variable-values '(whitespace-line-column . 80))
 
-;; Set this to whatever browser you use
-;; (setq browse-url-browser-function 'browse-url-firefox)
-;; (setq browse-url-browser-function 'browse-default-macosx-browser)
-;; (setq browse-url-browser-function 'browse-default-windows-browser)
-;; (setq browse-url-browser-function 'browse-default-kde)
-;; (setq browse-url-browser-function 'browse-default-epiphany)
-;; (setq browse-url-browser-function 'browse-default-w3m)
-;; (setq browse-url-browser-function 'browse-url-generic
-;;       browse-url-generic-program "~/src/conkeror/conkeror")
-
 ;; Transparently open compressed files
 (auto-compression-mode t)
-
-;; Enable syntax highlighting for older Emacsen that have it off
-(global-font-lock-mode t)
 
 ;; Save a list of recent files visited.
 (recentf-mode 1)
@@ -108,7 +94,6 @@
 (add-to-list 'auto-mode-alist '("\\.ya?ml$" . yaml-mode))
 (add-to-list 'auto-mode-alist '("\\.rb$" . ruby-mode))
 (add-to-list 'auto-mode-alist '("Rakefile$" . ruby-mode))
-(add-to-list 'auto-mode-alist '("\\.js\\(on\\)?$" . js2-mode))
 (add-to-list 'auto-mode-alist '("\\.xml$" . nxml-mode))
 
 (eval-after-load 'grep
@@ -148,12 +133,6 @@
 
 ;; make emacs use the clipboard
 (setq x-select-enable-clipboard t)
-
-;; Get around the emacswiki spam protection
-(add-hook 'oddmuse-mode-hook
-          (lambda ()
-            (unless (string-match "question" oddmuse-post)
-              (setq oddmuse-post (concat "uihnscuskc=1;" oddmuse-post)))))
 
 (provide 'starter-kit-misc)
 ;;; starter-kit-misc.el ends here

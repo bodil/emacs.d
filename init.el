@@ -1,7 +1,5 @@
 ;;; init.el --- Where all the magic begins
 ;;
-;; Part of the Emacs Starter Kit
-;;
 ;; This is the first thing to get loaded.
 ;;
 ;; "Emacs outshines all other editing software in approximately the
@@ -9,10 +7,46 @@
 ;; and brighter; it simply makes everything else vanish."
 ;; -Neal Stephenson, "In the Beginning was the Command Line"
 
+;; omg stfu
+(setq debug-on-error nil)
+(setq warning-suppress-types nil)
+(setq stack-trace-on-error nil)
+
+;; Get hostname
+(setq hostname (replace-regexp-in-string "\\(^[[:space:]\n]*\\|[[:space:]\n]*$\\)" "" (with-output-to-string (call-process "hostname" nil standard-output))))
+
+;; Are we running XEmacs or Emacs?
+(defvar running-xemacs (string-match "XEmacs\\|Lucid" emacs-version))
+;; Some simple macros to more easily tell if we're running GNUEmacs or XEmacs
+;; taken from the .emacs of sukria@online.fr | http://sukria.online.fr
+(defmacro GNUEmacs (&rest x)
+  (list 'if (not running-xemacs) (cons 'progn x)))
+(defmacro XEmacs (&rest x)
+  (list 'if running-xemacs (cons 'progn x)))
+(defmacro Xlaunch (&rest x)
+  (list 'if (eq window-system 'x) (cons 'progn x)))
+
 ;; Load path etc.
 
 (setq dotfiles-dir (file-name-directory
                     (or (buffer-file-name) load-file-name)))
+(add-to-list 'load-path dotfiles-dir)
+(add-to-list 'load-path (concat dotfiles-dir "/elpa-to-submit"))
+;; Add every subdirectory of ~/.emacs.d/site-lisp to the load path
+(dolist
+    (elt
+     (delq nil
+           (mapcar
+            (lambda (filedesc)
+              (let ((filename (car filedesc))
+                    (isdirectory (cadr filedesc)))
+                (if (and isdirectory
+                         (not (integerp (string-match "/\\.+$" filename))))
+                    filename
+                  nil)))
+            (directory-files-and-attributes
+             (concat dotfiles-dir "/site-lisp") t))))
+  (add-to-list 'load-path elt))
 
 ;; First of all, load proxy settings etc we might need depending on hostname.
 (setq system-specific-immediate-config (concat dotfiles-dir system-name "-first.el"))
@@ -31,21 +65,11 @@
            (load-file "/usr/share/emacs/site-lisp/debian-startup.el")
            (debian-run-directories "/etc/emacs/site-start.d")))
 
-;; Load path etc.
-
-(setq dotfiles-dir (file-name-directory
-                    (or (buffer-file-name) load-file-name)))
-
-;; Load up ELPA, the package manager
-
-(add-to-list 'load-path dotfiles-dir)
-
-(add-to-list 'load-path (concat dotfiles-dir "/elpa-to-submit"))
-
 (setq autoload-file (concat dotfiles-dir "loaddefs.el"))
-(setq package-user-dir (concat dotfiles-dir "elpa"))
 (setq custom-file (concat dotfiles-dir "custom.el"))
 
+;; ELPA
+(setq package-user-dir (concat dotfiles-dir "elpa"))
 (require 'package)
 (dolist (source '(("marmalade" . "http://marmalade-repo.org/packages/")
                   ("elpa" . "http://tromey.com/elpa/")))
@@ -63,23 +87,12 @@
 (require 'ansi-color)
 (require 'recentf)
 
-;; backport some functionality to Emacs 22 if needed
-(require 'dominating-file)
-
 ;; Load up starter kit customizations
 
 (require 'starter-kit-defuns)
 (require 'starter-kit-bindings)
 (require 'starter-kit-misc)
-(require 'starter-kit-registers)
-(require 'starter-kit-eshell)
 (require 'starter-kit-lisp)
-(require 'starter-kit-perl)
-(require 'starter-kit-ruby)
-(require 'starter-kit-js)
-
-(regen-autoloads)
-(load custom-file 'noerror)
 
 ;; You can keep system- or user-specific customizations here
 (setq system-specific-config (concat dotfiles-dir system-name ".el")
@@ -91,5 +104,24 @@
 (if (file-exists-p user-specific-config) (load user-specific-config))
 (if (file-exists-p user-specific-dir)
   (mapc #'load (directory-files user-specific-dir nil ".*el$")))
+
+;; Load my scripts
+(load "~/.emacs.d/bodil-theme")
+(load "~/.emacs.d/bodil-lisp")
+(load "~/.emacs.d/bodil-haskell")
+(load "~/.emacs.d/bodil-python")
+(load "~/.emacs.d/bodil-java")
+(load "~/.emacs.d/bodil-js")
+(load "~/.emacs.d/bodil-w3m")
+(load "~/.emacs.d/bodil-git")
+(load "~/.emacs.d/bodil-misc")
+(load "~/.emacs.d/bodil-bindings")
+(load "~/.emacs.d/bodil-vars")
+
+;; Load X-specific scripts
+(Xlaunch (load "~/.emacs.d/bodil-x"))
+
+(regen-autoloads)
+(load custom-file 'noerror)
 
 ;;; init.el ends here

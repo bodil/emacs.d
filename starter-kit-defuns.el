@@ -215,7 +215,7 @@ Symbols matching the text at point are put first in the completion list."
   (paredit-mode 1))
 
 (defun esk-space-for-delimiter? (endp delimiter)
-  (not (member major-mode '(ruby-mode espresso-mode js2-mode))))
+  (not (member major-mode '(ruby-mode espresso-mode js2-mode coffee-mode))))
 
 (eval-after-load 'paredit
   '(add-to-list 'paredit-space-for-delimiter-predicates

@@ -1,5 +1,11 @@
 ;;; bodil-misc.el -- Other stuff
 
+;; Start emacsclient server
+(server-start)
+;; And the edit server for Chrome's Edit With Emacs extension
+(require 'edit-server)
+(edit-server-start)
+
 ;; Yasnippet setup
 (require 'yasnippet)
 (yas/initialize)
