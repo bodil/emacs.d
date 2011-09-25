@@ -132,6 +132,7 @@
 (require 'shell)
 (require 'executable)
 (require 'ansi-color)
+(require 'python-mode)
 
 (defcustom ipython-command "ipython"
   "*Shell command used to start ipython."
