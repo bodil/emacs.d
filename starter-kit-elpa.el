@@ -15,9 +15,12 @@
                                    'clojure-test-mode
                                    'slime
                                    'slime-repl
+                                   'elein
                                    'color-theme
                                    'color-theme-github
-                                   'highlight-parentheses)
+                                   'highlight-parentheses
+                                   'markdown-mode
+                                   'notify)
   "Libraries that should be installed by default.")
 
 (defun starter-kit-elpa-install ()
@@ -30,18 +33,11 @@
       (package-install package))))
 
 (defun esk-online? ()
-  "See if we're online.
-
-Windows does not have the network-interface-list function, so we
-just have to assume it's online."
-  ;; TODO how could this work on Windows?
-  (if (and (functionp 'network-interface-list)
-           (network-interface-list))
+  "See if we're online."
+  (if (and (functionp 'network-interface-list) (network-interface-list))
       (some (lambda (iface) (unless (equal "lo" (car iface))
-                         (member 'up (first (last (network-interface-info
-                                                   (car iface)))))))
-            (network-interface-list))
-    t))
+                         (member 'up (first (last (network-interface-info (car iface)))))))
+            (network-interface-list)) t))
 
 ;; On your first run, this should pull in all the base packages.
 (when (esk-online?)
