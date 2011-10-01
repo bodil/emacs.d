@@ -20,7 +20,9 @@
                                    'color-theme-github
                                    'highlight-parentheses
                                    'markdown-mode
-                                   'notify)
+                                   'notify
+                                   'erefactor
+                                   'elisp-slime-nav)
   "Libraries that should be installed by default.")
 
 (defun starter-kit-elpa-install ()

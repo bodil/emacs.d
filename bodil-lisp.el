@@ -68,3 +68,15 @@
 (add-hook 'lisp-mode-hook (lambda () (highlight-parentheses-mode 1)))
 (add-hook 'emacs-lisp-mode-hook (lambda () (highlight-parentheses-mode 1)))
 
+;; erefactor
+(require 'erefactor)
+(add-hook 'emacs-lisp-mode-hook
+          (lambda () (define-key emacs-lisp-mode-map (kbd "C-c C-v") erefactor-map)))
+(add-hook 'emacs-lisp-mode-hook 'erefactor-lazy-highlight-turn-on)
+(add-hook 'lisp-interaction-mode-hook 'erefactor-lazy-highlight-turn-on)
+
+;; Setup elisp-slime-nav so M-. and M-, work as well in elisp as they
+;; do in SLIME
+(require 'elisp-slime-nav)
+(add-hook 'emacs-lisp-mode-hook (lambda () (elisp-slime-nav-mode t)))
+
