@@ -29,8 +29,10 @@
 (theme-dark)
 
 ;; Bind a key for toggling font size for presentations
-(setq default-frame-font (frame-parameter nil 'font))
-(setq presentation-frame-font "-unknown-UbuntuBeta Mono-normal-normal-normal-*-21-*-*-*-m-0-iso10646-1")
+;; (setq default-frame-font (frame-parameter nil 'font))
+(setq default-frame-font "-unknown-Ubuntu Mono-normal-normal-normal-*-16-*-*-*-m-0-iso10646-1")
+(set-frame-font default-frame-font)
+(setq presentation-frame-font "-unknown-Ubuntu Mono-normal-normal-normal-*-21-*-*-*-m-0-iso10646-1")
 (defun toggle-presentation-font ()
   (interactive)
   (set-frame-font (if (string= (frame-parameter nil 'font) default-frame-font) presentation-frame-font default-frame-font)))
