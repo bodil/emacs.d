@@ -14,7 +14,8 @@
                                    'clojure-mode
                                    'clojure-test-mode
                                    'slime
-                                   'slime-repl)
+                                   'slime-repl
+                                   'color-theme)
   "Libraries that should be installed by default.")
 
 (defun starter-kit-elpa-install ()
