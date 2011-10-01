@@ -38,7 +38,12 @@
 (require 'auto-complete-config)
 (add-to-list 'ac-dictionary-directories "~/.emacs.d/site-lisp/auto-complete/dict")
 (ac-config-default)
-(define-key ac-mode-map (kbd "C-<tab>") 'auto-complete)
+(setq ac-auto-start nil)
+(ac-set-trigger-key "TAB")
+(define-key ac-completing-map "\t" 'ac-complete)
+(define-key ac-completing-map "\r" nil)
+(define-key ac-completing-map (kbd "C-h") 'ac-persist-help)
+(setq ac-use-quick-help 0.5)
 
 ;; Bind Flyspell completion key to M-\
 (setq flyspell-auto-correct-binding (kbd "M-\\"))
