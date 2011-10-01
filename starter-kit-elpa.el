@@ -24,7 +24,9 @@
                                    'erefactor
                                    'elisp-slime-nav
                                    'ibuffer-vc
-                                   'ido-ubiquitous)
+                                   'ido-ubiquitous
+                                   'flymake-cursor
+                                   'flymake-coffee)
   "Libraries that should be installed by default.")
 
 (defun starter-kit-elpa-install ()

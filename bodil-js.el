@@ -61,3 +61,8 @@
 
 ;; Activate runlol integration
 (require 'runlol)
+
+;; Flymake CS files
+(require 'flymake-coffee)
+(add-hook 'coffee-mode-hook 'flymake-coffee-load)
+
