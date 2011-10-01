@@ -11,6 +11,7 @@
 (setq debug-on-error nil)
 (setq warning-suppress-types nil)
 (setq stack-trace-on-error nil)
+(setq help-xref-following nil)
 
 ;; Get hostname
 (setq hostname (replace-regexp-in-string "\\(^[[:space:]\n]*\\|[[:space:]\n]*$\\)" "" (with-output-to-string (call-process "hostname" nil standard-output))))
