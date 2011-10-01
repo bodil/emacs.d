@@ -81,6 +81,10 @@
       (goto-char position))))
 (global-set-key (kbd "C-t") 'ido-goto-symbol)
 
+;; Use ido everywhere
+(require 'ido-ubiquitous)
+(setq ido-ubiquitous-enabled t)
+
 ;; XF86Calculator invokes eval-expression
 (global-set-key (kbd "<XF86Calculator>") 'eval-expression)
 

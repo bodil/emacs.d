@@ -23,7 +23,8 @@
                                    'notify
                                    'erefactor
                                    'elisp-slime-nav
-                                   'ibuffer-vc)
+                                   'ibuffer-vc
+                                   'ido-ubiquitous)
   "Libraries that should be installed by default.")
 
 (defun starter-kit-elpa-install ()
