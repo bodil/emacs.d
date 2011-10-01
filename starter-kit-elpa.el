@@ -22,7 +22,8 @@
                                    'markdown-mode
                                    'notify
                                    'erefactor
-                                   'elisp-slime-nav)
+                                   'elisp-slime-nav
+                                   'ibuffer-vc)
   "Libraries that should be installed by default.")
 
 (defun starter-kit-elpa-install ()

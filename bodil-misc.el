@@ -90,4 +90,9 @@
 (add-hook 'html-mode-hook (lambda () (hl-tags-mode t)))
 (add-to-list 'ac-modes 'html-mode)
 
+;; Group the ibuffer list by vc-root
+(add-hook 'ibuffer-hook
+          (lambda ()
+            (ibuffer-vc-set-filter-groups-by-vc-root)
+            (ibuffer-do-sort-by-alphabetic)))
 
