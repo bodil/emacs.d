@@ -16,6 +16,7 @@
                                    'slime
                                    'slime-repl
                                    'color-theme
+                                   'color-theme-github
                                    'highlight-parentheses)
   "Libraries that should be installed by default.")
 

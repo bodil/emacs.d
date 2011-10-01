@@ -1,16 +1,32 @@
 ;;; bodil-theme.el -- Visual things
 
-;; Set colour theme
-(require 'zenburn)
-(color-theme-zenburn)
-(set-face-underline-p 'highlight nil)
-(set-face-background 'highlight "#363636")
-(set-face-background 'region "#464668")
-(set-face-attribute 'mode-line nil :box nil)
-(set-face-attribute 'mode-line-inactive nil :box nil)
+;; Show line numbers in buffers
+(global-linum-mode t)
+(setq linum-format "%4d")
 
 ;; Highlight current line
 (setq global-hl-line-mode t)
+
+;; Prepare colour themes
+(defun theme-light ()
+  (interactive)
+  (require 'color-theme-github)
+  (color-theme-github)
+  (set-face-background 'highlight "#eeeeee")
+  (set-face-background 'linum nil)
+  (set-face-foreground 'linum nil))
+(defun theme-dark ()
+  (interactive)
+  (require 'zenburn)
+  (color-theme-zenburn)
+  (set-face-underline-p 'highlight nil)
+  (set-face-background 'highlight "#363636")
+  (set-face-background 'region "#464668")
+  (set-face-attribute 'mode-line nil :box nil)
+  (set-face-attribute 'mode-line-inactive nil :box nil)
+  (set-face-background 'linum "#3f3f3f")
+  (set-face-foreground 'linum "#606660"))
+(theme-dark)
 
 ;; Bind a key for toggling font size for presentations
 (setq default-frame-font (frame-parameter nil 'font))
@@ -45,12 +61,6 @@
 ;;   (ecb-split-ver 0.6153846153846154)
 ;;   (ecb-set-methods-buffer)
 ;;   (select-window (next-window)))
-
-;; Show line numbers in buffers
-(global-linum-mode t)
-(setq linum-format "%4d")
-(set-face-background 'linum "#3f3f3f")
-(set-face-foreground 'linum "#606660")
 
 ;; Setup rfringe
 (require 'rfringe)
