@@ -148,7 +148,7 @@ If point was already at that position, move point to beginning of line."
 (global-set-key (kbd "C-a") 'smart-beginning-of-line)
 
 ;; Flymake bindings
-(global-set-key (kbd "C-c n") 'flymake-goto-next-error)
-(global-set-key (kbd "C-c p") 'flymake-goto-prev-error)
+(global-set-key (kbd "M-n") 'flymake-goto-next-error)
+(global-set-key (kbd "M-p") 'flymake-goto-prev-error)
 (require 'flymake-cursor)
 
