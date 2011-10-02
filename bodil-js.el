@@ -5,13 +5,8 @@
 (add-to-list 'auto-mode-alist '("\\.json$" . js-mode))
 
 ;; Setup slime-js
-(add-hook 'js-mode-hook
-         (lambda ()
-           (define-key js2-mode-map [f5] 'slime-js-reload)
-           (slime-js-minor-mode 1)))
-(add-hook 'css-mode-hook
-         (lambda ()
-           (define-key css-mode-map [f5] 'slime-js-refresh-css)))
+(add-hook 'js-mode-hook (lambda () (define-key js-mode-map [f5] 'slime-js-reload) (slime-js-minor-mode 1)))
+(add-hook 'css-mode-hook (lambda () (define-key css-mode-map [f5] 'slime-js-refresh-css)))
 
 ;; Coffeescript mode
 (require 'coffee-mode)
