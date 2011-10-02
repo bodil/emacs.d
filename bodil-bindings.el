@@ -3,10 +3,6 @@
 ;; Enable CUA selection mode; sorry, it stuck.
 (cua-selection-mode t)
 
-;; Enable whole-line-or-region
-;(require 'whole-line-or-region)
-;(whole-line-or-region-mode t)
-
 ;; Keybindings for cycling buffers in last-used order using iflipb
 (require 'iflipb)
 (global-set-key (kbd "C-<next>") 'iflipb-next-buffer)
