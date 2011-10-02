@@ -21,8 +21,7 @@
                                    'highlight-parentheses
                                    'markdown-mode
                                    'notify
-                                   'erefactor
-                                   'elisp-slime-nav
+                                    'elisp-slime-nav
                                    'ibuffer-vc
                                    'ido-ubiquitous
                                    'flymake-cursor
