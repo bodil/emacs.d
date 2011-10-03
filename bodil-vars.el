@@ -31,3 +31,6 @@
 (setq desktop-save (quote if-exists))
 (desktop-save-mode 1)
 
+;; Stop pausing the display update while processing input events
+(setq redisplay-dont-pause t)
+
