@@ -73,3 +73,6 @@
 (require 'elisp-slime-nav)
 (add-hook 'emacs-lisp-mode-hook (lambda () (elisp-slime-nav-mode t)))
 
+;; Enable clojure-test-mode
+(require 'clojure-test-mode)
+

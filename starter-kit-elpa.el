@@ -11,8 +11,6 @@
                                    'yaml-mode
                                    'paredit
                                    'gist
-                                   'clojure-mode
-                                   'clojure-test-mode
                                    'slime
                                    'slime-repl
                                    'elein
