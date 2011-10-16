@@ -10,9 +10,6 @@
 (global-set-key (kbd "<XF86Forward>") 'iflipb-next-buffer)
 (global-set-key (kbd "<XF86Back>") 'iflipb-previous-buffer)
 
-;; Redefine undo key
-(global-set-key (kbd "C-z") 'undo)
-
 ;; Always newline-and-indent
 (define-key global-map (kbd "RET") 'newline-and-indent)
 
