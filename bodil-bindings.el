@@ -13,8 +13,13 @@
 ;; Always newline-and-indent
 (define-key global-map (kbd "RET") 'newline-and-indent)
 
-;; Open a shell
-(global-set-key (kbd "C-x m") (lambda () (interactive) (multi-term)))
+;; Open a shell, or cycle through open shells
+(defun multi-term-open-or-next ()
+  (interactive)
+  (if (multi-term-list)
+      (multi-term-next)
+    (multi-term)))
+(global-set-key (kbd "C-x m") 'multi-term-open-or-next)
 
 ;; Use smex to provide ido-like interface for M-x
 (require 'smex)
