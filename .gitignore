@@ -34,3 +34,5 @@ undohist
 /saveplace
 /.emacs.desktop
 /.emacs.desktop.lock
+/abbrev_defs
+/swank
