@@ -16,9 +16,6 @@
 ;; Always newline-and-indent
 (define-key global-map (kbd "RET") 'newline-and-indent)
 
-;; Bind M-DEL to inverse C-K (kill to start of line)
-(global-set-key (kbd "M-DEL") (lambda () (interactive) (kill-line 0)))
-
 ;; Open a shell
 (global-set-key (kbd "C-x m") (lambda () (interactive) (multi-term)))
 
