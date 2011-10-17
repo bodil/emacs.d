@@ -13,13 +13,45 @@
 ;; Always newline-and-indent
 (define-key global-map (kbd "RET") 'newline-and-indent)
 
-;; Open a shell, or cycle through open shells
+;; multi-term navigation stuff
+(require 'cl)
 (defun multi-term-open-or-next ()
   (interactive)
   (if (multi-term-list)
       (multi-term-next)
     (multi-term)))
 (global-set-key (kbd "C-x m") 'multi-term-open-or-next)
+
+(defun multi-term-open-or-activate ()
+  (interactive)
+  (if (multi-term-list)
+      (let ((term-buffer (car (multi-term-list))))
+        (let ((term-window (get-buffer-window term-buffer 0)))
+          (if term-window
+              (select-window term-window)
+            (set-window-buffer (selected-window) term-buffer))))
+    (multi-term)))
+
+(defun multi-term-get-visible ()
+  (remove-if-not (lambda (buf) (get-buffer-window buf 0)) (multi-term-list)))
+
+(defun multi-term-global-action (has-focus)
+  (interactive)
+  (if has-focus
+      ;; If Emacs has focus:
+      (if (multi-term-get-visible)
+          (if (member* (window-buffer (selected-window)) (multi-term-list))
+              ;; If the active window contains a term buffer:
+              (lower-frame)
+            ;; If a term is visible but not active:
+            (multi-term-open-or-activate))
+        ;; If no terms are visible:
+        (multi-term-open-or-activate))
+    ;; If Emacs hasn't got focus:
+    (progn
+      (raise-frame)
+      (select-frame-set-input-focus (selected-frame))
+      (multi-term-open-or-activate))))
 
 ;; Use smex to provide ido-like interface for M-x
 (require 'smex)
