@@ -34,3 +34,6 @@
 ;; Stop pausing the display update while processing input events
 (setq redisplay-dont-pause t)
 
+;; Recursive minibuffers
+(setq enable-recursive-minibuffers t)
+
