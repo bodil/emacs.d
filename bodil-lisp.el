@@ -67,6 +67,7 @@
                                '((lambda (action pair pos-before) (hl-paren-color-update)))))))
 (add-hook 'lisp-mode-hook (lambda () (highlight-parentheses-mode 1)))
 (add-hook 'emacs-lisp-mode-hook (lambda () (highlight-parentheses-mode 1)))
+(add-hook 'clojure-mode-hook (lambda () (highlight-parentheses-mode 1)))
 
 ;; Setup elisp-slime-nav so M-. and M-, work as well in elisp as they
 ;; do in SLIME
