@@ -43,3 +43,6 @@
 [submodule "site-lisp/clojure-mode"]
 	path = site-lisp/clojure-mode
 	url = https://github.com/technomancy/clojure-mode.git
+[submodule "site-lisp/clojure-refactoring"]
+	path = site-lisp/clojure-refactoring
+	url = https://github.com/joodie/clojure-refactoring.git
