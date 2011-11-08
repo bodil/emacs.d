@@ -11,6 +11,7 @@
 (setq js2-mirror-mode nil)
 (setq js2-mode-indent-ignore-first-tab t)
 (setq js2-global-externs '("require" "__dirname" "process" "console"))
+(add-hook 'js2-mode-hook (lambda () (hl-line-mode t)))
 
 (add-to-list 'auto-mode-alist '("\\.json$" . js-mode))
 
@@ -42,6 +43,7 @@
             flymake-err-line-patterns))
 (add-to-list 'flymake-allowed-file-name-masks
              '("\\.js\\'" flymake-jslint-init))
+(add-hook 'js2-mode-hook (lambda () (flymake-mode t)))
 
 ;; Patch coffee-mode so coffee-compile-region pops up a new
 ;; non-focused window instead of replacing the current buffer.
