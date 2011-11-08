@@ -1,7 +1,17 @@
 ;;; bodil-js.el -- Javascript configuration
 
-;; Make sure
-(add-to-list 'auto-mode-alist '("\\.js$" . js-mode))
+;; js2-mode
+(autoload 'js2-mode "js2-mode" nil t)
+(add-to-list 'auto-mode-alist '("\\.js$" . js2-mode))
+(setq js-indent-level 4)
+(setq js2-auto-indent-p t)
+(setq js2-cleanup-whitespace t)
+(setq js2-enter-indents-newline t)
+(setq js2-indent-on-enter-key t)
+(setq js2-mirror-mode nil)
+(setq js2-mode-indent-ignore-first-tab t)
+(setq js2-global-externs '("require" "__dirname" "process" "console"))
+
 (add-to-list 'auto-mode-alist '("\\.json$" . js-mode))
 
 ;; Coffeescript mode

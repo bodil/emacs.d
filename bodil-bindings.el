@@ -116,7 +116,7 @@
 (global-set-key (kbd "<XF86Calculator>") 'eval-expression)
 
 ;; Autopair-mode for selected major modes
-;; Note: lispy modes have paredit for this, and js2-mode does its own thing.
+;; Note: lispy modes have paredit for this.
 (require 'autopair)
 (setq autopair-pair-criteria 'always)
 (add-hook 'c-mode-common-hook (lambda () (autopair-mode)))
@@ -128,6 +128,7 @@
 (add-hook 'css-mode-hook (lambda () (autopair-mode)))
 (add-hook 'jade-mode-hook (lambda () (autopair-mode)))
 (add-hook 'js-mode-hook (lambda () (autopair-mode)))
+(add-hook 'js2-mode-hook (lambda () (autopair-mode)))
 ;; Keep autopair from interfering with auto-complete
 (setq ac-use-overriding-local-map t)
 
