@@ -3,6 +3,11 @@
 ;; Show line numbers in buffers
 (global-linum-mode t)
 (setq linum-format "%4d")
+;; Redefine linum-on to ignore terminal buffers, because just turning
+;; it off in term-mode-hook doesn't work.
+(defun linum-on ()
+  (unless (or (minibufferp) (string= major-mode "term-mode"))
+    (linum-mode 1)))
 
 ;; Highlight current line
 (setq global-hl-line-mode t)
