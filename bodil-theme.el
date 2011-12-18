@@ -6,7 +6,11 @@
 ;; Redefine linum-on to ignore terminal buffers, because just turning
 ;; it off in term-mode-hook doesn't work.
 (defun linum-on ()
-  (unless (or (minibufferp) (string= major-mode "term-mode"))
+  (unless (or (minibufferp)
+              (member major-mode '(term-mode
+                                   slime-repl-mode
+                                   magit-status-mode
+                                   help-mode)))
     (linum-mode 1)))
 
 ;; Highlight current line
