@@ -10,7 +10,7 @@
 (setq js2-indent-on-enter-key t)
 (setq js2-mirror-mode nil)
 (setq js2-mode-indent-ignore-first-tab t)
-(setq js2-global-externs '("require" "__dirname" "process" "console"))
+(setq js2-global-externs '("require" "__dirname" "process" "console" "$" "_"))
 (add-hook 'js2-mode-hook (lambda () (hl-line-mode t)))
 
 (add-to-list 'auto-mode-alist '("\\.json$" . js-mode))
