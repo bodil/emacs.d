@@ -77,6 +77,3 @@
 ;; Enable clojure-test-mode
 (require 'clojure-test-mode)
 
-;; clojure-refactoring
-(require 'clojure-refactoring-mode)
-
