@@ -49,3 +49,6 @@
 [submodule "site-lisp/expand-region"]
 	path = site-lisp/expand-region
 	url = https://github.com/magnars/expand-region.el.git
+[submodule "site-lisp/writegood-mode"]
+	path = site-lisp/writegood-mode
+	url = https://github.com/bnbeckwith/writegood-mode.git

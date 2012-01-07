@@ -103,3 +103,5 @@
 ;; Subword mode
 (global-subword-mode 1)
 
+;; writegood-mode
+(require 'writegood-mode)
