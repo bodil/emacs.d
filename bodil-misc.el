@@ -96,3 +96,7 @@
             (ibuffer-vc-set-filter-groups-by-vc-root)
             (ibuffer-do-sort-by-alphabetic)))
 
+;; expand-region
+(require 'expand-region)
+(global-set-key (kbd "M-+") 'er/expand-region)
+
