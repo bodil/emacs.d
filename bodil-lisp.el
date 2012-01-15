@@ -34,6 +34,8 @@
             (add-to-list 'ac-sources 'ac-source-yasnippet)
             (clojure-test-mode 1)
             (setq buffer-save-without-query t)))
+;; Enable it for ClojureScript too
+(add-to-list 'auto-mode-alist '("\.cljs$" . clojure-mode))
 
 ;; Clojurecharge slime-selector
 (define-key global-map (kbd "C-<home>") 'slime-selector)
