@@ -52,3 +52,6 @@
 [submodule "site-lisp/writegood-mode"]
 	path = site-lisp/writegood-mode
 	url = https://github.com/bnbeckwith/writegood-mode.git
+[submodule "site-lisp/mark-multiple"]
+	path = site-lisp/mark-multiple
+	url = https://github.com/magnars/mark-multiple.el.git
