@@ -37,3 +37,7 @@
 ;; Recursive minibuffers
 (setq enable-recursive-minibuffers t)
 
+;; Make ido better
+(setq ido-use-filename-at-point (quote guess))
+(setq ido-use-url-at-point t)
+(setq ido-use-virtual-buffers t)
