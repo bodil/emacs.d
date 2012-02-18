@@ -113,6 +113,7 @@
 (load "~/.emacs.d/bodil-python")
 (load "~/.emacs.d/bodil-java")
 (load "~/.emacs.d/bodil-js")
+(load "~/.emacs.d/bodil-c")
 (load "~/.emacs.d/bodil-w3m")
 (load "~/.emacs.d/bodil-git")
 (load "~/.emacs.d/bodil-misc")

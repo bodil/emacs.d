@@ -36,3 +36,4 @@ undohist
 /.emacs.desktop.lock
 /abbrev_defs
 /swank
+/ede-projects.el
