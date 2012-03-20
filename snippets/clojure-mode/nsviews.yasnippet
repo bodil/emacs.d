@@ -1,0 +1,11 @@
+# -*- mode: snippet -*-
+# key: nsviews
+# --
+(ns todo15m.views
+  (:require [noir.response :as response]
+            [monger.collection :as monger])
+  (:use [noir.core :only [defpage defpartial]]
+        [hiccup.page-helpers :only [html5 include-css]]
+        [hiccup.form-helpers])
+  (:import [org.bson.types ObjectId]))
+
