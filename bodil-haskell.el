@@ -1,7 +1,7 @@
 ;;; bodil-haskell.el -- Haskell things, for great justice.
 
 ;; Install haskell-mode
-(load (expand-file-name "~/.emacs.d/site-lisp/haskell-mode/haskell-site-file"))
+;(load (expand-file-name "~/.emacs.d/site-lisp/haskell-mode/haskell-site-file"))
 
 ;; Configure haskell-mode
 (add-hook 'haskell-mode-hook 'turn-on-haskell-doc-mode)

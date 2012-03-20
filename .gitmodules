@@ -19,9 +19,6 @@
 [submodule "site-lisp/magit"]
 	path = site-lisp/magit
 	url = https://github.com/magit/magit.git
-[submodule "site-lisp/haskell-mode"]
-	path = site-lisp/haskell-mode
-	url = https://github.com/emacsmirror/haskell-mode.git
 [submodule "site-lisp/lolcode-mode"]
 	path = site-lisp/lolcode-mode
 	url = https://github.com/bodil/lolcode-mode.git

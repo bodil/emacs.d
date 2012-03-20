@@ -14,8 +14,6 @@
                                    'slime
                                    'slime-repl
                                    'elein
-                                   'color-theme
-                                   'color-theme-github
                                    'highlight-parentheses
                                    'markdown-mode
                                    'notify
@@ -24,7 +22,9 @@
                                    'ido-ubiquitous
                                    'flymake-cursor
                                    'flymake-coffee
-                                   'rainbow-mode)
+                                   'rainbow-mode
+                                   'haskell-mode
+                                   'color-theme)
   "Libraries that should be installed by default.")
 
 (defun starter-kit-elpa-install ()
