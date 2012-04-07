@@ -4,7 +4,8 @@
 
 (require 'cl)
 
-(defvar starter-kit-packages (list 'smex
+(defvar starter-kit-packages (list 'melpa
+                                   'smex
                                    'idle-highlight
                                    'ruby-mode
                                    'css-mode
