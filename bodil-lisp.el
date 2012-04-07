@@ -37,6 +37,14 @@
 ;; Enable it for ClojureScript too
 (add-to-list 'auto-mode-alist '("\.cljs$" . clojure-mode))
 
+;; ClojureScript REPL
+(defun clojurescript-repl ()
+  (interactive)
+  (run-lisp "/home/bodil/workspace/clojurescript/script/repl"))
+(defun clojurescript-replnode ()
+  (interactive)
+  (run-lisp "/home/bodil/workspace/clojurescript/script/replnode"))
+
 ;; Clojurecharge slime-selector
 (define-key global-map (kbd "C-<home>") 'slime-selector)
 (def-slime-selector-method ?j
