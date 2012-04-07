@@ -9,7 +9,7 @@
 ;; Yasnippet setup
 (require 'yasnippet)
 (yas/initialize)
-(setq yas/root-directory '("~/.emacs.d/snippets" "~/.emacs.d/site-lisp/yasnippet/snippets"))
+(setq yas/root-directory '("~/.emacs.d/snippets"))
 (mapc 'yas/load-directory yas/root-directory)
 (setq yas/trigger-key "M-SPC")
 
@@ -102,9 +102,6 @@
 
 ;; Subword mode
 (global-subword-mode 1)
-
-;; writegood-mode
-(require 'writegood-mode)
 
 ;; mark-multiple
 (require 'inline-string-rectangle)

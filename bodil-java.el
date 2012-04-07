@@ -1,100 +1,12 @@
 ;;; bodil-java.el -- Java configuration
 
-;; Setup eclim
-(add-to-list 'load-path (expand-file-name "~/.emacs.d/site-lisp/emacs-eclim/vendor"))
-(require 'eclim)
-
-(setq eclim-auto-save t)
-(setq eclim-executable (expand-file-name "~/eclipse/eclim"))
-
-;; Add eclim + yasnippet ac-source
-(require 'auto-complete)
-(defvar ac-eclim-yas-mark 'nil)
-(defun ac-eclim-yas-candidates ()
-  (let (lista)
-    (with-no-warnings
-      (when eclim-auto-save (save-buffer))
-      (loop for c in (eclim/java-complete)
-            do
-            (if (not (equal (nth 0 c) "f"))
-                (push (nth 1 c) lista)
-              (let ((texto (nth 2 c))
-                    aux)
-                (push (concat 
-                       (replace-regexp-in-string "^\\([^(]*(\\).*" "\\1" texto)
-                       (replace-regexp-in-string "[^ <]+\\(?:<[^>]+>\\)? \\([^ ,]+\\)\\(,?\\)" "${\\1}\\2"
-                                                 (replace-regexp-in-string "^[^(]*(\\([^)]*\\)).*$" "\\1"  texto))
-                       ")")
-                      lista)))))
-    lista))
-(defun yas/expand-eclim-snippet ()
-  (let ((snip (buffer-substring-no-properties ac-eclim-yas-mark (point))))
-    (delete-region ac-eclim-yas-mark (point))
-    (yas/expand-snippet snip)))
-(defun eclim-yas-init ()
-  (setq ac-eclim-yas-mark (point)))
-(ac-define-source eclim-yas
-  '((candidates . ac-eclim-yas-candidates)
-    (init . eclim-yas-init)
-    ;; (requires . 0)
-    ;; (prefix . c-dot)
-    (action . yas/expand-eclim-snippet)
-    (symbol . "f")))
-(ac-define-source eclim-yas-dot
-  '((candidates . ac-eclim-yas-candidates)
-    (init . eclim-yas-init)
-    (requires . 0)
-    (prefix . c-dot)
-    (action . yas/expand-eclim-snippet)
-    (symbol . "f")))
-
 ;; Fix annotation indentation
 (require 'java-mode-indent-annotations)
-
-;; wants :JUnitImpl
-(defun eclim--java-current-package-name ()
-  (save-excursion
-    (end-of-buffer)
-    (if (re-search-backward "package\\s-+\\([^<{\s-]+\\);" nil t)
-        (match-string 1)
-      "")))
-(defun eclim--java-current-type-full-name ()
-  (concat (eclim--java-current-package-name) "."
-          (save-excursion
-            (end-of-buffer)
-            (eclim--java-current-type-name))))
-(defun eclim--java-file-name-for-test (file)
-  (replace-regexp-in-string
-   "\\.java$" "Test.java"
-   (replace-regexp-in-string
-    "/main/java/" "/test/java/"
-    file)))
-(defun eclim-java-junit-implement ()
-  "Create a test case in the appropriate test class for a given method."
-  (interactive)
-  (eclim/with-results response ("java_junit_impl" "-p"
-                                ("-f" (eclim--java-file-name-for-test (eclim--project-current-file)))
-                                ("-b" (eclim--java-current-type-full-name)))
-                      (let* ((methods  
-                              (remove-if (lambda (element) (string-match "//" element))
-                                         (remove-if-not (lambda (element) (string-match "(.*)" element))
-                                                        response)))
-                             (start (point)))
-                        ;; (message (prin1-to-string methods))
-                        (eclim--completing-read "Signature: " methods)
-                        )
-                      ))
 
 ;; Hook
 (add-hook 'java-mode-hook
           (lambda ()
-            (eclim-mode t)
-            (setq ac-sources '(ac-source-eclim-yas-dot ac-source-eclim-yas ac-source-yasnippet ac-source-filename))
             (java-mode-indent-annotations-setup)))
-
-;; Bindings
-(define-key eclim-mode-map (kbd "M-.") 'eclim-java-find-declaration)
-(define-key eclim-mode-map (kbd "C-SPC") 'ac-start)
 
 ;; CEDET/Malabar setup
 ;; (setq semantic-default-submodes '(global-semantic-idle-scheduler-mode

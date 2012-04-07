@@ -18,14 +18,29 @@
                                    'highlight-parentheses
                                    'markdown-mode
                                    'notify
-                                    'elisp-slime-nav
+                                   'elisp-slime-nav
                                    'ibuffer-vc
                                    'ido-ubiquitous
                                    'flymake-cursor
                                    'flymake-coffee
                                    'rainbow-mode
                                    'haskell-mode
-                                   'color-theme)
+                                   'color-theme
+                                   'auto-complete
+                                   'clojure-mode
+                                   'clojure-test-mode
+                                   'coffee-mode
+                                   'sws-mode
+                                   'jade-mode
+                                   'stylus-mode
+                                   'expand-region
+                                   'magit
+                                   'mo-git-blame
+                                   'evernote-mode
+                                   'rfringe
+                                   'multi-term
+                                   'zenburn
+                                   'yasnippet)
   "Libraries that should be installed by default.")
 
 (defun starter-kit-elpa-install ()
