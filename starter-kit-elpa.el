@@ -40,7 +40,8 @@
                                    'rfringe
                                    'multi-term
                                    'zenburn
-                                   'yasnippet)
+                                   'yasnippet
+                                   'ace-jump-mode)
   "Libraries that should be installed by default.")
 
 (defun starter-kit-elpa-install ()

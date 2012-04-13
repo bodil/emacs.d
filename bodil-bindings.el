@@ -180,3 +180,5 @@ If point was already at that position, move point to beginning of line."
 (global-set-key (kbd "M-p") 'flymake-goto-prev-error)
 (require 'flymake-cursor)
 
+;; ace-jump-mode
+(global-set-key (kbd "C-ø") 'ace-jump-mode)
