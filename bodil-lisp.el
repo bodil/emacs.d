@@ -18,15 +18,6 @@
     (read-kbd-macro paredit-backward-delete-key) nil))
 (add-hook 'slime-repl-mode-hook 'override-slime-repl-bindings-with-paredit)
 
-;; Hook SLIME into auto-complete
-(require 'ac-slime)
-(add-hook 'slime-mode-hook 'set-up-slime-ac)
-(add-hook 'slime-repl-mode-hook 'set-up-slime-ac)
-
-;; Enable auto-complete in lisp mode
-(require 'auto-complete)
-(add-to-list 'ac-modes 'lisp-mode)
-
 ;; Load clojure-mode
 (require 'clojure-mode)
 (add-hook 'clojure-mode-hook

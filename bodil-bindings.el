@@ -1,5 +1,35 @@
 ;;; bodil-bindings.el -- Keybindings
 
+;; Autocomplete using company-mode
+(require 'company)
+(global-company-mode)
+(setq company-semantic-modes '(c-mode c++-mode js-mode js2-mode jde-mode java-mode emacs-lisp-mode))
+(setq company-begin-commands '(self-insert-command))
+
+(defun check-expansion ()
+  (save-excursion
+    (if (looking-at "\\_>") t
+      (backward-char 1)
+      (if (looking-at "\\.") t
+        (backward-char 1)
+        (if (looking-at "->") t nil)))))
+
+(defun do-yas-expand ()  
+  (let ((yas/fallback-behavior 'return-nil))
+    (yas/expand)))
+
+(defun tab-indent-or-complete ()
+  (interactive)
+  (if (minibufferp)
+      (minibuffer-complete)
+    (if (or (not yas/minor-mode)
+            (null (do-yas-expand)))
+        (if (check-expansion)
+            (company-complete-common)
+          (indent-for-tab-command)))))
+
+(global-set-key [tab] 'tab-indent-or-complete)
+
 ;; Enable CUA selection mode; sorry, it stuck.
 (cua-selection-mode t)
 
@@ -60,17 +90,6 @@
 (global-set-key (kbd "M-X") 'smex-major-mode-commands)
 ;; This is the old M-x.
 (global-set-key (kbd "C-c C-c M-x") 'execute-extended-command)
-
-;; Auto-Complete configuration
-(require 'auto-complete-config)
-(add-to-list 'ac-dictionary-directories "~/.emacs.d/site-lisp/auto-complete/dict")
-(ac-config-default)
-(setq ac-auto-start nil)
-(ac-set-trigger-key "TAB")
-(define-key ac-completing-map "\t" 'ac-complete)
-(define-key ac-completing-map "\r" nil)
-(define-key ac-completing-map (kbd "C-h") 'ac-persist-help)
-(setq ac-use-quick-help 0.5)
 
 ;; Bind Flyspell completion key to M-\
 (setq flyspell-auto-correct-binding (kbd "M-\\"))

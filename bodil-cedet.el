@@ -6,7 +6,7 @@
 ;; See doc-string of `semantic-default-submodes' for other things
 ;; you can use here.
 (add-to-list 'semantic-default-submodes 'global-semantic-idle-summary-mode)
-(add-to-list 'semantic-default-submodes 'global-semantic-idle-completions-mode)
+;(add-to-list 'semantic-default-submodes 'global-semantic-idle-completions-mode)
 (add-to-list 'semantic-default-submodes 'global-semantic-highlight-func-mode)
 ;(add-to-list 'semantic-default-submodes 'global-semantic-stickyfunc-mode)
 

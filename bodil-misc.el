@@ -55,15 +55,9 @@
 
 ;; I CAN HAS LOLCODE?
 (require 'lolcode-mode)
-(require 'auto-complete)
-(defvar ac-source-lolcode
-  '((candidates . lolcode-lang-all)))
-(add-to-list 'ac-modes 'lolcode-mode)
 (add-hook 'lolcode-mode-hook
           (lambda ()
-            (setq default-tab-width 2)
-            (add-to-list 'ac-sources 'ac-source-lolcode)
-            (add-to-list 'ac-sources 'ac-source-yasnippet)))
+            (setq default-tab-width 2)))
 
 ;; Remember position in file
 (setq save-place-file (expand-file-name "~/.emacs.d/saveplace"))
@@ -88,7 +82,6 @@
 
 ;;; HTML mode things
 (add-hook 'html-mode-hook (lambda () (hl-tags-mode t)))
-(add-to-list 'ac-modes 'html-mode)
 
 ;; Group the ibuffer list by vc-root
 (add-hook 'ibuffer-hook

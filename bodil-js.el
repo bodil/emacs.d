@@ -24,8 +24,6 @@
   (define-key coffee-mode-map (kbd "M-R") 'coffee-compile-region))
 (add-hook 'coffee-mode-hook
           '(lambda() (coffee-custom)))
-(require 'auto-complete)
-(add-to-list 'ac-modes 'coffee-mode)
 (add-to-list 'auto-mode-alist '("\\.cson$" . coffee-mode))
 
 ;; Patch coffee-mode so coffee-compile-region pops up a new
@@ -51,9 +49,7 @@
 ;; Setup jade-mode
 (require 'sws-mode)
 (require 'stylus-mode)
-(add-to-list 'ac-modes 'stylus-mode)
 (require 'jade-mode)
-(add-to-list 'ac-modes 'jade-mode)
 
 ;; Activate runlol integration
 (require 'runlol)

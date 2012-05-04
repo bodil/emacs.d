@@ -12,9 +12,7 @@
             ;; Bind a key for switching between header and implementation files
             (local-set-key  (kbd "C-c o") 'ff-find-other-file)
             ;; A key for jumping to a definition
-            (local-set-key (kbd "M-.") 'semantic-complete-jump)
-            ;; Setup auto-complete sources
-            (add-to-list 'ac-sources 'ac-source-semantic)))
+            (local-set-key (kbd "M-.") 'semantic-complete-jump)))
 
 (require 'cc-mode)
 
