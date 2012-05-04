@@ -117,3 +117,8 @@
 
 ;; (require 'js2-rename-var)
 ;; (define-key js2-mode-map (kbd "C-c C-r") 'js2-rename-var)
+
+;; Enable ethan-wspace
+(add-to-list 'load-path (expand-file-name "~/.emacs.d/site-lisp/ethan-wspace/lisp"))
+(require 'ethan-wspace)
+(global-ethan-wspace-mode 1)

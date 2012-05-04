@@ -16,3 +16,6 @@
 [submodule "site-lisp/cedet"]
 	path = site-lisp/cedet
 	url = git://git.randomsample.de/cedet.git
+[submodule "site-lisp/ethan-wspace"]
+	path = site-lisp/ethan-wspace
+	url = https://github.com/glasserc/ethan-wspace.git
