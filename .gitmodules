@@ -13,3 +13,6 @@
 [submodule "site-lisp/mark-multiple"]
 	path = site-lisp/mark-multiple
 	url = https://github.com/magnars/mark-multiple.el.git
+[submodule "site-lisp/cedet"]
+	path = site-lisp/cedet
+	url = git://git.randomsample.de/cedet.git

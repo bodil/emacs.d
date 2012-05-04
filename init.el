@@ -59,6 +59,9 @@
 (if (fboundp 'tool-bar-mode) (tool-bar-mode -1))
 (if (fboundp 'scroll-bar-mode) (scroll-bar-mode -1))
 
+;; Load CEDET early to make sure we override the packaged version
+(load "~/.emacs.d/bodil-cedet")
+
 ;; If on a Debian based system, let's run debian-startup
 (if (and (file-exists-p "/usr/share/emacs/site-lisp/debian-startup.el")
          (not (functionp 'debian-startup)))
