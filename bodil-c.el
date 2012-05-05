@@ -18,3 +18,9 @@
 
 ;; Semantic
 (require 'semantic/bovine/c)
+
+;; Qt setup
+(add-to-list 'auto-mode-alist '("/usr/include/qt4" . c++-mode))
+(semantic-add-system-include "/usr/include/qt4" 'c++-mode)
+(add-to-list 'semantic-lex-c-preprocessor-symbol-file "/usr/include/qt4/Qt/qconfig.h")
+(add-to-list 'semantic-lex-c-preprocessor-symbol-file "/usr/include/qt4/Qt/qconfig.h")
