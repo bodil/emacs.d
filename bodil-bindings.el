@@ -129,6 +129,7 @@
 (add-hook 'jade-mode-hook (lambda () (autopair-mode)))
 (add-hook 'js-mode-hook (lambda () (autopair-mode)))
 (add-hook 'js2-mode-hook (lambda () (autopair-mode)))
+(add-hook 'html-mode-hook (lambda () (autopair-mode)))
 ;; Keep autopair from interfering with auto-complete
 (setq ac-use-overriding-local-map t)
 
@@ -182,3 +183,20 @@ If point was already at that position, move point to beginning of line."
 
 ;; ace-jump-mode
 (global-set-key (kbd "C-ø") 'ace-jump-mode)
+
+;; expand-region
+(require 'expand-region)
+(global-set-key (kbd "M-+") 'er/expand-region)
+
+;; Subword mode
+(global-subword-mode 1)
+
+;; mark-multiple
+(require 'inline-string-rectangle)
+(global-set-key (kbd "C-x r t") 'inline-string-rectangle)
+
+(require 'mark-more-like-this)
+(global-set-key (kbd "C-<") 'mark-previous-like-this)
+(global-set-key (kbd "C->") 'mark-next-like-this)
+(global-set-key (kbd "C-æ") 'mark-next-like-this)
+(global-set-key (kbd "C-M-m") 'mark-more-like-this) ; like the other two, but takes an argument (negative is previous)
