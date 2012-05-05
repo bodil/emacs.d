@@ -25,7 +25,6 @@
                                    'flymake-coffee
                                    'rainbow-mode
                                    'haskell-mode
-                                   'color-theme
                                    'auto-complete
                                    'clojure-mode
                                    'clojure-test-mode
@@ -39,7 +38,6 @@
                                    'evernote-mode
                                    'rfringe
                                    'multi-term
-                                   'zenburn
                                    'yasnippet
                                    'ace-jump-mode
                                    'company)
