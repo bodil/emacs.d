@@ -14,7 +14,7 @@
         (backward-char 1)
         (if (looking-at "->") t nil)))))
 
-(defun do-yas-expand ()  
+(defun do-yas-expand ()
   (let ((yas/fallback-behavior 'return-nil))
     (yas/expand)))
 
@@ -28,7 +28,8 @@
             (company-complete-common)
           (indent-for-tab-command)))))
 
-(global-set-key [tab] 'tab-indent-or-complete)
+(define-key company-mode-map (kbd "<tab>") 'tab-indent-or-complete)
+(add-hook 'magit-mode-hook (lambda () (company-mode 0)))
 
 ;; Enable CUA selection mode; sorry, it stuck.
 (cua-selection-mode t)
@@ -96,7 +97,7 @@
 
 ;; Setup a function to jump to a symbol in the current file
 (defun ido-goto-symbol ()
-  "Will update the imenu index and then use ido to select a 
+  "Will update the imenu index and then use ido to select a
    symbol to navigate to"
   (interactive)
   (imenu--make-index-alist)
@@ -109,15 +110,15 @@
                              (cond
                               ((and (listp symbol) (imenu--subalist-p symbol))
                                (addsymbols symbol))
-   
+
                               ((listp symbol)
                                (setq name (car symbol))
                                (setq position (cdr symbol)))
-   
+
                               ((stringp symbol)
                                (setq name symbol)
                                (setq position (get-text-property 1 'org-imenu-marker symbol))))
-   
+
                              (unless (or (null position) (null name))
                                (add-to-list 'symbol-names name)
                                (add-to-list 'name-and-pos (cons name position))))))))
