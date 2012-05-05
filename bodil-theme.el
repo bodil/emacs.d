@@ -33,6 +33,8 @@
   (set-face-background 'highlight "#2d2d2d")
   (set-face-foreground 'highlight nil)
   (set-face-background 'region "#464668")
+  (set-face-background 'show-paren-match-face "#464668")
+  (set-face-foreground 'show-paren-match-face "#ffffff")
   ;; (set-face-attribute 'mode-line nil :box nil)
   ;; (set-face-attribute 'mode-line-inactive nil :box nil)
   ;; (set-face-background 'linum "#3f3f3f")
