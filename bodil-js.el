@@ -20,7 +20,9 @@
 (defun coffee-custom ()
   "coffee-mode-hook"
   (define-key coffee-mode-map (kbd "M-r") 'coffee-compile-buffer)
-  (define-key coffee-mode-map (kbd "M-R") 'coffee-compile-region))
+  (define-key coffee-mode-map (kbd "M-R") 'coffee-compile-region)
+  (define-key coffee-mode-map (kbd "<tab>") 'coffee-indent)
+  (define-key coffee-mode-map (kbd "<backtab>") 'coffee-unindent))
 (add-hook 'coffee-mode-hook
           '(lambda() (coffee-custom)))
 (setq coffee-tab-width 2)
@@ -58,3 +60,32 @@
 ;; Activate runlol integration
 (require 'runlol)
 
+;; Custom indentation for coffee-mode
+(defun coffee-indent-block ()
+  (shift-region coffee-tab-width)
+  (setq deactivate-mark nil))
+
+(defun coffee-unindent-block ()
+  (shift-region (- coffee-tab-width))
+  (setq deactivate-mark nil))
+
+(defun shift-region (numcols)
+  (setq region-start (region-beginning))
+  (setq region-finish (region-end))
+  (save-excursion
+    (if (< (point) (mark)) (exchange-point-and-mark))
+    (let ((save-mark (mark)))
+      (indent-rigidly region-start region-finish numcols))))
+
+(defun coffee-indent ()
+  (interactive)
+  (if mark-active
+      (coffee-indent-block)
+    (indent-for-tab-command)))
+
+(defun coffee-unindent ()
+  (interactive)
+  (if mark-active
+      (coffee-unindent-block)
+    (progn
+      (indent-line-to (- (current-indentation) coffee-tab-width)))))
