@@ -22,7 +22,6 @@
                                    'ibuffer-vc
                                    'ido-ubiquitous
                                    'flymake-cursor
-                                   'flymake-coffee
                                    'rainbow-mode
                                    'haskell-mode
                                    'auto-complete

@@ -19,11 +19,11 @@
 (require 'coffee-mode)
 (defun coffee-custom ()
   "coffee-mode-hook"
-  (set (make-local-variable 'tab-width) 2)
   (define-key coffee-mode-map (kbd "M-r") 'coffee-compile-buffer)
   (define-key coffee-mode-map (kbd "M-R") 'coffee-compile-region))
 (add-hook 'coffee-mode-hook
           '(lambda() (coffee-custom)))
+(setq coffee-tab-width 2)
 (require 'auto-complete)
 (add-to-list 'ac-modes 'coffee-mode)
 (add-to-list 'auto-mode-alist '("\\.cson$" . coffee-mode))
@@ -57,8 +57,4 @@
 
 ;; Activate runlol integration
 (require 'runlol)
-
-;; Flymake CS files
-(require 'flymake-coffee)
-(add-hook 'coffee-mode-hook 'flymake-coffee-load)
 
