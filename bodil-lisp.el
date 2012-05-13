@@ -45,6 +45,11 @@
   (interactive)
   (run-lisp "/home/bodil/workspace/clojurescript/script/replnode"))
 
+;; Clojure-Py REPL
+(defun clojurepy-repl ()
+  (interactive)
+  (run-lisp "/usr/local/bin/clojurepy"))
+
 ;; Clojurecharge slime-selector
 (define-key global-map (kbd "C-<home>") 'slime-selector)
 (def-slime-selector-method ?j
@@ -86,4 +91,3 @@
 
 ;; Enable clojure-test-mode
 (require 'clojure-test-mode)
-
