@@ -79,9 +79,11 @@
 
 (defun coffee-indent ()
   (interactive)
-  (if mark-active
-      (coffee-indent-block)
-    (indent-for-tab-command)))
+  (if (ac-trigger-command-p last-command)
+      (auto-complete)
+    (if mark-active
+        (coffee-indent-block)
+      (indent-for-tab-command))))
 
 (defun coffee-unindent ()
   (interactive)
