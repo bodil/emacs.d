@@ -39,6 +39,7 @@
   ;; (set-face-attribute 'mode-line-inactive nil :box nil)
   ;; (set-face-background 'linum "#3f3f3f")
   ;; (set-face-foreground 'linum "#606660")
+  (setq ansi-term-color-vector ["#242424" "#e5786d" "#95e454" "#cae682" "#8ac6f2" "#6c6ca3" "#ccaa8f" "#f6f3e8"])
   )
 (theme-dark)
 
