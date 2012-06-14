@@ -77,7 +77,7 @@
 
 ;; Setup a function to jump to a symbol in the current file
 (defun ido-goto-symbol ()
-  "Will update the imenu index and then use ido to select a 
+  "Will update the imenu index and then use ido to select a
    symbol to navigate to"
   (interactive)
   (imenu--make-index-alist)
@@ -90,15 +90,15 @@
                              (cond
                               ((and (listp symbol) (imenu--subalist-p symbol))
                                (addsymbols symbol))
-   
+
                               ((listp symbol)
                                (setq name (car symbol))
                                (setq position (cdr symbol)))
-   
+
                               ((stringp symbol)
                                (setq name symbol)
                                (setq position (get-text-property 1 'org-imenu-marker symbol))))
-   
+
                              (unless (or (null position) (null name))
                                (add-to-list 'symbol-names name)
                                (add-to-list 'name-and-pos (cons name position))))))))
@@ -130,6 +130,7 @@
 (add-hook 'js-mode-hook (lambda () (autopair-mode)))
 (add-hook 'js2-mode-hook (lambda () (autopair-mode)))
 (add-hook 'html-mode-hook (lambda () (autopair-mode)))
+(add-hook 'groovy-mode-hook (lambda () (autopair-mode)))
 ;; Keep autopair from interfering with auto-complete
 (setq ac-use-overriding-local-map t)
 
