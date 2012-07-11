@@ -37,7 +37,6 @@
                                    'evernote-mode
                                    'rfringe
                                    'multi-term
-                                   'yasnippet-bundle
                                    'ace-jump-mode)
   "Libraries that should be installed by default.")
 

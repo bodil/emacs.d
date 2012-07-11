@@ -19,3 +19,9 @@
 [submodule "site-lisp/ethan-wspace"]
 	path = site-lisp/ethan-wspace
 	url = https://github.com/glasserc/ethan-wspace.git
+[submodule "site-lisp/js2-refactor"]
+	path = site-lisp/js2-refactor
+	url = https://github.com/magnars/js2-refactor.el.git
+[submodule "site-lisp/yasnippet"]
+	path = site-lisp/yasnippet
+	url = git://github.com/capitaomorte/yasnippet.git
