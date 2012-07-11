@@ -1,0 +1,6 @@
+[submodule "themes/solarized"]
+	path = themes/solarized
+	url = git://github.com/sellout/emacs-color-theme-solarized.git
+[submodule "themes/zenburn"]
+	path = themes/zenburn
+	url = git://github.com/bbatsov/zenburn-emacs.git
