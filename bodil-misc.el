@@ -106,3 +106,9 @@
 (add-to-list 'load-path (expand-file-name "~/.emacs.d/site-lisp/ethan-wspace/lisp"))
 (require 'ethan-wspace)
 (global-ethan-wspace-mode 1)
+
+;; Let Tramp do sudo over ssh
+(set-default 'tramp-default-proxies-alist
+             '(nil "\\`root\\'" "/ssh:%h:"))
+(add-to-list 'tramp-default-proxies-alist
+             '((regexp-quote (system-name)) nil nil))
