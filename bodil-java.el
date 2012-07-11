@@ -5,8 +5,16 @@
 
 ;; Hook
 (add-hook 'java-mode-hook
-          (lambda ()
-            (java-mode-indent-annotations-setup)))
+          (lambda () (java-mode-indent-annotations-setup)))
+
+;; Gradle setup
+(require 'gradle)
+(defun gradle--with-git-root (func)
+  (let ((default-directory (git-current-root)))
+    (funcall func)))
+(setq gradle-with-project-root-func 'gradle--with-git-root)
+(add-to-list 'auto-mode-alist '("\\.gradle$" . groovy-mode))
+(add-to-list 'ac-modes 'groovy-mode)
 
 ;; CEDET/Malabar setup
 ;; (setq semantic-default-submodes '(global-semantic-idle-scheduler-mode
@@ -34,4 +42,3 @@
 ;; Setup semantic sources for auto-complete
 ;; (add-hook 'malabar-mode-hook
 ;;           (lambda () (setq ac-sources '(ac-source-semantic ac-source-yasnippet))))
-

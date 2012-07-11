@@ -37,7 +37,8 @@
                                    'evernote-mode
                                    'rfringe
                                    'multi-term
-                                   'ace-jump-mode)
+                                   'ace-jump-mode
+                                   'groovy-mode)
   "Libraries that should be installed by default.")
 
 (defun starter-kit-elpa-install ()
