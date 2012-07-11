@@ -26,3 +26,6 @@
 (semantic-add-system-include "/usr/include/qt4" 'c++-mode)
 (add-to-list 'semantic-lex-c-preprocessor-symbol-file "/usr/include/qt4/Qt/qconfig.h")
 (add-to-list 'semantic-lex-c-preprocessor-symbol-file "/usr/include/qt4/Qt/qconfig.h")
+
+;; Make
+(global-set-key (kbd "C-c C-m") (lambda () (interactive) (compile "make -k -j5" t)))
