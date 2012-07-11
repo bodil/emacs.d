@@ -7,6 +7,11 @@
 (dolist (mode '(menu-bar-mode tool-bar-mode scroll-bar-mode))
   (when (fboundp mode) (funcall mode -1)))
 
+;; Always ALWAYS use UTF-8
+(set-terminal-coding-system 'utf-8)
+(set-keyboard-coding-system 'utf-8)
+(prefer-coding-system 'utf-8)
+
 ;; Get hostname
 (setq hostname (replace-regexp-in-string "\\(^[[:space:]\n]*\\|[[:space:]\n]*$\\)" "" (with-output-to-string (call-process "hostname" nil standard-output))))
 
@@ -43,10 +48,15 @@
   (list 'if (eq window-system 'x) (cons 'progn x)))
 
 ;; Now load other things
-(dolist (file '("theme.el"))
+(dolist (file '("defuns.el"
+		"theme.el"
+		"editing.el"
+		"ido-mode.el"
+                "lisp.el"
+                "magit.el"))
   (load (concat dotfiles-dir file)))
 (Xlaunch (load (concat dotfiles-dir "x11.el")))
 
-;; And finally, load custom settings
+;; Load custom settings
 (load custom-file 'noerror)
 

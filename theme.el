@@ -3,6 +3,16 @@
 ;; Let's see what we're running on
 (setq on-console (null window-system))
 
+;; No splash screen
+(setq inhibit-startup-message t)
+
+;; Some X11 setup
+(when window-system
+  (setq frame-title-format '(buffer-file-name "%f" ("%b")))
+  (tooltip-mode -1)
+  (mouse-wheel-mode t)
+  (blink-cursor-mode -1))
+
 ;; Show line numbers in buffers
 (global-linum-mode t)
 (setq linum-format (if on-console "%4d " "%4d"))
@@ -17,6 +27,9 @@
 
 ;; Highlight current line
 (global-hl-line-mode)
+
+;; Highlight matching parens
+(show-paren-mode 1)
 
 ;; Set custom theme path
 (setq custom-theme-directory (concat dotfiles-dir "themes"))
@@ -35,5 +48,5 @@
   (set-face-foreground 'linum nil))
 (defun theme-dark ()
   (interactive)
-  (load-theme 'bubbleberry))
+  (load-theme 'bubbleberry t))
 (theme-dark)
