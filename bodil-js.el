@@ -15,6 +15,9 @@
 
 (add-to-list 'auto-mode-alist '("\\.json$" . js-mode))
 
+;; Activate js2-refactor
+(require 'js2-refactor)
+
 ;; Coffeescript mode
 (require 'coffee-mode)
 (defun coffee-custom ()
