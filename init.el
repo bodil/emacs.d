@@ -58,6 +58,7 @@
                 "bodil-js.el"
                 "bodil-markup.el"
                 "bodil-magit.el"
+                "bodil-terminal.el"
                 "bodil-codestyle.el"))
   (load (concat dotfiles-dir file)))
 (Xlaunch (load (concat dotfiles-dir "bodil-x11.el")))

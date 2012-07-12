@@ -132,6 +132,14 @@
  '(mumamo-background-chunk-submode1 ((t (:background "#2a2a2a"))))
  '(mumamo-background-chunk-submode2 ((t (:background "#343434"))))
 
+ ;; Terminal
+ '(term-color-blue ((t (:background "#6c6cae" :foreground "#6c6cae"))))
+ '(term-color-cyan ((t (:background "#8ac6f2" :foreground "#8ac6f2"))))
+ '(term-color-green ((t (:background "#95e454" :foreground "#95e454"))))
+ '(term-color-magenta ((t (:background "#ccaa8f" :foreground "#ccaa8f"))))
+ '(term-color-red ((t (:background "#e5786d" :foreground "#e5786d"))))
+ '(term-color-white ((t (:background "#f6f3e8" :foreground "#f6f3e8"))))
+ '(term-color-yellow ((t (:background "#cae682" :foreground "#cae682"))))
 )
 
 (provide-theme 'bubbleberry)
