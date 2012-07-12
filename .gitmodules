@@ -34,3 +34,6 @@
 [submodule "site-lisp/ethan-wspace"]
 	path = site-lisp/ethan-wspace
 	url = git://github.com/glasserc/ethan-wspace.git
+[submodule "site-lisp/nxhtml"]
+	path = site-lisp/nxhtml
+	url = git://github.com/emacsmirror/nxhtml.git

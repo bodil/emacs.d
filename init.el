@@ -49,18 +49,18 @@
 
 ;; Now load other things
 (dolist (file '("bodil-defuns.el"
-                "sessions.el"
-                "theme.el"
-                "editing.el"
-                "complete.el"
-                "ido-mode.el"
-                "lisp.el"
-                "js.el"
-                "magit.el"
-                "codestyle.el"))
+                "bodil-session.el"
+                "bodil-theme.el"
+                "bodil-editing.el"
+                "bodil-complete.el"
+                "bodil-ido.el"
+                "bodil-lisp.el"
+                "bodil-js.el"
+                "bodil-markup.el"
+                "bodil-magit.el"
+                "bodil-codestyle.el"))
   (load (concat dotfiles-dir file)))
-(Xlaunch (load (concat dotfiles-dir "x11.el")))
+(Xlaunch (load (concat dotfiles-dir "bodil-x11.el")))
 
 ;; Load custom settings
 (load custom-file 'noerror)
-

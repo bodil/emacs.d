@@ -127,6 +127,11 @@
     (((class color) (min-colors 8) (background light)) (:foreground "#000000" :background "#FFFF00"))
     (((class color) (min-colors 8) (background dark)) (:foreground "#ffffff" :background "#0000FF")) 
     (((type tty) (class mono)) (:inverse-video t)) (t (:background "#888888"))))
+
+ ;; MuMaMo
+ '(mumamo-background-chunk-submode1 ((t (:background "#2a2a2a"))))
+ '(mumamo-background-chunk-submode2 ((t (:background "#343434"))))
+
 )
 
 (provide-theme 'bubbleberry)
