@@ -16,3 +16,21 @@
 [submodule "site-lisp/magit"]
 	path = site-lisp/magit
 	url = git://github.com/magit/magit.git
+[submodule "site-lisp/js2-mode"]
+	path = site-lisp/js2-mode
+	url = git://github.com/mooz/js2-mode.git
+[submodule "site-lisp/coffee-mode"]
+	path = site-lisp/coffee-mode
+	url = git://github.com/defunkt/coffee-mode.git
+[submodule "site-lisp/mark-multiple"]
+	path = site-lisp/mark-multiple
+	url = git://github.com/magnars/mark-multiple.el.git
+[submodule "site-lisp/js2-refactor"]
+	path = site-lisp/js2-refactor
+	url = git://github.com/magnars/js2-refactor.el.git
+[submodule "site-lisp/expand-region"]
+	path = site-lisp/expand-region
+	url = git://github.com/magnars/expand-region.el.git
+[submodule "site-lisp/ethan-wspace"]
+	path = site-lisp/ethan-wspace
+	url = git://github.com/glasserc/ethan-wspace.git

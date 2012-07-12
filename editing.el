@@ -1,13 +1,8 @@
 ;;; editing.el -- Miscellaneous editing features
 
-;; Tab indentation is a disease; a cancer of this planet.
-(set-default 'indent-tabs-mode nil)
-
 ;; Enable CUA selection mode; sorry, it stuck.
 (cua-selection-mode t)
-
-;; Always newline-and-indent
-(define-key global-map (kbd "RET") 'newline-and-indent)
+(setq delete-selection-mode t)
 
 ;; Autopair mode
 (require 'autopair)
@@ -17,6 +12,17 @@
 ;; Keep autopair from interfering with auto-complete
 ;(setq ac-use-overriding-local-map t)
 ; TODO: remove this if not using auto-complete
+
+;; mark-multiple <3 @magnars
+(require 'mark-more-like-this)
+(global-set-key (kbd "C-æ") 'mark-previous-like-this)
+(global-set-key (kbd "C-'") 'mark-next-like-this)
+(global-set-key (kbd "C-M-m") 'mark-more-like-this) ; like the other two, but takes an argument (negative is previous)
+(global-set-key (kbd "C-*") 'mark-all-like-this)
+
+;; expand-region <3 @magnars
+(require 'expand-region)
+(global-set-key (kbd "C-+") 'er/expand-region)
 
 ;; Smart home key
 (defun smart-beginning-of-line ()

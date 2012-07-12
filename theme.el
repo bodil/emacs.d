@@ -17,6 +17,9 @@
 (global-linum-mode t)
 (setq linum-format (if on-console "%4d " "%4d"))
 
+;; Show column numbers in modeline
+(setq column-number-mode t)
+
 ;; Redefine linum-on to ignore terminal buffers, because just turning
 ;; it off in term-mode-hook doesn't work.
 (setq linum-disabled-modes
@@ -48,5 +51,6 @@
   (set-face-foreground 'linum nil))
 (defun theme-dark ()
   (interactive)
-  (load-theme 'bubbleberry t))
+  (load-theme 'bubbleberry t)
+  (set-face-background 'linum nil))
 (theme-dark)

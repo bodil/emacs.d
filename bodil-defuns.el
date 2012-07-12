@@ -1,8 +1,16 @@
-;;; defuns.el -- Miscellaneous functions
+;;; bodil-defuns.el -- Miscellaneous functions
 
 (defun indent-buffer ()
   (interactive)
   (indent-region (point-min) (point-max)))
+
+(defun shift-region (numcols)
+  (setq region-start (region-beginning))
+  (setq region-finish (region-end))
+  (save-excursion
+    (if (< (point) (mark)) (exchange-point-and-mark))
+    (let ((save-mark (mark)))
+      (indent-rigidly region-start region-finish numcols))))
 
 (defun eval-and-replace ()
   "Replace the preceding sexp with its value."
@@ -52,3 +60,7 @@
           "pariatur. Excepteur sint occaecat cupidatat non proident, sunt in "
           "culpa qui officia deserunt mollit anim id est laborum."))
 
+
+
+(provide 'bodil-defuns)
+;;; bodil-defuns.el ends here

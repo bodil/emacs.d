@@ -105,6 +105,28 @@
     (((class color) (min-colors 8) (background light)) (:foreground "#000000" :background "#FFFF00"))
     (((class color) (min-colors 8) (background dark)) (:foreground "#ffffff" :background "#0000FF")) 
     (((type tty) (class mono)) (:inverse-video t)) (t (:background "#888888"))))
+
+ ;; show-paren-mode
+ '(show-paren-match
+   ((((class color) (min-colors 88) (background light)) (:background "#3388cc"))
+    (((class color) (min-colors 88) (background dark)) (:background "#3388cc"))
+    (((class color) (min-colors 8) (background light)) (:foreground "#000000" :background "#FFFF00"))
+    (((class color) (min-colors 8) (background dark)) (:foreground "#ffffff" :background "#0000FF")) 
+    (((type tty) (class mono)) (:inverse-video t)) (t (:background "#888888"))))
+ 
+ ;; mark-multiple
+ '(mm/master-face
+   ((((class color) (min-colors 88) (background light)) (:background "#444444"))
+    (((class color) (min-colors 88) (background dark)) (:background "#444444"))
+    (((class color) (min-colors 8) (background light)) (:foreground "#000000" :background "#FFFF00"))
+    (((class color) (min-colors 8) (background dark)) (:foreground "#ffffff" :background "#0000FF")) 
+    (((type tty) (class mono)) (:inverse-video t)) (t (:background "#888888"))))
+ '(mm/mirror-face
+   ((((class color) (min-colors 88) (background light)) (:background "#444444"))
+    (((class color) (min-colors 88) (background dark)) (:background "#444444"))
+    (((class color) (min-colors 8) (background light)) (:foreground "#000000" :background "#FFFF00"))
+    (((class color) (min-colors 8) (background dark)) (:foreground "#ffffff" :background "#0000FF")) 
+    (((type tty) (class mono)) (:inverse-video t)) (t (:background "#888888"))))
 )
 
 (provide-theme 'bubbleberry)

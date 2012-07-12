@@ -48,12 +48,16 @@
   (list 'if (eq window-system 'x) (cons 'progn x)))
 
 ;; Now load other things
-(dolist (file '("defuns.el"
-		"theme.el"
-		"editing.el"
-		"ido-mode.el"
+(dolist (file '("bodil-defuns.el"
+                "sessions.el"
+                "theme.el"
+                "editing.el"
+                "complete.el"
+                "ido-mode.el"
                 "lisp.el"
-                "magit.el"))
+                "js.el"
+                "magit.el"
+                "codestyle.el"))
   (load (concat dotfiles-dir file)))
 (Xlaunch (load (concat dotfiles-dir "x11.el")))
 
