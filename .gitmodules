@@ -37,3 +37,9 @@
 [submodule "site-lisp/nxhtml"]
 	path = site-lisp/nxhtml
 	url = git://github.com/emacsmirror/nxhtml.git
+[submodule "site-lisp/nrepl"]
+	path = site-lisp/nrepl
+	url = git://github.com/kingtim/nrepl.el.git
+[submodule "site-lisp/clojure-mode"]
+	path = site-lisp/clojure-mode
+	url = git://github.com/technomancy/clojure-mode.git

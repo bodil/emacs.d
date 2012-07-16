@@ -65,4 +65,3 @@
     (setq deactivate-mark nil)
     (exchange-point-and-mark)))
 (global-set-key (kbd "C-M-<down>") 'duplicate-start-of-line-or-region)
-

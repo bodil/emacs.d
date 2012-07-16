@@ -1,3 +1,20 @@
 ;;; complete.el -- Auto completion
 
-(global-set-key (kbd "C-\\") 'hippie-expand)
+(require 'auto-complete-config)
+(ac-config-default)
+(add-to-list 'ac-dictionary-directories (concat dotfiles-dir "site-lisp/auto-complete/dict"))
+(setq ac-auto-start nil)
+(define-key ac-mode-map (kbd "C-\\") 'auto-complete)
+(define-key ac-completing-map (kbd "TAB") nil)
+(define-key ac-completing-map (kbd "RET") nil)
+(define-key ac-completing-map (kbd "C-\\") 'ac-complete)
+;; TODO: I want PgUp/PgDn to work when AC is showing a candidate menu
+
+
+;;; Clojure
+
+(eval-after-load "clojure-mode"
+  '(add-hook 'clojure-mode-hook
+             (lambda ()
+               (require 'ac-source-nrepl)
+               (setq ac-sources (append '(ac-source-nrepl) ac-sources)))))

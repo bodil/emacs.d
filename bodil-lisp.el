@@ -23,3 +23,13 @@
 
 (define-key emacs-lisp-mode-map (kbd "M-.") 'find-function-at-point)
 
+;;; Clojure
+
+(autoload 'clojure-mode "clojure-mode" nil t)
+(add-to-list 'auto-mode-alist '("\\.cljs?$" . clojure-mode))
+
+;; nRepl
+(autoload 'nrepl-jack-in "clojure-mode" nil t)
+(eval-after-load "clojure-mode" '(require 'nrepl))
+(setq nrepl-lein-command "lein")
+(setq nrepl-server-command "echo \"lein repl :headless\" | $SHELL -l")
