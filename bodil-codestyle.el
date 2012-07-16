@@ -15,6 +15,9 @@
 ;; Coffeescript
 (setq coffee-tab-width 2)
 
+;; Default formatting style for C based modes
+(setq c-default-style "java")
+
 ;; Enforce newline at EOF
 (setq require-final-newline 't)
 
