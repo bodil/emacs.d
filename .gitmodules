@@ -1,27 +1,45 @@
-[submodule "site-lisp/undohist"]
-	path = site-lisp/undohist
-	url = https://github.com/m2ym/undohist-el.git
-[submodule "site-lisp/lolcode-mode"]
-	path = site-lisp/lolcode-mode
-	url = https://github.com/bodil/lolcode-mode.git
-[submodule "site-lisp/runlol"]
-	path = site-lisp/runlol
-	url = https://github.com/bodil/runlol.git
+[submodule "themes/solarized"]
+	path = themes/solarized
+	url = git://github.com/sellout/emacs-color-theme-solarized.git
+[submodule "themes/zenburn"]
+	path = themes/zenburn
+	url = git://github.com/bbatsov/zenburn-emacs.git
+[submodule "site-lisp/autopair"]
+	path = site-lisp/autopair
+	url = git://github.com/capitaomorte/autopair.git
+[submodule "site-lisp/smex"]
+	path = site-lisp/smex
+	url = git://github.com/nonsequitur/smex.git
+[submodule "site-lisp/paredit"]
+	path = site-lisp/paredit
+	url = git://github.com/emacsmirror/paredit.git
+[submodule "site-lisp/magit"]
+	path = site-lisp/magit
+	url = git://github.com/magit/magit.git
 [submodule "site-lisp/js2-mode"]
 	path = site-lisp/js2-mode
 	url = git://github.com/mooz/js2-mode.git
+[submodule "site-lisp/coffee-mode"]
+	path = site-lisp/coffee-mode
+	url = git://github.com/defunkt/coffee-mode.git
 [submodule "site-lisp/mark-multiple"]
 	path = site-lisp/mark-multiple
-	url = https://github.com/magnars/mark-multiple.el.git
-[submodule "site-lisp/cedet"]
-	path = site-lisp/cedet
-	url = git://git.randomsample.de/cedet.git
-[submodule "site-lisp/ethan-wspace"]
-	path = site-lisp/ethan-wspace
-	url = https://github.com/glasserc/ethan-wspace.git
+	url = git://github.com/magnars/mark-multiple.el.git
 [submodule "site-lisp/js2-refactor"]
 	path = site-lisp/js2-refactor
-	url = https://github.com/magnars/js2-refactor.el.git
-[submodule "site-lisp/yasnippet"]
-	path = site-lisp/yasnippet
-	url = git://github.com/capitaomorte/yasnippet.git
+	url = git://github.com/magnars/js2-refactor.el.git
+[submodule "site-lisp/expand-region"]
+	path = site-lisp/expand-region
+	url = git://github.com/magnars/expand-region.el.git
+[submodule "site-lisp/ethan-wspace"]
+	path = site-lisp/ethan-wspace
+	url = git://github.com/glasserc/ethan-wspace.git
+[submodule "site-lisp/nxhtml"]
+	path = site-lisp/nxhtml
+	url = git://github.com/emacsmirror/nxhtml.git
+[submodule "site-lisp/nrepl"]
+	path = site-lisp/nrepl
+	url = git://github.com/kingtim/nrepl.el.git
+[submodule "site-lisp/clojure-mode"]
+	path = site-lisp/clojure-mode
+	url = git://github.com/technomancy/clojure-mode.git

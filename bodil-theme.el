@@ -1,84 +1,56 @@
-;;; bodil-theme.el -- Visual things
+;;; theme.el --- Appearance matters
+
+;; Let's see what we're running on
+(setq on-console (null window-system))
+
+;; No splash screen
+(setq inhibit-startup-message t)
+
+;; Some X11 setup
+(when window-system
+  (setq frame-title-format '(buffer-file-name "%f" ("%b")))
+  (tooltip-mode -1)
+  (mouse-wheel-mode t)
+  (blink-cursor-mode -1))
 
 ;; Show line numbers in buffers
 (global-linum-mode t)
-(setq linum-format "%4d")
+(setq linum-format (if on-console "%4d " "%4d"))
+
+;; Show column numbers in modeline
+(setq column-number-mode t)
+
 ;; Redefine linum-on to ignore terminal buffers, because just turning
 ;; it off in term-mode-hook doesn't work.
+(setq linum-disabled-modes
+      '(term-mode slime-repl-mode magit-status-mode help-mode))
 (defun linum-on ()
-  (unless (or (minibufferp)
-              (member major-mode '(term-mode
-                                   slime-repl-mode
-                                   magit-status-mode
-                                   help-mode)))
+  (unless (or (minibufferp) (member major-mode linum-disabled-modes))
     (linum-mode 1)))
 
 ;; Highlight current line
-(setq global-hl-line-mode t)
+(global-hl-line-mode)
+
+;; Highlight matching parens
+(show-paren-mode 1)
+
+;; Set custom theme path
+(setq custom-theme-directory (concat dotfiles-dir "themes"))
+(dolist
+    (path (directory-files custom-theme-directory t "\\w+"))
+  (when (file-directory-p path)
+    (add-to-list 'custom-theme-load-path path)))
 
 ;; Prepare colour themes
 (defun theme-light ()
   (interactive)
-  (load-theme 'whiteboard)
-  (set-face-background 'highlight "#e2e2e2")
+  (load-theme 'adwaita)
+  (set-face-background 'highlight "#dddddd")
   (set-face-foreground 'highlight nil)
-  (set-face-underline-p 'highlight nil)
-  ;; (set-face-background 'linum nil)
-  ;; (set-face-foreground 'linum nil)
-  )
+  (set-face-background 'linum nil)
+  (set-face-foreground 'linum nil))
 (defun theme-dark ()
   (interactive)
-  (load-theme 'wombat)
-  (set-face-underline-p 'highlight nil)
-  (set-face-background 'highlight "#2d2d2d")
-  (set-face-foreground 'highlight nil)
-  (set-face-background 'region "#464668")
-  (set-face-background 'show-paren-match-face "#464668")
-  (set-face-foreground 'show-paren-match-face "#ffffff")
-  ;; (set-face-attribute 'mode-line nil :box nil)
-  ;; (set-face-attribute 'mode-line-inactive nil :box nil)
-  ;; (set-face-background 'linum "#3f3f3f")
-  ;; (set-face-foreground 'linum "#606660")
-  (setq ansi-term-color-vector ["#242424" "#e5786d" "#95e454" "#cae682" "#8ac6f2" "#6c6ca3" "#ccaa8f" "#f6f3e8"])
-  )
+  (load-theme 'bubbleberry t)
+  (set-face-background 'linum nil))
 (theme-dark)
-
-;; Bind a key for toggling font size for presentations
-;; (setq default-frame-font (frame-parameter nil 'font))
-(setq default-frame-font "-unknown-Ubuntu Mono-normal-normal-normal-*-16-*-*-*-m-0-iso10646-1")
-(set-frame-font default-frame-font)
-(setq presentation-frame-font "-unknown-Ubuntu Mono-normal-normal-normal-*-21-*-*-*-m-0-iso10646-1")
-(defun toggle-presentation-font ()
-  (interactive)
-  (set-frame-font (if (string= (frame-parameter nil 'font) default-frame-font) presentation-frame-font default-frame-font)))
-(global-set-key (kbd "C-<f9>") 'toggle-presentation-font)
-
-;; Configure Todochiku icon theme
-(setq todochiku-icons-directory "~/.emacs.d/todochiku-icons")
-(setq todochiku-icons
-      (quote ((default . "default.svg")
-              (alert . "alert.svg")
-              (bell . "bell.svg")
-              (compile . "compile.svg")
-              (irc . "chat.svg")
-              (check . "check.svg")
-              (emacs . "emacs.svg")
-              (star . "star.svg")
-              (social . "social.svg")
-              (alarm . "alarm.svg")
-              (music . "music.svg")
-              (mail . "mail.svg")
-              (term . "terminal.svg")
-              (package . "package.svg"))))
-
-;; Make a nice custom ECB layout
-;; (require 'ecb)
-;; (ecb-layout-define "bodil" left nil
-;;   (ecb-set-directories-buffer)
-;;   (ecb-split-ver 0.6153846153846154)
-;;   (ecb-set-methods-buffer)
-;;   (select-window (next-window)))
-
-;; Setup rfringe
-(require 'rfringe)
-(rfringe-show-region)

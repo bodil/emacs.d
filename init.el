@@ -1,74 +1,35 @@
-;;; init.el --- Where all the magic begins
-;;
-;; This is the first thing to get loaded.
-;;
-;; "Emacs outshines all other editing software in approximately the
-;; same way that the noonday sun does the stars. It is not just bigger
-;; and brighter; it simply makes everything else vanish."
-;; -Neal Stephenson, "In the Beginning was the Command Line"
+;;; init.el --- Through victory, my chains are broken
 
-;; omg stfu
-(setq debug-on-error nil)
-(setq warning-suppress-types nil)
-(setq stack-trace-on-error nil)
-(setq help-xref-following nil)
+;; When I was a child, I spake as a child,
+;; I understood as a child, I thought as a child:
+;; but when I became a man, I put away childish things.
+;;   -- 1 Corinthians, 13:11
+(dolist (mode '(menu-bar-mode tool-bar-mode scroll-bar-mode))
+  (when (fboundp mode) (funcall mode -1)))
+
+;; Always ALWAYS use UTF-8
+(set-terminal-coding-system 'utf-8)
+(set-keyboard-coding-system 'utf-8)
+(prefer-coding-system 'utf-8)
+
+;; Always ask for y/n keypress instead of typing out 'yes' or 'no'
+(defalias 'yes-or-no-p 'y-or-n-p)
 
 ;; Get hostname
 (setq hostname (replace-regexp-in-string "\\(^[[:space:]\n]*\\|[[:space:]\n]*$\\)" "" (with-output-to-string (call-process "hostname" nil standard-output))))
 
-;; Are we running XEmacs or Emacs?
-(defvar running-xemacs (string-match "XEmacs\\|Lucid" emacs-version))
-;; Some simple macros to more easily tell if we're running GNUEmacs or XEmacs
-;; taken from the .emacs of sukria@online.fr | http://sukria.online.fr
-(defmacro GNUEmacs (&rest x)
-  (list 'if (not running-xemacs) (cons 'progn x)))
-(defmacro XEmacs (&rest x)
-  (list 'if running-xemacs (cons 'progn x)))
-(defmacro Xlaunch (&rest x)
-  (list 'if (eq window-system 'x) (cons 'progn x)))
-
-;; Load path etc.
-
+;; Add .emacs.d to load-path
 (setq dotfiles-dir (file-name-directory
                     (or (buffer-file-name) load-file-name)))
 (add-to-list 'load-path dotfiles-dir)
-(add-to-list 'load-path (concat dotfiles-dir "/elpa-to-submit"))
+
 ;; Add every subdirectory of ~/.emacs.d/site-lisp to the load path
 (dolist
-    (elt
-     (delq nil
-           (mapcar
-            (lambda (filedesc)
-              (let ((filename (car filedesc))
-                    (isdirectory (cadr filedesc)))
-                (if (and isdirectory
-                         (not (integerp (string-match "/\\.+$" filename))))
-                    filename
-                  nil)))
-            (directory-files-and-attributes
-             (concat dotfiles-dir "/site-lisp") t))))
-  (add-to-list 'load-path elt))
+    (project (directory-files (concat dotfiles-dir "site-lisp") t "\\w+"))
+  (when (file-directory-p project)
+    (add-to-list 'load-path project)))
 
-;; First of all, load proxy settings etc we might need depending on hostname.
-(setq system-specific-immediate-config (concat dotfiles-dir system-name "-first.el"))
-(if (file-exists-p system-specific-immediate-config) (load system-specific-immediate-config))
-
-;; Turn off mouse interface early in startup to avoid momentary display
-;; You really don't need these; trust me.
-(if (fboundp 'menu-bar-mode) (menu-bar-mode -1))
-(if (fboundp 'tool-bar-mode) (tool-bar-mode -1))
-(if (fboundp 'scroll-bar-mode) (scroll-bar-mode -1))
-
-;; Load CEDET early to make sure we override the packaged version
-(load "~/.emacs.d/bodil-cedet")
-
-;; If on a Debian based system, let's run debian-startup
-(if (and (file-exists-p "/usr/share/emacs/site-lisp/debian-startup.el")
-         (not (functionp 'debian-startup)))
-    (progn (add-to-list 'load-path "/usr/share/emacs/site-lisp")
-           (load-file "/usr/share/emacs/site-lisp/debian-startup.el")
-           (debian-run-directories "/etc/emacs/site-start.d")))
-
+;; Set paths to custom.el and loaddefs.el
 (setq autoload-file (concat dotfiles-dir "loaddefs.el"))
 (setq custom-file (concat dotfiles-dir "custom.el"))
 
@@ -80,54 +41,30 @@
                   ("elpa" . "http://tromey.com/elpa/")))
   (add-to-list 'package-archives source t))
 (package-initialize)
-(require 'starter-kit-elpa)
 
-;; These should be loaded on startup rather than autoloaded on demand
-;; since they are likely to be used in every session
+;; Write backup files to own directory
+(setq backup-directory-alist
+      `(("." . ,(expand-file-name (concat dotfiles-dir "bak")))))
 
-(require 'cl)
-(require 'saveplace)
-(require 'ffap)
-(require 'uniquify)
-(require 'ansi-color)
-(require 'recentf)
+;; Macro for X specific code
+(defmacro Xlaunch (&rest x)
+  (list 'if (eq window-system 'x) (cons 'progn x)))
 
-;; Load up starter kit customizations
+;; Now load other things
+(dolist (file '("bodil-defuns.el"
+                "bodil-session.el"
+                "bodil-theme.el"
+                "bodil-editing.el"
+                "bodil-complete.el"
+                "bodil-ido.el"
+                "bodil-lisp.el"
+                "bodil-js.el"
+                "bodil-markup.el"
+                "bodil-magit.el"
+                "bodil-terminal.el"
+                "bodil-codestyle.el"))
+  (load (concat dotfiles-dir file)))
+(Xlaunch (load (concat dotfiles-dir "bodil-x11.el")))
 
-(require 'starter-kit-defuns)
-(require 'starter-kit-bindings)
-(require 'starter-kit-misc)
-(require 'starter-kit-lisp)
-
-;; You can keep system- or user-specific customizations here
-(setq system-specific-config (concat dotfiles-dir system-name ".el")
-      user-specific-config (concat dotfiles-dir user-login-name ".el")
-      user-specific-dir (concat dotfiles-dir user-login-name))
-(add-to-list 'load-path user-specific-dir)
-
-(if (file-exists-p system-specific-config) (load system-specific-config))
-(if (file-exists-p user-specific-config) (load user-specific-config))
-(if (file-exists-p user-specific-dir)
-  (mapc #'load (directory-files user-specific-dir nil ".*el$")))
-
-;; Load my scripts
-(load "~/.emacs.d/bodil-theme")
-(load "~/.emacs.d/bodil-lisp")
-(load "~/.emacs.d/bodil-haskell")
-(load "~/.emacs.d/bodil-python")
-(load "~/.emacs.d/bodil-java")
-(load "~/.emacs.d/bodil-js")
-(load "~/.emacs.d/bodil-c")
-(load "~/.emacs.d/bodil-w3m")
-(load "~/.emacs.d/bodil-git")
-(load "~/.emacs.d/bodil-misc")
-(load "~/.emacs.d/bodil-bindings")
-(load "~/.emacs.d/bodil-vars")
-
-;; Load X-specific scripts
-(Xlaunch (load "~/.emacs.d/bodil-x"))
-
-(regen-autoloads)
+;; Load custom settings
 (load custom-file 'noerror)
-
-;;; init.el ends here
