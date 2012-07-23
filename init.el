@@ -60,6 +60,7 @@
                 "bodil-lisp.el"
                 "bodil-js.el"
                 "bodil-markup.el"
+                "bodil-c.el"
                 "bodil-magit.el"
                 "bodil-terminal.el"
                 "bodil-codestyle.el"))

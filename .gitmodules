@@ -40,3 +40,6 @@
 [submodule "site-lisp/clojure-mode"]
 	path = site-lisp/clojure-mode
 	url = git://github.com/technomancy/clojure-mode.git
+[submodule "site-lisp/clang-complete-async"]
+	path = site-lisp/clang-complete-async
+	url = git://github.com/Golevka/emacs-clang-complete-async.git
