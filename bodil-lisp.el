@@ -8,6 +8,12 @@
               (autopair-mode -1)
               (paredit-mode 1))))
 
+;; Make paredit play nice with eldoc
+(eval-after-load "eldoc"
+  '(eldoc-add-command
+    'paredit-backward-delete
+    'paredit-close-round))
+
 ;; Setup C-c v to eval whole buffer in all lisps
 (define-key lisp-mode-shared-map (kbd "C-c v") 'eval-buffer)
 
@@ -30,6 +36,11 @@
 
 (autoload 'clojure-mode "clojure-mode" nil t)
 (add-to-list 'auto-mode-alist '("\\.cljs?$" . clojure-mode))
+
+;; For some reason paredit fails to bind paredit-backward-delete to backspace
+(add-hook 'clojure-mode-hook
+          (lambda ()
+            (define-key clojure-mode-map (kbd "DEL") 'paredit-backward-delete)))
 
 ;; nRepl
 (autoload 'nrepl-jack-in "clojure-mode" nil t)
