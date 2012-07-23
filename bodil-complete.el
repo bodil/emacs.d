@@ -10,6 +10,13 @@
 (define-key ac-completing-map (kbd "C-\\") 'ac-complete)
 ;; TODO: I want PgUp/PgDn to work when AC is showing a candidate menu
 
+;; Enable auto-complete for some modes not present by default in ac-modes
+(setq ac-modes (append '(coffee-mode) ac-modes))
+
+;; Yasnippets, always
+(eval-after-load "yasnippet"
+  '(setq-default ac-sources (append '(ac-source-yasnippet) ac-sources)))
+
 
 ;;; Clojure
 

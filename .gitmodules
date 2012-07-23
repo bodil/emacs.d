@@ -43,3 +43,12 @@
 [submodule "site-lisp/clang-complete-async"]
 	path = site-lisp/clang-complete-async
 	url = git://github.com/Golevka/emacs-clang-complete-async.git
+[submodule "site-lisp/yasnippet"]
+	path = site-lisp/yasnippet
+	url = git://github.com/capitaomorte/yasnippet.git
+[submodule "site-lisp/auto-complete"]
+	path = site-lisp/auto-complete
+	url = git://github.com/m2ym/auto-complete.git
+[submodule "site-lisp/popup"]
+	path = site-lisp/popup
+	url = git://github.com/m2ym/popup-el.git

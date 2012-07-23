@@ -55,6 +55,7 @@
                 "bodil-session.el"
                 "bodil-theme.el"
                 "bodil-editing.el"
+                "bodil-snippets.el"
                 "bodil-complete.el"
                 "bodil-ido.el"
                 "bodil-lisp.el"
