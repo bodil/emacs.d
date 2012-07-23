@@ -6,7 +6,7 @@
 (setq ac-auto-start nil)
 (define-key ac-mode-map (kbd "C-\\") 'auto-complete)
 (define-key ac-completing-map (kbd "TAB") nil)
-(define-key ac-completing-map (kbd "RET") nil)
+(define-key ac-completing-map (kbd "RET") 'ac-complete)
 (define-key ac-completing-map (kbd "C-\\") 'ac-complete)
 ;; TODO: I want PgUp/PgDn to work when AC is showing a candidate menu
 
