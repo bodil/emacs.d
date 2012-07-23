@@ -8,6 +8,9 @@
               (autopair-mode -1)
               (paredit-mode 1))))
 
+;; Setup C-c v to eval whole buffer in all lisps
+(define-key lisp-mode-shared-map (kbd "C-c v") 'eval-buffer)
+
 ;;; Emacs Lisp
 
 (defun remove-elc-on-save ()
