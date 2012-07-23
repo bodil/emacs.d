@@ -4,18 +4,6 @@ auto-save-list
 *elc
 places
 url/cookies
-elpa-to-submit/jabber/jabber.info
-elpa-to-submit/nxhtml/etc/schema/xhtml-loader.rnc
-thumbs/*
-oddmuse/*
-.newsrc-dribble
-.nnmail-cache
-/#.newsrc-dribble#
-.svn
-.DS_Store
-image-dired/
-elim/
-elpa-to-submit/nxhtml/etc/schema/xhtml-loader.rnc~
 session*
 tramp
 \#*
@@ -30,7 +18,6 @@ private.el
 undohist
 /srecode-map.el
 /semanticdb
-*-first.el
 /saveplace
 /.emacs.desktop
 /.emacs.desktop.lock
@@ -38,3 +25,4 @@ undohist
 /swank
 /ede-projects.el
 old
+elpa
