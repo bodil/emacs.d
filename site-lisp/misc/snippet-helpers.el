@@ -28,7 +28,8 @@
     (chop-prefix "test/"
     (chop-prefix "src/"
     (chop-suffix ".clj"
-     (substring (buffer-file-name) (length eproject-root))))))))
+    (chop-suffix ".cljs"
+     (substring (buffer-file-name) (length (git-current-root))))))))))
 
 (defun snippet--clojure-namespace-under-test ()
   (replace-regexp-in-string ".test." "." (snippet--clojure-namespace-from-buffer-file-name)))
