@@ -42,7 +42,7 @@
 	url = git://github.com/technomancy/clojure-mode.git
 [submodule "site-lisp/clang-complete-async"]
 	path = site-lisp/clang-complete-async
-	url = git://github.com/Golevka/emacs-clang-complete-async.git
+	url = git@github.com:bodil/emacs-clang-complete-async.git
 [submodule "site-lisp/yasnippet"]
 	path = site-lisp/yasnippet
 	url = git://github.com/capitaomorte/yasnippet.git
