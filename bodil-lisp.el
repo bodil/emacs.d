@@ -2,7 +2,7 @@
 
 ;; Paredit for all lisps
 (autoload 'paredit-mode "paredit.el" nil t)
-(dolist (mode '(scheme emacs-lisp lisp clojure))
+(dolist (mode '(scheme emacs-lisp lisp clojure lolisp))
   (add-hook (intern (concat (symbol-name mode) "-mode-hook"))
             (lambda ()
               (autopair-mode -1)
@@ -47,3 +47,9 @@
 (eval-after-load "clojure-mode" '(require 'nrepl))
 (setq nrepl-lein-command "lein")
 (setq nrepl-server-command "echo \"lein repl :headless\" | $SHELL -l")
+
+
+;;; Lolisp
+
+(define-derived-mode lolisp-mode scheme-mode "Lolisp")
+(add-to-list 'auto-mode-alist '("\\.loli$" . lolisp-mode))
