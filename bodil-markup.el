@@ -8,6 +8,9 @@
         rng-nxml-auto-validate-flag nil
         nxhtml-skip-welcome t))
 
+;; Patch a mumamo bug which keeps giving annoying warnings
+(setq mumamo-per-buffer-local-vars (delq 'buffer-file-name mumamo-per-buffer-local-vars))
+
 ;; Key for renaming tags
 (autoload 'rename-sgml-tag "rename-sgml-tag" nil t)
 (eval-after-load "nxhtml-mode"
