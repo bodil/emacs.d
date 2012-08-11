@@ -11,7 +11,9 @@
 (setq js2-indent-on-enter-key t)
 (setq js2-mirror-mode nil)
 (setq js2-mode-indent-ignore-first-tab t)
-(setq js2-global-externs '("module" "require" "__dirname" "process" "console" "define" "JSON"))
+(setq js2-global-externs
+      '("module" "require" "__dirname" "process" "console" "define"
+        "JSON"))
 
 ;; Use plain old js-mode for JSON, js2-mode doth protest too much
 (add-to-list 'auto-mode-alist '("\\.json$" . js-mode))
