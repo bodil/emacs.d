@@ -52,6 +52,6 @@
 [submodule "site-lisp/popup"]
 	path = site-lisp/popup
 	url = git://github.com/m2ym/popup-el.git
-[submodule "site-lisp/python-mode"]
-	path = site-lisp/python-mode
-	url = git://github.com/fgallina/python.el.git
+[submodule "site-lisp/python-mode-el"]
+	path = site-lisp/python-mode-el
+	url = git://github.com/emacsmirror/python-mode.git
