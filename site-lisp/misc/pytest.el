@@ -109,6 +109,7 @@
   (let ((cmdline (format "cd; py.test %s "
                          ;(pytest-arg-from-path (buffer-file-name))
                          (buffer-file-name))))
+    (save-buffer)
     (pytest-run cmdline nil)))
 
 (defun pytest-run-method ()
