@@ -1,7 +1,7 @@
 ;;; bodil-python.el -- Python configuration
 
- ;; Load explicitly to override Emacs's bundled python-mode
-(load (concat dotfiles-dir "site-lisp/python-mode/python.el"))
+;; Require, not autoload, to override Emacs bundled python.el
+(require 'python-mode)
 
 ;; Pytest bindings
 (require 'pytest)

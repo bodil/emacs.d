@@ -67,7 +67,9 @@
       (local-set-key "q" 'quit-window)
       (local-set-key "g" 'pytest-run-again)
       (goto-char (point-max))
-      (scroll-down (- (/ (window-total-height) 2) 2)))))
+      (when (> (count-lines (point-min) (point-max))
+               (window-total-height))
+        (scroll-down (- (/ (window-total-height) 2) 2))))))
 
 (defun pytest-run (cmdline show-prompt)
   (let ((cmdline (if show-prompt

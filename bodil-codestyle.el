@@ -15,7 +15,7 @@
 ;; Coffeescript
 (setq coffee-tab-width 2)
 ;; Python
-(setq python-indent-offset 2)
+(setq-default py-indent-offset 2)
 
 ;; Default formatting style for C based modes
 (setq c-default-style "java")
