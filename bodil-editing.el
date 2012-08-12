@@ -65,3 +65,6 @@
     (setq deactivate-mark nil)
     (exchange-point-and-mark)))
 (global-set-key (kbd "C-M-<down>") 'duplicate-start-of-line-or-region)
+
+;; Some bindings for special characters
+(global-set-key (kbd "M--") (lambda () (interactive) (insert "—")))
