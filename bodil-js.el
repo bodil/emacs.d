@@ -5,6 +5,11 @@
 
 (add-to-list 'auto-mode-alist '("\\.js$" . js2-mode))
 
+(font-lock-add-keywords
+ 'js2-mode `(("\\<\\(function\\) *("
+              (0 (progn (compose-region (match-beginning 1)
+                                        (match-end 1) "\u0192") nil)))))
+
 (setq js2-auto-indent-p t)
 (setq js2-cleanup-whitespace t)
 (setq js2-enter-indents-newline t)

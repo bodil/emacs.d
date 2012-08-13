@@ -1,12 +1,15 @@
 ;;; lisp.el -- Lisps
 
+(require 'bodil-defuns)
+
+(defun add-lisp-hook (func)
+  (add-hooks '(scheme emacs-lisp lisp clojure lolisp) func))
+
 ;; Paredit for all lisps
 (autoload 'paredit-mode "paredit.el" nil t)
-(dolist (mode '(scheme emacs-lisp lisp clojure lolisp))
-  (add-hook (intern (concat (symbol-name mode) "-mode-hook"))
-            (lambda ()
+(add-lisp-hook (lambda ()
               (autopair-mode -1)
-              (paredit-mode 1))))
+              (paredit-mode 1)))
 
 ;; Make paredit play nice with eldoc
 (eval-after-load "eldoc"
@@ -17,7 +20,16 @@
 ;; Setup C-c v to eval whole buffer in all lisps
 (define-key lisp-mode-shared-map (kbd "C-c v") 'eval-buffer)
 
+;; Lambdas
+(defun lambda-as-lambda (mode pattern)
+  (font-lock-add-keywords
+   mode `((,pattern
+           (0 (progn (compose-region (match-beginning 1) (match-end 1)
+                                     "λ" 'decompose-region)))))))
+
 ;;; Emacs Lisp
+
+(lambda-as-lambda 'emacs-lisp-mode "(\\(\\<lambda\\>\\)")
 
 (defun remove-elc-on-save ()
   "If you're saving an elisp file, likely the .elc is no longer valid."
@@ -37,10 +49,11 @@
 (autoload 'clojure-mode "clojure-mode" nil t)
 (add-to-list 'auto-mode-alist '("\\.cljs?$" . clojure-mode))
 
+(lambda-as-lambda 'clojure-mode "(\\(\\<fn\\>\\)")
+
 ;; For some reason paredit fails to bind paredit-backward-delete to backspace
 (add-hook 'clojure-mode-hook
-          (lambda ()
-            (define-key clojure-mode-map (kbd "DEL") 'paredit-backward-delete)))
+          (lambda () (define-key clojure-mode-map (kbd "DEL") 'paredit-backward-delete)))
 
 ;; nRepl
 (autoload 'nrepl-jack-in "clojure-mode" nil t)
@@ -53,3 +66,5 @@
 
 (define-derived-mode lolisp-mode scheme-mode "Lolisp")
 (add-to-list 'auto-mode-alist '("\\.loli$" . lolisp-mode))
+
+(lambda-as-lambda 'lolisp-mode "(\\(\\<lambda\\>\\)")

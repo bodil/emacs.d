@@ -1,5 +1,9 @@
 ;;; bodil-defuns.el -- Miscellaneous functions
 
+(defun add-hooks (modes func)
+  (dolist (mode modes)
+    (add-hook (intern (concat (symbol-name mode) "-mode-hook")) func)))
+
 (defun indent-buffer ()
   (interactive)
   (indent-region (point-min) (point-max)))

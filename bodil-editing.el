@@ -76,3 +76,4 @@
 
 ;; Some bindings for special characters
 (global-set-key (kbd "M--") (lambda () (interactive) (insert "—")))
+(global-set-key (kbd "M-l") (lambda () (interactive) (insert "lambda")))
