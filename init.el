@@ -63,6 +63,7 @@
                 "bodil-markup.el"
                 "bodil-c.el"
                 "bodil-markdown.el"
+                "bodil-python.el"
                 "bodil-magit.el"
                 "bodil-terminal.el"
                 "bodil-codestyle.el"))
