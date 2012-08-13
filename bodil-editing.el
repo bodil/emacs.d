@@ -66,5 +66,13 @@
     (exchange-point-and-mark)))
 (global-set-key (kbd "C-M-<down>") 'duplicate-start-of-line-or-region)
 
+;; ace-jump-mode!
+(autoload 'ace-jump-mode "ace-jump-mode" nil t)
+(autoload 'ace-jump-mode-pop-mark "ace-jump-mode" nil t)
+(global-set-key (kbd "C-ø") 'ace-jump-mode)
+(global-set-key (kbd "M-ø") 'ace-jump-mode-pop-mark)
+(eval-after-load "ace-jump-mode"
+  '(ace-jump-mode-enable-mark-sync))
+
 ;; Some bindings for special characters
 (global-set-key (kbd "M--") (lambda () (interactive) (insert "—")))

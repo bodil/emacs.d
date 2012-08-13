@@ -52,3 +52,6 @@
 [submodule "site-lisp/popup"]
 	path = site-lisp/popup
 	url = git://github.com/m2ym/popup-el.git
+[submodule "site-lisp/ace-jump-mode"]
+	path = site-lisp/ace-jump-mode
+	url = git://github.com/winterTTr/ace-jump-mode.git
