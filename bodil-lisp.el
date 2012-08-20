@@ -61,6 +61,17 @@
 (setq nrepl-lein-command "lein")
 (setq nrepl-server-command "echo \"lein repl :headless\" | $SHELL -l")
 
+;; Run tests in nRepl
+(defun nrepl-run-tests (ns)
+  (interactive (list (nrepl-current-ns)))
+  (save-buffer)
+  (nrepl-load-current-buffer)
+  (with-current-buffer "*nrepl*"
+    (nrepl-send-string
+     (format "(clojure.test/run-tests '%s)" ns)
+     nrepl-buffer-ns (nrepl-handler (current-buffer)))))
+(eval-after-load "clojure-mode"
+  '(define-key clojure-mode-map (kbd "C-c C-,") 'nrepl-run-tests))
 
 ;;; Lolisp
 
