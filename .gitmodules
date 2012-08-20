@@ -58,3 +58,6 @@
 [submodule "site-lisp/python-mode-el"]
 	path = site-lisp/python-mode-el
 	url = git://github.com/emacsmirror/python-mode.git
+[submodule "site-lisp/twittering-mode"]
+	path = site-lisp/twittering-mode
+	url = git://github.com/hayamiz/twittering-mode.git

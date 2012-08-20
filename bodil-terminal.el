@@ -3,6 +3,7 @@
 ;; Configure multi-term
 (autoload 'multi-term "multi-term" nil t)
 (autoload 'multi-term-next "multi-term" nil t)
+(global-set-key (kbd "C-x C-m") 'multi-term)
 (global-set-key (kbd "C-x m") 'multi-term-next)
 
 ;; Don't try to enable autopair in term-mode, it remaps the return key!
