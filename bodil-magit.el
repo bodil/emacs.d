@@ -60,6 +60,9 @@ filtered by a user-provided regexp."
           project-files)
     (find-file (gethash (ido-completing-read "project-files: " ido-list) tbl))))
 (global-set-key (kbd "C-c C-f") 'ido-find-file-in-git-tree)
+;; unbind conflicting key in dirty nxml-mode
+(eval-after-load "nxml-mode"
+  '(define-key nxml-mode-map "\C-c\C-f" nil))
 
 ;; Repo-wide query-replace-regexp
 (defun query-replace-regexp-in-git-tree (from-string to-string &optional delimited start end)
