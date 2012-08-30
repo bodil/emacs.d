@@ -48,10 +48,10 @@
 	url = git://github.com/capitaomorte/yasnippet.git
 [submodule "site-lisp/auto-complete"]
 	path = site-lisp/auto-complete
-	url = git://github.com/m2ym/auto-complete.git
+	url = git://github.com/auto-complete/auto-complete.git
 [submodule "site-lisp/popup"]
 	path = site-lisp/popup
-	url = git://github.com/m2ym/popup-el.git
+	url = git://github.com/auto-complete/popup-el.git
 [submodule "site-lisp/ace-jump-mode"]
 	path = site-lisp/ace-jump-mode
 	url = git://github.com/winterTTr/ace-jump-mode.git
