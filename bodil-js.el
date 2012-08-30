@@ -18,7 +18,7 @@
 (setq js2-mode-indent-ignore-first-tab t)
 (setq js2-global-externs
       '("module" "require" "__dirname" "process" "console" "define"
-        "JSON"))
+        "JSON" "$" "_"))
 
 ;; Use plain old js-mode for JSON, js2-mode doth protest too much
 (add-to-list 'auto-mode-alist '("\\.json$" . js-mode))
