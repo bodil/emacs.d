@@ -16,6 +16,8 @@
 (setq coffee-tab-width 2)
 ;; Python
 (setq-default py-indent-offset 2)
+;; XML
+(setq-default nxml-child-indent 2)
 
 ;; Default formatting style for C based modes
 (setq c-default-style "java")
