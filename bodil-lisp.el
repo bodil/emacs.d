@@ -8,8 +8,8 @@
 ;; Paredit for all lisps
 (autoload 'paredit-mode "paredit.el" nil t)
 (add-lisp-hook (lambda ()
-              (autopair-mode -1)
-              (paredit-mode 1)))
+                 (autopair-mode -1)
+                 (paredit-mode 1)))
 
 ;; Make paredit play nice with eldoc
 (eval-after-load "eldoc"
@@ -79,3 +79,40 @@
 (add-to-list 'auto-mode-alist '("\\.loli$" . lolisp-mode))
 
 (lambda-as-lambda 'lolisp-mode "(\\(\\<lambda\\>\\)")
+
+
+;;; Various inferior lisps
+
+;; ClojureScript REPL
+(defun clojurescript-repl ()
+  (interactive)
+  (run-lisp "/home/bodil/workspace/clojurescript/script/repl"))
+(defun clojurescript-replnode ()
+  (interactive)
+  (run-lisp "/home/bodil/workspace/clojurescript/script/replnode"))
+
+;; Clojure-Py REPL
+(defun clojurepy-repl ()
+  (interactive)
+  (run-lisp "/usr/local/bin/clojurepy"))
+
+;; Datomic REPL
+(defun datomic-repl ()
+  (interactive)
+  (let ((datomic-path "/home/bodil/datomic/"))
+    (let ((classpath
+           (let ((classpath
+                  (shell-command-to-string
+                   (concat datomic-path "bin/classpath"))))
+             (replace-regexp-in-string
+              "\n" ""
+              (mapconcat
+               'identity
+               (mapcan (lambda (i) (file-expand-wildcards
+                               (concat datomic-path i)))
+                       (split-string classpath ":")) ":")))))
+      (run-lisp (concat "java -server -Xmx1g -cp "
+                        classpath
+                        " clojure.main -i "
+                        datomic-path
+                        "bin/bridge.clj -r")))))
