@@ -11,3 +11,7 @@
           (lambda ()
             (autopair-mode 0)
             (hl-line-mode 0)))
+
+;; Likewise, yasnippet breaks the tab key.
+(add-hook 'term-mode-hook
+          (lambda() (yas-minor-mode -1)))
