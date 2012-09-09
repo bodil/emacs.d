@@ -10,7 +10,6 @@
               (0 (progn (compose-region (match-beginning 1)
                                         (match-end 1) "\u0192") nil)))))
 
-(setq js2-idle-timer-delay 5)
 (setq js2-auto-indent-p t)
 (setq js2-cleanup-whitespace t)
 (setq js2-enter-indents-newline t)
