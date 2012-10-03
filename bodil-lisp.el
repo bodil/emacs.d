@@ -73,6 +73,19 @@
 (eval-after-load "clojure-mode"
   '(define-key clojure-mode-map (kbd "C-c C-,") 'nrepl-run-tests))
 
+;;Kibit
+
+(require 'compile)
+(add-to-list 'compilation-error-regexp-alist-alist
+         '(kibit "At \\([^:]+\\):\\([[:digit:]]+\\):" 1 2 nil 0))
+(add-to-list 'compilation-error-regexp-alist 'kibit)
+
+(defun kibit ()
+  "Run kibit on the current project.
+Display the results in a hyperlinked *compilation* buffer."
+  (interactive)
+  (compile "lein kibit"))
+
 ;;; Lolisp
 
 (define-derived-mode lolisp-mode scheme-mode "Lolisp")
