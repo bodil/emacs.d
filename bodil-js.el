@@ -89,3 +89,11 @@
       (coffee-unindent-block)
     (progn
       (indent-line-to (- (current-indentation) coffee-tab-width)))))
+
+
+;; Roy
+
+(autoload 'roy-mode "roy-mode" nil t)
+(autoload 'roy-repl "roy-mode" nil t)
+
+(add-to-list 'auto-mode-alist '("\\.roy$" . roy-mode))

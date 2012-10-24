@@ -61,3 +61,6 @@
 [submodule "site-lisp/twittering-mode"]
 	path = site-lisp/twittering-mode
 	url = git://github.com/hayamiz/twittering-mode.git
+[submodule "site-lisp/roy-mode"]
+	path = site-lisp/roy-mode
+	url = git://github.com/folone/roy-mode.git
