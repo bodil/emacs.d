@@ -64,3 +64,12 @@
 [submodule "site-lisp/roy-mode"]
 	path = site-lisp/roy-mode
 	url = git://github.com/folone/roy-mode.git
+[submodule "site-lisp/google-maps"]
+	path = site-lisp/google-maps
+	url = git://git.naquadah.org/google-maps.git
+[submodule "site-lisp/mingus"]
+	path = site-lisp/mingus
+	url = git://github.com/pft/mingus.git
+[submodule "site-lisp/dash"]
+	path = site-lisp/dash
+	url = git://github.com/magnars/dash.el.git

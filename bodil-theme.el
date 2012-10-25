@@ -54,3 +54,13 @@
   (load-theme 'bubbleberry t)
   (set-face-background 'linum nil))
 (theme-dark)
+
+;; Set default and presentation mode fonts
+(setq default-frame-font "-unknown-Ubuntu Mono-normal-normal-normal-*-17-*-*-*-m-0-iso10646-1")
+(set-frame-font default-frame-font)
+(setq presentation-frame-font "-unknown-Ubuntu Mono-normal-normal-normal-*-21-*-*-*-m-0-iso10646-1")
+(defun toggle-presentation-font ()
+  (interactive)
+  (set-frame-font (if (string= (frame-parameter nil 'font) default-frame-font)
+                      presentation-frame-font default-frame-font)))
+(global-set-key (kbd "C-<f9>") 'toggle-presentation-font)
