@@ -79,3 +79,6 @@
 [submodule "site-lisp/nyan-mode"]
 	path = site-lisp/nyan-mode
 	url = git://github.com/TeMPOraL/nyan-mode.git
+[submodule "site-lisp/cljsbuild-mode"]
+	path = site-lisp/cljsbuild-mode
+	url = git://github.com/kototama/cljsbuild-mode.git

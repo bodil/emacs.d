@@ -74,10 +74,9 @@
   '(define-key clojure-mode-map (kbd "C-c C-,") 'nrepl-run-tests))
 
 ;;Kibit
-
 (require 'compile)
 (add-to-list 'compilation-error-regexp-alist-alist
-         '(kibit "At \\([^:]+\\):\\([[:digit:]]+\\):" 1 2 nil 0))
+             '(kibit "At \\([^:]+\\):\\([[:digit:]]+\\):" 1 2 nil 0))
 (add-to-list 'compilation-error-regexp-alist 'kibit)
 
 (defun kibit ()
@@ -85,6 +84,10 @@
 Display the results in a hyperlinked *compilation* buffer."
   (interactive)
   (compile "lein kibit"))
+
+;; Cljsbuild
+(require 'cljsbuild-mode)
+
 
 ;;; Lolisp
 
