@@ -76,3 +76,6 @@
 [submodule "site-lisp/flycheck"]
 	path = site-lisp/flycheck
 	url = git://github.com/lunaryorn/flycheck.git
+[submodule "site-lisp/nyan-mode"]
+	path = site-lisp/nyan-mode
+	url = git://github.com/TeMPOraL/nyan-mode.git

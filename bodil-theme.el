@@ -64,3 +64,7 @@
   (set-frame-font (if (string= (frame-parameter nil 'font) default-frame-font)
                       presentation-frame-font default-frame-font)))
 (global-set-key (kbd "C-<f9>") 'toggle-presentation-font)
+
+;; Engage!
+(require 'nyan-mode)
+(nyan-mode 1)
