@@ -51,8 +51,14 @@
   (set-face-foreground 'linum nil))
 (defun theme-dark ()
   (interactive)
-  (load-theme 'bubbleberry t)
-  (set-face-background 'linum nil))
+  ;; (load-theme 'bubbleberry t)
+  (load-theme 'zenburn t)
+  (set-face-background 'default "#222")
+  (set-face-background 'region "#374186")
+  (set-face-background 'fringe "#191919")
+  (set-face-background 'hl-line "#191919")
+  (set-face-background 'linum nil)
+  (set-face-foreground 'linum "#3f5f3f"))
 (theme-dark)
 
 ;; Set default and presentation mode fonts
