@@ -102,10 +102,7 @@ Display the results in a hyperlinked *compilation* buffer."
 ;; ClojureScript REPL
 (defun clojurescript-repl ()
   (interactive)
-  (run-lisp "/home/bodil/workspace/clojurescript/script/repl"))
-(defun clojurescript-replnode ()
-  (interactive)
-  (run-lisp "/home/bodil/workspace/clojurescript/script/replnode"))
+  (run-lisp "lein trampoline noderepl"))
 
 ;; Clojure-Py REPL
 (defun clojurepy-repl ()
