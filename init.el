@@ -68,7 +68,8 @@
                 "bodil-terminal.el"
                 "bodil-twitter.el"
                 "bodil-flycheck.el"
-                "bodil-codestyle.el"))
+                "bodil-codestyle.el"
+                "bodil-dired.el"))
   (load (concat dotfiles-dir file)))
 (Xlaunch (load (concat dotfiles-dir "bodil-x11.el")))
 

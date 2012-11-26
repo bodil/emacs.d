@@ -82,3 +82,6 @@
 [submodule "site-lisp/cljsbuild-mode"]
 	path = site-lisp/cljsbuild-mode
 	url = git://github.com/kototama/cljsbuild-mode.git
+[submodule "site-lisp/dired-plus"]
+	path = site-lisp/dired-plus
+	url = git://github.com/emacsmirror/dired-plus.git
