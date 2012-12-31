@@ -92,6 +92,7 @@ Display the results in a hyperlinked *compilation* buffer."
 ;;; Lolisp
 
 (define-derived-mode lolisp-mode scheme-mode "Lolisp")
+(define-key lolisp-mode-map (kbd "C-x C-e") 'lisp-eval-last-sexp)
 (add-to-list 'auto-mode-alist '("\\.loli$" . lolisp-mode))
 
 (lambda-as-lambda 'lolisp-mode "(\\(\\<lambda\\>\\)")
@@ -108,6 +109,11 @@ Display the results in a hyperlinked *compilation* buffer."
 (defun clojurepy-repl ()
   (interactive)
   (run-lisp "/usr/local/bin/clojurepy"))
+
+;; Lolisp REPL
+(defun lolisp-repl ()
+  (interactive)
+  (run-lisp "/home/bodil/workspace/lolisp/lolisp.py"))
 
 ;; Datomic REPL
 (defun datomic-repl ()
