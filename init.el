@@ -64,6 +64,7 @@
                 "bodil-c.el"
                 "bodil-markdown.el"
                 "bodil-python.el"
+                "bodil-erlang.el"
                 "bodil-magit.el"
                 "bodil-terminal.el"
                 "bodil-twitter.el"
