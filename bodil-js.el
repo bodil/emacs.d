@@ -97,3 +97,9 @@
 (autoload 'roy-repl "roy-mode" nil t)
 
 (add-to-list 'auto-mode-alist '("\\.roy$" . roy-mode))
+
+
+;; TypeScript
+
+(autoload 'typescript-mode "typescript" nil t)
+(add-to-list 'auto-mode-alist '("\\.ts$" . typescript-mode))

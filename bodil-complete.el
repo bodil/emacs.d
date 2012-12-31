@@ -11,7 +11,7 @@
 ;; TODO: I want PgUp/PgDn to work when AC is showing a candidate menu
 
 ;; Enable auto-complete for some modes not present by default in ac-modes
-(setq ac-modes (append '(coffee-mode lolisp-mode) ac-modes))
+(setq ac-modes (append '(coffee-mode lolisp-mode typescript-mode) ac-modes))
 
 ;; Yasnippets, always
 (eval-after-load "yasnippet"
