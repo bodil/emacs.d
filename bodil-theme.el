@@ -46,19 +46,21 @@
 
 ;; Install themes
 (package-require 'zenburn-theme)
-(package-require 'solarized-theme)
+(package-require 'anti-zenburn-theme)
 
 ;; Prepare colour themes
 (defun theme-light ()
   (interactive)
-  (load-theme 'adwaita)
-  (set-face-background 'highlight "#dddddd")
-  (set-face-foreground 'highlight nil)
-  (set-face-background 'linum nil)
-  (set-face-foreground 'linum nil)
+  (load-theme 'anti-zenburn)
+  (set-face-background 'default "#ffffff")
+  (set-face-foreground 'default "#000000")
+  (set-face-background 'region "#d4d4d4")
+  (set-face-foreground 'region nil)
+  (set-face-background 'linum "#f0f0f0")
+  (set-face-background 'fringe "#f0f0f0")
   (setq ansi-term-color-vector ['unspecified
-                                "#ededed" "#f5666d" "#4cb64a" "#ce5c00"
-                                "##00578e" "##a020f0" "#6799cc" "#2e3436"]))
+                                "#ffffff" "#f5666d" "#4cb64a" "#ce5c00"
+                                "#00578e" "#a020f0" "#6799cc" "#000000"]))
 (defun theme-dark ()
   (interactive)
   ;; (load-theme 'bubbleberry t)
@@ -78,11 +80,17 @@
 (setq default-frame-font "-unknown-Ubuntu Mono-normal-normal-normal-*-17-*-*-*-m-0-iso10646-1")
 (set-frame-font default-frame-font)
 (setq presentation-frame-font "-unknown-Ubuntu Mono-normal-normal-normal-*-21-*-*-*-m-0-iso10646-1")
-(defun toggle-presentation-font ()
+
+(defun toggle-presentation-mode ()
   (interactive)
-  (set-frame-font (if (string= (frame-parameter nil 'font) default-frame-font)
-                      presentation-frame-font default-frame-font)))
-(global-set-key (kbd "C-<f9>") 'toggle-presentation-font)
+  (if (string= (frame-parameter nil 'font) default-frame-font)
+      (progn
+        (set-frame-font presentation-frame-font)
+        (theme-light))
+    (progn
+      (set-frame-font default-frame-font)
+      (theme-dark))))
+(global-set-key (kbd "C-<f9>") 'toggle-presentation-mode)
 
 ;; Engage!
 (package-require 'nyan-mode)
