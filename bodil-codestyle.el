@@ -32,3 +32,5 @@
 (add-to-list 'load-path (concat dotfiles-dir "site-lisp/ethan-wspace/lisp"))
 (require 'ethan-wspace)
 (global-ethan-wspace-mode 1)
+
+(provide 'bodil-codestyle)

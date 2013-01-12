@@ -11,3 +11,5 @@
           (lambda ()
             (define-key erlang-shell-mode-map (kbd "C-\\")
               'erlang-complete-tag)))
+
+(provide 'bodil-erlang)

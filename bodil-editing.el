@@ -15,6 +15,7 @@
 
 ;; Multiple cursors!
 (require 'multiple-cursors)
+(global-set-key (kbd "C-S-c C-S-c") 'mc/edit-lines)
 (global-set-key (kbd "C-æ") 'mc/mark-previous-like-this)
 (global-set-key (kbd "C-'") 'mc/mark-next-like-this)
 (global-set-key (kbd "C-M-'") 'mc/mark-more-like-this-extended)
@@ -77,3 +78,5 @@
 ;; Some bindings for special characters
 (global-set-key (kbd "M--") (lambda () (interactive) (insert "—")))
 (global-set-key (kbd "M-l") (lambda () (interactive) (insert "lambda")))
+
+(provide 'bodil-editing)

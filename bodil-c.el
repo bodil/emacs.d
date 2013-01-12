@@ -19,3 +19,5 @@
           (lambda ()
             (add-to-list 'ac-sources 'ac-source-clang-async)
             (launch-completion-proc)))
+
+(provide 'bodil-c)

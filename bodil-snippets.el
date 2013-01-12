@@ -7,3 +7,5 @@
 ;; Load Magnar's snippet helpers
 (require 'snippet-helpers)
 (require 'buster-snippet-helpers)
+
+(provide 'bodil-snippets)

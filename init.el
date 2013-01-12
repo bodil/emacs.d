@@ -70,29 +70,29 @@
   (list 'if (eq window-system 'x) (cons 'progn x)))
 
 ;; Now load other things
-(dolist (file '("bodil-defuns.el"
-                "bodil-session.el"
-                "bodil-theme.el"
-                "bodil-editing.el"
-                "bodil-snippets.el"
-                "bodil-complete.el"
-                "bodil-ido.el"
-                "bodil-lisp.el"
-                "bodil-js.el"
-                "bodil-markup.el"
-                "bodil-c.el"
-                "bodil-markdown.el"
-                "bodil-python.el"
-                "bodil-erlang.el"
-                "bodil-magit.el"
-                "bodil-terminal.el"
-                "bodil-twitter.el"
-                "bodil-orgmode.el"
-                "bodil-flycheck.el"
-                "bodil-codestyle.el"
-                "bodil-dired.el"))
-  (load (concat dotfiles-dir file)))
-(Xlaunch (load (concat dotfiles-dir "bodil-x11.el")))
+(dolist (file '(bodil-defuns
+                bodil-session
+                bodil-theme
+                bodil-editing
+                bodil-snippets
+                bodil-complete
+                bodil-ido
+                bodil-lisp
+                bodil-js
+                bodil-markup
+                bodil-c
+                bodil-markdown
+                bodil-python
+                bodil-erlang
+                bodil-magit
+                bodil-terminal
+                bodil-twitter
+                bodil-orgmode
+                ;; bodil-flycheck
+                bodil-codestyle
+                bodil-dired))
+  (require file))
+(Xlaunch (require 'bodil-x11))
 
 ;; Load custom settings
 (load custom-file 'noerror)

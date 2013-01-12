@@ -79,3 +79,5 @@ filtered by a user-provided regexp."
           (if (and buffer (with-current-buffer buffer buffer-read-only))
               (error "File `%s' is visited read-only" file))))
       (tags-query-replace from-string to-string delimited 'file-list))))
+
+(provide 'bodil-magit)

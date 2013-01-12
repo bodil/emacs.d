@@ -9,3 +9,5 @@
  'python-mode-hook
  (lambda ()
    (define-key python-mode-map (kbd "C-c C-,") 'pytest-run-file)))
+
+(provide 'bodil-python)

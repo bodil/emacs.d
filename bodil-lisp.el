@@ -135,3 +135,5 @@ Display the results in a hyperlinked *compilation* buffer."
                         " clojure.main -i "
                         datomic-path
                         "bin/bridge.clj -r")))))
+
+(provide 'bodil-lisp)

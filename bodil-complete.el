@@ -25,3 +25,5 @@
              (lambda ()
                (require 'ac-source-nrepl)
                (setq ac-sources (append '(ac-source-nrepl) ac-sources)))))
+
+(provide 'bodil-complete)

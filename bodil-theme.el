@@ -74,3 +74,5 @@
 ;; Engage!
 (require 'nyan-mode)
 (nyan-mode 1)
+
+(provide 'bodil-theme)

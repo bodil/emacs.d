@@ -15,3 +15,5 @@
 ;; Likewise, yasnippet breaks the tab key.
 (add-hook 'term-mode-hook
           (lambda() (yas-minor-mode -1)))
+
+(provide 'bodil-terminal)

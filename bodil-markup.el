@@ -16,3 +16,5 @@
 (autoload 'rename-sgml-tag "rename-sgml-tag" nil t)
 (eval-after-load "nxhtml-mode"
   '(define-key nxhtml-mode-map (kbd "C-c C-r") 'rename-sgml-tag))
+
+(provide 'bodil-markup)
