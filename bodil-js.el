@@ -1,7 +1,7 @@
 ;;; js.el -- Javascript and friends
 
 ;; js2-mode
-(autoload 'js2-mode "js2-mode" nil t)
+(package-require 'js2-mode)
 
 (add-to-list 'auto-mode-alist '("\\.js$" . js2-mode))
 
@@ -29,13 +29,14 @@
 (add-hook 'js2-mode-hook (lambda () (js2-highlight-vars-mode)))
 
 ;; Install js2-refactor when js2-mode loads
+(package-require 'js2-refactor)
 (eval-after-load "js2-mode"
   '(progn (require 'js2-refactor)
           (define-key js2-mode-map (kbd "C-c C-r") 'js2r-rename-var)))
 
 
 ;;; Coffeescript
-(autoload 'coffee-mode "coffee-mode" nil t)
+(package-require 'coffee-mode)
 
 (add-hook 'coffee-mode-hook
           (lambda ()
@@ -93,9 +94,7 @@
 
 ;; Roy
 
-(autoload 'roy-mode "roy-mode" nil t)
-(autoload 'roy-repl "roy-mode" nil t)
-
+(package-require 'roy-mode)
 (add-to-list 'auto-mode-alist '("\\.roy$" . roy-mode))
 
 

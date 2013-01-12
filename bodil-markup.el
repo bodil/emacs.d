@@ -1,5 +1,8 @@
 ;;; markup.el -- HTML and friends
 
+;; Useful major modes
+(package-require 'less-css-mode)
+
 ;; nXhtml
 (autoload 'nxhtml-mumamo-mode "autostart" nil t)
 (add-to-list 'auto-mode-alist '("\\.\\(html\\|ejs\\|jsp\\)$" . nxhtml-mumamo-mode))
@@ -13,8 +16,7 @@
   '(setq mumamo-per-buffer-local-vars (delq 'buffer-file-name mumamo-per-buffer-local-vars)))
 
 ;; Key for renaming tags
-(autoload 'rename-sgml-tag "rename-sgml-tag" nil t)
 (eval-after-load "nxhtml-mode"
-  '(define-key nxhtml-mode-map (kbd "C-c C-r") 'rename-sgml-tag))
+  '(define-key nxhtml-mode-map (kbd "C-c C-r") 'mc/mark-sgml-tag-pair))
 
 (provide 'bodil-markup)

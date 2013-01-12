@@ -5,7 +5,7 @@
 (setq delete-selection-mode t)
 
 ;; Autopair mode
-(require 'autopair)
+(package-require 'autopair)
 (setq autopair-pair-criteria 'help-balance)
 (autopair-global-mode)
 
@@ -14,7 +14,7 @@
 ; TODO: remove this if not using auto-complete
 
 ;; Multiple cursors!
-(require 'multiple-cursors)
+(package-require 'multiple-cursors)
 (global-set-key (kbd "C-S-c C-S-c") 'mc/edit-lines)
 (global-set-key (kbd "C-æ") 'mc/mark-previous-like-this)
 (global-set-key (kbd "C-'") 'mc/mark-next-like-this)
@@ -22,7 +22,7 @@
 (global-set-key (kbd "C-*") 'mc/mark-all-like-this-dwim)
 
 ;; expand-region <3 @magnars
-(require 'expand-region)
+(package-require 'expand-region)
 (global-set-key (kbd "C-+") 'er/expand-region)
 
 ;; Smart home key
@@ -68,8 +68,7 @@
 (global-set-key (kbd "C-M-<down>") 'duplicate-start-of-line-or-region)
 
 ;; ace-jump-mode!
-(autoload 'ace-jump-mode "ace-jump-mode" nil t)
-(autoload 'ace-jump-mode-pop-mark "ace-jump-mode" nil t)
+(package-require 'ace-jump-mode)
 (global-set-key (kbd "C-ø") 'ace-jump-mode)
 (global-set-key (kbd "M-ø") 'ace-jump-mode-pop-mark)
 (eval-after-load "ace-jump-mode"

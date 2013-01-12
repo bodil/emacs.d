@@ -1,8 +1,7 @@
 ;;; bodil-terminal.el -- Terminals
 
 ;; Configure multi-term
-(autoload 'multi-term "multi-term" nil t)
-(autoload 'multi-term-next "multi-term" nil t)
+(package-require 'multi-term)
 (global-set-key (kbd "C-x C-m") 'multi-term)
 (global-set-key (kbd "C-x m") 'multi-term-next)
 

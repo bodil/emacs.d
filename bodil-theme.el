@@ -6,6 +6,9 @@
 ;; No splash screen
 (setq inhibit-startup-message t)
 
+;; Don't defer screen updates when performing operations
+(setq redisplay-dont-pause t)
+
 ;; Some X11 setup
 (when window-system
   (setq frame-title-format '(buffer-file-name "%f" ("%b")))
@@ -41,6 +44,10 @@
   (when (file-directory-p path)
     (add-to-list 'custom-theme-load-path path)))
 
+;; Install themes
+(package-require 'zenburn-theme)
+(package-require 'solarized-theme)
+
 ;; Prepare colour themes
 (defun theme-light ()
   (interactive)
@@ -72,7 +79,7 @@
 (global-set-key (kbd "C-<f9>") 'toggle-presentation-font)
 
 ;; Engage!
-(require 'nyan-mode)
+(package-require 'nyan-mode)
 (nyan-mode 1)
 
 (provide 'bodil-theme)

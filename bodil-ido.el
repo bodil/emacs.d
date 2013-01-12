@@ -16,7 +16,7 @@
 (setq ido-use-virtual-buffers t)
 
 ;; Use smex to provide ido-like interface for M-x
-(require 'smex)
+(package-require 'smex)
 (smex-initialize)
 (global-set-key (kbd "M-x") 'smex)
 (global-set-key (kbd "M-X") 'smex-major-mode-commands)

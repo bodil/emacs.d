@@ -88,7 +88,7 @@
                 bodil-terminal
                 bodil-twitter
                 bodil-orgmode
-                ;; bodil-flycheck
+                bodil-flycheck
                 bodil-codestyle
                 bodil-dired))
   (require file))

@@ -1,87 +1,12 @@
-[submodule "themes/solarized"]
-	path = themes/solarized
-	url = git://github.com/sellout/emacs-color-theme-solarized.git
-[submodule "themes/zenburn"]
-	path = themes/zenburn
-	url = git://github.com/bbatsov/zenburn-emacs.git
-[submodule "site-lisp/autopair"]
-	path = site-lisp/autopair
-	url = git://github.com/capitaomorte/autopair.git
-[submodule "site-lisp/smex"]
-	path = site-lisp/smex
-	url = git://github.com/nonsequitur/smex.git
-[submodule "site-lisp/magit"]
-	path = site-lisp/magit
-	url = git://github.com/magit/magit.git
-[submodule "site-lisp/js2-mode"]
-	path = site-lisp/js2-mode
-	url = git://github.com/mooz/js2-mode.git
-[submodule "site-lisp/coffee-mode"]
-	path = site-lisp/coffee-mode
-	url = git://github.com/defunkt/coffee-mode.git
-[submodule "site-lisp/js2-refactor"]
-	path = site-lisp/js2-refactor
-	url = git://github.com/magnars/js2-refactor.el.git
-[submodule "site-lisp/expand-region"]
-	path = site-lisp/expand-region
-	url = git://github.com/magnars/expand-region.el.git
 [submodule "site-lisp/ethan-wspace"]
 	path = site-lisp/ethan-wspace
 	url = git://github.com/glasserc/ethan-wspace.git
 [submodule "site-lisp/nxhtml"]
 	path = site-lisp/nxhtml
 	url = git://github.com/emacsmirror/nxhtml.git
-[submodule "site-lisp/nrepl"]
-	path = site-lisp/nrepl
-	url = git://github.com/kingtim/nrepl.el.git
-[submodule "site-lisp/clojure-mode"]
-	path = site-lisp/clojure-mode
-	url = git://github.com/technomancy/clojure-mode.git
 [submodule "site-lisp/clang-complete-async"]
 	path = site-lisp/clang-complete-async
 	url = git@github.com:bodil/emacs-clang-complete-async.git
-[submodule "site-lisp/yasnippet"]
-	path = site-lisp/yasnippet
-	url = git://github.com/capitaomorte/yasnippet.git
 [submodule "site-lisp/auto-complete"]
 	path = site-lisp/auto-complete
 	url = git://github.com/auto-complete/auto-complete.git
-[submodule "site-lisp/popup"]
-	path = site-lisp/popup
-	url = git://github.com/auto-complete/popup-el.git
-[submodule "site-lisp/ace-jump-mode"]
-	path = site-lisp/ace-jump-mode
-	url = git://github.com/winterTTr/ace-jump-mode.git
-[submodule "site-lisp/python-mode-el"]
-	path = site-lisp/python-mode-el
-	url = git://github.com/emacsmirror/python-mode.git
-[submodule "site-lisp/twittering-mode"]
-	path = site-lisp/twittering-mode
-	url = git://github.com/hayamiz/twittering-mode.git
-[submodule "site-lisp/roy-mode"]
-	path = site-lisp/roy-mode
-	url = git://github.com/folone/roy-mode.git
-[submodule "site-lisp/google-maps"]
-	path = site-lisp/google-maps
-	url = git://git.naquadah.org/google-maps.git
-[submodule "site-lisp/mingus"]
-	path = site-lisp/mingus
-	url = git://github.com/pft/mingus.git
-[submodule "site-lisp/dash"]
-	path = site-lisp/dash
-	url = git://github.com/magnars/dash.el.git
-[submodule "site-lisp/flycheck"]
-	path = site-lisp/flycheck
-	url = git://github.com/lunaryorn/flycheck.git
-[submodule "site-lisp/nyan-mode"]
-	path = site-lisp/nyan-mode
-	url = git://github.com/TeMPOraL/nyan-mode.git
-[submodule "site-lisp/cljsbuild-mode"]
-	path = site-lisp/cljsbuild-mode
-	url = git://github.com/kototama/cljsbuild-mode.git
-[submodule "site-lisp/dired-plus"]
-	path = site-lisp/dired-plus
-	url = git://github.com/emacsmirror/dired-plus.git
-[submodule "site-lisp/multiple-cursors"]
-	path = site-lisp/multiple-cursors
-	url = git://github.com/magnars/multiple-cursors.el.git

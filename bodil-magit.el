@@ -1,9 +1,11 @@
 ;;; magit.el -- Git better
 
-(autoload 'magit-status "magit.el" nil t)
-(autoload 'magit-get-top-dir "magit.el" nil t)
+(package-require 'magit)
+
 (global-set-key (kbd "C-x g") 'magit-status)
 
+;; Github integration
+(package-require 'gist)
 
 ;; Utility functions
 (defcustom git-project-files-filter-history-variable 'git-project-files-filter-history

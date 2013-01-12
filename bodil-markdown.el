@@ -1,7 +1,6 @@
 ;;; bodil-markdown.el -- Markdown setup
 
-(when (not (package-installed-p 'markdown-mode))
-  (package-install 'markdown-mode))
+(package-require 'markdown-mode)
 
 (setq-default markdown-command "pandoc -S -s --self-contained -f markdown -t html5 ")
 

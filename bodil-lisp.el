@@ -46,7 +46,7 @@
 
 ;;; Clojure
 
-(autoload 'clojure-mode "clojure-mode" nil t)
+(package-require 'clojure-mode)
 (add-to-list 'auto-mode-alist '("\\.cljs?$" . clojure-mode))
 
 (lambda-as-lambda 'clojure-mode "(\\(\\<fn\\>\\)")
@@ -56,8 +56,8 @@
           (lambda () (define-key clojure-mode-map (kbd "DEL") 'paredit-backward-delete)))
 
 ;; nRepl
-(autoload 'nrepl-jack-in "clojure-mode" nil t)
-(eval-after-load "clojure-mode" '(require 'nrepl))
+(package-require 'nrepl)
+;(eval-after-load "clojure-mode" '(require 'nrepl))
 (setq nrepl-lein-command "lein")
 (setq nrepl-server-command "echo \"lein repl :headless\" | $SHELL -l")
 
@@ -86,7 +86,7 @@ Display the results in a hyperlinked *compilation* buffer."
   (compile "lein kibit"))
 
 ;; Cljsbuild
-(require 'cljsbuild-mode)
+(package-require 'cljsbuild-mode)
 
 
 ;;; Lolisp
