@@ -13,12 +13,12 @@
 ;(setq ac-use-overriding-local-map t)
 ; TODO: remove this if not using auto-complete
 
-;; mark-multiple <3 @magnars
-(require 'mark-more-like-this)
-(global-set-key (kbd "C-æ") 'mark-previous-like-this)
-(global-set-key (kbd "C-'") 'mark-next-like-this)
-(global-set-key (kbd "C-M-m") 'mark-more-like-this) ; like the other two, but takes an argument (negative is previous)
-(global-set-key (kbd "C-*") 'mark-all-like-this)
+;; Multiple cursors!
+(require 'multiple-cursors)
+(global-set-key (kbd "C-æ") 'mc/mark-previous-like-this)
+(global-set-key (kbd "C-'") 'mc/mark-next-like-this)
+(global-set-key (kbd "C-M-'") 'mc/mark-more-like-this-extended)
+(global-set-key (kbd "C-*") 'mc/mark-all-like-this-dwim)
 
 ;; expand-region <3 @magnars
 (require 'expand-region)

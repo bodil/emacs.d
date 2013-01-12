@@ -19,9 +19,6 @@
 [submodule "site-lisp/coffee-mode"]
 	path = site-lisp/coffee-mode
 	url = git://github.com/defunkt/coffee-mode.git
-[submodule "site-lisp/mark-multiple"]
-	path = site-lisp/mark-multiple
-	url = git://github.com/magnars/mark-multiple.el.git
 [submodule "site-lisp/js2-refactor"]
 	path = site-lisp/js2-refactor
 	url = git://github.com/magnars/js2-refactor.el.git
@@ -85,3 +82,6 @@
 [submodule "site-lisp/dired-plus"]
 	path = site-lisp/dired-plus
 	url = git://github.com/emacsmirror/dired-plus.git
+[submodule "site-lisp/multiple-cursors"]
+	path = site-lisp/multiple-cursors
+	url = git://github.com/magnars/multiple-cursors.el.git
