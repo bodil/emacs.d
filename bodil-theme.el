@@ -32,7 +32,7 @@
     (linum-mode 1)))
 
 ;; Highlight current line
-(global-hl-line-mode)
+;(global-hl-line-mode)
 
 ;; Highlight matching parens
 (show-paren-mode 1)
@@ -55,7 +55,10 @@
   (set-face-background 'highlight "#dddddd")
   (set-face-foreground 'highlight nil)
   (set-face-background 'linum nil)
-  (set-face-foreground 'linum nil))
+  (set-face-foreground 'linum nil)
+  (setq ansi-term-color-vector ['unspecified
+                                "#ededed" "#f5666d" "#4cb64a" "#ce5c00"
+                                "##00578e" "##a020f0" "#6799cc" "#2e3436"]))
 (defun theme-dark ()
   (interactive)
   ;; (load-theme 'bubbleberry t)
@@ -65,7 +68,10 @@
   (set-face-background 'fringe "#191919")
   (set-face-background 'hl-line "#191919")
   (set-face-background 'linum nil)
-  (set-face-foreground 'linum "#3f5f3f"))
+  (set-face-foreground 'linum "#3f5f3f")
+  (setq ansi-term-color-vector ['unspecified
+                                "#3f3f3f" "#cc9393" "#7f9f7f" "#f0dfaf"
+                                "#8cd0d3" "#dc8cc3" "#93e0e3" "#dcdccc"]))
 (theme-dark)
 
 ;; Set default and presentation mode fonts
