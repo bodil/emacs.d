@@ -68,6 +68,7 @@
                 "bodil-magit.el"
                 "bodil-terminal.el"
                 "bodil-twitter.el"
+                "bodil-orgmode.el"
                 "bodil-flycheck.el"
                 "bodil-codestyle.el"
                 "bodil-dired.el"))
