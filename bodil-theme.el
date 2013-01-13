@@ -35,7 +35,8 @@
 ;(global-hl-line-mode)
 
 ;; Highlight matching parens
-(show-paren-mode 1)
+(package-require 'mic-paren)
+(paren-activate)
 
 ;; Set custom theme path
 (setq custom-theme-directory (concat dotfiles-dir "themes"))
