@@ -5,18 +5,6 @@
 (defun add-lisp-hook (func)
   (add-hooks '(scheme emacs-lisp lisp clojure lolisp) func))
 
-;; Paredit for all lisps
-(autoload 'paredit-mode "paredit.el" nil t)
-(add-lisp-hook (lambda ()
-                 (autopair-mode -1)
-                 (paredit-mode 1)))
-
-;; Make paredit play nice with eldoc
-(eval-after-load "eldoc"
-  '(eldoc-add-command
-    'paredit-backward-delete
-    'paredit-close-round))
-
 ;; Setup C-c v to eval whole buffer in all lisps
 (define-key lisp-mode-shared-map (kbd "C-c v") 'eval-buffer)
 

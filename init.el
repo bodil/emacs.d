@@ -78,6 +78,7 @@
                 bodil-complete
                 bodil-ido
                 bodil-lisp
+                bodil-paredit
                 bodil-js
                 bodil-markup
                 bodil-c
