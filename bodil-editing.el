@@ -7,7 +7,7 @@
 ;; Autopair mode
 (package-require 'autopair)
 (eval-after-load "autopair"
-  (setq autopair-pair-criteria 'help-balance))
+  '(setq autopair-pair-criteria 'help-balance))
 (autopair-global-mode)
 
 ;; Keep autopair from interfering with auto-complete
