@@ -19,7 +19,8 @@
   (paredit-wrap-round)
   (insert " ")
   (forward-char -1))
-(define-key paredit-mode-map (kbd "M-)")
-  'paredit-wrap-round-from-behind)
+(eval-after-load "paredit"
+  '(define-key paredit-mode-map (kbd "M-)")
+     'paredit-wrap-round-from-behind))
 
 (provide 'bodil-paredit)
