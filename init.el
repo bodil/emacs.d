@@ -69,29 +69,48 @@
 (defmacro Xlaunch (&rest x)
   (list 'if (eq window-system 'x) (cons 'progn x)))
 
+;; Define subpackages by platform
+
+(setq bodil-pkg-android
+      '(bodil-defuns
+        bodil-session
+        bodil-editing
+        bodil-snippets
+        bodil-ido
+        bodil-lisp
+        bodil-paredit
+        bodil-magit
+        bodil-terminal
+        bodil-orgmode
+        bodil-codestyle
+        bodil-dired))
+
+(setq bodil-pkg-full
+      '(bodil-defuns
+        bodil-session
+        bodil-theme
+        bodil-editing
+        bodil-snippets
+        bodil-complete
+        bodil-ido
+        bodil-lisp
+        bodil-paredit
+        bodil-js
+        bodil-markup
+        bodil-c
+        bodil-markdown
+        bodil-python
+        bodil-erlang
+        bodil-magit
+        bodil-terminal
+        bodil-twitter
+        bodil-orgmode
+        bodil-flycheck
+        bodil-codestyle
+        bodil-dired))
+
 ;; Now load other things
-(dolist (file '(bodil-defuns
-                bodil-session
-                bodil-theme
-                bodil-editing
-                bodil-snippets
-                bodil-complete
-                bodil-ido
-                bodil-lisp
-                bodil-paredit
-                bodil-js
-                bodil-markup
-                bodil-c
-                bodil-markdown
-                bodil-python
-                bodil-erlang
-                bodil-magit
-                bodil-terminal
-                bodil-twitter
-                bodil-orgmode
-                bodil-flycheck
-                bodil-codestyle
-                bodil-dired))
+(dolist (file (if (string-prefix-p "android" hostname) bodil-pkg-android bodil-pkg-full))
   (require file))
 (Xlaunch (require 'bodil-x11))
 

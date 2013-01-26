@@ -4,6 +4,9 @@
 (cua-selection-mode t)
 (setq delete-selection-mode t)
 
+;; Undo to C-z like a muggle; Android kbd doesn't do C-_
+(global-set-key (kbd "C-z") 'undo)
+
 ;; Autopair mode
 (package-require 'autopair)
 (eval-after-load "autopair"
