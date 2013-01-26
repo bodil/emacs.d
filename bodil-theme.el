@@ -96,5 +96,7 @@
 ;; Engage!
 (package-require 'nyan-mode)
 (nyan-mode 1)
+(setq nyan-bar-length 16
+      nyan-wavy-trail t)
 
 (provide 'bodil-theme)
