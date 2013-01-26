@@ -99,4 +99,34 @@
 (setq nyan-bar-length 16
       nyan-wavy-trail t)
 
+;; Unclutter the modeline
+(package-require 'diminish)
+(eval-after-load "yasnippet" '(diminish 'yas-minor-mode))
+(eval-after-load "ethan-wspace" '(diminish 'ethan-wspace-mode))
+(eval-after-load "eldoc" '(diminish 'eldoc-mode))
+(eval-after-load "rainbow-mode" '(diminish 'rainbow-mode))
+(eval-after-load "paredit" '(diminish 'paredit-mode))
+(eval-after-load "autopair" '(diminish 'autopair-mode))
+(eval-after-load "abbrev" '(diminish 'abbrev-mode))
+(eval-after-load "auto-complete" '(diminish 'auto-complete-mode))
+(eval-after-load "js2-highlight-vars" '(diminish 'js2-highlight-vars-mode))
+
+(eval-after-load "js2-mode"
+  '(defadvice js2-mode (after js2-rename-modeline activate)
+     (setq mode-name "JS+")))
+(eval-after-load "clojure-mode"
+  '(defadvice clojure-mode (after clj-rename-modeline activate)
+     (setq mode-name "Clj")))
+(eval-after-load "typescript"
+  '(defadvice typescript-mode (after typescript-rename-modeline activate)
+     (setq mode-name "TS")))
+(eval-after-load "nxhtml-mode"
+  '(defadvice nxhtml-mode (after nxhtml-rename-modeline activate)
+     (setq mode-name "HTML")))
+(eval-after-load "js"
+  '(defadvice js-mode (after js-rename-modeline activate)
+     (setq mode-name "JS")))
+(defadvice emacs-lisp-mode (after elisp-rename-modeline activate)
+  (setq mode-name "ELisp"))
+
 (provide 'bodil-theme)
