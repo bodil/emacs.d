@@ -92,6 +92,11 @@ Display the results in a hyperlinked *compilation* buffer."
 
 ;;; Various inferior lisps
 
+;; Clojure REPL
+(defun clojure-repl ()
+  (interactive)
+  (run-lisp "lein repl"))
+
 ;; ClojureScript REPL
 (defun clojurescript-repl ()
   (interactive)
