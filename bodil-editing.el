@@ -82,4 +82,17 @@
 (global-set-key (kbd "M--") (lambda () (interactive) (insert "—")))
 (global-set-key (kbd "M-l") (lambda () (interactive) (insert "lambda")))
 
+;; Joining lines
+;; https://github.com/rejeep/emacs/blob/master/rejeep-defuns.el#L150-L158
+(defun join-line-or-lines-in-region ()
+  "Join this line or the lines in the selected region."
+  (interactive)
+  (cond ((region-active-p)
+         (let ((min (line-number-at-pos (region-beginning))))
+           (goto-char (region-end))
+           (while (> (line-number-at-pos) min)
+             (join-line))))
+        (t (call-interactively 'join-line))))
+(global-set-key (kbd "M-j") 'join-line-or-lines-in-region)
+
 (provide 'bodil-editing)
