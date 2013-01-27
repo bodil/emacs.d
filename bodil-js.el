@@ -23,11 +23,6 @@
 ;; Use plain old js-mode for JSON, js2-mode doth protest too much
 (add-to-list 'auto-mode-alist '("\\.json$" . js-mode))
 
-;; Highlight variables in scope
-;; http://mihai.bazon.net/projects/editing-javascript-with-emacs-js2-mode/js2-highlight-vars-mode
-(autoload 'js2-highlight-vars-mode "js2-highlight-vars" nil t)
-(add-hook 'js2-mode-hook (lambda () (js2-highlight-vars-mode)))
-
 ;; Install js2-refactor when js2-mode loads
 (package-require 'js2-refactor)
 (eval-after-load "js2-mode"
