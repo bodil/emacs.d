@@ -72,6 +72,10 @@
   (set-face-background 'hl-line "#191919")
   (set-face-background 'linum nil)
   (set-face-foreground 'linum "#3f5f3f")
+  (set-face-background 'flycheck-error-face "red")
+  (set-face-foreground 'flycheck-error-face "black")
+  (set-face-background 'flycheck-warning-face "orange")
+  (set-face-foreground 'flycheck-warning-face "black")
   (setq ansi-term-color-vector ['unspecified
                                 "#3f3f3f" "#cc9393" "#7f9f7f" "#f0dfaf"
                                 "#8cd0d3" "#dc8cc3" "#93e0e3" "#dcdccc"]))
