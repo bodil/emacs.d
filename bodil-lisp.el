@@ -93,6 +93,11 @@ Display the results in a hyperlinked *compilation* buffer."
   (interactive)
   (run-lisp "lein trampoline noderepl"))
 
+;; ClojureScript REPL
+(defun clojurescript-rhino-repl ()
+  (interactive)
+  (run-lisp "lein trampoline cljsbuild repl-rhino"))
+
 ;; Clojure-Py REPL
 (defun clojurepy-repl ()
   (interactive)
