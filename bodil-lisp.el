@@ -8,6 +8,10 @@
 ;; Setup C-c v to eval whole buffer in all lisps
 (define-key lisp-mode-shared-map (kbd "C-c v") 'eval-buffer)
 
+;; Highlight sexp under cursor
+(package-require 'highlight-parentheses)
+(add-lisp-hook 'highlight-parentheses-mode)
+
 ;; Lambdas
 (defun lambda-as-lambda (mode pattern)
   (font-lock-add-keywords
