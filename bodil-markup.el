@@ -25,4 +25,12 @@
 (eval-after-load "nxhtml-mode"
   '(define-key nxhtml-mode-map (kbd "C-c C-r") 'mc/mark-sgml-tag-pair))
 
+;; Launch a static web server in the current project root
+(require 'bodil-magit)
+(defun http-server-in-project (port)
+  (interactive "nPort: ")
+  (let ((default-directory (git-current-root)))
+    (start-process "SimpleHTTPServer" "*SimpleHTTPServer*"
+                   "python" "-m" "SimpleHTTPServer" (number-to-string port))))
+
 (provide 'bodil-markup)
