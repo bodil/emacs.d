@@ -1,5 +1,6 @@
 ;;; bodil-snippets.el --- Yasnippets
 
+(package-require 'popup)
 (package-require 'yasnippet)
 (require 'yasnippet)
 (setq yas/root-directory (concat dotfiles-dir "snippets"))

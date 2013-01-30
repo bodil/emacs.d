@@ -1,5 +1,6 @@
 ;;; complete.el -- Auto completion
 
+(package-require 'popup)
 (require 'auto-complete-config)
 (ac-config-default)
 (add-to-list 'ac-dictionary-directories (concat dotfiles-dir "site-lisp/auto-complete/dict"))
