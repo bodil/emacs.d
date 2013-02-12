@@ -23,9 +23,11 @@
 
 ;; Some paredit for HTML
 (package-require 'tagedit)
-(define-key nxhtml-mode-map (kbd "C-<right>") 'tagedit-forward-slurp-tag)
-(define-key nxhtml-mode-map (kbd "C-<left>") 'tagedit-forward-barf-tag)
-(define-key nxhtml-mode-map (kbd "M-k") 'tagedit-kill-attribute)
+(eval-after-load "nxhtml-mode"
+  '(progn
+     (define-key nxhtml-mode-map (kbd "C-<right>") 'tagedit-forward-slurp-tag)
+     (define-key nxhtml-mode-map (kbd "C-<left>") 'tagedit-forward-barf-tag)
+     (define-key nxhtml-mode-map (kbd "M-k") 'tagedit-kill-attribute)))
 
 ;; Key for renaming tags
 (eval-after-load "nxhtml-mode"
