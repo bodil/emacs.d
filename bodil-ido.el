@@ -70,4 +70,16 @@ Symbols matching the text at point are put first in the completion list."
 (set-default 'imenu-auto-rescan t)
 (global-set-key (kbd "C-t") 'ido-imenu)
 
+;; Bind `~` to go to homedir when in ido-find-file; http://whattheemacsd.com/setup-ido.el-02.html
+(add-hook 'ido-setup-hook
+ (lambda ()
+   ;; Go straight home
+   (define-key ido-file-completion-map
+     (kbd "~")
+     (lambda ()
+       (interactive)
+       (if (looking-back "/")
+           (insert "~/")
+         (call-interactively 'self-insert-command))))))
+
 (provide 'bodil-ido)
