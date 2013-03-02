@@ -83,7 +83,8 @@
         bodil-terminal
         bodil-orgmode
         bodil-codestyle
-        bodil-dired))
+        bodil-dired
+        bodil-helm))
 
 (setq bodil-pkg-full
       '(bodil-defuns
@@ -107,7 +108,8 @@
         bodil-orgmode
         bodil-flycheck
         bodil-codestyle
-        bodil-dired))
+        bodil-dired
+        bodil-helm))
 
 ;; Now load other things
 (dolist (file (if (string-prefix-p "android" hostname) bodil-pkg-android bodil-pkg-full))
