@@ -21,10 +21,10 @@
 
 ;;; Clojure
 
-(eval-after-load "clojure-mode"
-  '(add-hook 'clojure-mode-hook
-             (lambda ()
-               (require 'ac-source-nrepl)
-               (setq ac-sources (append '(ac-source-nrepl) ac-sources)))))
+(package-require 'ac-nrepl)
+(add-hook 'nrepl-mode-hook 'ac-nrepl-setup)
+(add-hook 'nrepl-interaction-mode-hook 'ac-nrepl-setup)
+(eval-after-load "auto-complete"
+  '(add-to-list 'ac-modes 'nrepl-mode))
 
 (provide 'bodil-complete)
