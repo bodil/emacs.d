@@ -138,4 +138,14 @@ Display the results in a hyperlinked *compilation* buffer."
                         datomic-path
                         "bin/bridge.clj -r")))))
 
+
+;; Switch a Clojure nrepl to ClojureScript
+
+(defun nrepl-start-noderepl ()
+  (interactive)
+  (save-excursion
+    (nrepl-switch-to-repl-buffer)
+    (insert "(require 'cljs.repl.node) (cljs.repl.node/run-node-nrepl)")
+    (nrepl-send-input)))
+
 (provide 'bodil-lisp)
