@@ -27,7 +27,9 @@
   '(progn
      (define-key nxhtml-mode-map (kbd "C-<right>") 'tagedit-forward-slurp-tag)
      (define-key nxhtml-mode-map (kbd "C-<left>") 'tagedit-forward-barf-tag)
-     (define-key nxhtml-mode-map (kbd "M-k") 'tagedit-kill-attribute)))
+     (define-key nxhtml-mode-map (kbd "M-k") 'tagedit-kill-attribute)
+     (define-key nxhtml-mode-map (kbd "C-k") 'tagedit-kill)
+     (define-key nxhtml-mode-map (kbd "M-r") 'tagedit-raise-tag)))
 
 ;; Key for renaming tags
 (eval-after-load "nxhtml-mode"
