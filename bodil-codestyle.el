@@ -33,4 +33,9 @@
 (require 'ethan-wspace)
 (global-ethan-wspace-mode 1)
 
+;; Clojure indentation rules
+(eval-after-load "clojure-mode"
+  '(dolist (form '(test defer waitp let-realised when-realised))
+     (put-clojure-indent form 'defun)))
+
 (provide 'bodil-codestyle)
