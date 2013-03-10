@@ -144,7 +144,7 @@ Display the results in a hyperlinked *compilation* buffer."
 (defun nrepl-start-noderepl ()
   (interactive)
   (save-excursion
-    (nrepl-switch-to-repl-buffer)
+    (nrepl-switch-to-repl-buffer nil)
     (insert "(require 'cljs.repl.node) (cljs.repl.node/run-node-nrepl)")
     (nrepl-send-input)))
 
