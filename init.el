@@ -102,6 +102,7 @@
         bodil-markdown
         bodil-python
         bodil-erlang
+        bodil-haskell
         bodil-magit
         bodil-terminal
         bodil-twitter
