@@ -87,13 +87,13 @@
       (indent-line-to (- (current-indentation) coffee-tab-width)))))
 
 
-;; Roy
+;;; Roy
 
 (package-require 'roy-mode)
 (add-to-list 'auto-mode-alist '("\\.roy$" . roy-mode))
 
 
-;; TypeScript
+;;; TypeScript
 
 (autoload 'typescript-mode "typescript" nil t)
 (add-to-list 'auto-mode-alist '("\\.ts$" . typescript-mode))
