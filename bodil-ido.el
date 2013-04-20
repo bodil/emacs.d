@@ -27,6 +27,10 @@
 ;; This is the old M-x.
 (global-set-key (kbd "C-c C-c M-x") 'execute-extended-command)
 
+;; Vertical ido
+(package-require 'ido-vertical-mode)
+(ido-vertical-mode)
+
 ;; ido-imenu
 (require 'imenu)
 (defun ido-imenu ()
