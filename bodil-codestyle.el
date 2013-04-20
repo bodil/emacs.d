@@ -38,7 +38,8 @@
 
 ;; Clojure indentation rules
 (eval-after-load "clojure-mode"
-  '(dolist (form '(test defer waitp let-realised when-realised))
+  '(dolist (form '(test defer waitp let-realised when-realised run* fresh conde
+                        match test tests))
      (put-clojure-indent form 'defun)))
 
 (provide 'bodil-codestyle)
