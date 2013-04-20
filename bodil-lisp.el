@@ -3,7 +3,7 @@
 (require 'bodil-defuns)
 
 (defun add-lisp-hook (func)
-  (add-hooks '(scheme emacs-lisp lisp clojure lolisp) func))
+  (add-hooks '(scheme emacs-lisp lisp clojure lolisp shen) func))
 
 ;; Setup C-c v to eval whole buffer in all lisps
 (define-key lisp-mode-shared-map (kbd "C-c v") 'eval-buffer)
@@ -90,6 +90,20 @@ Display the results in a hyperlinked *compilation* buffer."
 (lambda-as-lambda 'lolisp-mode "(\\(\\<lambda\\>\\)")
 
 
+;;; Shen
+
+(package-require 'shen-mode)
+(add-to-list 'auto-mode-alist '("\\.shen$" . shen-mode))
+(eval-after-load "shen-mode"
+  '(progn
+     (define-key shen-mode-map (kbd "C-x C-e") 'lisp-eval-last-sexp)
+     (define-key shen-mode-map (kbd "C-c C-k")
+       (lambda ()
+         (interactive)
+         (lisp-eval-string (buffer-string))))))
+(lambda-as-lambda 'shen-mode "(\\(\\</\\.\\>\\)")
+
+
 ;;; Various inferior lisps
 
 ;; Clojure REPL
@@ -117,27 +131,10 @@ Display the results in a hyperlinked *compilation* buffer."
   (interactive)
   (run-lisp "/home/bodil/workspace/lolisp/lolisp.py"))
 
-;; Datomic REPL
-(defun datomic-repl ()
+;; Shen REPL
+(defun shen-repl ()
   (interactive)
-  (let ((datomic-path "/home/bodil/datomic/"))
-    (let ((classpath
-           (let ((classpath
-                  (shell-command-to-string
-                   (concat datomic-path "bin/classpath"))))
-             (replace-regexp-in-string
-              "\n" ""
-              (mapconcat
-               'identity
-               (mapcan (lambda (i) (file-expand-wildcards
-                               (concat datomic-path i)))
-                       (split-string classpath ":")) ":")))))
-      (run-lisp (concat "java -server -Xmx1g -cp "
-                        classpath
-                        " clojure.main -i "
-                        datomic-path
-                        "bin/bridge.clj -r")))))
-
+  (run-lisp "shen"))
 
 ;; Switch a Clojure nrepl to ClojureScript
 
