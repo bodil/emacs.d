@@ -15,6 +15,10 @@
 ;; Show previously opened buffers in ido-switch-buffer
 (setq ido-use-virtual-buffers t)
 
+;; Make sure ido is really everywhere
+(package-require 'ido-ubiquitous)
+(ido-ubiquitous-mode)
+
 ;; Use smex to provide ido-like interface for M-x
 (package-require 'smex)
 (smex-initialize)
