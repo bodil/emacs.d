@@ -28,3 +28,4 @@ old
 elpa
 /var
 /.mc-lists.el
+/.tern-port

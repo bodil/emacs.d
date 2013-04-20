@@ -1,4 +1,4 @@
-;;; js.el -- Javascript and friends
+;;; bodil-js.el -- Javascript and friends
 
 ;; js2-mode
 (package-require 'js2-mode)
@@ -23,12 +23,10 @@
 ;; Use plain old js-mode for JSON, js2-mode doth protest too much
 (add-to-list 'auto-mode-alist '("\\.json$" . js-mode))
 
-;; Install js2-refactor when js2-mode loads
-(package-require 'js2-refactor)
-(eval-after-load "js2-mode"
-  '(progn (require 'js2-refactor)
-          (define-key js2-mode-map (kbd "C-c C-r") 'js2r-rename-var)))
-
+;; Enable tern-mode for js2-mode
+(add-to-list 'load-path (concat dotfiles-dir "site-lisp/tern/emacs"))
+(autoload 'tern-mode "tern" nil t)
+(add-hook 'js2-mode-hook (lambda () (tern-mode t)))
 
 ;;; Coffeescript
 (package-require 'coffee-mode)
