@@ -4,9 +4,6 @@
 [submodule "site-lisp/nxhtml"]
 	path = site-lisp/nxhtml
 	url = git://github.com/emacsmirror/nxhtml.git
-[submodule "site-lisp/clang-complete-async"]
-	path = site-lisp/clang-complete-async
-	url = git@github.com:bodil/emacs-clang-complete-async.git
 [submodule "site-lisp/auto-complete"]
 	path = site-lisp/auto-complete
 	url = git://github.com/auto-complete/auto-complete.git

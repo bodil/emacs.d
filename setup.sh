@@ -1,6 +1,6 @@
 #!/bin/bash
 git submodule update --init
-sudo apt-get install -y clang libclang-dev nodejs npm
-cd site-lisp/clang-complete-async
-make
+sudo apt-get install -y nodejs npm
+cd site-lisp/tern
+npm install
 cd ../..
