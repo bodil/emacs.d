@@ -14,6 +14,9 @@
 (setq-default js-indent-level 2)
 ;; Coffeescript
 (setq coffee-tab-width 2)
+;; Typescript
+(setq typescript-indent-level 2
+      typescript-expr-indent-offset 2)
 ;; Python
 (setq-default py-indent-offset 2)
 ;; XML
