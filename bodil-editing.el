@@ -79,8 +79,6 @@
   '(ace-jump-mode-enable-mark-sync))
 
 ;; Some bindings for special characters
-(global-set-key (kbd "M--") (lambda () (interactive) (insert "\u2014"))) ;em-dash
-(global-set-key (kbd "M-_") (lambda () (interactive) (insert "\u2013"))) ;en-dash
 (global-set-key (kbd "M-l") (lambda () (interactive) (insert "\u03bb"))) ;lambda
 (global-set-key (kbd "M-f") (lambda () (interactive) (insert "\u0192"))) ;function
 
