@@ -29,3 +29,4 @@ elpa
 /var
 /.mc-lists.el
 /.tern-port
+/eshell/lastdir
