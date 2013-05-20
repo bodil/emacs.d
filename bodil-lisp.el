@@ -136,6 +136,11 @@ Display the results in a hyperlinked *compilation* buffer."
   (interactive)
   (run-lisp "shen"))
 
+;; BODOL REPL
+(defun bodol-repl ()
+  (interactive)
+  (run-lisp "/home/bodil/workspace/bodol/repl"))
+
 ;; Switch a Clojure nrepl to ClojureScript
 
 (defun nrepl-start-noderepl ()
