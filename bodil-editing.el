@@ -81,6 +81,7 @@
 ;; Some bindings for special characters
 (global-set-key (kbd "M-l") (lambda () (interactive) (insert "\u03bb"))) ;lambda
 (global-set-key (kbd "M-f") (lambda () (interactive) (insert "\u0192"))) ;function
+(global-set-key (kbd "M--") (lambda () (interactive) (insert "\u2192"))) ;arrow
 
 ;; Joining lines
 ;; https://github.com/rejeep/emacs/blob/master/rejeep-defuns.el#L150-L158
