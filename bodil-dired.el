@@ -1,6 +1,7 @@
 ;;; bodil-dired.el -- Dired extensions
 
 (package-require 'dired+)
+(require 'dired+)
 
 ;; Auto refresh buffers
 (global-auto-revert-mode 1)
