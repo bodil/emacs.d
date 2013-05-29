@@ -64,7 +64,9 @@ filtered by a user-provided regexp."
 (global-set-key (kbd "C-c C-f") 'ido-find-file-in-git-tree)
 ;; unbind conflicting key in dirty nxml-mode
 (eval-after-load "nxml-mode"
-  '(define-key nxml-mode-map "\C-c\C-f" nil))
+  '(define-key nxml-mode-map (kbd "C-c C-f") nil))
+(eval-after-load "js2-mode"
+  '(define-key js2-mode-map (kbd "C-c C-f") nil))
 
 ;; Repo-wide query-replace-regexp
 (defun query-replace-regexp-in-git-tree (from-string to-string &optional delimited start end)
