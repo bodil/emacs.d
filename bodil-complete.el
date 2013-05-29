@@ -5,7 +5,7 @@
 (ac-config-default)
 (add-to-list 'ac-dictionary-directories (concat dotfiles-dir "site-lisp/auto-complete/dict"))
 (setq ac-auto-start nil)
-(define-key ac-mode-map (kbd "C-\\") 'auto-complete-selective)
+(define-key ac-mode-map (kbd "C-\\") 'auto-complete)
 (define-key ac-completing-map (kbd "TAB") nil)
 (define-key ac-completing-map (kbd "RET") 'ac-complete)
 (define-key ac-completing-map (kbd "C-\\") 'ac-complete)
@@ -21,13 +21,13 @@
 
 
 ;; Selective auto-complete for specific modes (see below)
-(defun auto-complete-selective ()
-  (interactive)
-  (cond
-   ((eq major-mode 'js2-mode)
-    (tern-auto-complete))
-
-   (t (auto-complete))))
+;; (defun auto-complete-selective ()
+;;   (interactive)
+;;   (cond
+;;    ((eq major-mode 'js2-mode)
+;;     (tern-auto-complete))
+;;
+;;    (t (auto-complete))))
 
 ;;; Clojure
 
@@ -39,9 +39,15 @@
 
 ;;; Javascript
 
-(require 'ac-source-tern)
-(add-hook 'js2-mode-hook
-          (lambda ()
-            (add-to-list 'ac-sources 'ac-source-tern)))
+;; (require 'ac-source-tern)
+;; (add-hook 'js2-mode-hook
+;;           (lambda ()
+;;             (add-to-list 'ac-sources 'ac-source-tern)))
+
+(eval-after-load 'tern
+  '(progn
+     (require 'tern-auto-complete)
+     (setq tern-ac-on-dot 1)
+     (tern-ac-setup)))
 
 (provide 'bodil-complete)
