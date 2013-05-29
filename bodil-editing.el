@@ -7,11 +7,9 @@
 ;; Undo to C-z like a muggle; Android kbd doesn't do C-_
 (global-set-key (kbd "C-z") 'undo)
 
-;; Autopair mode
-(package-require 'autopair)
-(eval-after-load "autopair"
-  '(setq autopair-pair-criteria 'help-balance))
-(autopair-global-mode)
+;; Smartparens
+(package-require 'smartparens)
+(smartparens-global-mode 1)
 
 ;; Keep autopair from interfering with auto-complete
 ;(setq ac-use-overriding-local-map t)
