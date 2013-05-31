@@ -31,6 +31,11 @@
 (autoload 'tern-mode "tern" nil t)
 (add-hook 'js2-mode-hook (lambda () (tern-mode t)))
 
+;; js2-refactor
+(package-require 'js2-refactor)
+(js2r-add-keybindings-with-prefix "C-c C-m")
+(define-key js2-mode-map (kbd "C-c C-g") 'js2r-add-to-globals-annotation)
+
 ;;; Coffeescript
 (package-require 'coffee-mode)
 
