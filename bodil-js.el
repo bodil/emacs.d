@@ -10,13 +10,15 @@
               (0 (progn (compose-region (match-beginning 1)
                                         (match-end 1) "\u0192") nil)))))
 
-(setq js2-auto-indent-p t)
-(setq js2-cleanup-whitespace t)
-(setq js2-enter-indents-newline t)
-(setq js2-indent-on-enter-key t)
-(setq js2-mirror-mode nil)
-(setq js2-mode-indent-ignore-first-tab t)
-(setq js2-global-externs
+(setq-default js2-auto-indent-p t)
+(setq-default js2-cleanup-whitespace t)
+(setq-default js2-enter-indents-newline t)
+(setq-default js2-indent-on-enter-key t)
+(setq-default js2-mode-indent-ignore-first-tab t)
+(setq-default js2-show-parse-errors nil)
+(setq-default js2-strict-missing-semi-warning nil)
+(setq-default js2-strict-trailing-comma-warning nil)
+(setq-default js2-global-externs
       '("module" "require" "__dirname" "process" "console" "define"
         "JSON" "$" "_" "Backbone" "buster" "sinon" "moment" "_gaq"
         "Zenbox" "Mousetrap" "Comoyo"))
