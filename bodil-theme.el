@@ -151,7 +151,7 @@
                                            powerline-default-separator
                                            (cdr powerline-default-separator-dir))))
                           (lhs (list
-                                (powerline-raw mode-line-mule-info nil 'l)
+                                (powerline-raw "%*%*" nil 'l)
                                 (powerline-buffer-id nil 'l)
 
                                 (when (and (boundp 'which-func-mode) which-func-mode)
