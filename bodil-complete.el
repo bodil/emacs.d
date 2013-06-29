@@ -38,7 +38,7 @@
 (eval-after-load 'tern
   '(progn
      (require 'tern-auto-complete)
-     (setq tern-ac-on-dot 1)
+     (setq tern-ac-on-dot nil)
      (tern-ac-setup)))
 
 ;;; Typescript
