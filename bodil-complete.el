@@ -5,7 +5,7 @@
 (ac-config-default)
 (add-to-list 'ac-dictionary-directories (concat dotfiles-dir "site-lisp/auto-complete/dict"))
 (setq ac-auto-start nil)
-(define-key ac-mode-map (kbd "C-\\") 'auto-complete)
+(define-key ac-mode-map (kbd "C-\\") 'auto-complete-selective)
 (define-key ac-completing-map (kbd "TAB") nil)
 (define-key ac-completing-map (kbd "RET") 'ac-complete)
 (define-key ac-completing-map (kbd "C-\\") 'ac-complete)
@@ -19,15 +19,6 @@
 (eval-after-load "yasnippet"
   '(setq-default ac-sources (append '(ac-source-yasnippet) ac-sources)))
 
-
-;; Selective auto-complete for specific modes (see below)
-;; (defun auto-complete-selective ()
-;;   (interactive)
-;;   (cond
-;;    ((eq major-mode 'js2-mode)
-;;     (tern-auto-complete))
-;;
-;;    (t (auto-complete))))
 
 ;;; Clojure
 
@@ -49,5 +40,24 @@
      (require 'tern-auto-complete)
      (setq tern-ac-on-dot 1)
      (tern-ac-setup)))
+
+;;; Typescript
+
+(require 'ac-source-tsc)
+(eval-after-load 'typescript
+  '(progn
+     (require 'ac-source-tsc)
+     (define-key typescript-mode-map (kbd "C-\\") 'tsc-ac-complete)))
+
+;; Selective auto-complete for specific modes
+(defun auto-complete-selective ()
+  (interactive)
+  (cond
+   ((eq major-mode 'js2-mode)
+    (tern-ac-complete))
+   ((eq major-mode 'typescript-mode)
+    (tsc-ac-complete))
+
+   (t (auto-complete))))
 
 (provide 'bodil-complete)
