@@ -110,7 +110,8 @@
         bodil-flycheck
         bodil-codestyle
         bodil-dired
-        bodil-helm))
+        bodil-helm
+        bodil-project))
 
 ;; Now load other things
 (dolist (file (if (string-prefix-p "android" hostname) bodil-pkg-android bodil-pkg-full))

@@ -30,3 +30,4 @@ elpa
 /.mc-lists.el
 /.tern-port
 /eshell/lastdir
+/projectile-bookmarks.eld
