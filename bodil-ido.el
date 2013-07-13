@@ -8,6 +8,11 @@
       ido-use-filename-at-point 'guess
       ido-max-prospects 10)
 
+;; Use flx matching algorithm
+(package-require 'flx)
+(flx-ido-mode 1)
+(setq ido-use-faces nil)
+
 ;; If thing-at-point looks like something openable, default to it
 (setq ido-use-filename-at-point (quote guess))
 (setq ido-use-url-at-point t)
