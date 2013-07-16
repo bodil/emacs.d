@@ -9,31 +9,31 @@
   (add-hook (intern (concat (symbol-name mode) "-hook"))
             (lambda () (rainbow-mode))))
 
-;; nXhtml
-(autoload 'nxhtml-mumamo-mode "autostart" nil t)
-(add-to-list 'auto-mode-alist '("\\.\\(html\\|ejs\\|jsp\\)$" . nxhtml-mumamo-mode))
-(eval-after-load "nxhtml-mode"
-  '(setq mumamo-chunk-coloring 1
-     rng-nxml-auto-validate-flag nil
-     nxhtml-skip-welcome t))
+;; ;; nXhtml
+;; (autoload 'nxhtml-mumamo-mode "autostart" nil t)
+;; (add-to-list 'auto-mode-alist '("\\.\\(html\\|ejs\\|jsp\\)$" . nxhtml-mumamo-mode))
+;; (eval-after-load "nxhtml-mode"
+;;   '(setq mumamo-chunk-coloring 1
+;;      rng-nxml-auto-validate-flag nil
+;;      nxhtml-skip-welcome t))
 
-;; Patch a mumamo bug which keeps giving annoying warnings
-(eval-after-load "mumamo"
-  '(setq mumamo-per-buffer-local-vars (delq 'buffer-file-name mumamo-per-buffer-local-vars)))
+;; ;; Patch a mumamo bug which keeps giving annoying warnings
+;; (eval-after-load "mumamo"
+;;   '(setq mumamo-per-buffer-local-vars (delq 'buffer-file-name mumamo-per-buffer-local-vars)))
 
 ;; Some paredit for HTML
 (package-require 'tagedit)
-(eval-after-load "nxhtml-mode"
+(eval-after-load "html-mode"
   '(progn
-     (define-key nxhtml-mode-map (kbd "C-<right>") 'tagedit-forward-slurp-tag)
-     (define-key nxhtml-mode-map (kbd "C-<left>") 'tagedit-forward-barf-tag)
-     (define-key nxhtml-mode-map (kbd "M-k") 'tagedit-kill-attribute)
-     (define-key nxhtml-mode-map (kbd "C-k") 'tagedit-kill)
-     (define-key nxhtml-mode-map (kbd "M-r") 'tagedit-raise-tag)))
+     (define-key html-mode-map (kbd "C-<right>") 'tagedit-forward-slurp-tag)
+     (define-key html-mode-map (kbd "C-<left>") 'tagedit-forward-barf-tag)
+     (define-key html-mode-map (kbd "M-k") 'tagedit-kill-attribute)
+     (define-key html-mode-map (kbd "C-k") 'tagedit-kill)
+     (define-key html-mode-map (kbd "M-r") 'tagedit-raise-tag)))
 
 ;; Key for renaming tags
-(eval-after-load "nxhtml-mode"
-  '(define-key nxhtml-mode-map (kbd "C-c C-r") 'mc/mark-sgml-tag-pair))
+(eval-after-load "html-mode"
+  '(define-key html-mode-map (kbd "C-c C-r") 'mc/mark-sgml-tag-pair))
 
 ;; Launch a static web server in the current project root
 (require 'bodil-magit)
