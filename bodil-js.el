@@ -10,9 +10,6 @@
               (0 (progn (compose-region (match-beginning 1)
                                         (match-end 1) "\u0192") nil)))))
 
-(setq-default js2-auto-indent-p t)
-(setq-default js2-cleanup-whitespace t)
-(setq-default js2-indent-on-enter-key t)
 (setq-default js2-mode-indent-ignore-first-tab t)
 (setq-default js2-show-parse-errors nil)
 (setq-default js2-strict-inconsistent-return-warning nil)
@@ -26,8 +23,6 @@
         "JSON" "$" "_" "Backbone" "buster" "sinon" "moment" "_gaq"
         "Zenbox" "Mousetrap" "Comoyo"))
 
-(eval-after-load "js2-mode" '(define-key js2-mode-map (kbd "C-m") 'newline-and-indent))
-
 ;; Use plain old js-mode for JSON, js2-mode doth protest too much
 (add-to-list 'auto-mode-alist '("\\.json$" . js-mode))
 
@@ -40,6 +35,12 @@
 (package-require 'js2-refactor)
 (js2r-add-keybindings-with-prefix "C-c C-m")
 (define-key js2-mode-map (kbd "C-c C-g") 'js2r-add-to-globals-annotation)
+
+;; Skewer
+(package-require 'skewer-mode)
+(add-hook 'js2-mode-hook 'skewer-mode)
+(add-hook 'css-mode-hook 'skewer-css-mode)
+(add-hook 'html-mode-hook 'skewer-html-mode)
 
 ;;; Coffeescript
 (package-require 'coffee-mode)
