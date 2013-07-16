@@ -15,9 +15,9 @@
   '(progn
      (setq flycheck-highlighting-mode nil)
      (add-hook 'flycheck-mode-hook 'flycheck-color-mode-line-mode)
-     (set-face-background 'flycheck-error-face "red")
-     (set-face-foreground 'flycheck-error-face "black")
-     (set-face-background 'flycheck-warning-face "orange")
-     (set-face-foreground 'flycheck-warning-face "black")))
+     (set-face-background 'flycheck-error "red")
+     (set-face-foreground 'flycheck-error "black")
+     (set-face-background 'flycheck-warning "orange")
+     (set-face-foreground 'flycheck-warning "black")))
 
 (provide 'bodil-flycheck)
