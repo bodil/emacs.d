@@ -10,4 +10,8 @@
 (require 'snippet-helpers)
 (require 'buster-snippet-helpers)
 
+;; Packaged Clojure snippets
+(package-require 'clojure-snippets)
+(clojure-snippets-initialize)
+
 (provide 'bodil-snippets)
