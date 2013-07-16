@@ -12,7 +12,6 @@
 
 (setq-default js2-auto-indent-p t)
 (setq-default js2-cleanup-whitespace t)
-(setq-default js2-enter-indents-newline t)
 (setq-default js2-indent-on-enter-key t)
 (setq-default js2-mode-indent-ignore-first-tab t)
 (setq-default js2-show-parse-errors nil)
@@ -26,6 +25,8 @@
       '("module" "require" "__dirname" "process" "console" "define"
         "JSON" "$" "_" "Backbone" "buster" "sinon" "moment" "_gaq"
         "Zenbox" "Mousetrap" "Comoyo"))
+
+(eval-after-load "js2-mode" '(define-key js2-mode-map (kbd "C-m") 'newline-and-indent))
 
 ;; Use plain old js-mode for JSON, js2-mode doth protest too much
 (add-to-list 'auto-mode-alist '("\\.json$" . js-mode))
