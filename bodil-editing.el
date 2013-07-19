@@ -19,12 +19,8 @@
 ;; Autopair mode
 (package-require 'autopair)
 (eval-after-load "autopair"
-  '(setq autopair-pair-criteria 'help-balance))
+  '(setq autopair-pair-criteria 'always))
 (autopair-global-mode)
-
-;; Keep autopair from interfering with auto-complete
-;(setq ac-use-overriding-local-map t)
-; TODO: remove this if not using auto-complete
 
 ;; Multiple cursors!
 (package-require 'multiple-cursors)
