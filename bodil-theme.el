@@ -111,6 +111,7 @@
 (eval-after-load "auto-complete" '(diminish 'auto-complete-mode))
 (eval-after-load "js2-highlight-vars" '(diminish 'js2-highlight-vars-mode))
 (eval-after-load "projectile" '(diminish 'projectile-mode))
+(eval-after-load "mmm-mode" '(diminish 'mmm-mode))
 
 (eval-after-load "js2-mode"
   '(defadvice js2-mode (after js2-rename-modeline activate)
