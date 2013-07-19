@@ -23,17 +23,17 @@
 
 ;; Some paredit for HTML
 (package-require 'tagedit)
-(eval-after-load "html-mode"
+(eval-after-load "sgml-mode"
   '(progn
-     (define-key html-mode-map (kbd "C-<right>") 'tagedit-forward-slurp-tag)
-     (define-key html-mode-map (kbd "C-<left>") 'tagedit-forward-barf-tag)
-     (define-key html-mode-map (kbd "M-k") 'tagedit-kill-attribute)
-     (define-key html-mode-map (kbd "C-k") 'tagedit-kill)
-     (define-key html-mode-map (kbd "M-r") 'tagedit-raise-tag)))
+     (define-key sgml-mode-map (kbd "C-<right>") 'tagedit-forward-slurp-tag)
+     (define-key sgml-mode-map (kbd "C-<left>") 'tagedit-forward-barf-tag)
+     (define-key sgml-mode-map (kbd "M-k") 'tagedit-kill-attribute)
+     (define-key sgml-mode-map (kbd "C-k") 'tagedit-kill)
+     (define-key sgml-mode-map (kbd "M-r") 'tagedit-raise-tag)))
 
 ;; Key for renaming tags
-(eval-after-load "html-mode"
-  '(define-key html-mode-map (kbd "C-c C-r") 'mc/mark-sgml-tag-pair))
+(eval-after-load "sgml-mode"
+  '(define-key sgml-mode-map (kbd "C-c C-r") 'mc/mark-sgml-tag-pair))
 
 ;; Launch a static web server in the current project root
 (require 'bodil-magit)
