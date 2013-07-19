@@ -112,6 +112,8 @@
 (eval-after-load "js2-highlight-vars" '(diminish 'js2-highlight-vars-mode))
 (eval-after-load "projectile" '(diminish 'projectile-mode))
 (eval-after-load "mmm-mode" '(diminish 'mmm-mode))
+(eval-after-load "skewer-html" '(diminish 'skewer-html-mode))
+(eval-after-load "auto-indent-mode" '(diminish 'auto-indent-minor-mode))
 
 (eval-after-load "js2-mode"
   '(defadvice js2-mode (after js2-rename-modeline activate)
