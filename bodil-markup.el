@@ -44,4 +44,13 @@
     (start-process "SimpleHTTPServer" "*SimpleHTTPServer*"
                    "python" "-m" "SimpleHTTPServer" (number-to-string port))))
 
+;; Handlebars template support
+(package-require 'handlebars-sgml-mode)
+(eval-after-load "sgml-mode"
+  '(progn
+     (require 'handlebars-sgml-mode)
+     (handlebars-use-mode 'minor)
+     (define-key sgml-mode-map (kbd "C-c /") 'handlebars-sgml-close-tag)))
+(add-to-list 'auto-mode-alist '("\\.hbs$" . html-mode))
+
 (provide 'bodil-markup)
