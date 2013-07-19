@@ -111,7 +111,8 @@
         bodil-codestyle
         bodil-dired
         bodil-helm
-        bodil-project))
+        bodil-project
+        bodil-misc-modes))
 
 ;; Now load other things
 (dolist (file (if (string-prefix-p "android" hostname) bodil-pkg-android bodil-pkg-full))
