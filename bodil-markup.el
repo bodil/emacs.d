@@ -39,8 +39,8 @@
 (require 'bodil-magit)
 (defun http-server-in-project (port)
   (interactive "nPort: ")
-  (require 'magit)
-  (let ((default-directory (git-current-root)))
+  (require 'projectile)
+  (let ((default-directory (projectile-project-root)))
     (start-process "SimpleHTTPServer" "*SimpleHTTPServer*"
                    "python" "-m" "SimpleHTTPServer" (number-to-string port))))
 
