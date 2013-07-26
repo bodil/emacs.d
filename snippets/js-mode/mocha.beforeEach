@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: mocha.beforeEach
+# key: beforeEach
+# --
+beforeEach(function() {$0});

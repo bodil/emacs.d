@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: mocha.suite
+# key: desc
+# --
+describe('$1', function() {$0});

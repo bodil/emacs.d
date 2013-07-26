@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: mocha.test
+# key: it
+# --
+it('$1', function() {$0});
