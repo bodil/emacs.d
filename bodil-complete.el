@@ -13,7 +13,7 @@
 
 ;; Enable auto-complete for some modes not present by default in ac-modes
 (setq ac-modes (append '(coffee-mode lolisp-mode typescript-mode
-                                     nrepl-mode) ac-modes))
+                                     nrepl-mode html-mode) ac-modes))
 
 ;; Yasnippets, always
 (eval-after-load "yasnippet"
