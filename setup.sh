@@ -1,6 +1,7 @@
 #!/bin/bash
 git submodule update --init
-sudo apt-get install -y nodejs npm
+sudo add-apt-repository ppa:chris-lea/node.js
+sudo apt-get install -y nodejs
 cd site-lisp/tern
 npm install
 cd ../..
