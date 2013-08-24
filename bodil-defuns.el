@@ -1,5 +1,17 @@
 ;;; bodil-defuns.el -- Miscellaneous functions
 
+(defmacro ->> (&rest body)
+  (let ((result (pop body)))
+    (dolist (form body result)
+      (setq result (append form (list result))))))
+
+(defmacro -> (&rest body)
+  (let ((result (pop body)))
+    (dolist (form body result)
+      (setq result (append (list (car form) result)
+                           (cdr form))))))
+
+
 (defun add-hooks (modes func)
   (dolist (mode modes)
     (add-hook (intern (concat (symbol-name mode) "-mode-hook")) func)))
