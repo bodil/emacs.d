@@ -77,10 +77,33 @@
                                 "#8cd0d3" "#dc8cc3" "#93e0e3" "#dcdccc"]))
 (theme-dark)
 
+;; Get screen DPI
+(setq x11-dpi
+      (string-to-number
+       (let ((xdpyinfo
+              (with-output-to-string
+                (call-process "xdpyinfo" nil standard-output))))
+         (string-match "resolution: +\\(.+\\)x.+ dots per inch" xdpyinfo)
+         (match-string 1 xdpyinfo))))
+
+;; Calculate default font size
+(setq default-frame-font-size
+      (cond ((> x11-dpi 140) 21)
+            (t 17)))
+(setq presentation-frame-font-size
+      (truncate (* 1.25 default-frame-font-size)))
+
+;; Build font descriptor strings
+(defun font-desc (name size)
+  (concat "-unknown-" name "-normal-normal-normal-*-"
+          (number-to-string size) "-*-*-*-m-0-iso10646-1"))
+
 ;; Set default and presentation mode fonts
-(setq default-frame-font "-unknown-Ubuntu Mono-normal-normal-normal-*-17-*-*-*-m-0-iso10646-1")
+(setq default-frame-font
+      (font-desc "Ubuntu Mono" default-frame-font-size))
 (set-frame-font default-frame-font)
-(setq presentation-frame-font "-unknown-Ubuntu Mono-normal-normal-normal-*-21-*-*-*-m-0-iso10646-1")
+(setq presentation-frame-font
+      (font-desc "Ubuntu Mono" presentation-frame-font-size))
 
 (defun toggle-presentation-mode ()
   (interactive)
