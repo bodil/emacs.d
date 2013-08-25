@@ -85,6 +85,7 @@
                 (call-process "xdpyinfo" nil standard-output))))
          (string-match "resolution: +\\(.+\\)x.+ dots per inch" xdpyinfo)
          (match-string 1 xdpyinfo))))
+(cond ((string= hostname "edsger") (setq x11-dpi 190)))
 
 ;; Calculate default font size
 (setq default-frame-font-size
