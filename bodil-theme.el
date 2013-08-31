@@ -89,7 +89,7 @@
 
 ;; Calculate default font size
 (setq default-frame-font-size
-      (cond ((> x11-dpi 140) 21)
+      (cond ((> x11-dpi 140) 22)
             (t 17)))
 (setq presentation-frame-font-size
       (truncate (* 1.25 default-frame-font-size)))
