@@ -25,15 +25,11 @@
 ;; Default formatting style for C based modes
 (setq c-default-style "java")
 
-;; Enforce newline at EOF
-(setq require-final-newline 't)
-
 ;; I mean, _seriously_...
 (setq sentence-end-double-space nil)
 
 ;; Enforce proper whitespace
-(add-to-list 'load-path (concat dotfiles-dir "site-lisp/ethan-wspace/lisp"))
-(require 'ethan-wspace)
+(package-require 'ethan-wspace)
 (global-ethan-wspace-mode 1)
 
 ;; Clojure indentation rules

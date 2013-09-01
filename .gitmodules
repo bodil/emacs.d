@@ -1,6 +1,3 @@
-[submodule "site-lisp/ethan-wspace"]
-	path = site-lisp/ethan-wspace
-	url = git://github.com/glasserc/ethan-wspace.git
 [submodule "site-lisp/auto-complete"]
 	path = site-lisp/auto-complete
 	url = git://github.com/auto-complete/auto-complete.git
