@@ -23,6 +23,9 @@
         "JSON" "$" "_" "Backbone" "buster" "sinon" "moment" "_gaq"
         "Zenbox" "Mousetrap" "Comoyo"))
 
+;; Don't override global M-j keybinding (join lines)
+(define-key js2-mode-map (kbd "M-j") nil)
+
 ;; Use plain old js-mode for JSON, js2-mode doth protest too much
 (add-to-list 'auto-mode-alist '("\\.json$" . js-mode))
 
