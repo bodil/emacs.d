@@ -26,7 +26,8 @@
 ;; Redefine linum-on to ignore terminal buffers, because just turning
 ;; it off in term-mode-hook doesn't work.
 (setq linum-disabled-modes
-      '(term-mode slime-repl-mode magit-status-mode help-mode nrepl-mode))
+      '(term-mode slime-repl-mode magit-status-mode help-mode nrepl-mode
+                  xwidget-webkit-mode revealjs-mode))
 (defun linum-on ()
   (unless (or (minibufferp) (member major-mode linum-disabled-modes))
     (linum-mode 1)))
