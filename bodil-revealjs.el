@@ -48,8 +48,10 @@
       (xwidget-webkit-goto-uri ses "http://example.com/")
       (xwidget-webkit-goto-uri ses url)))
 
-  ;; Need to disable "kill buffer with xwidgets" question for smooth reload.
-  (remove-hook 'kill-buffer-query-functions 'xwidget-kill-buffer-query-function)
+  (defun revealjs-organise ()
+    (interactive)
+    (delete-other-windows (get-buffer-window (current-buffer)))
+    (set-window-buffer (split-window-right) (xwidget-buffer (xwidget-webkit-current-session))))
 
   (defmacro revealjs-exec (script)
     `(xwidget-webkit-execute-script
@@ -97,6 +99,9 @@
       map))
 
   (global-set-key (kbd "C-c g") 'revealjs-reload)
+  (global-set-key (kbd "C-c o") 'revealjs-organise)
+  (global-set-key (kbd "C-c <next>") 'revealjs-next-slide)
+  (global-set-key (kbd "C-c <prior>") 'revealjs-prev-slide)
 
   (define-derived-mode revealjs-mode
     xwidget-webkit-mode "Reveal.js" "Webkit mode adapted for Reveal.js slides"))
