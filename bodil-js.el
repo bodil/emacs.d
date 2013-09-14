@@ -24,7 +24,8 @@
         "Zenbox" "Mousetrap" "Comoyo"))
 
 ;; Don't override global M-j keybinding (join lines)
-(define-key js2-mode-map (kbd "M-j") nil)
+(eval-after-load "js2-mode"
+  '(define-key js2-mode-map (kbd "M-j") nil))
 
 ;; Use plain old js-mode for JSON, js2-mode doth protest too much
 (add-to-list 'auto-mode-alist '("\\.json$" . js-mode))
@@ -36,8 +37,10 @@
 
 ;; js2-refactor
 (package-require 'js2-refactor)
-(js2r-add-keybindings-with-prefix "C-c C-m")
-(define-key js2-mode-map (kbd "C-c C-g") 'js2r-add-to-globals-annotation)
+(eval-after-load "js2-mode"
+  '(progn
+     (js2r-add-keybindings-with-prefix "C-c C-m")
+     (define-key js2-mode-map (kbd "C-c C-g") 'js2r-add-to-globals-annotation)))
 
 ;; Skewer
 (package-require 'skewer-mode)
