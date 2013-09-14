@@ -93,26 +93,30 @@
 
   (defun revealjs-adjust-width ()
     (interactive)
-    (let ((win (get-buffer-window (xwidget-buffer (xwidget-webkit-current-session)))))
-      (when (window-live-p win)
-        (letrec ((left (car (window-inside-pixel-edges win)))
-                 (right (caddr (window-inside-pixel-edges win)))
-                 (width (- right left))
-                 (top (cadr (window-inside-pixel-edges win)))
-                 (bottom (cadddr (window-inside-pixel-edges win)))
-                 (height (- bottom top)))
-          (xwidget-webkit-adjust-size width height)
-          (revealjs-exec
-           (concat "document.body.style.width = \""
-                   (int-to-string width)
-                   "px\"; document.body.style.height = \""
-                   (int-to-string height)
-                   "\"; Reveal.layout();"))))))
+    (let ((ses (xwidget-webkit-current-session)))
+      (when ses
+        (let ((win (get-buffer-window (xwidget-buffer ses))))
+          (when (window-live-p win)
+            (letrec ((left (car (window-inside-pixel-edges win)))
+                     (right (caddr (window-inside-pixel-edges win)))
+                     (width (- right left))
+                     (top (cadr (window-inside-pixel-edges win)))
+                     (bottom (cadddr (window-inside-pixel-edges win)))
+                     (height (- bottom top)))
+              (xwidget-webkit-adjust-size width height)
+              (revealjs-exec
+               (concat "document.body.style.width = \""
+                       (int-to-string width)
+                       "px\"; document.body.style.height = \""
+                       (int-to-string height)
+                       "\"; Reveal.layout();"))))))))
 
   (defun revealjs-on-window-resize (frame)
-    (let ((win (get-buffer-window (xwidget-buffer (xwidget-webkit-current-session)))))
-      (when (eq frame (window-frame win))
-        (revealjs-adjust-width))))
+    (let ((ses (xwidget-webkit-current-session)))
+      (when ses
+        (let ((win (get-buffer-window (xwidget-buffer ses))))
+          (when (eq frame (window-frame win))
+            (revealjs-adjust-width))))))
 
   (defvar revealjs-mode-map
     (let ((map (make-sparse-keymap)))
@@ -130,6 +134,8 @@
   (global-set-key (kbd "C-c o") 'revealjs-organise)
   (global-set-key (kbd "C-c <next>") 'revealjs-next-slide)
   (global-set-key (kbd "C-c <prior>") 'revealjs-prev-slide)
+  (global-set-key (kbd "C-c C-<next>") 'revealjs-next-slide)
+  (global-set-key (kbd "C-c C-<prior>") 'revealjs-prev-slide)
 
   (define-derived-mode revealjs-mode
     xwidget-webkit-mode "Reveal.js" "Webkit mode adapted for Reveal.js slides")
