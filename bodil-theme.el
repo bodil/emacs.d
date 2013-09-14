@@ -53,6 +53,24 @@
 (defun theme-light ()
   (interactive)
   (load-theme 'anti-zenburn)
+  (zenburn-with-color-variables
+    (custom-theme-set-faces
+     'anti-zenburn
+
+     `(mode-line
+       ((,class (:foreground ,zenburn-green+1
+                             :background ,zenburn-bg-1
+                             :box (:line-width -1 :style released-button)))
+        (t :inverse-video t)))
+     `(mode-line-buffer-id ((t (:foreground ,zenburn-yellow :weight bold))))
+     `(mode-line-inactive
+       ((t (:foreground ,zenburn-green-1
+                        :background ,zenburn-bg-05
+                        :box (:line-width -1 :style released-button)))))
+     `(powerline-active1 ((t (:background ,zenburn-bg-05 :inherit mode-line))))
+     `(powerline-active2 ((t (:background ,zenburn-bg+2 :inherit mode-line))))
+     `(powerline-inactive1 ((t (:background ,zenburn-bg+1 :inherit mode-line-inactive))))
+     `(powerline-inactive2 ((t (:background ,zenburn-bg+3 :inherit mode-line-inactive))))))
   (set-face-background 'default "#ffffff")
   (set-face-foreground 'default "#000000")
   (set-face-background 'region "#d4d4d4")
