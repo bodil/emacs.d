@@ -18,7 +18,8 @@
              (let* ((strarg  (nth 3 last-input-event)))
                (cond ((eq xwidget-event-type 'document-load-finished)
                       (xwidget-log "webkit finished loading: '%s'" (xwidget-webkit-get-title xwidget))
-                      (xwidget-adjust-size-to-content xwidget))
+                      ;; (xwidget-adjust-size-to-content xwidget)
+                      (revealjs-adjust-width))
                      ((eq xwidget-event-type 'navigation-policy-decision-requested)
                       (if (string-match ".*#\\(.*\\)" strarg)
                           (xwidget-webkit-show-id-or-named-element xwidget (match-string 1 strarg))))
@@ -85,6 +86,21 @@
   (defun revealjs-overview ()
     (interactive)
     (revealjs-exec "Reveal.toggleOverview();"))
+
+  (defun revealjs-adjust-width ()
+    (interactive)
+    (letrec ((left (car (window-inside-pixel-edges)))
+             (right (caddr (window-inside-pixel-edges)))
+             (width (- right left))
+             (top (cadr (window-inside-pixel-edges)))
+             (bottom (cadddr (window-inside-pixel-edges)))
+             (height (- bottom top)))
+      (xwidget-webkit-adjust-size width height)
+      (revealjs-exec (concat "document.body.style.width = \""
+                             (int-to-string width)
+                             "px\"; document.body.style.height = \""
+                             (int-to-string height)
+                             "\"; Reveal.layout();"))))
 
   (defvar revealjs-mode-map
     (let ((map (make-sparse-keymap)))
