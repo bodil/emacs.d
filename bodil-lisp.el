@@ -104,6 +104,11 @@ Display the results in a hyperlinked *compilation* buffer."
 (lambda-as-lambda 'shen-mode "(\\(\\</\\.\\>\\)")
 
 
+;; BODOL
+
+(require 'bodol-mode)
+
+
 ;;; Various inferior lisps
 
 ;; Clojure REPL
@@ -139,7 +144,7 @@ Display the results in a hyperlinked *compilation* buffer."
 ;; BODOL REPL
 (defun bodol-repl ()
   (interactive)
-  (run-lisp "/home/bodil/workspace/bodol/repl"))
+  (run-lisp "/home/bodil/workspace/BODOL/repl"))
 
 ;; Switch a Clojure nrepl to ClojureScript
 
