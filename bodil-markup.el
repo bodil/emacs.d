@@ -41,8 +41,8 @@
   (interactive "nPort: ")
   (require 'projectile)
   (let ((default-directory (projectile-project-root)))
-    (start-process "SimpleHTTPServer" "*SimpleHTTPServer*"
-                   "python" "-m" "SimpleHTTPServer" (number-to-string port))))
+    (start-process "http.server" "*http.server*"
+                   "python3" "-m" "http.server" (number-to-string port))))
 
 ;; Handlebars template support
 (package-require 'handlebars-sgml-mode)
