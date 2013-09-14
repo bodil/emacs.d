@@ -2,6 +2,10 @@
 
 (when (require 'xwidget nil t)
 
+  (defun revealjsp (xwidget)
+    (equal 'revealjs-mode
+           (with-current-buffer (xwidget-buffer xwidget) major-mode)))
+
   (defun xwidget-event-handler ()
     "Receive xwidget event."
     (interactive)
@@ -18,8 +22,8 @@
              (let* ((strarg  (nth 3 last-input-event)))
                (cond ((eq xwidget-event-type 'document-load-finished)
                       (xwidget-log "webkit finished loading: '%s'" (xwidget-webkit-get-title xwidget))
-                      ;; (xwidget-adjust-size-to-content xwidget)
-                      (revealjs-adjust-width))
+                      (if (revealjsp xwidget) (revealjs-adjust-width)
+                        (xwidget-adjust-size-to-content xwidget)))
                      ((eq xwidget-event-type 'navigation-policy-decision-requested)
                       (if (string-match ".*#\\(.*\\)" strarg)
                           (xwidget-webkit-show-id-or-named-element xwidget (match-string 1 strarg))))
@@ -89,18 +93,26 @@
 
   (defun revealjs-adjust-width ()
     (interactive)
-    (letrec ((left (car (window-inside-pixel-edges)))
-             (right (caddr (window-inside-pixel-edges)))
-             (width (- right left))
-             (top (cadr (window-inside-pixel-edges)))
-             (bottom (cadddr (window-inside-pixel-edges)))
-             (height (- bottom top)))
-      (xwidget-webkit-adjust-size width height)
-      (revealjs-exec (concat "document.body.style.width = \""
-                             (int-to-string width)
-                             "px\"; document.body.style.height = \""
-                             (int-to-string height)
-                             "\"; Reveal.layout();"))))
+    (let ((win (get-buffer-window (xwidget-buffer (xwidget-webkit-current-session)))))
+      (when (window-live-p win)
+        (letrec ((left (car (window-inside-pixel-edges win)))
+                 (right (caddr (window-inside-pixel-edges win)))
+                 (width (- right left))
+                 (top (cadr (window-inside-pixel-edges win)))
+                 (bottom (cadddr (window-inside-pixel-edges win)))
+                 (height (- bottom top)))
+          (xwidget-webkit-adjust-size width height)
+          (revealjs-exec
+           (concat "document.body.style.width = \""
+                   (int-to-string width)
+                   "px\"; document.body.style.height = \""
+                   (int-to-string height)
+                   "\"; Reveal.layout();"))))))
+
+  (defun revealjs-on-window-resize (frame)
+    (let ((win (get-buffer-window (xwidget-buffer (xwidget-webkit-current-session)))))
+      (when (eq frame (window-frame win))
+        (revealjs-adjust-width))))
 
   (defvar revealjs-mode-map
     (let ((map (make-sparse-keymap)))
@@ -120,6 +132,8 @@
   (global-set-key (kbd "C-c <prior>") 'revealjs-prev-slide)
 
   (define-derived-mode revealjs-mode
-    xwidget-webkit-mode "Reveal.js" "Webkit mode adapted for Reveal.js slides"))
+    xwidget-webkit-mode "Reveal.js" "Webkit mode adapted for Reveal.js slides")
+
+  (add-to-list 'window-size-change-functions 'revealjs-on-window-resize))
 
 (provide 'bodil-revealjs)
