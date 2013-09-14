@@ -41,11 +41,12 @@
 
 ;;; Typescript
 
-(require 'ac-source-tsc)
-(eval-after-load 'typescript
+(package-require 'tss)
+(eval-after-load 'tss
   '(progn
-     (require 'ac-source-tsc)
-     (define-key typescript-mode-map (kbd "C-\\") 'tsc-ac-complete)))
+     ;; (setq tss-popup-help-key "C-c C-d")
+     ;; (setq tss-jump-to-definition-key "M-.")
+     (tss-config-default)))
 
 ;; Selective auto-complete for specific modes
 (defun auto-complete-selective ()
@@ -53,8 +54,6 @@
   (cond
    ((eq major-mode 'js2-mode)
     (tern-ac-complete))
-   ((eq major-mode 'typescript-mode)
-    (tsc-ac-complete))
 
    (t (auto-complete))))
 
