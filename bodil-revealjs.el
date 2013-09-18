@@ -109,7 +109,7 @@
                        (int-to-string width)
                        "px\"; document.body.style.height = \""
                        (int-to-string height)
-                       "\"; Reveal.layout();"))))))))
+                       "px\"; Reveal.layout();"))))))))
 
   (defun revealjs-on-window-resize (frame)
     (let ((ses (xwidget-webkit-current-session)))
