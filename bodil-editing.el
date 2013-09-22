@@ -7,6 +7,10 @@
 ;; Undo to C-z like a muggle; Android kbd doesn't do C-_
 (global-set-key (kbd "C-z") 'undo)
 
+;; Bind PrtSc to buffer switch, that key might as well be
+;; useful for something.
+(global-set-key (kbd "<print>") 'ido-switch-buffer)
+
 ;; Autopair mode
 (package-require 'autopair)
 (eval-after-load "autopair"
