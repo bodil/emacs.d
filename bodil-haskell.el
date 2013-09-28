@@ -24,4 +24,10 @@
         ghc-init
         (lambda () (add-to-list 'ac-sources 'ac-source-ghc))))))
 
+
+;;; Idris (for want of a better place to put it)
+(autoload 'idris-mode "idris-mode" nil t)
+(add-to-list 'auto-mode-alist '("\\.idr$" . idris-mode))
+
+
 (provide 'bodil-haskell)
