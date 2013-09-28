@@ -96,4 +96,8 @@
         (t (call-interactively 'join-line))))
 (global-set-key (kbd "M-j") 'join-line-or-lines-in-region)
 
+;; anzu: display incremental search stats in modeline
+(package-require 'anzu)
+(global-anzu-mode 1)
+
 (provide 'bodil-editing)
