@@ -159,6 +159,7 @@
 (eval-after-load "auto-indent-mode" '(diminish 'auto-indent-minor-mode))
 (eval-after-load "highlight-parentheses" '(diminish 'highlight-parentheses-mode))
 (eval-after-load "subword" '(diminish 'subword-mode))
+(eval-after-load "anzu" '(diminish 'anzu-mode))
 
 (eval-after-load "js2-mode"
   '(defadvice js2-mode (after js2-rename-modeline activate)
