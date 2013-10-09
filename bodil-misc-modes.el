@@ -8,4 +8,11 @@
 (package-require 'vcl-mode)
 (add-to-list 'auto-mode-alist '("\\.vcl$" . vcl-mode))
 
+;; Scala
+(package-require 'scala-mode2)
+(add-to-list 'load-path (concat dotfiles-dir "site-lisp/ensime/elisp"))
+(autoload 'ensime "ensime" nil t)
+(autoload 'ensime-scala-mode-hook "ensime")
+(add-hook 'scala-mode-hook 'ensime-scala-mode-hook)
+
 (provide 'bodil-misc-modes)

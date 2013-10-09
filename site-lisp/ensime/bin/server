@@ -1,0 +1,30 @@
+#!/bin/bash
+set -f
+
+if [ `uname -s` = 'Darwin' ]; then
+    if [ -z $JAVA_HOME ]; then
+	JAVA_HOME=`/usr/libexec/java_home`
+    fi
+fi
+
+case "$1" in
+  -h|--help|"")
+    echo "$0 should be run by emacs plugin. M-x ensime should start the server for you"
+    exit 1
+  ;;
+  *)
+    PORT_FILE=$1
+  ;;
+esac
+
+if [ "$ENSIME_JVM_ARGS" == "" ]
+then
+  ENSIME_JVM_ARGS="-Xms256M -Xmx1512M -XX:PermSize=128m -Xss1M -Dfile.encoding=UTF-8"
+fi
+
+BOOTCLASSPATH="scala-library.jar:scala-reflect.jar:scala-compiler.jar:scala-actors.jar"
+CLASSPATH="lib/asm-3.3.jar:lib/asm-commons-3.3.jar:lib/asm-tree-3.3.jar:lib/asm-util-3.3.jar:lib/critbit-0.0.4.jar:lib/ensime_2.10-0.9.8.9.jar:lib/json-simple-1.1.jar:lib/lucene-core-3.5.0.jar:lib/org.eclipse.jdt.core-3.6.0.v_A58.jar:lib/org.scala-refactoring_2.10.0-SNAPSHOT-0.6.1-20130201.063851-55.jar:lib/scala-actors-2.10.0.jar:lib/scala-compiler.jar:lib/scala-library.jar:lib/scala-reflect-2.10.0.jar:lib/scalariform_2.10-0.1.4-SNAPSHOT.jar:${JAVA_HOME}/lib/tools.jar"
+CMD="java -Xbootclasspath/a:${BOOTCLASSPATH} -classpath ${CLASSPATH} ${ENSIME_JVM_ARGS} org.ensime.server.Server ${PORT_FILE}"
+echo $CMD
+exec $CMD
+
