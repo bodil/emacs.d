@@ -130,12 +130,17 @@
       (define-key map (kbd "r") 'revealjs-reload)
       map))
 
+  (defun revealjs-find-file-in-presentation ()
+    (interactive)
+    (ido-find-file-in-dir "~/workspace/building-lisp/src"))
+
   (global-set-key (kbd "C-c g") 'revealjs-reload)
   (global-set-key (kbd "C-c o") 'revealjs-organise)
   (global-set-key (kbd "C-c <next>") 'revealjs-next-slide)
   (global-set-key (kbd "C-c <prior>") 'revealjs-prev-slide)
   (global-set-key (kbd "C-c C-<next>") 'revealjs-next-slide)
   (global-set-key (kbd "C-c C-<prior>") 'revealjs-prev-slide)
+  (global-set-key (kbd "C-c f") 'revealjs-find-file-in-presentation)
 
   (define-derived-mode revealjs-mode
     xwidget-webkit-mode "Reveal.js" "Webkit mode adapted for Reveal.js slides")
