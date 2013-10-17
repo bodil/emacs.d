@@ -119,22 +119,33 @@
           (number-to-string size) "-*-*-*-m-0-iso10646-1"))
 
 ;; Set default and presentation mode fonts
-(setq default-frame-font
+(defun default-frame-font ()
       (font-desc "Ubuntu Mono" default-frame-font-size))
-(set-frame-font default-frame-font)
-(setq presentation-frame-font
+(defun presentation-frame-font ()
       (font-desc "Ubuntu Mono" presentation-frame-font-size))
+(set-frame-font (default-frame-font))
 
 (defun toggle-presentation-mode ()
   (interactive)
-  (if (string= (frame-parameter nil 'font) default-frame-font)
+  (if (string= (frame-parameter nil 'font) (default-frame-font))
       (progn
-        (set-frame-font presentation-frame-font)
+        (set-frame-font (presentation-frame-font))
         (theme-light))
     (progn
-      (set-frame-font default-frame-font)
+      (set-frame-font (default-frame-font))
       (theme-dark))))
 (global-set-key (kbd "C-<f9>") 'toggle-presentation-mode)
+
+(defun presentation-mode-increase-font-size ()
+  (interactive)
+  (setq presentation-frame-font-size (+ 1 presentation-frame-font-size))
+  (set-frame-font (presentation-frame-font)))
+(defun presentation-mode-decrease-font-size ()
+  (interactive)
+  (setq presentation-frame-font-size (- presentation-frame-font-size 1))
+  (set-frame-font (presentation-frame-font)))
+(global-set-key (kbd "C-?") 'presentation-mode-increase-font-size)
+(global-set-key (kbd "C-M-?") 'presentation-mode-decrease-font-size)
 
 ;; Engage!
 (package-require 'nyan-mode)
