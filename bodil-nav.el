@@ -25,4 +25,9 @@
 (package-require 'anzu)
 (global-anzu-mode 1)
 
+;; Change buffers by swiping from left margin
+(global-set-key (kbd "<left-margin> <drag-mouse-1>")
+                (lambda () (interactive)
+                  (switch-to-buffer (other-buffer (current-buffer) 1))))
+
 (provide 'bodil-nav)
