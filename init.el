@@ -75,6 +75,7 @@
 (setq bodil-pkg-android
       '(bodil-defuns
         bodil-session
+        bodil-nav
         bodil-editing
         bodil-snippets
         bodil-ido
@@ -91,6 +92,7 @@
       '(bodil-defuns
         bodil-session
         bodil-theme
+        bodil-nav
         bodil-editing
         bodil-snippets
         bodil-complete
