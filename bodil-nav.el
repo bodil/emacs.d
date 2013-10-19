@@ -1,5 +1,8 @@
 ;;; bodil-nav.el -- Navigation things.
 
+(package-require 'dash)
+(require 'dash)
+
 ;; ace-jump-mode!
 (package-require 'ace-jump-mode)
 (global-set-key (kbd "C-ø") 'ace-jump-mode)
@@ -25,9 +28,24 @@
 (package-require 'anzu)
 (global-anzu-mode 1)
 
-;; Change buffers by swiping from left margin
-(global-set-key (kbd "<left-margin> <drag-mouse-1>")
-                (lambda () (interactive)
-                  (switch-to-buffer (other-buffer (current-buffer) 1))))
+;;; Project Explorer
+
+(package-require 'project-explorer)
+(require 'project-explorer)
+(setq-default pe/width 28)
+
+;; Touch tree to open
+(define-key project-explorer-mode-map (kbd "<mouse-1>") 'pe/return)
+
+;; Open project explorer with swipe from left margin
+(global-set-key
+ (kbd "<left-margin> <drag-mouse-1>")
+ (lambda () (interactive)
+   (-if-let (win (car (-keep 'get-buffer-window (pe/get-project-explorer-buffers))))
+       (delete-window win)
+     (project-explorer-open))))
+
+;; Highlight current tree item
+(add-hook 'project-explorer-mode-hook 'hl-line-mode)
 
 (provide 'bodil-nav)
