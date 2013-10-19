@@ -48,7 +48,7 @@
           (lambda () (define-key clojure-mode-map (kbd "DEL") 'paredit-backward-delete)))
 
 ;; nRepl
-(package-require 'nrepl)
+(package-require 'cider)
 ;(eval-after-load "clojure-mode" '(require 'nrepl))
 (setq nrepl-lein-command "lein")
 (setq nrepl-server-command "echo \"lein repl :headless\" | $SHELL -l")
