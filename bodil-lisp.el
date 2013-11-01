@@ -49,7 +49,7 @@
 
 ;; nRepl
 (package-require 'cider)
-;(eval-after-load "clojure-mode" '(require 'nrepl))
+(eval-after-load "clojure-mode" '(require 'cider))
 (setq nrepl-lein-command "lein")
 (setq nrepl-server-command "echo \"lein repl :headless\" | $SHELL -l")
 
