@@ -10,9 +10,10 @@
 
 ;; Scala
 (package-require 'scala-mode2)
-(add-to-list 'load-path (concat dotfiles-dir "site-lisp/ensime/elisp"))
-(autoload 'ensime "ensime" nil t)
-(autoload 'ensime-scala-mode-hook "ensime")
+(package-require 'ensime)
 (add-hook 'scala-mode-hook 'ensime-scala-mode-hook)
+
+;; Standard ML
+(package-require 'sml-mode)
 
 (provide 'bodil-misc-modes)
