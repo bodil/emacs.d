@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: run*
+# key: run*
+# --
+(run* [${1:q}]
+  $0)
