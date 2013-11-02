@@ -80,7 +80,8 @@
         bodil-snippets
         bodil-ido
         bodil-lisp
-        bodil-paredit
+        ;; bodil-paredit
+        bodil-smartparens
         bodil-magit
         bodil-terminal
         bodil-orgmode
@@ -98,7 +99,8 @@
         bodil-complete
         bodil-ido
         bodil-lisp
-        bodil-paredit
+        ;; bodil-paredit
+        bodil-smartparens
         bodil-js
         bodil-markup
         bodil-c

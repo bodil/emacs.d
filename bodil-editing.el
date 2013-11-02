@@ -7,12 +7,6 @@
 ;; Undo to C-z like a muggle; Android kbd doesn't do C-_
 (global-set-key (kbd "C-z") 'undo)
 
-;; Autopair mode
-(package-require 'autopair)
-(eval-after-load "autopair"
-  '(setq autopair-pair-criteria 'always))
-(autopair-global-mode)
-
 ;; Multiple cursors!
 (package-require 'multiple-cursors)
 (global-set-key (kbd "C-S-c C-S-c") 'mc/edit-lines)

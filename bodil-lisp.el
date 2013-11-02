@@ -1,9 +1,13 @@
-;;; lisp.el -- Lisps
+;;; bodil-lisp.el -- Lisps
 
 (require 'bodil-defuns)
 
+(setq bodil-lisp-modes
+      '(scheme-mode emacs-lisp-mode lisp-mode clojure-mode
+                    lolisp-mode shen-mode bodol-mode))
+
 (defun add-lisp-hook (func)
-  (add-hooks '(scheme emacs-lisp lisp clojure lolisp shen) func))
+  (add-hooks bodil-lisp-modes func))
 
 ;; Setup C-c v to eval whole buffer in all lisps
 (define-key lisp-mode-shared-map (kbd "C-c v") 'eval-buffer)
@@ -42,10 +46,6 @@
 (add-to-list 'auto-mode-alist '("\\.cljs?$" . clojure-mode))
 
 (lambda-as-lambda 'clojure-mode "(\\(\\<fn\\>\\)")
-
-;; For some reason paredit fails to bind paredit-backward-delete to backspace
-(add-hook 'clojure-mode-hook
-          (lambda () (define-key clojure-mode-map (kbd "DEL") 'paredit-backward-delete)))
 
 ;; nRepl
 (package-require 'cider)

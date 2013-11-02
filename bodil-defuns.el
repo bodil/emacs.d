@@ -14,7 +14,7 @@
 
 (defun add-hooks (modes func)
   (dolist (mode modes)
-    (add-hook (intern (concat (symbol-name mode) "-mode-hook")) func)))
+    (add-hook (intern (concat (symbol-name mode) "-hook")) func)))
 
 (defun indent-buffer ()
   (interactive)
