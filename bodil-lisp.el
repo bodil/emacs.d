@@ -109,6 +109,11 @@ Display the results in a hyperlinked *compilation* buffer."
 (require 'bodol-mode)
 
 
+;; LispyScript
+
+(add-to-list 'auto-mode-alist '("\\.ls$" . clojure-mode))
+
+
 ;;; Various inferior lisps
 
 ;; Clojure REPL
