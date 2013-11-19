@@ -31,3 +31,4 @@ elpa
 /.tern-port
 /eshell/lastdir
 /projectile-bookmarks.eld
+/.helm-backup
