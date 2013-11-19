@@ -44,13 +44,27 @@
     (start-process "http.server" "*http.server*"
                    "python3" "-m" "http.server" (number-to-string port))))
 
-;; Handlebars template support
-(package-require 'handlebars-sgml-mode)
-(eval-after-load "sgml-mode"
-  '(progn
-     (require 'handlebars-sgml-mode)
-     (handlebars-use-mode 'minor)
-     (define-key sgml-mode-map (kbd "C-c /") 'handlebars-sgml-close-tag)))
-(add-to-list 'auto-mode-alist '("\\.hbs$" . html-mode))
+;; Engage web-mode
+
+(package-require 'web-mode)
+(setq web-mode-engines-alist
+      '(("underscorejs" . "\\.ejs\\'")))
+(add-to-list 'auto-mode-alist '("\\.ejs\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.phtml\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.tpl\\.php\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.jsp\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.as[cp]x\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.erb\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.mustache\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.djhtml\\'" . web-mode))
+;; (add-to-list 'auto-mode-alist '("\\.html\\'" . web-mode))
+
+(add-hook
+ 'web-mode-hook
+ (lambda ()
+   ;; (setq web-mode-indent-style 2) ;; Indent content of HTML tags
+   (setq web-mode-markup-indent-offset 2)
+   (setq web-mode-css-indent-offset 2)
+   (setq web-mode-code-indent-offset 2)))
 
 (provide 'bodil-markup)
