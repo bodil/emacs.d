@@ -119,7 +119,8 @@
         bodil-project
         bodil-misc-modes
         bodil-multimodes
-        bodil-revealjs))
+        bodil-revealjs
+        bodil-chat))
 
 ;; Now load other things
 (dolist (file (if (string-prefix-p "android" hostname) bodil-pkg-android bodil-pkg-full))
