@@ -43,7 +43,8 @@
     (add-to-list 'custom-theme-load-path path)))
 
 ;; Install themes
-(package-require 'zenburn-theme)
+;; (package-require 'zenburn-theme)
+(package-require 'clues-theme)
 (package-require 'anti-zenburn-theme)
 
 ;; Prepare colour themes
@@ -80,13 +81,16 @@
 (defun theme-dark ()
   (interactive)
   ;; (load-theme 'bubbleberry t)
-  (load-theme 'zenburn t)
-  (set-face-background 'default "#222")
+  ;; (load-theme 'zenburn t)
+  (load-theme 'clues t)
+  ;; (set-face-background 'default "#222")
   (set-face-background 'region "#374186")
-  (set-face-background 'fringe "#191919")
-  (set-face-background 'hl-line "#191919")
-  (set-face-background 'linum nil)
-  (set-face-foreground 'linum "#3f5f3f")
+  ;; (set-face-background 'fringe "#191919")
+  ;; (set-face-background 'hl-line "#191919")
+  ;; (set-face-background 'linum nil)
+  ;; (set-face-foreground 'linum "#3f5f3f")
+  (set-face-foreground 'powerline-active1 "#aaa")
+  (set-face-foreground 'powerline-active2 "#ddd")
   (setq ansi-term-color-vector ['unspecified
                                 "#3f3f3f" "#cc9393" "#7f9f7f" "#f0dfaf"
                                 "#8cd0d3" "#dc8cc3" "#93e0e3" "#dcdccc"]))
