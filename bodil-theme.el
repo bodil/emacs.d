@@ -93,19 +93,22 @@
 (theme-dark)
 
 ;; Get screen DPI
-(setq x11-dpi
-      (string-to-number
-       (let ((xdpyinfo
-              (with-output-to-string
-                (call-process "xdpyinfo" nil standard-output))))
-         (string-match "resolution: +\\(.+\\)x.+ dots per inch" xdpyinfo)
-         (match-string 1 xdpyinfo))))
-(cond ((string= hostname "edsger") (setq x11-dpi 190)))
+;; (actually, dots per decimeter)
+(defun x11-dpdm ()
+  (let ((xrandr
+         (with-output-to-string
+           (call-process "xrandr" nil standard-output))))
+    (string-match "\\(.+\\) connected primary \\(.+\\)x.+ (.+) \\(.+\\)mm x .+mm" xrandr)
+    (let ((pixels (string-to-number (match-string 2 xrandr)))
+          (phys (string-to-number (match-string 3 xrandr))))
+      (/ (* pixels 100) phys))))
+
+(defun scale-font-size (font-size)
+  (let ((target-dpi 377))
+    (/ (* font-size (+ target-dpi (/ (- (x11-dpdm) target-dpi) 4))) target-dpi)))
 
 ;; Calculate default font size
-(setq default-frame-font-size
-      (cond ((> x11-dpi 140) 22)
-            (t 17)))
+(setq default-frame-font-size (scale-font-size 20))
 (setq presentation-frame-font-size
       (truncate (* 1.25 default-frame-font-size)))
 
