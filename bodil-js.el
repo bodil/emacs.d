@@ -5,6 +5,9 @@
 
 (add-to-list 'auto-mode-alist '("\\.js$" . js2-mode))
 
+;; Edit ejs as js
+(add-to-list 'auto-mode-alist '("\\.ejs\\'" . js2-mode))
+
 (font-lock-add-keywords
  'js2-mode `(("\\<\\(function\\) *("
               (0 (progn (compose-region (match-beginning 1)

@@ -47,9 +47,9 @@
 ;; Engage web-mode
 
 (package-require 'web-mode)
-(setq web-mode-engines-alist
-      '(("underscorejs" . "\\.ejs\\'")))
-(add-to-list 'auto-mode-alist '("\\.ejs\\'" . web-mode))
+;; (setq web-mode-engines-alist
+;;       '(("underscorejs" . "\\.ejs\\'")))
+;; (add-to-list 'auto-mode-alist '("\\.ejs\\'" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.phtml\\'" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.tpl\\.php\\'" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.jsp\\'" . web-mode))
