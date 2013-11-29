@@ -26,7 +26,7 @@
 
 
 ;;; Idris (for want of a better place to put it)
-(autoload 'idris-mode "idris-mode" nil t)
+(package-require 'idris-mode)
 (add-to-list 'auto-mode-alist '("\\.idr$" . idris-mode))
 
 

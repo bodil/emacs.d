@@ -4,6 +4,3 @@
 [submodule "site-lisp/tern"]
 	path = site-lisp/tern
 	url = git://github.com/marijnh/tern.git
-[submodule "site-lisp/idris-mode"]
-	path = site-lisp/idris-mode
-	url = https://github.com/idris-hackers/idris-mode.git
