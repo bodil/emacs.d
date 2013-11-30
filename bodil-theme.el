@@ -44,7 +44,6 @@
 
 ;; Install themes
 ;; (package-require 'zenburn-theme)
-(package-require 'clues-theme)
 (package-require 'anti-zenburn-theme)
 
 ;; Prepare colour themes
@@ -82,13 +81,13 @@
   (interactive)
   ;; (load-theme 'bubbleberry t)
   ;; (load-theme 'zenburn t)
-  (load-theme 'clues t)
+  (load-theme 'bclues t)
   ;; (set-face-background 'default "#222")
-  (set-face-background 'region "#374186")
+  ;; (set-face-background 'region "#374186")
   ;; (set-face-background 'fringe "#191919")
   ;; (set-face-background 'hl-line "#191919")
   ;; (set-face-background 'linum nil)
-  ;; (set-face-foreground 'linum "#3f5f3f")
+  ;; (set-face-foreground 'linum "#acacfc")
   (set-face-foreground 'powerline-active1 "#aaa")
   (set-face-foreground 'powerline-active2 "#ddd")
   (setq ansi-term-color-vector ['unspecified
@@ -108,7 +107,7 @@
       (/ (* pixels 100) phys))))
 
 (defun scale-font-size (font-size)
-  (let ((target-dpi 377))
+  (let ((target-dpi 480))
     (/ (* font-size (+ target-dpi (/ (- (x11-dpdm) target-dpi) 4))) target-dpi)))
 
 ;; Calculate default font size
