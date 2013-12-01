@@ -36,13 +36,11 @@
   '(define-key sgml-mode-map (kbd "C-c C-r") 'mc/mark-sgml-tag-pair))
 
 ;; Launch a static web server in the current project root
-(require 'bodil-magit)
+(package-require 'projectile)
+(package-require 'elnode)
 (defun http-server-in-project (port)
   (interactive "nPort: ")
-  (require 'projectile)
-  (let ((default-directory (projectile-project-root)))
-    (start-process "http.server" "*http.server*"
-                   "python3" "-m" "http.server" (number-to-string port))))
+  (elnode-make-webserver (projectile-project-root) port))
 
 ;; Engage web-mode
 
