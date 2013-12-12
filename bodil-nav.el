@@ -30,6 +30,7 @@
 
 ;;; Project Explorer
 
+(package-require 'helm)
 (package-require 'project-explorer)
 (require 'project-explorer)
 (setq-default pe/width 28)

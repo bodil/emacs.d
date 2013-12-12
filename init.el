@@ -72,23 +72,6 @@
 
 ;; Define subpackages by platform
 
-(setq bodil-pkg-android
-      '(bodil-defuns
-        bodil-session
-        bodil-nav
-        bodil-editing
-        bodil-snippets
-        bodil-ido
-        bodil-lisp
-        ;; bodil-paredit
-        bodil-smartparens
-        bodil-magit
-        bodil-terminal
-        bodil-orgmode
-        bodil-codestyle
-        bodil-dired
-        bodil-helm))
-
 (setq bodil-pkg-full
       '(bodil-defuns
         bodil-session
@@ -123,7 +106,7 @@
         bodil-chat))
 
 ;; Now load other things
-(dolist (file (if (string-prefix-p "android" hostname) bodil-pkg-android bodil-pkg-full))
+(dolist (file bodil-pkg-full)
   (require file))
 (Xlaunch (require 'bodil-x11))
 
