@@ -35,6 +35,12 @@
 ;; Highlight current line
 ;(global-hl-line-mode)
 
+;; git-gutter-fringe
+(package-require 'git-gutter-fringe)
+(require 'git-gutter-fringe)
+(global-git-gutter-mode t)
+;; (setq git-gutter-fr:side 'right-fringe)
+
 ;; Set custom theme path
 (setq custom-theme-directory (concat dotfiles-dir "themes"))
 (dolist
@@ -176,6 +182,7 @@
 (eval-after-load "anzu" '(diminish 'anzu-mode))
 (eval-after-load "cider" '(diminish 'cider-mode))
 (eval-after-load "smartparens" '(diminish 'smartparens-mode))
+(eval-after-load "git-gutter" '(diminish 'git-gutter-mode))
 
 (eval-after-load "js2-mode"
   '(defadvice js2-mode (after js2-rename-modeline activate)
