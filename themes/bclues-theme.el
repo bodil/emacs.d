@@ -73,7 +73,9 @@
  '(main-line-color1 "#222232")
  '(main-line-color2 "#333343")
  '(powerline-color1 "#222232")
- '(powerline-color2 "#333343"))
+ '(powerline-color2 "#333343")
+ '(powerline-active1 "#aaaaaa")
+ '(powerline-active2 "#dddddd"))
 
 (custom-theme-set-faces
  'bclues
@@ -112,7 +114,7 @@
  '(link                                ((t (:foreground "#00b7f0"  :background nil       :underline t                                  ))))
  '(link-visited                        ((t (:foreground "#4488cc"                        :underline t :inherit (link)                  ))))
  '(button                              ((t (:foreground "#FFFFFF"  :background "#444444" :underline t :inherit (link)                  ))))
- '(fringe                              ((t (                       :background "#1B0F1f"                                               ))))
+ '(fringe                              ((t (                       :background "#191919"                                               ))))
  '(next-error                          ((t (                                             :inherit (region)                             ))))
  '(query-replace                       ((t (                                             :inherit (isearch)                            ))))
  '(header-line                         ((t (:foreground "#222222"  :background "#bbbbbb" :box nil :inherit (mode-line)                 ))))
@@ -141,6 +143,9 @@
  '(git-gutter:added                    ((t (:foreground "#609f60" :bold t))))
  '(git-gutter:modified                 ((t (:foreground "#3388cc" :bold t))))
  '(git-gutter:deleted                  ((t (:foreground "#cc3333" :bold t))))
+ '(git-gutter-fr:added                    ((t (:foreground "#609f60" :bold t))))
+ '(git-gutter-fr:modified                 ((t (:foreground "#3388cc" :bold t))))
+ '(git-gutter-fr:deleted                  ((t (:foreground "#cc3333" :bold t))))
  '(diff-added                          ((t (:background "#132013"))))
  '(diff-removed                        ((t (:background "#290a0a"))))
  '(diff-file-header                    ((t (:background "#362145"))))
