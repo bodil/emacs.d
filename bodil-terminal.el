@@ -6,7 +6,7 @@
 (global-set-key (kbd "C-x m") 'multi-term-next)
 
 ;; Don't try to enable autopair in term-mode, it remaps the return key!
-(add-hook 'term-mode-hook (lambda () (autopair-mode 0)))
+;; (add-hook 'term-mode-hook (lambda () (autopair-mode 0)))
 
 ;; Likewise, yasnippet breaks the tab key.
 (add-hook 'term-mode-hook
