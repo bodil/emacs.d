@@ -53,6 +53,8 @@
 (package-require 'anti-zenburn-theme)
 
 ;; Prepare colour themes
+(require 'term)
+
 (defun theme-light ()
   (interactive)
   (load-theme 'anti-zenburn)
@@ -80,9 +82,16 @@
   (set-face-foreground 'region nil)
   (set-face-background 'linum "#f0f0f0")
   (set-face-background 'fringe "#f0f0f0")
-  (setq ansi-term-color-vector ['unspecified
-                                "#ffffff" "#f5666d" "#4cb64a" "#ce5c00"
-                                "#00578e" "#a020f0" "#6799cc" "#000000"]))
+
+  (set-face-foreground 'term-color-black "#ffffff")
+  (set-face-foreground 'term-color-red "#f5666d")
+  (set-face-foreground 'term-color-green "#3cb64a")
+  (set-face-foreground 'term-color-yellow "#ce5c00")
+  (set-face-foreground 'term-color-blue "#00578e")
+  (set-face-foreground 'term-color-magenta "#d020f0")
+  (set-face-foreground 'term-color-cyan "#6799cc")
+  (set-face-foreground 'term-color-white "#000000"))
+
 (defun theme-dark ()
   (interactive)
   ;; (load-theme 'bubbleberry t)
@@ -96,9 +105,16 @@
   ;; (set-face-foreground 'linum "#acacfc")
   ;; (set-face-foreground 'powerline-active1 "#aaa")
   ;; (set-face-foreground 'powerline-active2 "#ddd")
-  (setq ansi-term-color-vector ['unspecified
-                                "#3f3f3f" "#cc9393" "#7f9f7f" "#f0dfaf"
-                                "#8cd0d3" "#dc8cc3" "#93e0e3" "#dcdccc"]))
+
+  (set-face-foreground 'term-color-black "#3f3f3f")
+  (set-face-foreground 'term-color-red "#cc9393")
+  (set-face-foreground 'term-color-green "#7f9f7f")
+  (set-face-foreground 'term-color-yellow "#f0dfaf")
+  (set-face-foreground 'term-color-blue "#8cd0d3")
+  (set-face-foreground 'term-color-magenta "#dc8cc3")
+  (set-face-foreground 'term-color-cyan "#93e0e3")
+  (set-face-foreground 'term-color-white "#dcdccc"))
+
 (theme-dark)
 
 ;; Get screen DPI
