@@ -22,6 +22,8 @@
 (define-key sp-keymap (kbd "M-p") 'sp-split-sexp)
 (define-key sp-keymap (kbd "M-S-p") 'sp-join-sexp)
 (define-key sp-keymap (kbd "M-t") 'sp-transpose-sexp)
+(define-key sp-keymap (kbd "M-S-<left>") 'sp-backward-sexp)
+(define-key sp-keymap (kbd "M-S-<right>") 'sp-forward-sexp)
 
 (sp-with-modes bodil-lisp-modes
   (sp-local-pair "(" nil :bind "M-(")
