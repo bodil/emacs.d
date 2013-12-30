@@ -59,23 +59,23 @@
   (interactive)
   (load-theme 'anti-zenburn)
   (zenburn-with-color-variables
-    (custom-theme-set-faces
-     'anti-zenburn
+   (custom-theme-set-faces
+    'anti-zenburn
 
-     `(mode-line
-       ((,class (:foreground ,zenburn-green+1
-                             :background ,zenburn-bg-1
-                             :box (:line-width -1 :style released-button)))
-        (t :inverse-video t)))
-     `(mode-line-buffer-id ((t (:foreground ,zenburn-yellow :weight bold))))
-     `(mode-line-inactive
-       ((t (:foreground ,zenburn-green-1
-                        :background ,zenburn-bg-05
-                        :box (:line-width -1 :style released-button)))))
-     `(powerline-active1 ((t (:background ,zenburn-bg-05 :inherit mode-line))))
-     `(powerline-active2 ((t (:background ,zenburn-bg+2 :inherit mode-line))))
-     `(powerline-inactive1 ((t (:background ,zenburn-bg+1 :inherit mode-line-inactive))))
-     `(powerline-inactive2 ((t (:background ,zenburn-bg+3 :inherit mode-line-inactive))))))
+    `(mode-line
+      ((,class (:foreground ,zenburn-green+1
+                            :background ,zenburn-bg-1
+                            :box (:line-width -1 :style released-button)))
+       (t :inverse-video t)))
+    `(mode-line-buffer-id ((t (:foreground ,zenburn-yellow :weight bold))))
+    `(mode-line-inactive
+      ((t (:foreground ,zenburn-green-1
+                       :background ,zenburn-bg-05
+                       :box (:line-width -1 :style released-button)))))
+    `(powerline-active1 ((t (:background ,zenburn-bg-05 :inherit mode-line))))
+    `(powerline-active2 ((t (:background ,zenburn-bg+2 :inherit mode-line))))
+    `(powerline-inactive1 ((t (:background ,zenburn-bg+1 :inherit mode-line-inactive))))
+    `(powerline-inactive2 ((t (:background ,zenburn-bg+3 :inherit mode-line-inactive))))))
   (set-face-background 'default "#ffffff")
   (set-face-foreground 'default "#000000")
   (set-face-background 'region "#d4d4d4")
@@ -124,9 +124,11 @@
          (with-output-to-string
            (call-process "xrandr" nil standard-output))))
     (string-match "\\(.+\\) connected primary \\(.+\\)x.+ (.+) \\(.+\\)mm x .+mm" xrandr)
-    (let ((pixels (string-to-number (match-string 2 xrandr)))
-          (phys (string-to-number (match-string 3 xrandr))))
-      (/ (* pixels 100) phys))))
+    (if (match-string 2 xrandr)
+        (let ((pixels (string-to-number (match-string 2 xrandr)))
+              (phys (string-to-number (match-string 3 xrandr))))
+          (/ (* pixels 100) phys))
+      250)))
 
 (defun scale-font-size (font-size)
   (let ((target-dpi 480))
@@ -144,9 +146,9 @@
 
 ;; Set default and presentation mode fonts
 (defun default-frame-font ()
-      (font-desc "Ubuntu Mono" default-frame-font-size))
+  (font-desc "Ubuntu Mono" default-frame-font-size))
 (defun presentation-frame-font ()
-      (font-desc "Ubuntu Mono" presentation-frame-font-size))
+  (font-desc "Ubuntu Mono" presentation-frame-font-size))
 (set-frame-font (default-frame-font))
 
 (defun toggle-presentation-mode ()
