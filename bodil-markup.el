@@ -37,10 +37,12 @@
 
 ;; Launch a static web server in the current project root
 (package-require 'projectile)
-(package-require 'elnode)
 (defun http-server-in-project (port)
   (interactive "nPort: ")
-  (elnode-make-webserver (projectile-project-root) port))
+  (require 'projectile)
+  (let ((default-directory (projectile-project-root)))
+    (start-process "http.server" "*http.server*"
+                   "python3" "-m" "http.server" (number-to-string port))))
 
 ;; Engage web-mode
 
