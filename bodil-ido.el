@@ -31,6 +31,11 @@
 (package-require 'ido-vertical-mode)
 (ido-vertical-mode)
 
+;; flx-ido for nicer fuzzy search
+(package-require 'flx-ido)
+(flx-ido-mode 1)
+(setq ido-use-faces nil)
+
 ;; ido-imenu
 (require 'imenu)
 (defun ido-imenu ()
