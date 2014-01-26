@@ -11,6 +11,11 @@
       (setq result (append (list (car form) result)
                            (cdr form))))))
 
+(defun font-lock-replace-symbol (mode reg sym)
+  (font-lock-add-keywords
+   mode `((,reg
+           (0 (progn (compose-region (match-beginning 1) (match-end 1)
+                                     ,sym 'decompose-region)))))))
 
 (defun add-hooks (modes func)
   (dolist (mode modes)

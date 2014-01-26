@@ -26,16 +26,16 @@
         (lambda () (add-to-list 'ac-sources 'ac-source-ghc))))))
 
 ;; Use Unicode arrows in place of ugly ASCII arrows
+(require 'bodil-defuns)
+(font-lock-replace-symbol 'haskell-mode "\\(->\\)" "→")
+(font-lock-replace-symbol 'haskell-mode "\\(<-\\)" "←")
+(font-lock-replace-symbol 'haskell-mode "\\(=>\\)" "⇒")
+(font-lock-replace-symbol 'haskell-mode "\\(<=\\)" "⇐")
+
 (define-key haskell-mode-map (kbd "→") (lambda () (interactive) (insert "->")))
 (define-key haskell-mode-map (kbd "←") (lambda () (interactive) (insert "<-")))
-(font-lock-add-keywords
- 'haskell-mode `((,"\\(->\\)"
-                  (0 (progn (compose-region (match-beginning 1) (match-end 1)
-                                           "→" 'decompose-region))))))
-(font-lock-add-keywords
- 'haskell-mode `((,"\\(<-\\)"
-                  (0 (progn (compose-region (match-beginning 1) (match-end 1)
-                                           "←" 'decompose-region))))))
+(define-key haskell-mode-map (kbd "⇒") (lambda () (interactive) (insert "=>")))
+(define-key haskell-mode-map (kbd "⇐") (lambda () (interactive) (insert "<=")))
 
 ;; Add a keybinding for (inferior-haskell-type t) to insert
 ;; inferred type signature for function at point
