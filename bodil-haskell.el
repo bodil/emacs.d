@@ -1,4 +1,4 @@
-;;; bodil-haskell.el --- ENGAGE MONAD TRANSFORMERS
+;;; bodil-haskell.el --- FIRE ALL MONAD TRANSFORMERS
 
 (package-require 'haskell-mode)
 (package-require 'ghc)
