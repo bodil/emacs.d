@@ -21,6 +21,7 @@
   '(custom-set-variables
     '(haskell-mode-hook
       '(turn-on-haskell-indentation
+        turn-on-haskell-doc-mode
         ghc-init
         (lambda () (add-to-list 'ac-sources 'ac-source-ghc))))))
 
