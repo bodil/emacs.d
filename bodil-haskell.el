@@ -45,6 +45,7 @@
       (inferior-haskell-type sym t))))
 
 ;; Put ghc-show-info in a popup
+(package-require 'popup)
 (defun ghc-show-info-popup ()
   (interactive)
   (popup-tip (ghc-get-info (ghc-things-at-point))
