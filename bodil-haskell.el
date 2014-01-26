@@ -50,6 +50,7 @@
   (interactive)
   (popup-tip (ghc-get-info (ghc-things-at-point))
              :around t :scroll-bar t))
+(define-key haskell-mode-map (kbd "C-c TAB") 'ghc-show-info-popup)
 (define-key haskell-mode-map (kbd "C-c C-i") 'ghc-show-info-popup)
 (define-key haskell-mode-map (kbd "C-c C-S-i") 'ghc-show-info)
 
