@@ -137,7 +137,7 @@
     (/ (* font-size (+ target-dpi (/ (- (x11-dpdm) target-dpi) 4))) target-dpi)))
 
 ;; Calculate default font size
-(setq default-frame-font-size (scale-font-size 20))
+(setq default-frame-font-size (scale-font-size 18))
 (setq presentation-frame-font-size
       (truncate (* 1.25 default-frame-font-size)))
 
@@ -148,9 +148,9 @@
 
 ;; Set default and presentation mode fonts
 (defun default-frame-font ()
-  (font-desc "Ubuntu Mono" default-frame-font-size))
+  (font-desc "Inconsolata for Powerline" default-frame-font-size))
 (defun presentation-frame-font ()
-  (font-desc "Ubuntu Mono" presentation-frame-font-size))
+  (font-desc "Inconsolata for Powerline" presentation-frame-font-size))
 (set-frame-font (default-frame-font))
 
 (defun toggle-presentation-mode ()
