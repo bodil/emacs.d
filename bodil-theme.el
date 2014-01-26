@@ -124,6 +124,8 @@
          (with-output-to-string
            (call-process "xrandr" nil standard-output))))
     (string-match "\\(.+\\) connected primary \\(.+\\)x.+ (.+) \\(.+\\)mm x .+mm" xrandr)
+    (when (not (match-string 2 xrandr))
+      (string-match "\\(.+\\) connected \\(.+\\)x.+ (.+) \\(.+\\)mm x .+mm" xrandr))
     (if (match-string 2 xrandr)
         (let ((pixels (string-to-number (match-string 2 xrandr)))
               (phys (string-to-number (match-string 3 xrandr))))
