@@ -24,6 +24,17 @@
         ghc-init
         (lambda () (add-to-list 'ac-sources 'ac-source-ghc))))))
 
+;; Use Unicode arrows in place of ugly ASCII arrows
+(define-key haskell-mode-map (kbd "→") (lambda () (interactive) (insert "->")))
+(define-key haskell-mode-map (kbd "←") (lambda () (interactive) (insert "<-")))
+(font-lock-add-keywords
+ 'haskell-mode `((,"\\(->\\)"
+                  (0 (progn (compose-region (match-beginning 1) (match-end 1)
+                                           "→" 'decompose-region))))))
+(font-lock-add-keywords
+ 'haskell-mode `((,"\\(<-\\)"
+                  (0 (progn (compose-region (match-beginning 1) (match-end 1)
+                                           "←" 'decompose-region))))))
 
 ;;; Idris (for want of a better place to put it)
 (package-require 'idris-mode)
