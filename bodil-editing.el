@@ -65,4 +65,10 @@
         (t (call-interactively 'join-line))))
 (global-set-key (kbd "M-j") 'join-line-or-lines-in-region)
 
+;; Visual regexp
+(package-require 'visual-regexp)
+(global-set-key (kbd "C-c r") 'vr/replace)
+(global-set-key (kbd "C-c q") 'vr/query-replace)
+(global-set-key (kbd "C-c m") 'vr/mc-mark)
+
 (provide 'bodil-editing)
