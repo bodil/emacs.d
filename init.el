@@ -13,6 +13,15 @@
 (prefer-coding-system 'utf-8)
 (load-library "iso-transl")
 
+;; Setup exec-path and PATH environment variable, in case shell has failed to do so
+(let ((paths (mapcar (lambda (i) (concat (getenv "HOME") "/" i))
+                     '("bin" "emacs/bin" ".cabal/bin" "node/bin"))))
+  (setenv "PATH" (apply 'concat
+                        (append (mapcar (lambda (i) (concat i ":")) paths)
+                                (list (getenv "PATH")))))
+  (dolist (path paths) (when (file-directory-p path)
+                         (add-to-list 'exec-path path))))
+
 ;; Always ask for y/n keypress instead of typing out 'yes' or 'no'
 (defalias 'yes-or-no-p 'y-or-n-p)
 
