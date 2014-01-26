@@ -36,6 +36,13 @@
                   (0 (progn (compose-region (match-beginning 1) (match-end 1)
                                            "←" 'decompose-region))))))
 
+;; Add a keybinding for (inferior-haskell-type t) to insert
+;; inferred type signature for function at point
+(define-key haskell-mode-map (kbd "C-c C-s")
+  (lambda () (interactive)
+    (let ((sym (haskell-ident-at-point)))
+      (inferior-haskell-type sym t))))
+
 ;;; Idris (for want of a better place to put it)
 (package-require 'idris-mode)
 (add-to-list 'auto-mode-alist '("\\.idr$" . idris-mode))
