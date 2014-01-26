@@ -12,6 +12,9 @@
 
 (setq-default sp-hybrid-kill-entire-symbol nil)
 
+;; I hate sp-highlight-pair-overlay so much
+(setq sp-highlight-pair-overlay nil)
+
 (define-key sp-keymap (kbd "<delete>") 'sp-delete-char)
 (define-key sp-keymap (kbd "C-<right>") 'sp-forward-slurp-sexp)
 (define-key sp-keymap (kbd "C-<left>") 'sp-forward-barf-sexp)
