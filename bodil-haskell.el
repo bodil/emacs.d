@@ -61,8 +61,6 @@
 (defun haskell-mode-run-test-suite ()
   (interactive)
   (require 'compile)
-  (setq-local compilation-ask-about-save nil)
-  (setq-local compilation-window-height 12)
   (compile (concat "cd " (projectile-project-root) "; cabal test")))
 (define-key haskell-mode-map (kbd "C-c C-,") 'haskell-mode-run-test-suite)
 

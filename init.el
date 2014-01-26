@@ -13,6 +13,9 @@
 (prefer-coding-system 'utf-8)
 (load-library "iso-transl")
 
+;; Automatically save buffers before compiling
+(setq compilation-ask-about-save nil)
+
 ;; Setup exec-path and PATH environment variable, in case shell has failed to do so
 (let ((paths (mapcar (lambda (i) (concat (getenv "HOME") "/" i))
                      '("bin" "emacs/bin" ".cabal/bin" "node/bin"))))
