@@ -44,6 +44,29 @@
     (let ((sym (haskell-ident-at-point)))
       (inferior-haskell-type sym t))))
 
+;; Put ghc-show-info in a popup
+(defun ghc-show-info-popup ()
+  (interactive)
+  (popup-tip (ghc-get-info (ghc-things-at-point))
+             :around t :scroll-bar t))
+(define-key haskell-mode-map (kbd "C-c C-i") 'ghc-show-info-popup)
+(define-key haskell-mode-map (kbd "C-c C-S-i") 'ghc-show-info)
+
+;; Use standard keybinding for inferior-haskell-find-definition
+(define-key haskell-mode-map (kbd "M-.")
+  (lambda () (interactive)
+    (inferior-haskell-find-definition (haskell-ident-at-point))))
+
+;; Run test suite
+(defun haskell-mode-run-test-suite ()
+  (interactive)
+  (require 'compile)
+  (setq-local compilation-ask-about-save nil)
+  (setq-local compilation-window-height 12)
+  (compile (concat "cd " (projectile-project-root) "; cabal test")))
+(define-key haskell-mode-map (kbd "C-c C-,") 'haskell-mode-run-test-suite)
+
+
 ;;; Idris (for want of a better place to put it)
 (package-require 'idris-mode)
 (add-to-list 'auto-mode-alist '("\\.idr$" . idris-mode))
