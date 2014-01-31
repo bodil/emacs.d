@@ -3,6 +3,7 @@
 (package-require 'dired+)
 (require 'dired+)
 (set-face-foreground 'diredp-file-name nil)
+(setq diredp-hide-details-initially-flag nil)
 
 ;; Auto refresh buffers
 (global-auto-revert-mode 1)
