@@ -24,6 +24,7 @@
 
 ;; Default formatting style for C based modes
 (setq c-default-style "java")
+(setq-default c-basic-offset 2)
 
 ;; I mean, _seriously_...
 (setq sentence-end-double-space nil)
