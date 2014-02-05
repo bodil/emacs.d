@@ -72,4 +72,10 @@
 (add-to-list 'auto-mode-alist '("\\.idr$" . idris-mode))
 
 
+;;; PureScript cheat mode
+(define-derived-mode purescript-mode haskell-mode "PureScript"
+  "Major mode for PureScript")
+(add-to-list 'auto-mode-alist (cons "\\.purs\\'" 'purescript-mode))
+
+
 (provide 'bodil-haskell)
