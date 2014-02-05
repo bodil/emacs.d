@@ -33,3 +33,5 @@ elpa
 /projectile-bookmarks.eld
 /.helm-backup
 /.achievements
+/ido.last
+/recentf
