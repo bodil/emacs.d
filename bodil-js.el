@@ -124,6 +124,9 @@
   (lambda () (interactive)
     (projectile-with-default-dir (projectile-project-root)
       (compile "npm -s run compile"))))
+(add-to-list 'compilation-error-regexp-alist
+             '("^\\(.+?\\)(\\([[:digit:]]+\\),\\([[:digit:]]+\\)): \\(.*\\)$"
+               1 2 3 nil 1))
 
 (package-require 'flycheck)
 (require 'flycheck)
