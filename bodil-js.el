@@ -120,6 +120,11 @@
 (package-require 'tss)
 (add-to-list 'auto-mode-alist '("\\.ts$" . typescript-mode))
 
+(define-key typescript-mode-map (kbd "C-c C-k")
+  (lambda () (interactive)
+    (projectile-with-default-dir (projectile-project-root)
+      (compile "npm -s run compile"))))
+
 (package-require 'flycheck)
 (require 'flycheck)
 (flycheck-define-checker tslint
