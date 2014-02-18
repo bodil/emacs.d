@@ -88,6 +88,7 @@
       '(bodil-defuns
         bodil-session
         bodil-theme
+        bodil-powerline
         bodil-nav
         bodil-editing
         bodil-snippets
