@@ -120,15 +120,16 @@
 (package-require 'tss)
 (add-to-list 'auto-mode-alist '("\\.ts$" . typescript-mode))
 
-(define-key typescript-mode-map (kbd "C-c C-k")
-  (lambda () (interactive)
-    (projectile-with-default-dir (projectile-project-root)
-      (compile "npm -s run compile"))))
+(eval-after-load "typescript"
+'(define-key typescript-mode-map (kbd "C-c C-k")
+   (lambda () (interactive)
+     (projectile-with-default-dir (projectile-project-root)
+       (compile "npm -s run compile")))))
 (add-to-list 'compilation-error-regexp-alist
              '("^\\(.+?\\)(\\([[:digit:]]+\\),\\([[:digit:]]+\\)): \\(.*\\)$"
                1 2 3 nil 1))
 
-(package-require 'flycheck)
+(require 'bodil-flycheck)
 (require 'flycheck)
 (flycheck-define-checker tslint
   "Use tslint to flycheck TypeScript code."
