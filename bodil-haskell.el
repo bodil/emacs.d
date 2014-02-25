@@ -2,6 +2,7 @@
 
 (package-require 'haskell-mode)
 (package-require 'ghc)
+(package-require 'shm)
 
 ;; auto-complete source using ghc-doc
 (defun ac-haskell-candidates ()
@@ -23,6 +24,7 @@
       '(turn-on-haskell-indentation
         turn-on-haskell-doc-mode
         ghc-init
+        structured-haskell-mode
         (lambda () (add-to-list 'ac-sources 'ac-source-ghc))))))
 
 ;; Use Unicode arrows in place of ugly ASCII arrows
