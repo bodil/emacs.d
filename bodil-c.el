@@ -1,5 +1,15 @@
 ;;; bodil-c.el --- C and C++ and other horrible things
 
+;; Just come clean and admit .h files are most often C++
+(add-to-list 'auto-mode-alist '("\\.h$" . c++-mode))
+
+;; Improved autocomplete
+(package-require 'function-args)
+(add-hook 'c++-mode-hook
+          '(progn
+             (require 'function-args)
+             (fa-config-default)))
+
 ;; qmake-mode
 (autoload 'qmake-mode "qmake" nil t)
 (add-to-list 'auto-mode-alist '("\\.pro$" . qmake-mode))
