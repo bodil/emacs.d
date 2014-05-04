@@ -42,11 +42,18 @@
 ;;; Typescript
 
 (package-require 'tss)
-(eval-after-load 'tss
+(eval-after-load "typescript"
   '(progn
-     ;; (setq tss-popup-help-key "C-c C-d")
-     ;; (setq tss-jump-to-definition-key "M-.")
-     (tss-config-default)))
+     (require 'tss)
+     (define-key typescript-mode-map (kbd "C-c C-d") 'tss-popup-help)
+     (define-key typescript-mode-map (kbd "M-.") 'tss-jump-to-definition)
+     (add-hook 'typescript-mode-hook
+               (lambda ()
+                 (add-to-list 'ac-sources 'ac-source-tss-member)
+                 (add-to-list 'ac-sources 'ac-source-tss-type)
+                 (add-to-list 'ac-sources 'ac-source-tss-new)
+                 (add-to-list 'ac-sources 'ac-source-tss-anything)
+                 (add-to-list 'ac-sources 'ac-source-tss-keyword)))))
 
 ;; Selective auto-complete for specific modes
 (defun auto-complete-selective ()
