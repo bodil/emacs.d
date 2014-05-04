@@ -23,6 +23,9 @@
 ;; Show column numbers in modeline
 (setq column-number-mode t)
 
+;; Show current function in modeline
+(which-function-mode)
+
 ;; Redefine linum-on to ignore terminal buffers, because just turning
 ;; it off in term-mode-hook doesn't work.
 (setq linum-disabled-modes
@@ -90,7 +93,8 @@
   (set-face-foreground 'term-color-blue "#00578e")
   (set-face-foreground 'term-color-magenta "#d020f0")
   (set-face-foreground 'term-color-cyan "#6799cc")
-  (set-face-foreground 'term-color-white "#000000"))
+  (set-face-foreground 'term-color-white "#000000")
+  (set-face-foreground 'which-func "#444444"))
 
 (defun theme-dark ()
   (interactive)
@@ -113,31 +117,34 @@
   (set-face-foreground 'term-color-blue "#8cd0d3")
   (set-face-foreground 'term-color-magenta "#dc8cc3")
   (set-face-foreground 'term-color-cyan "#93e0e3")
-  (set-face-foreground 'term-color-white "#dcdccc"))
+  (set-face-foreground 'term-color-white "#dcdccc")
+  (set-face-foreground 'which-func "#cccccc"))
 
 (theme-dark)
 
 ;; Get screen DPI
 ;; (actually, dots per decimeter)
-(defun x11-dpdm ()
-  (let ((xrandr
-         (with-output-to-string
-           (call-process "xrandr" nil standard-output))))
-    (string-match "\\(.+\\) connected primary \\(.+\\)x.+ (.+) \\(.+\\)mm x .+mm" xrandr)
-    (when (not (match-string 2 xrandr))
-      (string-match "\\(.+\\) connected \\(.+\\)x.+ (.+) \\(.+\\)mm x .+mm" xrandr))
-    (if (match-string 2 xrandr)
-        (let ((pixels (string-to-number (match-string 2 xrandr)))
-              (phys (string-to-number (match-string 3 xrandr))))
-          (/ (* pixels 100) phys))
-      250)))
+;; (defun x11-dpdm ()
+;;   (let ((xrandr
+;;          (with-output-to-string
+;;            (call-process "xrandr" nil standard-output))))
+;;     (string-match "\\(.+\\) connected primary \\(.+\\)x.+ (.+) \\(.+\\)mm x .+mm" xrandr)
+;;     (when (not (match-string 2 xrandr))
+;;       (string-match "\\(.+\\) connected \\(.+\\)x.+ (.+) \\(.+\\)mm x .+mm" xrandr))
+;;     (if (match-string 2 xrandr)
+;;         (let ((pixels (string-to-number (match-string 2 xrandr)))
+;;               (phys (string-to-number (match-string 3 xrandr))))
+;;           (if (> phys 0)
+;; 	      (/ (* pixels 100) phys)
+;; 	    250)
+;; 	  250)))
 
-(defun scale-font-size (font-size)
-  (let ((target-dpi 480))
-    (/ (* font-size (+ target-dpi (/ (- (x11-dpdm) target-dpi) 4))) target-dpi)))
+;; (defun scale-font-size (font-size)
+;;   (let ((target-dpi 480))
+;;     (/ (* font-size (+ target-dpi (/ (- (x11-dpdm) target-dpi) 4))) target-dpi)))
 
 ;; Calculate default font size
-(setq default-frame-font-size (scale-font-size 18))
+(setq default-frame-font-size 20)
 (setq presentation-frame-font-size
       (truncate (* 1.25 default-frame-font-size)))
 
