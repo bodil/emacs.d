@@ -51,6 +51,11 @@
 (add-hook 'css-mode-hook 'skewer-css-mode)
 (add-hook 'html-mode-hook 'skewer-html-mode)
 
+(eval-after-load "skewer-mode"
+  '(define-key skewer-mode-map (kbd "C-c C-l")
+     (lambda () (interactive)
+       (save-buffer)
+       (skewer-eval "setTimeout(function(){window.location.reload();}, 0);"))))
 
 ;;; Coffeescript
 (package-require 'coffee-mode)
