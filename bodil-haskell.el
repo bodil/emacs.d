@@ -32,12 +32,10 @@
 (font-lock-replace-symbol 'haskell-mode "\\(->\\)" "→")
 (font-lock-replace-symbol 'haskell-mode "\\(<-\\)" "←")
 (font-lock-replace-symbol 'haskell-mode "\\(=>\\)" "⇒")
-(font-lock-replace-symbol 'haskell-mode "\\(<=\\)" "⇐")
 
 (define-key haskell-mode-map (kbd "→") (lambda () (interactive) (insert "->")))
 (define-key haskell-mode-map (kbd "←") (lambda () (interactive) (insert "<-")))
 (define-key haskell-mode-map (kbd "⇒") (lambda () (interactive) (insert "=>")))
-(define-key haskell-mode-map (kbd "⇐") (lambda () (interactive) (insert "<=")))
 
 ;; Add a keybinding for (inferior-haskell-type t) to insert
 ;; inferred type signature for function at point
