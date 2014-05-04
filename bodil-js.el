@@ -129,6 +129,12 @@
              '("^\\(.+?\\)(\\([[:digit:]]+\\),\\([[:digit:]]+\\)): \\(.*\\)$"
                1 2 3 nil 1))
 
+(eval-after-load "typescript"
+'(define-key typescript-mode-map (kbd "C-c C-l")
+   (lambda () (interactive)
+     (projectile-with-default-dir (projectile-project-root)
+       (eshell-command "npm start")))))
+
 (require 'bodil-flycheck)
 (require 'flycheck)
 (flycheck-define-checker tslint
