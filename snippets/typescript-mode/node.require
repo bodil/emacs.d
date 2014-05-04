@@ -1,0 +1,5 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: node.require
+# key: req
+# --
+import ${3:${1:$(lower-camel-case (file-name-nondirectory yas/text))}} = require("${1:sys}")$2;$0
