@@ -14,7 +14,4 @@
 ;; Standard ML
 (package-require 'sml-mode)
 
-;; Fancier package list
-(package-require 'paradox)
-
 (provide 'bodil-misc-modes)
