@@ -57,6 +57,7 @@
 
 ;; Prepare colour themes
 (require 'term)
+(require 'bodil-complete)
 
 (defun theme-light ()
   (interactive)
@@ -109,6 +110,15 @@
   ;; (set-face-foreground 'linum "#acacfc")
   ;; (set-face-foreground 'powerline-active1 "#aaa")
   ;; (set-face-foreground 'powerline-active2 "#ddd")
+
+  (set-face-foreground 'company-tooltip "#000")
+  (set-face-background 'company-tooltip "#ddd")
+  (set-face-background 'company-scrollbar-bg "#fff")
+  (set-face-background 'company-scrollbar-fg "#999")
+  (set-face-background 'company-tooltip-selection "#aaa")
+  (set-face-foreground 'company-tooltip-common "#9a0000")
+  (set-face-foreground 'company-tooltip-common-selection "#9a0000")
+  (set-face-foreground 'company-tooltip-annotation "#00008e")
 
   (set-face-foreground 'term-color-black "#3f3f3f")
   (set-face-foreground 'term-color-red "#cc9393")
@@ -197,7 +207,7 @@
 (eval-after-load "paredit" '(diminish 'paredit-mode))
 (eval-after-load "autopair" '(diminish 'autopair-mode))
 (eval-after-load "abbrev" '(diminish 'abbrev-mode))
-(eval-after-load "auto-complete" '(diminish 'auto-complete-mode))
+(eval-after-load "company" '(diminish 'company-mode))
 (eval-after-load "js2-highlight-vars" '(diminish 'js2-highlight-vars-mode))
 (eval-after-load "projectile" '(diminish 'projectile-mode))
 (eval-after-load "mmm-mode" '(diminish 'mmm-mode))
