@@ -116,7 +116,8 @@
         bodil-misc-modes
         bodil-multimodes
         bodil-revealjs
-        bodil-chat))
+        bodil-chat
+        bodil-eshell))
 
 ;; Now load other things
 (dolist (file bodil-pkg-full)
