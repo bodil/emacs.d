@@ -31,10 +31,10 @@
 ;; Get hostname
 (setq hostname (replace-regexp-in-string "\\(^[[:space:]\n]*\\|[[:space:]\n]*$\\)" "" (with-output-to-string (call-process "hostname" nil standard-output))))
 
-;; Add .emacs.d to load-path
+;; Add .emacs.d/bodil to load-path
 (setq dotfiles-dir (file-name-directory
                     (or (buffer-file-name) load-file-name)))
-(add-to-list 'load-path dotfiles-dir)
+(add-to-list 'load-path (concat dotfiles-dir "bodil"))
 
 ;; Add every subdirectory of ~/.emacs.d/site-lisp to the load path
 (dolist
