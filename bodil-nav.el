@@ -77,4 +77,8 @@
 
 (global-set-key (kbd "C-x C-o") 'rotate-windows)
 
+;; Help for major modes
+(package-require 'discover-my-major)
+(global-set-key (kbd "C-h C-m") 'discover-my-major)
+
 (provide 'bodil-nav)
