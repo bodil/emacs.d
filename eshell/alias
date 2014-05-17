@@ -1,1 +1,2 @@
+alias ff find-file $1
 alias joe find-file $1
