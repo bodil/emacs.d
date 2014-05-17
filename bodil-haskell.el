@@ -69,7 +69,16 @@
 
 ;;; Idris (for want of a better place to put it)
 (package-require 'idris-mode)
+(require 'idris-mode)
 (add-to-list 'auto-mode-alist '("\\.idr$" . idris-mode))
+
+(font-lock-replace-symbol 'idris-mode "\\(->\\)" "→")
+(font-lock-replace-symbol 'idris-mode "\\(<-\\)" "←")
+(font-lock-replace-symbol 'idris-mode "\\(=>\\)" "⇒")
+
+(define-key idris-mode-map (kbd "→") (lambda () (interactive) (insert "->")))
+(define-key idris-mode-map (kbd "←") (lambda () (interactive) (insert "<-")))
+(define-key idris-mode-map (kbd "⇒") (lambda () (interactive) (insert "=>")))
 
 
 ;;; PureScript cheat mode
