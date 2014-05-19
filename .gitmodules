@@ -1,6 +1,3 @@
 [submodule "site-lisp/tern"]
 	path = site-lisp/tern
 	url = git://github.com/marijnh/tern.git
-[submodule "snippets/haskell-mode"]
-	path = snippets/haskell-mode
-	url = https://github.com/polypus74/HSnippets.git
