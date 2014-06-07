@@ -55,7 +55,7 @@
 
 ;; Install themes
 ;; (package-require 'zenburn-theme)
-(package-require 'anti-zenburn-theme)
+;; (package-require 'anti-zenburn-theme)
 
 ;; Prepare colour themes
 (require 'term)
@@ -63,31 +63,39 @@
 
 (defun theme-light ()
   (interactive)
-  (load-theme 'anti-zenburn)
-  (zenburn-with-color-variables
-   (custom-theme-set-faces
-    'anti-zenburn
-
-    `(mode-line
-      ((,class (:foreground ,zenburn-green+1
-                            :background ,zenburn-bg-1
-                            :box (:line-width -1 :style released-button)))
-       (t :inverse-video t)))
-    `(mode-line-buffer-id ((t (:foreground ,zenburn-yellow :weight bold))))
-    `(mode-line-inactive
-      ((t (:foreground ,zenburn-green-1
-                       :background ,zenburn-bg-05
-                       :box (:line-width -1 :style released-button)))))
-    `(powerline-active1 ((t (:background ,zenburn-bg-05 :inherit mode-line))))
-    `(powerline-active2 ((t (:background ,zenburn-bg+2 :inherit mode-line))))
-    `(powerline-inactive1 ((t (:background ,zenburn-bg+1 :inherit mode-line-inactive))))
-    `(powerline-inactive2 ((t (:background ,zenburn-bg+3 :inherit mode-line-inactive))))))
-  (set-face-background 'default "#ffffff")
-  (set-face-foreground 'default "#000000")
-  (set-face-background 'region "#d4d4d4")
-  (set-face-foreground 'region nil)
-  (set-face-background 'linum "#f0f0f0")
-  (set-face-background 'fringe "#f0f0f0")
+  (load-theme 'leuven)
+  (set-face-attribute 'mode-line nil
+		      :foreground "#cccccc"
+		      :background "#000000"
+		      :box nil
+		      :weight 'bold)
+  (set-face-attribute 'mode-line-buffer-id nil
+		      :foreground "white"
+		      :weight 'bold)
+  (set-face-attribute 'powerline-active1 nil
+		      :foreground "#eeeeee"
+		      :background "#444444")
+  (set-face-attribute 'powerline-active2 nil
+		      :foreground "#dddddd"
+		      :background "#888888")
+  (set-face-attribute 'mode-line-inactive nil
+		      :foreground "#cccccc"
+		      :background "#666666"
+		      :box nil
+		      :weight 'bold)
+  (set-face-attribute 'powerline-inactive1 nil
+		      :foreground "#dddddd"
+		      :background "#444444")
+  (set-face-attribute 'powerline-inactive2 nil
+		      :foreground "#dddddd"
+		      :background "#333333")
+  
+  ;; (set-face-background 'default "#ffffff")
+  ;; (set-face-foreground 'default "#000000")
+  ;; (set-face-background 'region "#d4d4d4")
+  ;; (set-face-foreground 'region nil)
+  ;; (set-face-background 'linum "#f0f0f0")
+  ;; (set-face-background 'fringe "#f0f0f0")
 
   (set-face-foreground 'term-color-black "#ffffff")
   (set-face-foreground 'term-color-red "#f5666d")
@@ -113,6 +121,8 @@
   ;; (set-face-foreground 'powerline-active1 "#aaa")
   ;; (set-face-foreground 'powerline-active2 "#ddd")
 
+  ;; (set-face-background 'shm-current-face "#242446")
+
   (set-face-foreground 'company-tooltip "#000")
   (set-face-background 'company-tooltip "#ddd")
   (set-face-background 'company-scrollbar-bg "#fff")
@@ -132,7 +142,7 @@
   (set-face-foreground 'term-color-white "#dcdccc")
   (set-face-foreground 'which-func "#cccccc"))
 
-(theme-dark)
+(theme-light)
 
 ;; Get screen DPI
 ;; (actually, dots per decimeter)
