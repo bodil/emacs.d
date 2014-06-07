@@ -117,7 +117,8 @@
         bodil-multimodes
         bodil-revealjs
         bodil-chat
-        bodil-eshell))
+        bodil-eshell
+        bodil-mail))
 
 ;; Now load other things
 (dolist (file bodil-pkg-full)

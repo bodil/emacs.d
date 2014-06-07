@@ -30,7 +30,9 @@
 ;; it off in term-mode-hook doesn't work.
 (setq linum-disabled-modes
       '(term-mode slime-repl-mode magit-status-mode help-mode nrepl-mode
-                  xwidget-webkit-mode revealjs-mode))
+                  xwidget-webkit-mode revealjs-mode
+                  mu4e-main-mode mu4e-headers-mode mu4e-view-mode
+                  mu4e-compose-mode))
 (defun linum-on ()
   (unless (or (minibufferp) (member major-mode linum-disabled-modes))
     (linum-mode 1)))
