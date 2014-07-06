@@ -166,20 +166,22 @@
 ;;     (/ (* font-size (+ target-dpi (/ (- (x11-dpdm) target-dpi) 4))) target-dpi)))
 
 ;; Calculate default font size
-(setq default-frame-font-size 20)
+(setq default-frame-font-size 15)
 (setq presentation-frame-font-size
       (truncate (* 1.25 default-frame-font-size)))
 
 ;; Build font descriptor strings
+;; (defun font-desc (name size)
+;;   (concat "-unknown-" name "-normal-normal-normal-*-"
+;;           (number-to-string size) "-*-*-*-m-0-iso10646-1"))
 (defun font-desc (name size)
-  (concat "-unknown-" name "-normal-normal-normal-*-"
-          (number-to-string size) "-*-*-*-m-0-iso10646-1"))
+  (concat name " " (number-to-string size)))
 
 ;; Set default and presentation mode fonts
 (defun default-frame-font ()
-  (font-desc "Inconsolata for Powerline" default-frame-font-size))
+  (font-desc "Pragmata Pro" default-frame-font-size))
 (defun presentation-frame-font ()
-  (font-desc "Inconsolata for Powerline" presentation-frame-font-size))
+  (font-desc "Pragmata Pro" presentation-frame-font-size))
 (set-frame-font (default-frame-font))
 
 (defun toggle-presentation-mode ()
