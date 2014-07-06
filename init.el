@@ -99,7 +99,7 @@
         bodil-smartparens
         bodil-js
         bodil-markup
-        bodil-c
+        ;; bodil-c
         bodil-markdown
         bodil-python
         bodil-erlang
@@ -118,7 +118,8 @@
         bodil-revealjs
         bodil-chat
         bodil-eshell
-        bodil-mail))
+        ;; bodil-mail
+        ))
 
 ;; Now load other things
 (dolist (file bodil-pkg-full)
