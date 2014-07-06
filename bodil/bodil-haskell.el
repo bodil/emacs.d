@@ -11,18 +11,21 @@
       '(turn-on-haskell-indentation
         turn-on-haskell-doc-mode
         ghc-init
-        structured-haskell-mode
-        (lambda () (add-to-list 'ac-sources 'ac-source-ghc))))))
+        ;; structured-haskell-mode
+        ))))
 
 ;; Use Unicode arrows in place of ugly ASCII arrows
 (require 'bodil-defuns)
-(font-lock-replace-symbol 'haskell-mode "\\(->\\)" "→")
-(font-lock-replace-symbol 'haskell-mode "\\(<-\\)" "←")
-(font-lock-replace-symbol 'haskell-mode "\\(=>\\)" "⇒")
+(defun setup-haskell-arrows (mode mode-map)
+  (font-lock-replace-symbol mode "\\(->\\)" "→")
+  (font-lock-replace-symbol mode "\\(<-\\)" "←")
+  (font-lock-replace-symbol mode "\\(=>\\)" "⇒")
 
-(define-key haskell-mode-map (kbd "→") (lambda () (interactive) (insert "->")))
-(define-key haskell-mode-map (kbd "←") (lambda () (interactive) (insert "<-")))
-(define-key haskell-mode-map (kbd "⇒") (lambda () (interactive) (insert "=>")))
+  (define-key mode-map (kbd "→") (lambda () (interactive) (insert "->")))
+  (define-key mode-map (kbd "←") (lambda () (interactive) (insert "<-")))
+  (define-key mode-map (kbd "⇒") (lambda () (interactive) (insert "=>"))))
+(eval-after-load "haskell-mode"
+  '(setup-haskell-arrows 'haskell-mode haskell-mode-map))
 
 ;; Add a keybinding for (inferior-haskell-type t) to insert
 ;; inferred type signature for function at point
@@ -53,25 +56,23 @@
   (compile (concat "cd " (projectile-project-root) "; cabal test")))
 (define-key haskell-mode-map (kbd "C-c C-,") 'haskell-mode-run-test-suite)
 
+;; Flycheck addons
+(package-require 'flycheck-haskell)
+(eval-after-load 'flycheck
+  '(add-hook 'flycheck-mode-hook #'flycheck-haskell-setup))
+
 
 ;;; Idris (for want of a better place to put it)
 (package-require 'idris-mode)
 (require 'idris-mode)
 (add-to-list 'auto-mode-alist '("\\.idr$" . idris-mode))
-
-(font-lock-replace-symbol 'idris-mode "\\(->\\)" "→")
-(font-lock-replace-symbol 'idris-mode "\\(<-\\)" "←")
-(font-lock-replace-symbol 'idris-mode "\\(=>\\)" "⇒")
-
-(define-key idris-mode-map (kbd "→") (lambda () (interactive) (insert "->")))
-(define-key idris-mode-map (kbd "←") (lambda () (interactive) (insert "<-")))
-(define-key idris-mode-map (kbd "⇒") (lambda () (interactive) (insert "=>")))
-
+(setup-haskell-arrows 'idris-mode idris-mode-map)
 
 ;;; PureScript cheat mode
 (define-derived-mode purescript-mode haskell-mode "PureScript"
   "Major mode for PureScript")
 (add-to-list 'auto-mode-alist (cons "\\.purs\\'" 'purescript-mode))
+(setup-haskell-arrows 'purescript-mode purescript-mode-map)
 
 
 (provide 'bodil-haskell)
