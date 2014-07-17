@@ -20,9 +20,10 @@
 
 ;;; Haskell
 
-;; (eval-after-load "haskell-mode"
-;;   '(progn
-;;      (require 'company-ghc)
-;;      (add-to-list 'company-backends 'company-ghc)))
+(package-require 'company-ghc)
+(eval-after-load "haskell-mode"
+  '(progn
+     (require 'company-ghc)
+     (add-to-list 'company-backends 'company-ghc)))
 
 (provide 'bodil-complete)
