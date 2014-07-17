@@ -1,6 +1,3 @@
 [submodule "site-lisp/tern"]
 	path = site-lisp/tern
 	url = git://github.com/marijnh/tern.git
-[submodule "site-lisp/company-ghc"]
-	path = site-lisp/company-ghc
-	url = https://github.com/iquiw/company-ghc.git
