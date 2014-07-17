@@ -55,40 +55,44 @@
 
 ;; Install themes
 (package-require 'badger-theme)
+(package-require 'leuven-theme)
+;; (package-require 'zenburn-theme)
+;; (package-require 'anti-zenburn-theme)
 
 ;; Prepare colour themes
 (require 'term)
 (require 'bodil-complete)
+(require 'bodil-powerline)
 
 (defun theme-light ()
   (interactive)
   (load-theme 'leuven)
   (set-face-attribute 'mode-line nil
-		      :foreground "#cccccc"
-		      :background "#000000"
-		      :box nil
-		      :weight 'bold)
+              :foreground "#cccccc"
+              :background "#000000"
+              :box nil
+              :weight 'bold)
   (set-face-attribute 'mode-line-buffer-id nil
-		      :foreground "white"
-		      :weight 'bold)
+              :foreground "white"
+              :weight 'bold)
   (set-face-attribute 'powerline-active1 nil
-		      :foreground "#eeeeee"
-		      :background "#444444")
+              :foreground "#eeeeee"
+              :background "#444444")
   (set-face-attribute 'powerline-active2 nil
-		      :foreground "#dddddd"
-		      :background "#888888")
+              :foreground "#dddddd"
+              :background "#888888")
   (set-face-attribute 'mode-line-inactive nil
-		      :foreground "#cccccc"
-		      :background "#666666"
-		      :box nil
-		      :weight 'bold)
+              :foreground "#cccccc"
+              :background "#666666"
+              :box nil
+              :weight 'bold)
   (set-face-attribute 'powerline-inactive1 nil
-		      :foreground "#dddddd"
-		      :background "#444444")
+              :foreground "#dddddd"
+              :background "#444444")
   (set-face-attribute 'powerline-inactive2 nil
-		      :foreground "#dddddd"
-		      :background "#333333")
-  
+              :foreground "#dddddd"
+              :background "#333333")
+
   ;; (set-face-background 'default "#ffffff")
   ;; (set-face-foreground 'default "#000000")
   ;; (set-face-background 'region "#d4d4d4")
@@ -157,9 +161,9 @@
 ;;         (let ((pixels (string-to-number (match-string 2 xrandr)))
 ;;               (phys (string-to-number (match-string 3 xrandr))))
 ;;           (if (> phys 0)
-;; 	      (/ (* pixels 100) phys)
-;; 	    250)
-;; 	  250)))
+;;        (/ (* pixels 100) phys)
+;;      250)
+;;    250)))
 
 ;; (defun scale-font-size (font-size)
 ;;   (let ((target-dpi 480))
@@ -229,7 +233,7 @@
 (eval-after-load "skewer-mode" '(diminish 'skewer-mode))
 (eval-after-load "auto-indent-mode" '(diminish 'auto-indent-minor-mode))
 (eval-after-load "highlight-parentheses" '(diminish 'highlight-parentheses-mode))
-(eval-after-load "subword" '(diminish 'subword-mode))
+;; (eval-after-load "subword" '(diminish 'subword-mode))
 (eval-after-load "anzu" '(diminish 'anzu-mode))
 (eval-after-load "cider" '(diminish 'cider-mode))
 (eval-after-load "smartparens" '(diminish 'smartparens-mode))

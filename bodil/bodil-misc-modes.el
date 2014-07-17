@@ -6,11 +6,6 @@
 (add-to-list 'interpreter-mode-alist '("fish" . fish-mode))
 (add-hook 'fish-mode-hook (lambda () (setq tab-width 2)))
 
-;; Scala
-(package-require 'scala-mode2)
-(package-require 'ensime)
-(add-hook 'scala-mode-hook 'ensime-scala-mode-hook)
-
 ;; Standard ML
 (package-require 'sml-mode)
 
