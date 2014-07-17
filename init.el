@@ -101,8 +101,8 @@
         bodil-markup
         bodil-c
         bodil-markdown
-        bodil-python
-        bodil-erlang
+        ;; bodil-python
+        ;; bodil-erlang
         bodil-haskell
         bodil-magit
         bodil-terminal
