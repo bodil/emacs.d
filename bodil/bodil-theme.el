@@ -54,8 +54,7 @@
     (add-to-list 'custom-theme-load-path path)))
 
 ;; Install themes
-;; (package-require 'zenburn-theme)
-;; (package-require 'anti-zenburn-theme)
+(package-require 'badger-theme)
 
 ;; Prepare colour themes
 (require 'term)
@@ -111,7 +110,8 @@
   (interactive)
   ;; (load-theme 'bubbleberry t)
   ;; (load-theme 'zenburn t)
-  (load-theme 'bclues t)
+  ;; (load-theme 'bclues t)
+  (load-theme 'badger t)
   ;; (set-face-background 'default "#222")
   ;; (set-face-background 'region "#374186")
   ;; (set-face-background 'fringe "#191919")
@@ -142,7 +142,7 @@
   (set-face-foreground 'term-color-white "#dcdccc")
   (set-face-foreground 'which-func "#cccccc"))
 
-(theme-light)
+(theme-dark)
 
 ;; Get screen DPI
 ;; (actually, dots per decimeter)
