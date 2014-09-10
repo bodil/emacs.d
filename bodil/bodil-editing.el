@@ -7,6 +7,9 @@
 ;; Undo to C-z like a muggle; Android kbd doesn't do C-_
 (global-set-key (kbd "C-z") 'undo)
 
+;; Who even uses overwrite mode?
+(global-set-key (kbd "<insert>") nil)
+
 ;; Multiple cursors!
 (package-require 'multiple-cursors)
 (global-set-key (kbd "C-S-c C-S-c") 'mc/edit-lines)
