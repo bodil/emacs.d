@@ -7,16 +7,13 @@
 ;; Undo to C-z like a muggle; Android kbd doesn't do C-_
 (global-set-key (kbd "C-z") 'undo)
 
-;; Who even uses overwrite mode?
-(global-set-key (kbd "<insert>") nil)
-
 ;; Multiple cursors!
 (package-require 'multiple-cursors)
-(global-set-key (kbd "C-S-c C-S-c") 'mc/edit-lines)
-(global-set-key (kbd "C-æ") 'mc/mark-previous-like-this)
-(global-set-key (kbd "C-'") 'mc/mark-next-like-this)
-(global-set-key (kbd "C-M-'") 'mc/mark-more-like-this-extended)
-(global-set-key (kbd "C-*") 'mc/mark-all-like-this-dwim)
+(global-set-key (kbd "S-<insert>") 'mc/edit-lines)
+(global-set-key (kbd "C-<print>") 'mc/mark-previous-like-this)
+(global-set-key (kbd "<insert>") 'mc/mark-next-like-this)
+(global-set-key (kbd "C-M-<insert>") 'mc/mark-more-like-this-extended)
+(global-set-key (kbd "C-<insert>") 'mc/mark-all-like-this-dwim)
 
 ;; expand-region <3 @magnars
 (package-require 'expand-region)
