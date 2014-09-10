@@ -17,7 +17,7 @@
 
 ;; expand-region <3 @magnars
 (package-require 'expand-region)
-(global-set-key (kbd "C-+") 'er/expand-region)
+(global-set-key (kbd "C-=") 'er/expand-region)
 
 ;; Duplicate start of line or region, from http://www.emacswiki.org/emacs/DuplicateStartOfLineOrRegion
 (defun duplicate-start-of-line-or-region ()
