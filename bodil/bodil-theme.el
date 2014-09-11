@@ -117,13 +117,10 @@
   ;; (load-theme 'bclues t)
   (load-theme 'badger t)
   ;; (set-face-background 'default "#222")
-  ;; (set-face-background 'region "#374186")
-  ;; (set-face-background 'fringe "#191919")
-  ;; (set-face-background 'hl-line "#191919")
-  ;; (set-face-background 'linum nil)
-  ;; (set-face-foreground 'linum "#acacfc")
-  ;; (set-face-foreground 'powerline-active1 "#aaa")
-  ;; (set-face-foreground 'powerline-active2 "#ddd")
+  (set-face-background 'region "#374186")
+  (set-face-background 'fringe "#191919")
+  (set-face-attribute 'linum nil :background nil :height 0.8)
+  (set-face-foreground 'which-func "#cccccc")
 
   ;; (set-face-background 'shm-current-face "#242446")
 
@@ -143,8 +140,7 @@
   (set-face-foreground 'term-color-blue "#8cd0d3")
   (set-face-foreground 'term-color-magenta "#dc8cc3")
   (set-face-foreground 'term-color-cyan "#93e0e3")
-  (set-face-foreground 'term-color-white "#dcdccc")
-  (set-face-foreground 'which-func "#cccccc"))
+  (set-face-foreground 'term-color-white "#dcdccc"))
 
 (theme-dark)
 
