@@ -1,3 +1,0 @@
-[submodule "site-lisp/tern"]
-	path = site-lisp/tern
-	url = git://github.com/marijnh/tern.git
