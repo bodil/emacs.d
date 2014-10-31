@@ -11,6 +11,7 @@
         ;; CSS inside HTML
         (html-mode nil html-css)))
 
+;; js-mode inside Pink editor tags
 (mmm-add-group
  'html-js-deck
  '((js-section
@@ -22,6 +23,17 @@
                  @ "" _ "" @ "\n</section>" @)))))
 
 (mmm-add-mode-ext-class 'html-mode nil 'html-js-deck)
+
+;; js-mode inside PureScript FFI declarations
+(mmm-add-group
+ 'purescript-ffi
+ '((js-section
+    :submode js-mode
+    :face mmm-code-submode-face
+    :front "foreign import .* \"\"\"[ \t]*\n?"
+    :back "\"\"\" ::")))
+
+(mmm-add-mode-ext-class 'purescript-mode nil 'purescript-ffi)
 
 ;; <section data-editor="text/javascript"
 
