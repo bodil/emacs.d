@@ -106,7 +106,6 @@
         bodil-haskell
         bodil-magit
         bodil-terminal
-        bodil-twitter
         bodil-orgmode
         bodil-flycheck
         bodil-codestyle
@@ -116,7 +115,6 @@
         bodil-misc-modes
         bodil-multimodes
         bodil-revealjs
-        bodil-chat
         bodil-eshell
         ;; bodil-mail
         ))
