@@ -36,7 +36,12 @@
 (defun purescript-module-name-from-current-buffer-file ()
   (let ((path (f-split (f-relative
                         (f-base (buffer-file-name))
-                        (f-join (projectile-project-root) "src")))))
-    (if (string= ".." (car path)) "Main" (s-join "." path))))
+                        (f-join (projectile-project-root) "src"))))
+        (testpath (f-split (f-relative
+                            (f-base (buffer-file-name))
+                            (f-join (projectile-project-root) "test")))))
+    (if (string= ".." (car path))
+        (if (string= ".." (car testpath)) "Main" (s-join "." (cons "Test" testpath)))
+        (s-join "." path))))
 
 (provide 'bodil-purescript)
