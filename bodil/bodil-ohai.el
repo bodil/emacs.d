@@ -32,7 +32,7 @@
 (defun ohai--display-image (img)
   (with-current-buffer (get-buffer "*scratch*")
     (insert-image img "ohai")
-    (insert "\n")))
+    (insert "\n\n")))
 
 (defun ohai--guess-extension (header url)
   (let ((type (gethash 'content-type header))
