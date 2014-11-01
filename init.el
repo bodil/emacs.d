@@ -104,6 +104,7 @@
         ;; bodil-python
         ;; bodil-erlang
         bodil-haskell
+        bodil-purescript
         bodil-magit
         bodil-terminal
         bodil-orgmode
