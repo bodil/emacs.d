@@ -118,6 +118,7 @@
         bodil-revealjs
         bodil-eshell
         ;; bodil-mail
+        bodil-ohai
         ))
 
 ;; Now load other things
