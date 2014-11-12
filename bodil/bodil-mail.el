@@ -3,6 +3,7 @@
 (add-to-list 'load-path (concat (getenv "HOME")
                                 "/.nix-profile/share/emacs/site-lisp/mu4e/"))
 (require 'mu4e)
+(require 'mu4e-contrib)
 
 (setq mail-user-agent 'mu4e-user-agent)
 
@@ -73,8 +74,14 @@
  mu4e-use-fancy-chars nil)
 
 ;; Message view
+(defun mu4e-shr2text ()
+  (let ((dom (libxml-parse-html-region (point-min) (point-max))))
+    (erase-buffer)
+    (shr-insert-document dom)
+    (goto-char (point-min))))
 (setq
  ;; mu4e-html2text-command "w3m -dump -T text/html -cols 65536"
+ mu4e-html2text-command 'mu4e-shr2text
  mu4e-view-prefer-html t
  mu4e-view-show-images t)
 
