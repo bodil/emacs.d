@@ -9,24 +9,18 @@
 
 (eval-after-load 'flycheck
   '(progn
-     (flycheck-define-checker purs-check
-       "Use purscheck to flycheck PureScript code."
-       :command ("purscheck" source source-original temporary-file-name)
+     (flycheck-define-checker pulp
+       "Use Pulp to flycheck PureScript code."
+       :command ("pulp" "build" "--monochrome")
        :error-patterns
        ((error line-start
                (or (and "Error at " (file-name)    " line " line ", column " column ":"
                         (zero-or-more " "))
-                   (and "\""        (file-name) "\" (line " line ", column " column "):"))
-               (or (message (one-or-more not-newline))
-                   (and "\n"
-                        (message
-                         (zero-or-more " ") (one-or-more not-newline)
-                         (zero-or-more "\n"
-                                       (zero-or-more " ")
-                                       (one-or-more not-newline)))))
+                   (and "\"" (file-name) "\" (line " line ", column " column "):"))
+               (message (one-or-more (not (in "*"))))
                line-end))
        :modes purescript-mode)
-     (add-to-list 'flycheck-checkers 'purs-check)))
+     (add-to-list 'flycheck-checkers 'pulp)))
 
 ;; Generate a likely module name from the current file path
 (package-require 'f)
