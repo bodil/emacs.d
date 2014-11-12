@@ -7,6 +7,8 @@
 
 (setq mail-user-agent 'mu4e-user-agent)
 
+(global-set-key (kbd "<f10>") 'mu4e)
+
 ;; Maildir setup
 (setq
  mu4e-maildir "~/.mail"
