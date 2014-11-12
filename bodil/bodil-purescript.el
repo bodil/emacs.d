@@ -2,8 +2,9 @@
 
 (require 'bodil-haskell)
 
-(define-derived-mode purescript-mode haskell-mode "PureScript"
-  "Major mode for PureScript")
+(package-require 'purescript-mode)
+;; (define-derived-mode purescript-mode haskell-mode "PureScript"
+;;   "Major mode for PureScript")
 (add-to-list 'auto-mode-alist (cons "\\.purs\\'" 'purescript-mode))
 (setup-haskell-arrows 'purescript-mode purescript-mode-map)
 
