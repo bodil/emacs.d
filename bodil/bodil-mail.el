@@ -1,6 +1,7 @@
 ;;; bodil-mail.el -- Zawinski's Law applies.
 
-(add-to-list 'load-path "/usr/local/share/emacs/site-lisp/mu4e/")
+(add-to-list 'load-path (concat (getenv "HOME")
+                                "/.nix-profile/share/emacs/site-lisp/mu4e/"))
 (require 'mu4e)
 
 (setq mail-user-agent 'mu4e-user-agent)
@@ -8,10 +9,10 @@
 ;; Maildir setup
 (setq
  mu4e-maildir "~/.mail"
- mu4e-sent-folder "/Sent"
- mu4e-drafts-folder "/Drafts"
- mu4e-trash-folder "/Trash"
- mu4e-refile-folder "/Archive"
+ mu4e-sent-folder "/Lolcamp/Sent"
+ mu4e-drafts-folder "/Lolcamp/Drafts"
+ mu4e-trash-folder "/Lolcamp/Trash"
+ mu4e-refile-folder "/Lolcamp/Archive"
  mu4e-get-mail-command "offlineimap"
  mu4e-update-interval nil
  mu4e-sent-messages-behavior 'delete
@@ -19,10 +20,10 @@
  mu4e-headers-skip-duplicates t
  mu4e-confirm-quit nil
  mu4e-maildir-shortcuts
- '(("/INBOX" . ?i)
-   ("/Future Ad Labs" . ?f)
-   ("/Lambda Ladies" . ?l)
-   ("/LdnClj" . ?c)))
+ '(("/Lolcamp/INBOX" . ?i)
+   ("/Lolcamp/Future Ad Labs" . ?f)
+   ("/Lolcamp/Lambda Ladies" . ?l)
+   ("/Lolcamp/LdnClj" . ?c)))
 
 ;; User info
 (setq
@@ -50,7 +51,13 @@
  smtpmail-smtp-server "mail.lol.camp"
  smtpmail-smtp-service 587
  smtpmail-queue-mail nil
- smtpmail-queue-dir "~/.mail/Queue/cur")
+ smtpmail-queue-dir "~/.mail/Lolcamp/Queue/cur")
+
+;; Maildirs extension
+(package-require 'mu4e-maildirs-extension)
+(require 'mu4e-maildirs-extension)
+(mu4e-maildirs-extension)
+(setq mu4e-maildirs-extension-insert-before-str "\n  Basics")
 
 ;; Headers view
 (setq
@@ -67,7 +74,7 @@
 
 ;; Message view
 (setq
- mu4e-html2text-command "w3m -dump -T text/html -cols 65536"
+ ;; mu4e-html2text-command "w3m -dump -T text/html -cols 65536"
  mu4e-view-prefer-html t
  mu4e-view-show-images t)
 

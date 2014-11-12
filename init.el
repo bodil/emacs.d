@@ -117,7 +117,7 @@
         bodil-multimodes
         bodil-revealjs
         bodil-eshell
-        ;; bodil-mail
+        bodil-mail
         bodil-ohai
         ))
 
