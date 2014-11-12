@@ -38,9 +38,12 @@
  mu4e-compose-signature "Bodil Stokke <bodil@bodil.org>\n"
  mu4e-user-mail-address-list
  '("bodil@bodil.org"
+   "contact@bodil.org"
    "bodil@fastmail.co.uk"
    "bodil@bodil.tv"
+   "bodil@adludio.com"
    "bodil@futureadlabs.com"
+   "bodil.stokke@adludio.com"
    "bodil.stokke@futureadlabs.com"
    "bodil.stokke@gmail.com")
  mu4e-attachment-dir "~/Downloads")
@@ -110,11 +113,12 @@
      (when msg
        (setq user-mail-address
              (cond
-              ((mu4e-message-contact-field-matches msg :to "@futureadlabs.com$")
-               "bodil@futureadlabs.com")
+              ((mu4e-message-contact-field-matches msg :to "@adludio.com$")
+               "bodil@adludio.com")
               ((mu4e-message-contact-field-matches msg :to "@doge.enterprises$")
                "bodil@doge.enterprises")
-              (t "bodil@bodil.org")))))))
+              (t "bodil@bodil.org"))
+             mu4e-compose-signature (concat "Bodil Stokke <" user-mail-address ">\n"))))))
 
 
 (add-hook
