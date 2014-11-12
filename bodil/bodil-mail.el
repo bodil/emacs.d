@@ -1,7 +1,10 @@
 ;;; bodil-mail.el -- Zawinski's Law applies.
 
-(add-to-list 'load-path (concat (getenv "HOME")
-                                "/.nix-profile/share/emacs/site-lisp/mu4e/"))
+(add-to-list
+ 'load-path
+ (or (file-if-exists (concat (getenv "HOME") "/.nix-profile/share/emacs/site-lisp/mu4e/"))
+     (file-if-exists "/run/current-system/sw/share/emacs/site-lisp/mu4e/")))
+
 (require 'mu4e)
 (require 'mu4e-contrib)
 

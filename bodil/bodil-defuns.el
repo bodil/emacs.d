@@ -11,6 +11,9 @@
       (setq result (append (list (car form) result)
                            (cdr form))))))
 
+(defun file-if-exists (path)
+  (if (file-exists-p path) path nil))
+
 (defun font-lock-replace-symbol (mode reg sym)
   (font-lock-add-keywords
    mode `((,reg
