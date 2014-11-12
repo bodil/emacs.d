@@ -87,6 +87,14 @@
     (erase-buffer)
     (shr-insert-document dom)
     (goto-char (point-min))))
+(defun oni:shr-colorize-remove-last-arg (args)
+  "If ARGS has more than 3 items, remove the last one."
+  (if (> (length args) 3)
+      (butlast args)
+    args))
+(with-eval-after-load 'shr
+  (advice-add #'shr-colorize-region :filter-args
+              #'oni:shr-colorize-remove-last-arg))
 (setq
  ;; mu4e-html2text-command "w3m -dump -T text/html -cols 65536"
  mu4e-html2text-command 'mu4e-shr2text
