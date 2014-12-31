@@ -9,8 +9,7 @@
   '(custom-set-variables
     '(haskell-mode-hook
       '(turn-on-haskell-indentation
-        turn-on-haskell-doc-mode
-        ghc-init
+        turn-on-haskell-doc
         ;; structured-haskell-mode
         ))))
 
@@ -27,12 +26,18 @@
 (eval-after-load "haskell-mode"
   '(setup-haskell-arrows 'haskell-mode haskell-mode-map))
 
-;; Add a keybinding for (inferior-haskell-type t) to insert
-;; inferred type signature for function at point
-(define-key haskell-mode-map (kbd "C-c C-s")
-  (lambda () (interactive)
-    (let ((sym (haskell-ident-at-point)))
-      (inferior-haskell-type sym t))))
+;; Setup haskell-interactive-mode
+(eval-after-load "haskell-mode"
+  '(progn
+    (define-key haskell-mode-map (kbd "C-x C-d") nil)
+    (define-key haskell-mode-map (kbd "C-c C-z") 'haskell-interactive-switch)
+    (define-key haskell-mode-map (kbd "C-c C-l") 'haskell-process-load-file)
+    (define-key haskell-mode-map (kbd "C-c C-b") 'haskell-interactive-switch)
+    (define-key haskell-mode-map (kbd "C-c C-t") 'haskell-process-do-type)
+    (define-key haskell-mode-map (kbd "C-c C-i") 'haskell-process-do-info)
+    (define-key haskell-mode-map (kbd "C-c C-s") (lambda () (interactive) (haskell-process-do-type t)))
+    (define-key haskell-mode-map (kbd "C-c M-.") nil)
+    (define-key haskell-mode-map (kbd "C-c C-d") nil)))
 
 ;; Put ghc-show-info in a popup
 (package-require 'popup)
