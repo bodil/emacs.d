@@ -1,5 +1,8 @@
 ;;; bodil-js.el -- Javascript and friends
 
+(require 'bodil-flycheck)
+(require 'flycheck)
+
 ;; js2-mode
 (package-require 'js2-mode)
 
@@ -115,10 +118,28 @@
       (indent-line-to (- (current-indentation) coffee-tab-width)))))
 
 
-;;; Roy
+;;; Flow
 
-(package-require 'roy-mode)
-(add-to-list 'auto-mode-alist '("\\.roy$" . roy-mode))
+(define-derived-mode flow-mode typescript-mode "Flow"
+  "JavaScript with Flow type checking")
+(define-key flow-mode-map (kbd ":") nil)
+(add-to-list 'auto-mode-alist '("\\.jsx$" . flow-mode))
+
+(flycheck-define-checker javascript-flow
+  "A JavaScript syntax and style checker using Flow."
+  :command ("flow" source-original)
+  :error-patterns
+  ((error line-start
+          (file-name)
+          ":"
+          line
+          ":"
+          (minimal-match (one-or-more not-newline))
+          ": "
+          (message (minimal-match (and (one-or-more anything) "\n")))
+          line-end))
+  :modes flow-mode)
+(add-to-list 'flycheck-checkers 'javascript-flow)
 
 
 ;;; TypeScript
@@ -141,8 +162,6 @@
      (projectile-with-default-dir (projectile-project-root)
        (eshell-command "npm start")))))
 
-(require 'bodil-flycheck)
-(require 'flycheck)
 (flycheck-define-checker tslint
   "Use tslint to flycheck TypeScript code."
   :command ("tslint"
