@@ -83,7 +83,7 @@
                 (lambda ()
                   (with-current-buffer (get-buffer "*scratch*")
                     (beginning-of-buffer)
-                    (line-move 3))))))
+                    (line-move 4))))))
   t)
 
 (when (not on-console)
