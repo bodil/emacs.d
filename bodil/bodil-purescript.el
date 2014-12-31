@@ -8,6 +8,8 @@
 (add-to-list 'auto-mode-alist (cons "\\.purs\\'" 'purescript-mode))
 (setup-haskell-arrows 'purescript-mode purescript-mode-map)
 
+(add-hook 'purescript-mode-hook 'turn-on-purescript-indentation)
+
 (eval-after-load 'flycheck
   '(progn
      (flycheck-define-checker pulp
