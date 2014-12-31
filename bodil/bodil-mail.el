@@ -11,6 +11,7 @@
 (setq mail-user-agent 'mu4e-user-agent)
 
 (global-set-key (kbd "<f10>") 'mu4e)
+(global-set-key (kbd "C-x C-u") 'mu4e-update-mail-and-index)
 
 ;; Maildir setup
 (setq
