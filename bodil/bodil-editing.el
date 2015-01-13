@@ -1,7 +1,6 @@
 ;;; editing.el -- Miscellaneous editing features
 
 ;; Enable CUA selection mode; sorry, it stuck.
-;; (cua-selection-mode t)
 (delete-selection-mode t)
 (transient-mark-mode t)
 
@@ -44,7 +43,7 @@
     (push-mark end)
     (setq deactivate-mark nil)
     (exchange-point-and-mark)))
-(global-set-key (kbd "C-M-<down>") 'duplicate-start-of-line-or-region)
+(global-set-key (kbd "C-M-<end>") 'duplicate-start-of-line-or-region)
 
 ;; Some bindings for special characters
 (global-set-key (kbd "M-l") (lambda () (interactive) (insert "\u03bb"))) ;lambda
