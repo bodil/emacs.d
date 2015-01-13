@@ -3,6 +3,9 @@
 (package-require 'dash)
 (require 'dash)
 
+;; Make PgUp/Dn move the point.
+(setq scroll-error-top-bottom t)
+
 ;; ace-jump-mode!
 (package-require 'ace-jump-mode)
 (global-set-key (kbd "C-;") 'ace-jump-mode)
