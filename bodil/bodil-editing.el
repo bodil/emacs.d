@@ -1,8 +1,9 @@
 ;;; editing.el -- Miscellaneous editing features
 
 ;; Enable CUA selection mode; sorry, it stuck.
-(cua-selection-mode t)
-(setq delete-selection-mode t)
+;; (cua-selection-mode t)
+(delete-selection-mode t)
+(transient-mark-mode t)
 
 ;; Undo to C-z like a muggle; Android kbd doesn't do C-_
 (global-set-key (kbd "C-z") 'undo)
