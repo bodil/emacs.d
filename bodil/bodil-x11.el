@@ -9,6 +9,9 @@
                  '(2 "_NET_WM_STATE_MAXIMIZED_HORZ" 0)))
 (toggle-fullscreen)
 
+;; Use the X clipboard for pasting
+(setq x-select-enable-clipboard t)
+
 ;; Define a function for making desktop notifications
 (require 'dbus)
 (defun dbus-send-desktop-notification (summary body icon timeout)
