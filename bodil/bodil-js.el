@@ -133,20 +133,17 @@
     (let ((o (json-read-from-string output)))
       (mapcar #'(lambda (errp)
                   (let ((err (cadr (assoc 'message errp))))
-                    (let ((e
-                           (flycheck-error-new
-                            :line (cdr (assoc 'line err))
-                            :column (cdr (assoc 'start err))
-                            :level 'error
-                            :message (cdr (assoc 'descr err))
-                            :filename (f-relative
-                                       (cdr (assoc 'path err))
-                                       (f-dirname (file-truename
-                                                   (buffer-file-name))))
-                            :buffer buffer
-                            :checker checker)))
-                      (message (prin1-to-string e))
-                      e)))
+                    (flycheck-error-new
+                     :line (cdr (assoc 'line err))
+                     :column (cdr (assoc 'start err))
+                     :level 'error
+                     :message (cdr (assoc 'descr err))
+                     :filename (f-relative
+                                (cdr (assoc 'path err))
+                                (f-dirname (file-truename
+                                            (buffer-file-name))))
+                     :buffer buffer
+                     :checker checker)))
               (cdr (assoc 'errors o))))))
 
 (flycheck-define-checker javascript-flow
