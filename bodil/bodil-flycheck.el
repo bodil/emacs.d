@@ -20,10 +20,12 @@
     "No checker selected for this buffer. Try M-x flycheck-select-checker")))
 
 (package-require 'flycheck-color-mode-line)
+(package-require 'flycheck-pos-tip)
 
 (eval-after-load "flycheck"
   '(progn
      (setq flycheck-highlighting-mode 'symbols)
+     (setq flycheck-display-errors-function #'flycheck-pos-tip-error-messages)
      (add-hook 'flycheck-mode-hook 'flycheck-color-mode-line-mode)
      (set-face-background 'flycheck-error "#660000")
      (set-face-foreground 'flycheck-error nil)
