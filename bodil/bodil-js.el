@@ -125,19 +125,34 @@
 (define-key flow-mode-map (kbd ":") nil)
 (add-to-list 'auto-mode-alist '("\\.jsx$" . flow-mode))
 
+(package-require 'f)
+(require 'f)
+(require 'json)
+(defun flycheck-parse-flow (output checker buffer)
+  (let ((json-array-type 'list))
+    (let ((o (json-read-from-string output)))
+      (mapcar #'(lambda (errp)
+                  (let ((err (cadr (assoc 'message errp))))
+                    (let ((e
+                           (flycheck-error-new
+                            :line (cdr (assoc 'line err))
+                            :column (cdr (assoc 'start err))
+                            :level 'error
+                            :message (cdr (assoc 'descr err))
+                            :filename (f-relative
+                                       (cdr (assoc 'path err))
+                                       (f-dirname (file-truename
+                                                   (buffer-file-name))))
+                            :buffer buffer
+                            :checker checker)))
+                      (message (prin1-to-string e))
+                      e)))
+              (cdr (assoc 'errors o))))))
+
 (flycheck-define-checker javascript-flow
-  "A JavaScript syntax and style checker using Flow."
-  :command ("flow" source-original)
-  :error-patterns
-  ((error line-start
-          (file-name)
-          ":"
-          line
-          ":"
-          (minimal-match (one-or-more not-newline))
-          ": "
-          (message (minimal-match (and (one-or-more anything) "\n")))
-          line-end))
+  "Static type checking using Flow."
+  :command ("flow" "--json" source-original)
+  :error-parser flycheck-parse-flow
   :modes flow-mode)
 (add-to-list 'flycheck-checkers 'javascript-flow)
 
