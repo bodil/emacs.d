@@ -83,4 +83,11 @@
 (package-require 'discover-my-major)
 (global-set-key (kbd "C-h C-m") 'discover-my-major)
 
+;; Kill buffer in other window
+(global-set-key (kbd "C-x p")
+                (lambda () (interactive)
+                  (save-excursion
+                    (other-window 1)
+                    (quit-window))))
+
 (provide 'bodil-nav)
