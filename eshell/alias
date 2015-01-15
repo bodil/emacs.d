@@ -1,2 +1,3 @@
-alias ff find-file $1
+alias rex sudo mount -o remount,exec /media/removable/ponies/
 alias joe find-file $1
+alias ff find-file $1
