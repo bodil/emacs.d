@@ -116,11 +116,21 @@
   ;; (load-theme 'zenburn t)
   ;; (load-theme 'bclues t)
   (load-theme 'badger t)
+
   ;; (set-face-background 'default "#222")
   (set-face-background 'region "#374186")
   (set-face-background 'fringe "#191919")
-  (set-face-attribute 'linum nil :background nil :height 0.8)
+  (set-face-attribute 'linum nil :background nil :height 0.7)
   (set-face-foreground 'which-func "#cccccc")
+
+  (set-face-attribute 'mode-line nil
+                      :family "Helvetica Neue LT Std"
+                      :width 'condensed)
+  (set-face-attribute 'mode-line-inactive nil
+                      :family "Helvetica Neue LT Std"
+                      :width 'condensed)
+  ;; (set-face-attribute 'mode-line-buffer-id nil
+  ;;                     :width 'condensed)
 
   ;; (set-face-background 'shm-current-face "#242446")
 
