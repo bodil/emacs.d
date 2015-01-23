@@ -31,6 +31,7 @@
      (set-face-foreground 'flycheck-error nil)
      (set-face-background 'flycheck-warning "#775500")
      (set-face-foreground 'flycheck-warning nil)
+     (require 'flycheck-color-mode-line)
      (set-face-background 'flycheck-color-mode-line-error-face "#660000")
      (set-face-background 'flycheck-color-mode-line-warning-face "#553300")
      (set-face-background 'flycheck-color-mode-line-info-face nil)
