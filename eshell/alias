@@ -1,3 +1,4 @@
-alias rex sudo mount -o remount,exec /media/removable/ponies/
-alias joe find-file $1
+alias nixp nix-env -qa \* -P | grep -i
 alias ff find-file $1
+alias joe find-file $1
+alias rex sudo mount -o remount,exec /media/removable/ponies/
