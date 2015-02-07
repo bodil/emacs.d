@@ -59,6 +59,12 @@
 (defun ohai-placepuppy (cb)
   (cb "http://placepuppy.it/600/400"))
 
+(defun ohai-daily-otter (cb)
+  (ohai--load-and-match
+   "http://dailyotter.org/"
+   "<img class=\"aligncenter wp-image-.*src=\"\\([^\"]*\\)\""
+   "$1" cb))
+
 (setq-default
  ohai-sources
  (list 'ohai-dilbert
@@ -86,7 +92,10 @@
                     (line-move 4))))))
   t)
 
+(defun ohai-go ()
+  (ohai (list 'ohai-daily-otter) (lambda () (message "behold the otter"))))
+
 (when (not on-console)
-  (setq initial-buffer-choice 'ohai-go-dilbert-and-puppies))
+  (setq initial-buffer-choice 'ohai-go))
 
 (provide 'bodil-ohai)
